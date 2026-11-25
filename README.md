@@ -29,6 +29,8 @@ fly deploy --ha=false                  # one machine: one AIS connection
 
 Get a free key from the [AIS Stream account page](https://aisstream.io/account). Ships accumulate over the first few minutes after a restart. Check [Fly pricing](https://fly.io/pricing) for current machine and traffic costs. For a custom domain, run `fly certs add your.domain -a your-app-name` and add the DNS records it prints.
 
+The page counts visits with [GoatCounter](https://www.goatcounter.com/) (no cookies). In `web/index.html`, remove that script or put your own site code in it.
+
 To run it locally: `npm ci`, then `AISSTREAM_API_KEY=your-key npm start`.
 
 The public Open-Meteo endpoint is for noncommercial use under its hosted API terms. See [Credits](CREDITS.md) for data and software licences.
