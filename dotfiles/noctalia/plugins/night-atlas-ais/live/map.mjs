@@ -12,10 +12,26 @@ const read = async path => {
 };
 const [chart, colors] = await Promise.all([read("/chart-data.json"), read("/palette.json")]);
 const palette = colors.dark;
-const marksData = await read("/seamarks.json").catch(() => collection());
-const isMark = f => f.geometry.type === "Point" && (f.properties.k === "buoy" || f.properties.k === "beacon");
-const markFeatures = marksData.features.filter(isMark).map((f, id) => ({...f, id,
-  properties:{...f.properties, icon:`mk-${f.properties.k}-${f.properties.s || "pillar"}-${f.properties.cs || f.properties.c || "-"}-${f.properties.pat || ""}`}}));
+const [marksData, aidsData] = await Promise.all([
+  read("/seamarks.json").catch(() => collection()),
+  read("/aids.json").catch(() => collection()),
+]);
+const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
+const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
+const coastGuardBuoys = new Map();
+for (const aid of aidsData.features) {
+  const name = aidName(aid.properties);
+  if (aid.properties.k !== "buoy" || !name) continue;
+  if (!coastGuardBuoys.has(name)) coastGuardBuoys.set(name, []);
+  coastGuardBuoys.get(name).push(aid.geometry.coordinates);
+}
+const duplicateBuoy = f => f.properties.k === "buoy" &&
+  coastGuardBuoys.get(aidName(f.properties))?.some(([x,y]) =>
+    Math.hypot(x - f.geometry.coordinates[0], y - f.geometry.coordinates[1]) < .001);
+const markFeatures = [...marksData.features.filter(f => isMark(f) && !duplicateBuoy(f)), ...aidsData.features].map((f, id) => {
+  const p = f.properties;
+  return {...f, id, properties:{...p, icon:`mk-${p.k}-${p.s || "pillar"}-${p.cs || p.c || "-"}-${p.pat || ""}`}};
+});
 const chartLines = marksData.features.filter(f => !isMark(f));
 for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", muted:"on_surface_variant",
                                           border:"outline_variant", accent:"primary"})) {
@@ -49,6 +65,9 @@ const places = [
 ];
 const labels = [];
 const freshAge = 1200;
+const marksZoom = 9.2;
+const allMarksZoom = 10.5;
+const visibleMarks = ["step", ["zoom"], ["!", ["has","ll"]], allMarksZoom, true];
 const activeLight = ["coalesce", ["feature-state","lit"], 1];
 const seaTint = "#102122";
 const detailOpacity = ["interpolate",["linear"],["zoom"],7.9,0,8.5,1];   // vector land in before raster steps show (from 7.9: z7 tiles exceed 65k vertices)
@@ -62,6 +81,7 @@ const map = new AtlasMap({
   fadeDuration:160,
   style: {
     version: 8,
+    glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
     transition: {duration: 1100, delay: 0},
     sources: {
       relief: {type:"image", url:"/relief.jpg", coordinates:imageCorners},
@@ -74,7 +94,7 @@ const map = new AtlasMap({
       vectors:{type:"geojson", data:collection()},
       hover:{type:"geojson", data:collection()},
       seamarks:{type:"geojson", data:collection(chartLines)},
-      marks:{type:"geojson", data:collection(markFeatures)},
+      marks:{type:"geojson", attribution:"Lights and aid data: Canadian Coast Guard (unofficial, non-commercial)", data:collection(markFeatures)},
       buoys:{type:"geojson", data:collection()},
       ghosts:{type:"geojson", data:collection()},
     },
@@ -106,14 +126,18 @@ const map = new AtlasMap({
       {id:"ferries", type:"line", source:"seamarks", filter:["==",["get","k"],"ferry"],
         paint:{"line-color":"#7f9a8e","line-opacity":["interpolate",["linear"],["zoom"],6,.2,10,.36],
           "line-width":.8,"line-dasharray":[2,3]}},
-      {id:"mark-glow", type:"circle", source:"marks", minzoom:9.2, filter:["==",["get","lit"],1],
-        paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","#f0eedc"],
+      {id:"mark-glow", type:"circle", source:"marks", minzoom:marksZoom, filter:["all",visibleMarks,["==",["get","lit"],1]],
+        paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","Bu","#84aaff","#f0eedc"],
           "circle-radius":["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],"circle-blur":.85,
           "circle-opacity":["*",["coalesce",["feature-state","lit"],1],.6]}},
-      {id:"marks", type:"symbol", source:"marks", minzoom:9.2,
-        layout:{"icon-image":["get","icon"],"icon-allow-overlap":true,"icon-anchor":"bottom",
-          "icon-size":["interpolate",["linear"],["zoom"],9.2,.28,11,.5,13,.8,15,1.05]},
+      {id:"marks", type:"symbol", source:"marks", minzoom:marksZoom, filter:visibleMarks,
+        layout:{"icon-image":["get","icon"],"icon-allow-overlap":true,"icon-ignore-placement":true,"icon-anchor":"bottom",
+          "icon-size":["interpolate",["linear"],["zoom"],9.2,.28,11,.5,13,.95,15,1.15]},
         paint:{"icon-opacity":["interpolate",["linear"],["zoom"],9.2,0,10.4,.9]}},
+      {id:"mark-labels", type:"symbol", source:"marks", minzoom:12.75, filter:["has","ref"],
+        layout:{"text-field":["get","ref"],"text-font":["Noto Sans Regular"],"text-size":11,
+          "text-anchor":"top","text-offset":[0,.25],"text-padding":2},
+        paint:{"text-color":"#d8e6de","text-halo-color":"#0b1414","text-halo-width":1.2}},
       {id:"light-halo", type:"circle", source:"lights",
         // a rear range light sits almost on its front one: one halo until close enough to part them
         filter:["step",["zoom"],["all",["get","verified"],["!",["get","rear"]]],10,["get","verified"]],
@@ -193,6 +217,10 @@ function timing(light) {
   if (!(period > 0)) return null;
   if (character === "Iso") return [[period/2,true],[period/2,false]];
   if (character === "Oc") return [[period*.72,true],[period*.28,false]];
+  if (character === "Mo" && light.group === "A") {
+    const unit = Math.min(.45, period / 7);
+    return [[unit,true],[unit,false],[3*unit,true],[period-5*unit,false]];
+  }
   if (!["Fl","LFl","Q","VQ"].includes(character)) return null;
   const groups = /^\d+(?:\+\d+)*$/.test(light.group) ? light.group.split("+").map(Number) : [1];
   const total = groups.reduce((sum,count)=>sum+count,0);
@@ -213,7 +241,7 @@ function timing(light) {
 const markRhythms = markFeatures.flatMap(f => {
   const p = f.properties;
   if (!p.lit) return [];
-  const phases = timing({colors:[p.lc || "W"], character:p.lch, period:Number(p.lp), group:p.lg || "", sequence:[]});
+  const phases = timing({colors:[p.lc || "W"], character:p.lch, period:Number(p.lp), group:p.lg || "", sequence:p.seq || []});
   return phases ? [{id:f.id, phases, period:phases.reduce((n,q) => n+q[0],0), previous:null}] : [];
 });
 const rhythms = chart.lights.map((light,id) => {
@@ -242,9 +270,11 @@ function blink() {
       map.setFeatureState({source:"lights",id:rhythm.id},{lit});
     }
   }
-  if (map.getZoom() < 9.2 || !layersOn.seamarks) return;
+  if (map.getZoom() < marksZoom || !layersOn.seamarks) return;
+  const showAllMarks = map.getZoom() >= allMarksZoom;
   for (const rhythm of markRhythms) {
-    if (!view.contains(markFeatures[rhythm.id].geometry.coordinates)) continue;
+    const mark = markFeatures[rhythm.id];
+    if ((!showAllMarks && mark.properties.ll) || !view.contains(mark.geometry.coordinates)) continue;
     const lit = illuminated(rhythm,now) ? 1 : .05;
     if (lit !== rhythm.previous) {
       rhythm.previous = lit;
@@ -590,24 +620,36 @@ map.on("mousemove", event => {
     return;
   }
   const {x,y} = event.point;
-  const hoverable = ["vessels","ghosts","weather-buoys","marks","lights"].filter(id => map.getLayoutProperty(id,"visibility") !== "none");
+  const hoverable = ["vessels","ghosts","weather-buoys","marks","mark-labels","lights"].filter(id => map.getLayoutProperty(id,"visibility") !== "none");
   const features = map.queryRenderedFeatures([[x-5,y-5],[x+5,y+5]], {layers:hoverable});
   const vessel = features.find(f=>f.layer.id==="vessels");
   const ghost = features.find(f=>f.layer.id==="ghosts");
   const buoy = features.find(f=>f.layer.id.startsWith("weather-buoy"));
   const lightFeature = features.find(f=>f.layer.id==="lights");
-  const mark = features.find(f=>f.layer.id==="marks");
+  let mark, markDistance = Infinity;
+  for (const candidate of features) {
+    if (!["marks","mark-labels"].includes(candidate.layer.id)) continue;
+    const anchor = map.project(candidate.geometry.coordinates);
+    const distance = Math.hypot(x - anchor.x, y - anchor.y);
+    if (distance < markDistance) {
+      mark = candidate;
+      markDistance = distance;
+    }
+  }
   map.getCanvas().style.cursor = vessel || ghost || buoy || lightFeature || mark ? "pointer" : "";
   highlight(vessel || ghost || buoy || lightFeature || mark);
   if (!vessel && !ghost && !buoy && !lightFeature && mark) {
     const m = mark.properties;
-    const names = {R:"red",G:"green",Y:"yellow",B:"black",W:"white"};
+    const names = {R:"red",G:"green",Y:"yellow",B:"black",W:"white",Bu:"blue"};
     const bands = [...(m.cs || m.c || "")].map(c => names[c]).filter(Boolean);
-    const kind = m.k === "beacon" ? "beacon" : `${m.s ? m.s+" " : ""}buoy`;
+    const kind = m.k === "buoy" ? `${m.s ? m.s+" " : ""}buoy` : m.k;
     const purpose = (m.cat || "").replaceAll("_"," ");
+    const character = m.lg ? `${m.lch || ""}(${m.lg})` : m.lch;
+    const colours = (m.lcs || m.lc || "").split("/").map(c => names[c]).filter(Boolean).join("/");
     showCard(m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
-      [bands.join("/") || "colour unrecorded", kind, purpose].filter(Boolean).join(" · "),
-      m.lit ? `Lit: ${[m.lch, names[m.lc], m.lp && m.lp+" s"].filter(Boolean).join(" ") || "light details unrecorded"}` : "Unlit",
+      [bands.join("/"), kind, purpose, m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
+      m.lit ? `Lit: ${[character, colours, m.lp && m.lp+" s"].filter(Boolean).join(" ") || "light details unrecorded"}` : "Lighting unrecorded",
+      m.ll ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
     ],event.point);
     return;
   }
@@ -664,7 +706,7 @@ map.on("move",placeLabels);
 
 const toggles = {
   ships:["vessels","course-vectors"], ghosts:["ghosts","ghost-trails"],
-  buoys:["weather-buoys"], seamarks:["tss-zone","tss-lines","ferries","mark-glow","marks"],
+  buoys:["weather-buoys"], seamarks:["tss-zone","tss-lines","ferries","mark-glow","marks","mark-labels"],
   weather:[],                      // stub: future wind/precipitation overlay (e.g. Open-Meteo)
   lights:["light-halo","lights","light-sector-2","light-sector-3"],
 };
@@ -697,6 +739,9 @@ function wantNight(settings, now) {
 }
 
 const modePaint = {
+  // buoy lamps carry further after dark
+  "mark-glow":{"circle-opacity":[["*",["coalesce",["feature-state","lit"],1],.6],["coalesce",["feature-state","lit"],1]],
+    "circle-radius":[["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],["interpolate",["linear"],["zoom"],9.2,3,11,7.5,14,17]]},
   "deep":{"background-color":["#0b1414","#040808"]},
   "relief":{"raster-brightness-max":[1,.36],"raster-saturation":[0,-.55],"raster-contrast":[0,.25]},
   "water-depth-shading":{"raster-brightness-max":[1,.2]},
@@ -970,7 +1015,7 @@ map.once("load", () => {
   const outlines = {
     conical:[[0,-26],[11,0],[-11,0]],
     can:[[-9,-20],[9,-20],[9,0],[-9,0]],
-    spar:[[-3,-30],[3,-30],[3,0],[-3,0]],
+    spar:[[-4,-30],[4,-30],[4,0],[-4,0]],
     pillar:[[-4,-28],[4,-28],[10,0],[-10,0]],
     barrel:[[-11,-12],[11,-12],[11,0],[-11,0]],
     beacon:[[-2,-30],[2,-30],[2,0],[-2,0]],
@@ -982,9 +1027,10 @@ map.once("load", () => {
     const ctx = icon.getContext("2d");
     ctx.translate(20,38);
     const shape = k === "beacon" || s === "stake" || s === "tower" || s === "perch" ? "beacon"
-      : (outlines[s] ? s : s === "spherical" ? "spherical" : "pillar");
+      : (outlines[s] ? s : s === "spherical" ? "spherical" : s === "cylindrical" ? "can" : "pillar");
     ctx.beginPath();
-    if (shape === "spherical") ctx.arc(0,-10,10,0,Math.PI*2);
+    if (k === "light") ctx.arc(0,-3,5.5,0,Math.PI*2);
+    else if (shape === "spherical") ctx.arc(0,-10,10,0,Math.PI*2);
     else outlines[shape].forEach(([x,y],i) => i ? ctx.lineTo(x,y) : ctx.moveTo(x,y));
     ctx.closePath();
     ctx.save();
@@ -1004,7 +1050,7 @@ map.once("load", () => {
     if (k === "beacon") {                          // small top mark on the pole
       ctx.fillStyle = markColors[bands[0]] || markColors["-"];
       ctx.beginPath(); ctx.arc(0,-30,4.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
-    } else {                                       // waterline
+    } else if (k === "buoy") {                      // waterline
       ctx.strokeStyle = "#8fb8b155"; ctx.lineWidth = 1.4;
       ctx.beginPath(); ctx.ellipse(0,1,13,2.6,0,0,Math.PI*2); ctx.stroke();
     }

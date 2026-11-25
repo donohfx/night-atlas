@@ -751,6 +751,9 @@ function wantNight(settings, now) {
 }
 
 const modePaint = {
+  // buoy lamps carry further after dark
+  "mark-glow":{"circle-opacity":[["*",["coalesce",["feature-state","lit"],1],.6],["coalesce",["feature-state","lit"],1]],
+    "circle-radius":[["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],["interpolate",["linear"],["zoom"],9.2,3,11,7.5,14,17]]},
   "deep":{"background-color":["#0b1414","#040808"]},
   "relief":{"raster-brightness-max":[1,.36],"raster-saturation":[0,-.55],"raster-contrast":[0,.25]},
   "water-depth-shading":{"raster-brightness-max":[1,.2]},
