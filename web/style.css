@@ -24,7 +24,7 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
 
 /* Bottom-left dock: Halifax weather card above the AIS counter, both the width of the wider one,
    styled like the bar (solid surface, 1 px outline_variant, ~6 px corners). */
-#dock { position: absolute; left: 13px; bottom: calc(var(--credits-height, 66px) + 18px); z-index: 3; display: flex; flex-direction: column;
+#dock { position: absolute; left: 13px; bottom: calc(var(--credits-height, 30px) + 18px); z-index: 3; display: flex; flex-direction: column;
   gap: 6px; width: max-content; pointer-events: none; }
 #dock > * { background: var(--ink); border: 1px solid var(--border); border-radius: 6px; }
 #dock #status { position: static; padding: 4px 12px; }
@@ -101,7 +101,15 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
   #details { max-width: calc(100vw - 16px); }
 }
 
-#credits-toggle { display: none; }
+/* Credits stay folded into a small bar until asked for. */
+#credits .beams, #credit-list { display: none; }
+#credits.open .beams { display: inline; }
+#credits.open #credit-list { display: block; max-width: 620px; margin-top: 3px; }
+#credits-toggle {
+  margin-left: 6px; padding: 2px 4px; font: inherit; color: var(--paper);
+  background: transparent; border: 0; text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+}
+#credits-toggle:focus-visible { outline: 2px solid var(--accent); }
 
 /* "Turn your phone" note: phones held upright only; dismissible. */
 #rotate { display: none; }
@@ -144,16 +152,10 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
     left: max(6px, env(safe-area-inset-left)); right: max(6px, env(safe-area-inset-right));
     bottom: max(6px, env(safe-area-inset-bottom)); padding: 2px 8px; font-size: 10px; line-height: 1.5;
   }
-  #credits .beams, #credit-list { display: none; }
-  #credits-toggle {
-    display: inline-block; margin-left: 6px; padding: 2px 4px; font: inherit; color: var(--paper);
-    background: transparent; border: 0; text-decoration: underline; cursor: pointer;
-  }
-  #credits.open .beams { display: inline; }
-  #credits.open #credit-list { display: block; max-width: 560px; }
 
   #details { min-width: 0; max-width: min(260px, calc(100vw - 16px)); padding: 6px 9px; font-size: 12px; }
   .place { font-size: 9px; }
   .place-region { font-size: 12px; }
   .place-major { font-size: 10px; }
 }
+#credits.open > .osm { display: none; }
