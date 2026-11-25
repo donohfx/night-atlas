@@ -21,7 +21,14 @@ Open http://localhost:8000/?static. The static preview can display the chart and
 
 The ship function opens one short WebSocket subscription for the region, keeps a last-known snapshot in Netlify Blobs, and uses a distributed lease to avoid simultaneous collectors on the same site. Netlify’s CDN absorbs repeated requests and can return a cached response during refresh. A short sample has partial coverage. Some regional vessels may appear on later refreshes, and the app fades old reports.
 
-Netlify’s credit-based Free plan includes **300 credits/month** with a hard limit. Ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). These are untested estimates at the default 1 GB function allocation: about 0.05 credits per 18-second collection, so roughly **400 compute credits per 30 days if someone is watching nonstop** (over the free allowance), about **17** for one active hour a day, and about **210** at a 600-second TTL under constant demand. Requests and bandwidth also use credits. Watch your usage page and raise the TTL if traffic is sustained. [Monthly allowance](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/) · [Credit rates](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/how-credits-work/) · [Function memory](https://docs.netlify.com/build/functions/usage-and-billing/)
+### Usage and cost
+
+Netlify has two kinds of Free plan; check which one your team is on. The figures below are untested estimates. A collection runs for about 18 seconds, and ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). A first visit downloads about 4.6 MB.
+
+- **Legacy Free** (accounts created before 4 September 2025): 100 GB bandwidth (about 20,000 first visits) and 125,000 function calls per site each month. With someone watching nonstop, ship collection uses about 41 function-hours a month at 5 minutes, or about 90 at 2 minutes. [Legacy plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
+- **Credit-based Free:** 300 credits a month with a hard limit. Constant viewing at 5 minutes is about 400 compute credits (over the allowance), one active hour a day about 17, and a 600-second TTL about 210. Requests and bandwidth also use credits. [Credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/)
+
+Watch your usage page and raise the TTL if traffic is sustained.
 
 The public Open-Meteo endpoint is for noncommercial use under its hosted API terms. See [Credits](CREDITS.md) for data and software licences.
 
