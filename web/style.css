@@ -176,3 +176,12 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
 @media (max-width: 540px), (max-height: 500px) and (pointer: coarse) {
   #controls { --control-height: 34px; }
 }
+
+/* Weather, ship count and credits stack in the bottom-right corner, over open water. */
+#dock, #credits { left: auto; right: max(13px, env(safe-area-inset-right)); }
+#dock { align-items: stretch; }
+#credits { max-width: calc(100% - 26px); text-align: right; }
+@media (max-width: 540px), (max-height: 500px) and (pointer: coarse) {
+  #dock, #credits { left: auto; right: max(6px, env(safe-area-inset-right)); }
+  #credits { max-width: calc(100% - 12px); }
+}
