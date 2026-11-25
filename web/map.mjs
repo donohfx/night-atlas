@@ -1095,9 +1095,6 @@ async function tour() {
   const buoy = markFeatures.find(f => aidName(f.properties) === "HS19" && f.properties.lit);
   const harbour = [-63.565,44.655];
   const sambro = {center:portrait ? [-63.5805,44.458] : [-63.579,44.458], zoom:portrait ? 12.78 : 13.12};
-  const sable = map.cameraForBounds([[-60.181,43.921],[-59.638,44.054]], {
-    bearing:BEARING, padding:{top:65,bottom:100,left:26,right:26},
-  });
   if (!await move(overviewCamera(), 1400) || !await pause(1300)) return;
 
   const vessels = [...ships.values()].filter(p => Number.isFinite(p.lon) && Number.isFinite(p.lat) &&
@@ -1131,7 +1128,6 @@ async function tour() {
   if (!await pause(3600)) return;
   showSimulatedWeather(false);
 
-  if (!await move(sable, 3750, 1.25) || !await pause(2210)) return;
   if (!await move(overviewCamera(), 5100, 1.25) || !await pause(3860)) return;
 
   preferences.mode = "night";
