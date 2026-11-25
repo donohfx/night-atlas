@@ -1,0 +1,45 @@
+{
+ "Sable Island West End Lighthouse": {
+  "coordinates": [
+   -60.022773,
+   43.931976
+  ],
+  "colors": [
+   "R"
+  ],
+  "character": "Fl",
+  "period": 3,
+  "range": 0,
+  "group": "",
+  "sequence": [
+   [
+    1,
+    true
+   ],
+   [
+    2,
+    false
+   ]
+  ],
+  "sectors": [],
+  "note": [
+   "Aircraft warning light (red)",
+   "Navigation light off since 2004 (one source says 2014)",
+   "Flash timing illustrative"
+  ],
+  "evidence": "https://www.ibiblio.org/lighthouse/nse.htm (revised 2026-05-19); position https://www.lighthousefriends.com/light.asp?ID=2053"
+ },
+ "Sable Island East End Lighthouse": {
+  "colors": [],
+  "character": "",
+  "period": 0,
+  "range": 0,
+  "group": "",
+  "sequence": [],
+  "sectors": [],
+  "note": [
+   "Inactive since 2012 (one source says 2014)"
+  ],
+  "evidence": "https://www.ibiblio.org/lighthouse/nse.htm (revised 2026-05-19)"
+ }
+}

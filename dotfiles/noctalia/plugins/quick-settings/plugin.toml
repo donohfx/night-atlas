@@ -1,0 +1,24 @@
+# Quick settings: a compact replacement for the control centre's Home page.
+# Stats strip, toggle pills, volume/mic sliders, now playing, and links to the
+# built-in control centre's detailed tabs. Opened by the bar's network, volume
+# and notification icons ([widget.<name>.actions] left).
+# Local plugin, loaded from the "local" path source (~/.config/noctalia/plugins).
+
+id = "local/quick-settings"
+name = "Quick Settings"
+version = "0.1.0"
+plugin_api = 53
+author = "local"
+license = "MIT"
+dependencies = ["wpctl", "powerprofilesctl"]
+tags = ["panel", "control-center"]
+icon = "adjustments"
+description = "Compact quick settings panel."
+
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 400
+height = 360
+placement = "floating"
+position = "top_right"

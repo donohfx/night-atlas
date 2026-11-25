@@ -1,0 +1,180 @@
+config_version = 20
+
+[bar.default]
+background_opacity = 1.0
+border = "outline_variant"
+border_width = 1.0
+capsule = false
+center = [ "local/workspace-ovals:atlas" ]
+color = "on_surface"
+compositor_blur = false
+concave_edge_corners = false
+end = [
+    "local/night-atlas-ais:anchor",
+    "tray",
+    "caffeine",
+    "network",
+    "volume",
+    "notifications",
+    "local/power-button:bar"
+]
+margin_edge = 12
+margin_ends = 16
+padding = 10
+radius = 2
+scale = 1.08
+shadow = false
+start = [ "clock", "date", "temp", "sysmon_2", "sysmon_3", "media" ]
+thickness = 32
+widget_spacing = 9
+
+[control_center]
+show_avatar_border = false
+show_session_button = false
+show_shortcut_labels = true
+width = 720
+
+[idle.behavior.lock-and-suspend]
+enabled = true
+timeout = 1800
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 600
+
+[plugins]
+enabled = [
+    "local/workspace-ovals",
+    "local/quick-settings",
+    "local/night-atlas-ais",
+    "local/app-glyphs",
+    "local/power-button",
+]
+
+    [[plugins.source]]
+    kind = "path"
+    location = "~/.config/noctalia/plugins"
+    name = "local"
+
+[shell]
+button_borders = false
+card_borders = false
+corner_radius_scale = 0.25
+font_family = "Iosevka Aile"
+input_borders = false
+popup_borders = false
+telemetry_enabled = false
+
+    [shell.greeter_sync]
+    auto_sync = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+
+[system.monitor]
+gpu_temp_activity_threshold = 60
+gpu_temp_critical_threshold = 85
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Vesper"
+custom_palette = "NightAtlas"
+mode = "dark"
+source = "custom"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "kitty" ]
+    community_ids = []
+
+[wallpaper]
+transition_duration = 1400
+
+    [wallpaper.default]
+    path = "@NIGHT_ATLAS_WALLPAPER@"
+
+    [wallpaper.last]
+    path = "@NIGHT_ATLAS_WALLPAPER@"
+
+[widget.caffeine]
+color = "on_surface"
+
+[widget.clock]
+color = "on_surface"
+format = "{:%H:%M}"
+
+[widget.date]
+color = "on_surface"
+format = "{:%a %d %b}"
+
+[widget.launcher]
+color = "on_surface"
+
+[widget.network]
+color = "on_surface"
+show_label = false
+
+    [widget.network.actions]
+    left = "panel-toggle local/quick-settings:panel"
+
+[widget.notifications]
+color = "on_surface"
+
+    [widget.notifications.actions]
+    left = "panel-toggle local/quick-settings:panel"
+
+[widget.nowviz]
+bands = 10
+type = "audio_visualizer"
+width = 52
+
+[widget.session]
+color = "on_surface"
+
+[widget.sysmon_2]
+color = "on_surface"
+highlight_color = "error"
+show_value = true
+visualization = "none"
+
+[widget.sysmon_3]
+color = "on_surface"
+glyph = "device-sd-card"
+highlight_color = "error"
+stat = "ram_pct"
+visualization = "none"
+
+[widget.temp]
+color = "on_surface"
+glyph = "cpu"
+highlight_color = "error"
+show_value = true
+visualization = "none"
+
+[widget.tray]
+colorize_icons = true
+drawer = true
+hidden = []
+pinned = []
+
+[widget.volume]
+color = "on_surface"
+show_label = false
+
+    [widget.volume.actions]
+    left = "panel-toggle local/quick-settings:panel"
+
+[widget.workspaces]
+active_pill_size = 2.5
+capsule = false
+empty_color = "outline_variant"
+focused_color = "primary"
+inactive_pill_size = 1.0
+label_source = "name"
+occupied_color = "tertiary"
+pill_scale = 0.6
+show_labels = false
+style = "regular"
+urgent_color = "primary"

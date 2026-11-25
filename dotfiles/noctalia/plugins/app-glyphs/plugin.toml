@@ -1,0 +1,36 @@
+# App glyphs: crisp, theme-coloured glyph buttons for tray apps whose own tray
+# icons are bitmaps. A glyph shows only while the
+# app's tray item is registered; click focuses the app or brings it up.
+# The real tray icons live in the tray drawer for their right-click menus.
+# Local plugin, loaded from the "local" path source (~/.config/noctalia/plugins).
+
+id = "local/app-glyphs"
+name = "App Glyphs"
+version = "0.1.0"
+plugin_api = 43
+author = "local"
+license = "MIT"
+dependencies = ["busctl", "hyprctl", "jq"]
+tags = ["bar", "tray"]
+icon = "apps"
+description = "Vector glyph buttons standing in for bitmap tray icons."
+
+# One widget instance per app: [widget.<name>] type = "local/app-glyphs:bar", app = "...".
+[[widget]]
+id = "bar"
+entry = "bar.luau"
+
+  [[widget.setting]]
+  key = "app"
+  type = "string"
+  label_key = "settings.app.label"
+  default = ""
+
+# Right-click menu: lists the app's own tray menu (dbusmenu) and activates entries.
+[[panel]]
+id = "menu"
+entry = "menu.luau"
+width = 240
+height = 280
+placement = "floating"
+position = "top_right"

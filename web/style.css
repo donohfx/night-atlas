@@ -1,0 +1,102 @@
+:root { color-scheme: dark; --ink: #141a18; --paper: #e4dfca; --muted: #aab8ab; --border: #465c53; --accent: #d9aa70; }
+* { box-sizing: border-box; }
+html, body, #map { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iosevka, "IBM Plex Sans", system-ui, sans-serif; }
+#map .maplibregl-canvas { outline: none; }
+#details, #status, #credits { position: absolute; background: color-mix(in srgb, var(--ink) 94%, transparent); border: 1px solid var(--border); border-radius: 3px; pointer-events: none; }
+#details { min-width: 194px; max-width: 310px; padding: 9px 12px; box-shadow: 0 4px 12px #0005; }
+#details strong { color: var(--accent); }
+#details p { margin: 4px 0 0; color: var(--muted); }
+#status, #credits { bottom: 13px; padding: 4px 8px; font-size: 11px; color: var(--muted); }
+#status { left: 13px; }
+#credits { right: 13px; }
+
+/* MapLibre's stylesheet sets Helvetica/Arial on .maplibregl-map; use the shell font everywhere. */
+.maplibregl-map, .place, #details, #status, #credits { font-family: "Iosevka Aile", Iosevka, "IBM Plex Sans", system-ui, sans-serif; }
+.place { display: block; opacity: 0; transition: opacity 120ms linear; color: var(--muted); font-size: 11px; font-weight: 600; text-shadow: 0 1px 4px #080c0b; white-space: nowrap; pointer-events: none; }
+.place-region { font-size: 16px; letter-spacing: .11em; color: var(--paper); }
+.place-major { font-size: 13px; color: var(--paper); }
+.place-water { font-style: italic; color: color-mix(in srgb, var(--muted) 85%, var(--ink)); }
+
+.light-beams { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.maplibregl-marker { z-index: 2; }
+#details, #status, #credits { z-index: 3; }
+
+/* Bottom-left dock: Halifax weather card above the AIS counter, both the width of the wider one,
+   styled like the bar (solid surface, 1 px outline_variant, ~6 px corners). */
+#dock { position: absolute; left: 13px; bottom: calc(var(--credits-height, 66px) + 18px); z-index: 3; display: flex; flex-direction: column;
+  gap: 6px; width: max-content; pointer-events: none; }
+#dock > * { background: var(--ink); border: 1px solid var(--border); border-radius: 6px; }
+#dock #status { position: static; padding: 4px 12px; }
+.weather-card { padding: 7px 12px 8px;
+  display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: baseline; }
+.weather-card[hidden] { display: none; }
+.weather-place { grid-column: 1 / -1; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.weather-temp { font-size: 24px; font-weight: 650; color: var(--paper); line-height: 1.1; }
+.weather-sky { font-size: 12px; color: var(--accent); }
+.weather-line { grid-column: 1 / -1; margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+
+
+#controls {
+  position: absolute;
+  z-index: 5;
+  top: 13px;
+  left: 13px;
+  right: 13px;
+  width: fit-content;
+  max-width: calc(100% - 26px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--ink);
+  box-shadow: 0 4px 12px #0004;
+}
+#controls h1 { color: var(--accent); font-size: 14px; margin: 0 4px 0 0; }
+#controls label { color: var(--muted); }
+#controls select, #controls button, #controls summary {
+  font: inherit;
+  color: var(--paper);
+  background: #1a2622;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-height: 36px;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+#controls :focus-visible, #credits a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#controls summary { display: list-item; padding-top: 8px; }
+#controls fieldset {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--ink);
+  box-shadow: 0 4px 12px #0005;
+}
+#controls fieldset label { display: flex; min-height: 35px; align-items: center; gap: 7px; cursor: pointer; }
+#controls input { accent-color: var(--accent); }
+#credits {
+  pointer-events: auto;
+  bottom: 13px;
+  left: 13px;
+  right: 13px;
+  width: fit-content;
+  line-height: 1.5;
+}
+#credits strong { color: var(--accent); }
+#credits a { color: var(--paper); text-underline-offset: 2px; }
+@media (max-width: 540px) {
+  #controls h1 { flex-basis: 100%; }
+  #controls { gap: 5px; }
+  #controls > label { font-size: 12px; }
+  #controls select, #controls button, #controls summary { min-height: 40px; }
+  #details { max-width: calc(100vw - 16px); }
+}

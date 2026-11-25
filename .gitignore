@@ -1,0 +1,11 @@
+/_import/
+/.agents/
+/.local/
+/.env
+/.env.*
+!/.env.example
+/.netlify/
+/node_modules/
+__pycache__/
+*.pyc
+*.key

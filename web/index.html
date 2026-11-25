@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Night Atlas</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/map.mjs"></script>
+</head>
+<body>
+  <div id="map" aria-label="Nova Scotia chart"></div>
+  <header id="controls" aria-label="Map controls">
+    <h1>Night Atlas</h1>
+    <label>View <select id="view" disabled>
+      <option value="nova-scotia">Nova Scotia</option>
+      <option value="halifax-coast">Halifax coast</option>
+      <option value="halifax">Harbour</option>
+      <option value="custom" disabled>Custom view</option>
+    </select></label>
+    <label>Mode <select id="mode" disabled>
+      <option value="chart">Chart</option><option value="night">Night</option><option value="auto" selected>Auto</option>
+    </select></label>
+    <details id="layers"><summary>Layers</summary><fieldset aria-label="Visible layers" disabled></fieldset></details>
+    <button id="tour" type="button" disabled>Tour</button>
+  </header>
+  <div id="details" hidden></div>
+  <div id="dock"><div id="status" role="status">Loading Night Atlas</div></div>
+  <footer id="credits">
+    <strong>Not for navigation</strong> · Lighthouse beams are approximate.
+    <div><a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a> ·
+      <a href="https://openfreemap.org/">OpenFreeMap</a> · <a href="https://openmaptiles.org/">© OpenMapTiles</a> ·
+      <a href="https://www.ncei.noaa.gov/products/etopo-global-relief-model">NOAA ETOPO</a> ·
+      <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Terrain</a> ·
+      <a href="https://notmar.gc.ca/list-lights">Light data: Canadian Coast Guard (unofficial, non-commercial)</a> · <a href="https://www.ndbc.noaa.gov/">NOAA NDBC</a> · <a href="https://aisstream.io/">AIS Stream</a> ·
+      <a href="https://open-meteo.com/">Open-Meteo</a> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (rounded)
+    </div>
+  </footer>
+</body>
+</html>

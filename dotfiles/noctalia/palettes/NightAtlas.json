@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "dark": {
+    "primary": "#E2CC98",
+    "on_primary": "#2A2414",
+    "secondary": "#A4C0AE",
+    "on_secondary": "#1D3026",
+    "tertiary": "#8FB8B1",
+    "on_tertiary": "#122B29",
+    "error": "#E3A095",
+    "on_error": "#43221B",
+    "surface": "#101816",
+    "on_surface": "#E4DFCA",
+    "surface_container": "#1A2622",
+    "on_surface_variant": "#AAB8AB",
+    "outline_variant": "#3A4E45",
+    "shadow": "#060B0A",
+    "hover": "#22322C",
+    "on_hover": "#F2E7CE",
+    "terminal": {
+      "background": "#101816",
+      "foreground": "#E4DFCA",
+      "cursor": "#E2CC98",
+      "cursor_text": "#101816",
+      "selection_bg": "#3A4436",
+      "selection_fg": "#F2E7CE",
+      "normal": {
+        "black": "#16201D",
+        "red": "#DB9689",
+        "green": "#A6B88A",
+        "yellow": "#DCC08A",
+        "blue": "#96ADCA",
+        "magenta": "#BDA6C3",
+        "cyan": "#89B6AA",
+        "white": "#DAD5BF"
+      },
+      "bright": {
+        "black": "#7F9087",
+        "red": "#F1B2A5",
+        "green": "#BDCFA1",
+        "yellow": "#EDD7A4",
+        "blue": "#AFC6DF",
+        "magenta": "#D6BDDB",
+        "cyan": "#A5D1C6",
+        "white": "#F2E7CE"
+      }
+    }
+  }
+}

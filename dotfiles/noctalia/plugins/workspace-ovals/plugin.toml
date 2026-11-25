@@ -1,0 +1,28 @@
+# Workspace ovals: a minimal Hyprland workspace switcher.
+# Small round dots per workspace; the active one is a longer oval in the theme
+# accent (primary). Click a dot to switch. Updates instantly from Hyprland's
+# event socket (socat), with a slow resync poll as a fallback.
+# Local plugin, loaded from the "local" path source (~/.config/noctalia/plugins).
+
+id = "local/workspace-ovals"
+name = "Workspace Ovals"
+version = "0.1.0"
+plugin_api = 43
+author = "local"
+license = "MIT"
+dependencies = ["hyprctl", "jq", "socat"]
+tags = ["bar", "hyprland", "workspaces"]
+icon = "circle-dot"
+description = "Dots for workspaces, an accent oval for the active one."
+
+[[service]]
+id = "service"
+entry = "service.luau"
+
+[[widget]]
+id = "bar"
+entry = "bar.luau"
+
+[[widget]]
+id = "atlas"
+entry = "atlas.luau"

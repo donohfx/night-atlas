@@ -1,0 +1,86 @@
+{
+  "logo": {
+    "type": "small",
+    "color": {
+      "1": "#e2cc63",
+      "2": "#63c0ae"
+    }
+  },
+  "display": {
+    "separator": "",
+    "key": {
+      "type": "string"
+    },
+    "color": {
+      "keys": "#e2cc98",
+      "title": "#a4c0ae"
+    },
+    "percent": {
+      "color": {
+        "green": "#8fb8b1",
+        "yellow": "#e9d096",
+        "red": "#e3a095"
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "{#keys}╭───────────┬──────────────────────────╮"
+    },
+    {
+      "type": "os",
+      "key": "│   distro │ ",
+      "format": "{name}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "kernel",
+      "key": "│   kernel │ ",
+      "format": "{release}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "terminal",
+      "key": "│   term   │ ",
+      "format": "{pretty-name}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "custom",
+      "format": "{#keys}├───────────┼──────────────────────────┤"
+    },
+    {
+      "type": "cpu",
+      "key": "│   cpu    │ ",
+      "format": "{name}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "gpu",
+      "key": "│   gpu    │ ",
+      "hideType": "integrated",
+      "format": "{name}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "memory",
+      "key": "│   memory │ ",
+      "format": "{used} / {total}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "custom",
+      "format": "{#keys}├───────────┼──────────────────────────┤"
+    },
+    {
+      "type": "uptime",
+      "key": "│   uptime │ ",
+      "format": "{formatted}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "command",
+      "key": "│   os age │ ",
+      "text": "birth=$(stat -c %W /); current=$(date +%s); days=$(( (current - birth) / 86400 )); echo \"${days} days\"",
+      "format": "{result}{#keys}\u001b[78G│"
+    },
+    {
+      "type": "custom",
+      "format": "{#keys}╰───────────┴──────────────────────────╯"
+    }
+  ]
+}

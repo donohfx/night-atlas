@@ -1,0 +1,19 @@
+# Power button: the standard power icon, muted at rest, fading to the
+# theme's error (rose) colour on hover. Click opens
+# Noctalia's session menu (lock, log out, suspend, reboot, shut down).
+# Local plugin, loaded from the "local" path source (~/.config/noctalia/plugins).
+
+id = "local/power-button"
+name = "Power Button"
+version = "0.1.0"
+plugin_api = 43
+author = "local"
+license = "MIT"
+dependencies = []
+tags = ["bar", "session"]
+icon = "power"
+description = "Power icon that fades to rose on hover; opens the session menu."
+
+[[widget]]
+id = "bar"
+entry = "bar.luau"

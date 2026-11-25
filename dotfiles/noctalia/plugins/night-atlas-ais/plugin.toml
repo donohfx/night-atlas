@@ -1,0 +1,23 @@
+id = "local/night-atlas-ais"
+name = "Night Atlas AIS"
+description = "Interactive Night Atlas desktop and recent vessel positions."
+version = "0.2.0"
+plugin_api = 43
+author = "local"
+icon = "anchor"
+
+[[service]]
+id = "feed"
+entry = "service.luau"
+
+[[widget]]
+id = "anchor"
+entry = "anchor.luau"
+
+[[panel]]
+id = "menu"
+entry = "menu.luau"
+width = 380
+height = 470
+placement = "floating"
+position = "top_right"
