@@ -19,9 +19,9 @@ NGA_FALLBACK = {"H3504": {"range": 17.0}, "H3534": {"period": 7.0}}
 PHASE = re.compile(rf"\b(Flash(?:es)?|Fl\.|Eclipse|Ecl\.)\s*[:=]?\s*{SECONDS}", re.I)
 
 
-def html_rows(path):
+def html_rows(source):
     active = {}
-    for row in BeautifulSoup(path.read_bytes(), "lxml").find_all("tr"):
+    for row in BeautifulSoup(source if isinstance(source, bytes) else source.read_bytes(), "lxml").find_all("tr"):
         cells = {}
         i = 0
         for cell in row.find_all("td", recursive=False):

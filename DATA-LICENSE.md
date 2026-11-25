@@ -14,6 +14,14 @@ Source: Canadian Coast Guard, Fisheries and Oceans Canada. This is an unofficial
 
 Combining these sources may not satisfy ODbL share-alike for the merged file. If you are a rights holder and want something changed or removed, please open an issue.
 
+## NOTMAR prototype supplement
+
+`web/aids.json` is an unofficial, modified extract of the Canadian Coast Guard
+*List of Lights, Buoys and Fog Signals, Atlantic Coast*, via [NOTMAR](https://notmar.gc.ca/list-lights).
+The same non-commercial terms and attribution above apply. It is a snapshot for
+visualization and must never be used for navigation. Regenerate locally with
+`python tools/build-atlas-aids.py` (BeautifulSoup and lxml required).
+
 ## Other data
 
 See [CREDITS.md](CREDITS.md) for OpenStreetMap, NOAA, Open-Meteo, AIS Stream and the other sources.
