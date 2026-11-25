@@ -58,3 +58,25 @@ test("old hostnames redirect and keep the path", async t => {
   assert.equal(moved.headers.location, "https://new.example/map.mjs?x=1");
   assert.equal((await ask("new.example")).statusCode, 200);
 });
+
+test("fog levels and the biggest ship in the harbour", async () => {
+  const { fogFrom, biggestInHarbour } = await import("../web/atlas-extras.mjs");
+  assert.equal(fogFrom({ visibility: 20000, weather_code: 0 }), 0);
+  assert.equal(fogFrom({ visibility: 200 }), 1);
+  assert.ok(fogFrom({ visibility: 20000, weather_code: 45 }) >= .5);
+  const ship = (name, length, extra = {}) => ({ name, length, lat: 44.65, lon: -63.57, age: 30, ...extra });
+  const best = biggestInHarbour([ship("small", 20), ship("big", 290), ship("far", 400, { lon: -61 }),
+    ship("old", 350, { age: 9000 }), ship("unsized", undefined)]);
+  assert.equal(best.name, "big");
+});
+
+test("ship dimensions are read from static reports", async () => {
+  const { update } = await import("./ais.mjs");
+  const vessels = new Map(), metadata = new Map(), seen = new Set();
+  update({ MessageType: "ShipStaticData", MetaData: {}, Message: { ShipStaticData: { UserID: 1, Name: "X", Type: 70,
+    Dimension: { A: 200, B: 94, C: 16, D: 16 } } } }, vessels, metadata, seen, 1);
+  update({ MessageType: "PositionReport", MetaData: {}, Message: { PositionReport: { UserID: 1, Latitude: 44.6, Longitude: -63.5 } } },
+    vessels, metadata, seen, 2);
+  assert.equal(vessels.get(1).length, 294);
+  assert.equal(vessels.get(1).width, 32);
+});

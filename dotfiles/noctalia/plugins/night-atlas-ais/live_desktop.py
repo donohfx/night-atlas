@@ -28,6 +28,7 @@ STARTED = time.time()
 ASSETS = {
     "/": ("index.html", "text/html"),
     "/map.mjs": ("map.mjs", "text/javascript"),
+    "/atlas-extras.mjs": ("atlas-extras.mjs", "text/javascript"),
     "/style.css": ("style.css", "text/css"),
     "/chart-data.json": ("chart-data.json", "application/json"),
     "/land.json": ("land.json.gz", "application/json"),
@@ -68,7 +69,8 @@ def sweep_overrides():
 SETTINGS_PATH = CONFIG / "settings.json"
 DEFAULT_SETTINGS = {"mode": "auto", "override": None,
                     "layers": {"ships": True, "ghosts": True, "buoys": True,
-                               "seamarks": True, "lights": True, "weather": True, "labels": False}}
+                               "seamarks": True, "lights": True, "weather": True, "fog": True,
+                               "spotlight": True, "labels": False}}
 
 
 def atlas_settings():
@@ -76,7 +78,8 @@ def atlas_settings():
     saved = load_json(SETTINGS_PATH, {})
     layers = dict(DEFAULT_SETTINGS["layers"], **(saved.get("layers") or {}))
     mode = saved.get("mode") if saved.get("mode") in {"chart", "night", "auto"} else "auto"
-    return {"mode": mode, "override": saved.get("override"), "layers": layers}
+    return {"mode": mode, "override": saved.get("override"), "layers": layers,
+            "fogPreview": saved.get("fogPreview")}
 
 
 # Live offshore weather buoys (NOAA NDBC realtime2; verified reporting 2026-11-24).
@@ -128,7 +131,7 @@ def buoy_loop():
 WEATHER = {}
 WEATHER_URL = ("https://api.open-meteo.com/v1/forecast?latitude=44.65&longitude=-63.58"
                "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,"
-               "wind_gusts_10m,precipitation,is_day&wind_speed_unit=kn&timezone=America%2FHalifax")
+               "wind_gusts_10m,precipitation,visibility,is_day&wind_speed_unit=kn&timezone=America%2FHalifax")
 
 
 def weather_loop():

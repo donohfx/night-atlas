@@ -17,6 +17,8 @@ local LAYERS = {
   { key = "seamarks", label = "Chart marks", glyph = "lifebuoy" },
   { key = "lights", label = "Lights", glyph = "building-lighthouse" },
   { key = "weather", label = "Weather", glyph = "cloud" },
+  { key = "fog", label = "Fog", glyph = "mist" },
+  { key = "spotlight", label = "Ship of the night", glyph = "ship" },
   { key = "labels", label = "Labels", glyph = "tag", default = false },
 }
 local MODES = {

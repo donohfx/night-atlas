@@ -1,4 +1,5 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
+import {createExtras} from "./atlas-extras.mjs";
 
 setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
 
@@ -11,6 +12,9 @@ const read = async path => {
 };
 const [chart, colors, sweeps] = await Promise.all([read("/chart-data.json"), read("/palette.json"), read("/sweeps.json")]);
 const palette = colors.dark;
+// ?fog=0.7 shows what a foggy night looks like on a clear one.
+const fogParam = new URLSearchParams(location.search).get("fog");
+const fogPreview = fogParam === null || !Number.isFinite(Number(fogParam)) ? null : Math.min(1,Math.max(0,Number(fogParam)));
 const marksData = await read("/seamarks.json").catch(() => collection());
 const isMark = f => f.geometry.type === "Point" && (f.properties.k === "buoy" || f.properties.k === "beacon");
 const markFeatures = marksData.features.filter(isMark).map((f, id) => ({...f, id,
@@ -163,7 +167,7 @@ const status = document.querySelector("#status");
 const details = document.querySelector("#details");
 let loaded = false, ships = new Map();
 let shipRevision = "", statusText = "Waiting for ships", highlighted = null;
-let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, labels:false};
+let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, spotlight:true, labels:false};
 let night = null, labelScale = 1, beamBoost = 1;
 const ghostWindow = 7200;           // seconds a vessel keeps drifting after its last report
 const ghosts = new Map();
@@ -251,6 +255,9 @@ beamCanvas.className = "light-beams";
 beamCanvas.setAttribute("aria-hidden","true");
 map.getContainer().append(beamCanvas);
 const beamContext = beamCanvas.getContext("2d");
+const extras = createExtras({map, beamCanvas, accent:palette.primary, ships:() => ships.values(),
+  preview:fogPreview});
+const rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
 const flashing = new Set(["Fl","LFl","Q","VQ","UQ","IUQ","IVQ"]);
 let sweepOverrides = new Map();
 let sweeping = [], sweepIds = new Set();
@@ -358,7 +365,9 @@ function drawBeams(timestamp) {
   beamContext.clearRect(0,0,width,height);
   const now = Date.now()/1000, zoom = map.getZoom(), bearing = map.getBearing();
   const bounds = map.getBounds();
-  const strength = Math.min(.32,.125+Math.max(0,zoom-7)*.031)*beamBoost;
+  extras.setLayers(layersOn);
+  extras.begin(width,height,density,now,night);
+  const strength = Math.min(.32,.125+Math.max(0,zoom-7)*.031)*beamBoost*extras.strength();
   let toMeasure = 1;                      // at most one new shoreline mask per frame
   for (const rhythm of layersOn.lights ? sweeping : []) {
     const light = chart.lights[rhythm.id];
@@ -375,7 +384,7 @@ function drawBeams(timestamp) {
     const turns = beamBoost > 1 ? [0,180] : [0];
     const azimuth = (now*360/(Math.max(2.5, rhythm.period)*turns.length) + rhythm.id*37.3)%360;
     const center = map.project(light.coordinates);
-    const length = Math.min(103,14 + (light.range || 8)*.65 + Math.max(0,zoom-7)*10)*(beamBoost > 1 ? 1.9 : 1);
+    const length = Math.min(103,14 + (light.range || 8)*.65 + Math.max(0,zoom-7)*10)*(beamBoost > 1 ? 1.9 : 1)*(1+(extras.strength()-1)*.2);
     const pixelsPerMetre = 512*2**zoom/metresPerUnit(light.coordinates[1]);
     const wedges = beamBoost > 1 ? [[10,.30],[6,.34],[2.8,.42]] : [[9,1]];   // night: soft-edged
     if (beamBoost > 1) beamContext.globalCompositeOperation = "lighter";
@@ -390,29 +399,38 @@ function drawBeams(timestamp) {
         if (color) {
           const hex = lightColors[color];
           const gradient = beamContext.createRadialGradient(center.x,center.y,0,center.x,center.y,length);
-          const alpha = Math.round(strength*share*255).toString(16).padStart(2,"0");
+          const alpha = Math.round(Math.min(1,strength*share)*255).toString(16).padStart(2,"0");
           gradient.addColorStop(0,hex+alpha);
           gradient.addColorStop(beamBoost > 1 ? .06 : .24,hex+alpha);
           gradient.addColorStop(1,hex+"00");
           beamContext.fillStyle=gradient;
-          beamContext.beginPath();
-          beamContext.moveTo(center.x,center.y);
+          const wedge = new Path2D();
+          wedge.moveTo(center.x,center.y);
           const stop = Math.min(end,azimuth+turn+half);
           for (let degrees = start; ; degrees = Math.min(stop,degrees+360/STEPS)) {
             const step = ((Math.round(degrees*STEPS/360)%STEPS)+STEPS)%STEPS;
             const radius = Math.min(length, reach[step]*pixelsPerMetre);
             const angle = (degrees-bearing-90)*Math.PI/180;
-            beamContext.lineTo(center.x+radius*Math.cos(angle), center.y+radius*Math.sin(angle));
+            wedge.lineTo(center.x+radius*Math.cos(angle), center.y+radius*Math.sin(angle));
             if (degrees >= stop) break;
           }
-          beamContext.closePath();
-          beamContext.fill();
+          wedge.closePath();
+          beamContext.fill(wedge);
+          extras.cut(wedge,center,length);
         }
         start=end;
       }
     }
     beamContext.globalCompositeOperation = "source-over";
   }
+  const lamps = [];
+  if (layersOn.lights) for (const [id,light] of chart.lights.entries()) {
+    if (!light.colors.length || !bounds.contains(light.coordinates)) continue;
+    const rhythm = rhythmById.get(id);
+    if (!rhythm || sweepIds.has(id) || illuminated(rhythm,now))
+      lamps.push({point:map.project(light.coordinates), color:lightColors[light.colors[0]]});
+  }
+  extras.finish(beamContext,now,night,lamps);
   beamFrame=requestAnimationFrame(drawBeams);
 }
 
@@ -758,6 +776,7 @@ const conditions = {0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Overcast",45
 const compass = deg => ["N","NE","E","SE","S","SW","W","NW"][Math.round(((deg%360)+360)%360/45)%8];
 
 function updateWeather(w) {
+  extras.setWeather(w);
   const revision = JSON.stringify(w);
   if (revision === weatherRevision) return;
   weatherRevision = revision;
@@ -881,7 +900,7 @@ function bindControls() {
   viewControl.disabled = modeControl.disabled = layerControls.disabled = tourControl.disabled = false;
   viewControl.value = preferences.view;
   const names = {ships:"Ships",ghosts:"Estimated positions",buoys:"Weather buoys",seamarks:"Seamarks",
-    lights:"Lighthouses",weather:"Halifax weather",labels:"Place names"};
+    lights:"Lighthouses",weather:"Halifax weather",fog:"Fog",spotlight:"Ship of the night",labels:"Place names"};
   for (const [id, name] of Object.entries(names)) {
     const label = document.createElement("label");
     const input = document.createElement("input");
@@ -920,7 +939,7 @@ function bindControls() {
 
 const weatherURL = "https://api.open-meteo.com/v1/forecast?latitude=44.65&longitude=-63.58"
   + "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,"
-  + "wind_gusts_10m,precipitation&wind_speed_unit=kn&timezone=America%2FHalifax";
+  + "wind_gusts_10m,precipitation,visibility&wind_speed_unit=kn&timezone=America%2FHalifax";
 async function refreshWeather() {
   try { updateWeather((await read(weatherURL)).current); } catch { /* Keep last good reading. */ }
 }

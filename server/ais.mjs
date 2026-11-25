@@ -38,6 +38,10 @@ export function update(event, vessels, metadataCache, seen, now) {
     if (staticName) fields.name = staticName;
     if (destination) fields.destination = destination;
     if (Number.isInteger(type) && type > 0 && type < 100) fields.type = type;
+    const size = report.Dimension || report.ReportB?.Dimension || {};
+    for (const [key, a, b] of [["length", size.A, size.B], ["width", size.C, size.D]]) {
+      if (a >= 0 && b >= 0 && a + b > 0 && a + b <= 500) fields[key] = a + b;
+    }
     if (metadataCache.size >= MAX_VESSELS && !metadataCache.has(mmsi)) {
       metadataCache.delete(metadataCache.keys().next().value);
     }

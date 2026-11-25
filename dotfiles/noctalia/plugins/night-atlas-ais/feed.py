@@ -79,6 +79,11 @@ def update(event, vessels, seen, metadata_cache, now):
         }
         if type(fields["type"]) is not int or not 1 <= fields["type"] < 100:
             fields.pop("type")
+        size = report.get("Dimension") or part_b.get("Dimension") or {}
+        for key, pair in (("length", ("A", "B")), ("width", ("C", "D"))):
+            parts = [size.get(side) for side in pair]
+            if all(type(part) in (int, float) and part >= 0 for part in parts) and 0 < sum(parts) <= 500:
+                fields[key] = sum(parts)
         fields = {key: value for key, value in fields.items() if value}
         if fields:
             if len(metadata_cache) >= 3000 and ship_id not in metadata_cache:
