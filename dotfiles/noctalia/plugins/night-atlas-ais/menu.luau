@@ -15,6 +15,7 @@ local LAYERS = {
   { key = "ghosts", label = "Ghost ships", glyph = "route" },
   { key = "buoys", label = "Weather buoys", glyph = "wind" },
   { key = "seamarks", label = "Chart marks", glyph = "lifebuoy" },
+  { key = "openSources", label = "Open sources only", glyph = "database", default = false },
   { key = "lights", label = "Lights", glyph = "building-lighthouse" },
   { key = "weather", label = "Weather", glyph = "cloud" },
   { key = "fog", label = "Fog", glyph = "mist" },

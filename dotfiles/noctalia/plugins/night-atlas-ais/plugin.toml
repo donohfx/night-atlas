@@ -18,6 +18,6 @@ entry = "anchor.luau"
 id = "menu"
 entry = "menu.luau"
 width = 380
-height = 540
+height = 580
 placement = "floating"
 position = "top_right"

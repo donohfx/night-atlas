@@ -37,6 +37,8 @@ ASSETS = {
     "/relief-detail.jpg": ("relief-detail.jpg", "image/jpeg"),
     "/seamarks.json": ("seamarks.json", "application/json"),
     "/chs-marks.json": ("chs-marks.json", "application/json"),
+    "/open-lights.json": ("open-lights.json", "application/json"),
+    "/ccg-buoy-matches.json": ("ccg-buoy-matches.json", "application/json"),
     "/aids.json": ("aids.json", "application/json"),
     "/vendor/maplibre-gl.mjs": ("vendor/maplibre-gl.mjs", "text/javascript"),
     "/vendor/maplibre-gl-shared.mjs": ("vendor/maplibre-gl-shared.mjs", "text/javascript"),
@@ -72,7 +74,7 @@ SETTINGS_PATH = CONFIG / "settings.json"
 DEFAULT_SETTINGS = {"mode": "auto", "override": None,
                     "layers": {"ships": True, "ghosts": True, "buoys": True,
                                "seamarks": True, "lights": True, "weather": True, "fog": True, "sky": True,
-                               "rain": True, "spotlight": True, "labels": False}}
+                               "rain": True, "spotlight": True, "labels": False, "openSources": False}}
 
 
 def atlas_settings():

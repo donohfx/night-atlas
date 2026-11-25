@@ -10,17 +10,19 @@ const read = async path => {
   if (!response.ok) throw new Error(`${path} returned ${response.status}`);
   return response.json();
 };
-const [chart, colors, sweeps] = await Promise.all([read("/chart-data.json"), read("/palette.json"), read("/sweeps.json")]);
+const [chart, colors, sweeps] = await Promise.all([read("/chart-data.json"), read("/palette.json"), read("/sweeps.json").catch(() => ({}))]);
 const palette = colors.dark;
 // Pretend weather for a look on a fine day, e.g. ?visibility=300&cloud_cover=100 or ?weather_code=63
 const params = new URLSearchParams(location.search);
 const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation","weather_code","wind_speed_10m","wind_direction_10m"]
   .filter(key => params.get(key) !== null && Number.isFinite(Number(params.get(key))));
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
-const [marksData, aidsData, chsData] = await Promise.all([
+const [marksData, aidsData, chsData, buoyMatches, openChart] = await Promise.all([
   read("/seamarks.json").catch(() => collection()),
   read("/aids.json").catch(() => collection()),
   read("/chs-marks.json").catch(() => collection()),
+  read("/ccg-buoy-matches.json").catch(() => ({fillIns:[], overrides:[]})),
+  read("/open-lights.json").catch(() => ({lights:[]})),
 ]);
 const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
 const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
@@ -35,32 +37,47 @@ for (const mark of chartMarks) {
 function markDistanceMeters([x,y], [ox,oy]) {
   return Math.hypot((x-ox)*Math.cos(y*Math.PI/180), y-oy)*111195;
 }
+const fillIns = new Set(buoyMatches.fillIns);
+const ccgBuoys = new Map(aidsData.features.filter(f => f.properties.k === "buoy").map(f => [f.properties.ll,f]));
+const markKey = (coordinates, name) => JSON.stringify([coordinates, name || ""]);
+const ccgSignals = new Map(buoyMatches.overrides.map(o => [markKey(o.coordinates, o.name), ccgBuoys.get(o.ccg)]));
 const supplementalAids = aidsData.features.filter(f => {
-  if (!chartMarks.length) return true;
   const p = f.properties;
-  if (p.k === "buoy") return false;
+  if (p.k === "buoy") return !chartMarks.length || fillIns.has(p.ll);
   return !markByLightNumber.get(p.ll)?.some(mark => {
     const q = mark.properties;
     return p.lch === q.lch && (p.lcs || p.lc) === (q.lcs || q.lc)
       && Number(p.lp || 0) === Number(q.lp || 0) && String(p.lg || 1) === String(q.lg || 1)
       && markDistanceMeters(f.geometry.coordinates, mark.geometry.coordinates) <= 20;
   });
-});
-const officialMarks = chartMarks.length ? chartMarks : supplementalAids.filter(isMark);
-function duplicateMark(f) {
+}).map(f => ({...f, properties:{...f.properties, src:"ccg"}}));
+function duplicateMark(f, official) {
   const name = aidName(f.properties);
-  return officialMarks.some(other => {
+  return official.some(other => {
     if (f.properties.k !== other.properties.k) return false;
     const candidate = aidName(other.properties);
     const distance = markDistanceMeters(f.geometry.coordinates, other.geometry.coordinates);
     return (name && name === candidate && distance <= 100)
-      || (chartMarks.length && distance <= 12 && (!name || !candidate));
+      || (other.properties.src === "chs" && distance <= 12 && (!name || !candidate));
   });
 }
-const markFeatures = [...marksData.features.filter(f => isMark(f) && !duplicateMark(f)), ...supplementalAids, ...chartMarks].map((f, id) => {
-  const p = f.properties;
-  return {...f, id, properties:{...p, icon:`mk-${p.k}-${p.s || "pillar"}-${p.cs || p.c || "-"}-${p.pat || ""}`}};
-});
+function marksFor(open) {
+  const ccg = open ? [] : supplementalAids;
+  const official = [...chartMarks, ...ccg.filter(isMark)];
+  const osm = marksData.features.filter(f => isMark(f) && !duplicateMark(f, official));
+  return [...osm, ...ccg, ...chartMarks].map((f, id) => {
+    const p = {...f.properties, src:f.properties.src || "osm"};
+    const replacement = !open && p.src === "chs" && ccgSignals.get(markKey(f.geometry.coordinates, p.n));
+    if (replacement && p.lit === 0) {
+      const {lc, lcs, lch, lp, lg, seq} = replacement.properties;
+      Object.assign(p, {lit:1, lc, lcs, lch, lp, lg, seq, signalSrc:"ccg"});
+    }
+    return {...f, id, properties:{...p, open, icon:`mk-${p.k}-${p.s || "pillar"}-${p.cs || p.c || "-"}-${p.pat || ""}`}};
+  });
+}
+const combinedMarks = marksFor(false), openMarks = marksFor(true);
+let markFeatures = combinedMarks;
+let activeLights = chart.lights;
 const chartLines = marksData.features.filter(f => !isMark(f));
 for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", muted:"on_surface_variant",
                                           border:"outline_variant", accent:"primary"})) {
@@ -68,10 +85,10 @@ for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", mu
 }
 
 const lightColors = {W:"#f0eedc", R:"#f36c64", G:"#6adca1", Y:"#efce6a"};
-const lightFeatures = chart.lights.map((light, id) => point(light.coordinates, {
-  id, color:lightColors[light.colors[0]] || "#83948a",
+const lightFeatures = (lights, open) => lights.map((light, id) => point(light.coordinates, {
+  id, open, source:light.source || "", color:lightColors[light.colors[0]] || "#83948a",
   alt:lightColors[light.colors[1]] || "", third:lightColors[light.colors[2]] || "",
-  verified: light.colors.length > 0, fixed:light.character === "F", rear:/\brear\b/i.test(light.name),
+  verified: light.colors.length > 0 && (!open || light.character === "F" || light.period > 0), fixed:light.character === "F", rear:/\brear\b/i.test(light.name),
 }, id));
 const [west, south, east, north] = chart.reliefBounds;
 const imageCorners = [[west,north],[east,north],[east,south],[west,south]];
@@ -118,7 +135,7 @@ const map = new AtlasMap({
       osm: {type:"vector", url:"https://tiles.openfreemap.org/planet/latest", bounds:[west,south,east,north]},
       land:{type:"geojson",data:"/land.json",tolerance:.4,maxzoom:15},
       contours:{type:"geojson", data:"/contours.json"},
-      lights:{type:"geojson", data:collection(lightFeatures)},
+      lights:{type:"geojson", data:collection(lightFeatures(activeLights, false))},
       ships:{type:"geojson", data:collection()},
       vectors:{type:"geojson", data:collection()},
       hover:{type:"geojson", data:collection()},
@@ -217,7 +234,7 @@ const status = document.querySelector("#status");
 const details = document.querySelector("#details");
 let loaded = false, ships = new Map();
 let shipRevision = "", statusText = "Waiting for ships", highlighted = null;
-let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, sky:true, rain:true, spotlight:true, labels:false};
+let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, sky:true, rain:true, spotlight:true, labels:false, openSources:false};
 let night = null, labelScale = 1, beamBoost = 1;
 const ghostWindow = 7200;           // seconds a vessel keeps drifting after its last report
 const ghosts = new Map();
@@ -260,16 +277,21 @@ function timing(light) {
   phases.push([period-phases.reduce((sum,phase)=>sum+phase[0],0),false]);
   return phases;
 }
-const markRhythms = markFeatures.flatMap(f => {
-  const p = f.properties;
-  if (!p.lit) return [];
-  const phases = timing({colors:[p.lc || "W"], character:p.lch, period:Number(p.lp), group:p.lg || "", sequence:p.seq || []});
-  return phases ? [{id:f.id, phases, period:phases.reduce((n,q) => n+q[0],0), previous:null}] : [];
-});
-const rhythms = chart.lights.map((light,id) => {
-  const phases = timing(light);
-  return phases && {id, phases, period:phases.reduce((n,p) => n+p[0],0), previous:null};
-}).filter(Boolean);
+function markTiming(features) {
+  return features.flatMap(f => {
+    const p = f.properties;
+    if (!p.lit) return [];
+    const phases = timing({colors:[p.lc || "W"], character:p.lch, period:Number(p.lp), group:p.lg || "", sequence:p.seq || []});
+    return phases ? [{id:f.id, phases, period:phases.reduce((n,q) => n+q[0],0), previous:null}] : [];
+  });
+}
+function lightTiming(lights) {
+  return lights.map((light,id) => {
+    const phases = timing(light);
+    return phases && {id, phases, period:phases.reduce((n,p) => n+p[0],0), previous:null};
+  }).filter(Boolean);
+}
+let markRhythms = markTiming(markFeatures), rhythms = lightTiming(activeLights);
 
 function illuminated(rhythm, now) {
   let phase = (now + rhythm.id*.618) % rhythm.period;
@@ -285,7 +307,7 @@ function blink() {
   const now = Date.now()/1000;
   const view = map.getBounds();
   for (const rhythm of rhythms) {
-    if (!view.contains(chart.lights[rhythm.id].coordinates)) continue;
+    if (!view.contains(activeLights[rhythm.id].coordinates)) continue;
     const lit = sweepIds.has(rhythm.id) || illuminated(rhythm,now) ? 1 : .08;
     if (lit !== rhythm.previous) {
       rhythm.previous = lit;
@@ -313,9 +335,9 @@ map.getContainer().append(beamCanvas);
 const beamContext = beamCanvas.getContext("2d");
 const extras = createExtras({map, beamCanvas, accent:palette.primary, ships:() => ships.values(),
   preview:weatherPreview});
-const rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
+let rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
 const flashing = new Set(["Fl","LFl","Q","VQ","UQ","IUQ","IVQ"]);
-let sweepOverrides = new Map();
+let sweepSettings = {};
 let sweeping = [], sweepIds = new Set();
 
 function sweepKey(value) {
@@ -326,9 +348,15 @@ function sweepKey(value) {
 }
 
 function classifySweeps(settings) {
-  sweepOverrides = new Map(Object.entries(settings).map(([key,value])=>[sweepKey(key),value]));
+  sweepSettings = settings;
+  if (layersOn.openSources) {
+    sweeping = [];
+    sweepIds = new Set();
+    return;
+  }
+  const sweepOverrides = new Map(Object.entries(settings).map(([key,value])=>[sweepKey(key),value]));
   const byId = new Map(rhythms.map(rhythm=>[rhythm.id,rhythm]));
-  sweeping = chart.lights.flatMap((light,id)=>{
+  sweeping = activeLights.flatMap((light,id)=>{
     const choice = sweepOverrides.get(sweepKey(light.intl)) ?? sweepOverrides.get(sweepKey(light.name));
     const rhythm = byId.get(id);
     if (choice === false || !light.colors.length) return [];
@@ -339,6 +367,20 @@ function classifySweeps(settings) {
   sweepIds = new Set(sweeping.map(rhythm => rhythm.id));
 }
 classifySweeps({});
+function switchSources(open) {
+  clearHover();
+  markFeatures = open ? openMarks : combinedMarks;
+  activeLights = open ? openChart.lights : chart.lights;
+  markRhythms = markTiming(markFeatures);
+  rhythms = lightTiming(activeLights);
+  rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
+  classifySweeps(sweepSettings);
+  for (const [source, features] of [["marks",markFeatures], ["lights",lightFeatures(activeLights, open)]]) {
+    map.removeFeatureState({source});
+    map.getSource(source).setData(collection(features));
+  }
+  document.querySelector("[data-ccg-credit]").hidden = open;
+}
 let beamFrame = 0, lastBeam = 0;
 
 function sectorColor(light,outgoing) {
@@ -426,7 +468,7 @@ function drawBeams(timestamp) {
   const strength = Math.min(.32,.125+Math.max(0,zoom-7)*.031)*beamBoost*extras.strength();
   let toMeasure = 1;                      // at most one new shoreline mask per frame
   for (const rhythm of layersOn.lights ? sweeping : []) {
-    const light = chart.lights[rhythm.id];
+    const light = activeLights[rhythm.id];
     if (!bounds.contains(light.coordinates)) continue;
     let reach = reaches.get(rhythm.id);
     if (!reach) {
@@ -481,8 +523,8 @@ function drawBeams(timestamp) {
     beamContext.globalCompositeOperation = "source-over";
   }
   const lamps = [];
-  if (layersOn.lights) for (const [id,light] of chart.lights.entries()) {
-    if (!light.colors.length || !bounds.contains(light.coordinates)) continue;
+  if (layersOn.lights) for (const [id,light] of activeLights.entries()) {
+    if (!light.colors.length || (layersOn.openSources && light.character !== "F" && !light.period) || !bounds.contains(light.coordinates)) continue;
     const rhythm = rhythmById.get(id);
     if (!rhythm || sweepIds.has(id) || illuminated(rhythm,now))
       lamps.push({point:map.project(light.coordinates), color:lightColors[light.colors[0]]});
@@ -653,10 +695,10 @@ function inspect(event) {
   const vessel = features.find(f=>f.layer.id==="vessels");
   const ghost = features.find(f=>f.layer.id==="ghosts");
   const buoy = features.find(f=>f.layer.id.startsWith("weather-buoy"));
-  const lightFeature = features.find(f=>f.layer.id==="lights");
+  const lightFeature = features.find(f=>f.layer.id==="lights" && f.properties.open === layersOn.openSources);
   let mark, markDistance = Infinity;
   for (const candidate of features) {
-    if (!["marks","mark-labels"].includes(candidate.layer.id)) continue;
+    if (!["marks","mark-labels"].includes(candidate.layer.id) || candidate.properties.open !== layersOn.openSources) continue;
     const anchor = map.project(candidate.geometry.coordinates);
     const distance = Math.hypot(x - anchor.x, y - anchor.y);
     if (distance < markDistance) {
@@ -682,7 +724,7 @@ function inspect(event) {
     showCard(m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
       [bands.join("/"), kind, purpose, m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
       m.lit ? `Lit: ${signalText || "light details unrecorded"}` : m.src === "chs" && m.lit === 0 ? "Unlit" : "Lighting unrecorded",
-      m.src === "chs" ? "Canadian Hydrographic Service" : m.ll ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
+      m.signalSrc === "ccg" ? "CHS mark · Canadian Coast Guard signal (charted unlit)" : m.src === "chs" ? "Canadian Hydrographic Service" : m.src === "ccg" ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
     ],event.point);
     return;
   }
@@ -717,12 +759,13 @@ function inspect(event) {
       `Destination: ${p.destination || "unreported"}`,
     ],event.point);
   } else if (lightFeature) {
-    const light = chart.lights[lightFeature.properties.id];
+    const light = activeLights[lightFeature.properties.id];
     const names = {W:"white",G:"green",R:"red",Y:"yellow"};
     const signal = light.colors.map(color=>names[color]).join(", ");
     const character = light.character === "F" ? "Fixed light" : light.character || "Character unreported";
-    showCard(light.name, light.note || [
+    showCard(light.name, layersOn.openSources && !light.character ? ["Lighting unrecorded", light.source] : light.note || [
       [character+(light.group ? `(${light.group})` : ""),light.period && `${light.period}s`,signal || "Colour unverified"].filter(Boolean).join(" · "),
+      ...(layersOn.openSources ? [light.source] : []),
       light.range ? `Nominal range ${light.range} nmi` : "Range unreported",
       ...(light.sectors?.length ? [light.sectors.map(([color,start,end])=>`${names[color]} ${start}°–${end}°`).join(" · ")+" from seaward"] : []),
     ],event.point);
@@ -826,7 +869,9 @@ function applySettings(settings) {
     if (revision !== settingsRevision) {
       settingsRevision = revision;
       currentSettings = settings;
+      const wasOpen = layersOn.openSources;
       layersOn = {...layersOn, ...(settings.layers || {})};
+      if (wasOpen !== layersOn.openSources) switchSources(layersOn.openSources);
       for (const [toggle, layers] of Object.entries(toggles))
         for (const layer of layers)
           if (map.getLayer(layer)) map.setLayoutProperty(layer, "visibility", layersOn[toggle] ? "visible" : "none");
@@ -939,13 +984,13 @@ async function tour() {
   tourControl.textContent = "Stop tour";
   viewControl.value = "custom";
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const peggys = chart.lights.find(light => /peggy/i.test(light.name))?.coordinates || [-63.9176,44.4921];
+  const peggys = () => activeLights.find(light => /peggy/i.test(light.name))?.coordinates;
   // A Halifax Transit ferry from the latest snapshot, if one has been heard recently.
   const ferry = [...ships.values()].filter(p => p.age <= freshAge && /^(RITA JOE|CHRISTOPHER STANNIX)\b/i.test(p.name || ""))
     .sort((a,b) => (b.speed >= .5) - (a.speed >= .5) || a.age-b.age)[0];
   const stages = [
     {camera:overviewCamera(), duration:800, hold:2400},
-    {camera:{center:peggys,zoom:12.6}, duration:5500, hold:2800, inspect:peggys},
+    {lighthouse:peggys, duration:5500, hold:2800},
     {camera:{center:[-63.48,44.52],zoom:10.6}, duration:4200, hold:2600, inspect:[-63.40,44.50]},
     {camera:{center:ferry ? [ferry.lon,ferry.lat] : [-63.565,44.635], zoom:ferry ? 13.4 : 12.4}, duration:3600, hold:4000, ferry},
     {camera:{center:[-63.52,44.60],zoom:11.6}, duration:4500, hold:600, night:true},
@@ -953,15 +998,18 @@ async function tour() {
   ];
   for (const stage of stages) {
     if (revision !== tourRevision) return;
-    if (!stage.camera) continue;
+    const center = stage.lighthouse?.();
+    const camera = center ? {center,zoom:12.6} : stage.camera;
+    if (!camera) continue;
     if (stage.night) { tourNight = true; setNight(true); await wait(reducedMotion ? 0 : 2400); }   // stays dark
     if (revision !== tourRevision) return;
     clearHover();
     const duration = reducedMotion ? 0 : stage.duration;
-    map.flyTo({...stage.camera, duration, essential:!reducedMotion});
+    map.flyTo({...camera, duration, essential:!reducedMotion});
     await wait(duration+100);
     if (revision !== tourRevision) return;
-    if (stage.inspect) inspect({type:"mousemove",point:map.project(stage.inspect)});
+    const target = stage.lighthouse?.() || stage.inspect;
+    if (target) inspect({type:"mousemove",point:map.project(target)});
     if (stage.ferry) spotlight(stage.ferry);
     await wait(stage.hold);
   }
@@ -977,7 +1025,7 @@ function bindControls() {
   viewControl.disabled = modeControl.disabled = layerControls.disabled = tourControl.disabled = false;
   viewControl.value = preferences.view;
   const names = {ships:"Ships",ghosts:"Estimated positions",buoys:"Weather buoys",seamarks:"Seamarks",
-    lights:"Lighthouses",weather:"Halifax weather",fog:"Fog",sky:"Cloud and moonlight",rain:"Rain and snow",spotlight:"Ship of the night",labels:"Place names"};
+    lights:"Lighthouses",openSources:"Open sources only",weather:"Halifax weather",fog:"Fog",sky:"Cloud and moonlight",rain:"Rain and snow",spotlight:"Ship of the night",labels:"Place names"};
   for (const [id, name] of Object.entries(names)) {
     const label = document.createElement("label");
     const input = document.createElement("input");
@@ -1135,7 +1183,7 @@ map.once("load", () => {
     }
     map.addImage(name, ctx.getImageData(0,0,40,44), {pixelRatio:2});
   }
-  for (const feature of markFeatures) addMarkIcon(feature.properties.icon, feature.properties);
+  for (const feature of [...combinedMarks, ...openMarks]) addMarkIcon(feature.properties.icon, feature.properties);
   {                                                // NOAA/ECCC weather buoy: yellow discus with mast
     const icon = document.createElement("canvas");
     icon.width = 44; icon.height = 48;

@@ -33,3 +33,20 @@ Regenerate with `python tools/build-atlas-chs.py`, or add `--offline` to use the
 ## Other data
 
 See [CREDITS.md](CREDITS.md) for OpenStreetMap, NOAA, Open-Meteo, AIS Stream and the other sources.
+
+## Open sources only
+
+The Layers switch selects `open-lights.json` and excludes the CCG fill-ins, signal overrides,
+and supplemental lights from the rendered map. The open lighthouse variant uses CHS or OSM
+for each signal. It retains the original station inventory for independently unlocated,
+unrecorded stations. Its `source` and `positionSource` fields identify those inputs separately.
+Open mode disables the combined lighthouse sweep configuration. The combined chart remains
+the default and retains the non-commercial terms above.
+
+To remove the restricted sources from a future build, initialize both clients in open mode
+and remove the switch back to combined mode. Replace the `lights` array of each
+`chart-data.json` with the `open-lights.json` array, retaining `reliefBounds`. Remove the
+`aids.json` and `ccg-buoy-matches.json` files, their fetches and desktop asset routes, and the
+Coast Guard credits. Remove the web `sweeps.json` and the desktop sweep-override loading
+and keep sweeping disabled. Any published repository that must exclude the original non-commercial
+artifacts will also need to account for its historical copies and mixed-source builder inputs.
