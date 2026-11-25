@@ -2,6 +2,10 @@
 app = "night-atlas"
 primary_region = "yyz"
 
+[env]
+  # Old addresses that should forward to the current one (remove if you deploy your own copy).
+  REDIRECTS = "atlas.briandonohue.ca=harbour.briandonohue.ca"
+
 [http_service]
   internal_port = 8080
   force_https = true

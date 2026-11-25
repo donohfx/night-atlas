@@ -3,6 +3,7 @@ import { EventEmitter } from "node:events";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { retained, RETENTION_MS } from "./ais.mjs";
+import { request } from "node:http";
 import { createFeed } from "./ais-live.mjs";
 import { parseBuoy } from "./buoys.mjs";
 import { createApp } from "./server.mjs";
@@ -43,4 +44,17 @@ test("old reports expire and buoy files parse", () => {
   assert.equal(retained([{ timestamp: now }, { timestamp: now - RETENTION_MS - 1 }], now).length, 1);
   const reading = parseBuoy("#YY MM DD hh mm WDIR WSPD\n#yr mo dy hr mn degT m/s\n2026 11 25 12 00 270 5.0");
   assert.equal(reading.WDIR, 270);
+});
+
+test("old hostnames redirect and keep the path", async t => {
+  const app = createApp({ root: fileURLToPath(new URL("../web", import.meta.url)), feed: null,
+    redirects: { "old.example": "new.example" } });
+  await new Promise(done => app.listen(0, "127.0.0.1", done));
+  t.after(() => app.close());
+  const ask = host => new Promise(done => request({ port: app.address().port, host: "127.0.0.1",
+    path: "/map.mjs?x=1", headers: { host } }, res => { res.resume(); done(res); }).end());
+  const moved = await ask("old.example");
+  assert.equal(moved.statusCode, 301);
+  assert.equal(moved.headers.location, "https://new.example/map.mjs?x=1");
+  assert.equal((await ask("new.example")).statusCode, 200);
 });

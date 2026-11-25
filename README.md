@@ -1,6 +1,11 @@
-# Night Atlas
+# Night Atlas · Harbour Watch
 
-An interactive maritime atlas of Nova Scotia, Halifax coast, and Halifax Harbour. Explore coastal relief, lighthouse signals, and live ships. **Not for navigation.** Lighthouse beams are approximate.
+Two things live in this repository:
+
+- **Night Atlas** is a desktop theme for Hyprland and Noctalia: a live chart of Nova Scotia as the desktop background, with matching colours across the apps. See [Desktop](#desktop).
+- **[Harbour Watch](https://harbour.briandonohue.ca)** is the same chart hosted on the web, for anyone to browse: coastal relief, lighthouse signals and live ships.
+
+**Not for navigation.** Lighthouse beams are approximate.
 
 ## Web app
 

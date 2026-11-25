@@ -31,7 +31,7 @@ function loadFiles(root) {
   return files;
 }
 
-export function createApp({ root, feed, buoyHandler = buoys }) {
+export function createApp({ root, feed, buoyHandler = buoys, redirects = {} }) {
   const files = loadFiles(root);
   let buoyCache = { at: 0, body: null };
 
@@ -50,6 +50,12 @@ export function createApp({ root, feed, buoyHandler = buoys }) {
   return createServer(async (req, res) => {
     try {
       if (req.method !== "GET" && req.method !== "HEAD") return send(req, res, 405, { Allow: "GET, HEAD" }, Buffer.alloc(0));
+      // Old addresses keep working: same path, permanent redirect.
+      const moved = redirects[String(req.headers.host || "").toLowerCase().split(":")[0]];
+      if (moved && req.url.startsWith("/")) {
+        res.writeHead(301, { ...SECURITY, Location: `https://${moved}${req.url}`, "Content-Length": 0 });
+        return res.end();
+      }
       const path = req.url.split("?")[0];
       if (path === "/api/ships") {
         return json(req, res, 200, feed ? feed.snapshot() : { status: "not-configured", points: [], asOf: Date.now() }, "no-store");
@@ -81,8 +87,10 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const key = process.env.AISSTREAM_API_KEY?.trim();
   const feed = key ? createFeed({ key, WebSocket }) : null;
   feed?.start();
-  const server = createApp({ root: fileURLToPath(new URL("../web", import.meta.url)), feed });
+  // REDIRECTS="old.example=new.example,other.example=new.example"
+  const redirects = Object.fromEntries((process.env.REDIRECTS || "").split(",").filter(Boolean).map(pair => pair.trim().split("=")));
+  const server = createApp({ root: fileURLToPath(new URL("../web", import.meta.url)), feed, redirects });
   const port = Number(process.env.PORT) || 8080;
-  server.listen(port, "0.0.0.0", () => console.log(`Night Atlas on :${port}, ships ${feed ? "on" : "not configured"}`));
+  server.listen(port, "0.0.0.0", () => console.log(`Harbour Watch on :${port}, ships ${feed ? "on" : "not configured"}`));
   for (const signal of ["SIGINT", "SIGTERM"]) process.on(signal, () => { feed?.stop(); process.exit(0); });
 }
