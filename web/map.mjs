@@ -464,7 +464,7 @@ function landfall(p) {
 
 function updateShips(snapshot) {
   statusText = ({
-    live:"AIS snapshot", stale:"AIS snapshot · stale", waiting:"Waiting for ships",
+    live:snapshot.refresh ? "AIS live" : "AIS snapshot", stale:"AIS snapshot · stale", waiting:"Waiting for ships",
     offline:"Ships temporarily unavailable", "not-configured":"Ships not configured",
   })[snapshot.status] || "Ships temporarily unavailable";
   const points = snapshot.points || [];
@@ -945,7 +945,7 @@ async function refreshShips() {
     } else status.textContent = "Ships temporarily unavailable";
   } finally {
     fetchingShips = false;
-    shipRefreshTimer = setTimeout(refreshShips, shipSnapshot?.status === "waiting" ? 20000 : 60000);
+    shipRefreshTimer = setTimeout(refreshShips, (shipSnapshot?.refresh || (shipSnapshot?.status === "waiting" ? 20 : 60))*1000);
   }
 }
 function pollWhileVisible(callback, interval) {

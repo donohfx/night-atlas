@@ -4,11 +4,11 @@ const MAX_VESSELS = 3000;
 // Functions can be cut off at 30 s (Netlify legacy plans), and AIS Stream often takes 15-22 s to
 // accept a connection. So one deadline covers both: listen for whatever time is left, then save.
 const BUDGET_MS = 26_000;
-const URL = "wss://stream.aisstream.io/v0/stream";
+export const URL = "wss://stream.aisstream.io/v0/stream";
 
 const POSITION = ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport"];
 const STATIC = ["ShipStaticData", "StaticDataReport"];
-const TYPES = [...POSITION, ...STATIC];
+export const TYPES = [...POSITION, ...STATIC];
 
 function cleanText(value) {
   if (typeof value !== "string") return "";
@@ -24,7 +24,7 @@ export function retained(points, now) {
     .sort((a, b) => b.timestamp - a.timestamp).slice(0, MAX_VESSELS);
 }
 
-function update(event, vessels, metadataCache, seen, now) {
+export function update(event, vessels, metadataCache, seen, now) {
   const kind = event.MessageType;
   const report = event.Message?.[kind] ?? {};
   const metadata = event.MetaData ?? {};
