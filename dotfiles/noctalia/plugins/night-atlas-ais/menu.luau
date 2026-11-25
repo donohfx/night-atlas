@@ -18,6 +18,8 @@ local LAYERS = {
   { key = "lights", label = "Lights", glyph = "building-lighthouse" },
   { key = "weather", label = "Weather", glyph = "cloud" },
   { key = "fog", label = "Fog", glyph = "mist" },
+  { key = "sky", label = "Cloud and moon", glyph = "moon" },
+  { key = "rain", label = "Rain and snow", glyph = "cloud-rain" },
   { key = "spotlight", label = "Ship of the night", glyph = "ship" },
   { key = "labels", label = "Labels", glyph = "tag", default = false },
 }

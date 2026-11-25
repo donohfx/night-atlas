@@ -12,7 +12,6 @@ const read = async path => {
 };
 const [chart, colors] = await Promise.all([read("/chart-data.json"), read("/palette.json")]);
 const palette = colors.dark;
-const fogPreview = null;
 const marksData = await read("/seamarks.json").catch(() => collection());
 const isMark = f => f.geometry.type === "Point" && (f.properties.k === "buoy" || f.properties.k === "beacon");
 const markFeatures = marksData.features.filter(isMark).map((f, id) => ({...f, id,
@@ -165,7 +164,7 @@ const status = document.querySelector("#status");
 const details = document.querySelector("#details");
 let loaded = false, paused = false, commandId = null, viewportTimer, ships = new Map();
 let shipRevision = "", statusText = "AIS waiting", highlighted = null, overrideRevision = "";
-let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, spotlight:true, labels:false};
+let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, sky:true, rain:true, spotlight:true, labels:false};
 let night = null, labelScale = 1, beamBoost = 1;
 const ghostWindow = 7200;           // seconds a vessel keeps drifting after its last report
 const ghosts = new Map();
@@ -261,7 +260,7 @@ beamCanvas.setAttribute("aria-hidden","true");
 map.getContainer().append(beamCanvas);
 const beamContext = beamCanvas.getContext("2d");
 const extras = createExtras({map, beamCanvas, accent:palette.primary, ships:() => ships.values(),
-  preview:fogPreview});
+  preview:null});
 const rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
 const flashing = new Set(["Fl","LFl","Q","VQ","UQ","IUQ","IVQ"]);
 let sweepOverrides = new Map();
@@ -391,7 +390,8 @@ function drawBeams(timestamp) {
     const center = map.project(light.coordinates);
     const length = Math.min(103,14 + (light.range || 8)*.65 + Math.max(0,zoom-7)*10)*(beamBoost > 1 ? 1.9 : 1)*(1+(extras.strength()-1)*.2);
     const pixelsPerMetre = 512*2**zoom/metresPerUnit(light.coordinates[1]);
-    const wedges = beamBoost > 1 ? [[10,.30],[6,.34],[2.8,.42]] : [[9,1]];   // night: soft-edged
+    const wedges = (beamBoost > 1 ? [[10,.30],[6,.34],[2.8,.42]] : [[9,1]])   // night: soft-edged
+      .map(([half,share]) => [half*extras.spread(), share]);
     if (beamBoost > 1) beamContext.globalCompositeOperation = "lighter";
     for (const turn of turns) for (const [half,share] of wedges) {
       let start = azimuth+turn-half;
@@ -903,7 +903,7 @@ async function state() {
       classifySweeps(settings);
     }
     applySettings(snapshot.settings);
-    extras.setPreview(snapshot.settings?.fogPreview ?? NaN);
+    extras.setPreview(snapshot.settings?.weatherPreview);
     updateBuoys(snapshot.buoys || []);
     updateWeather(snapshot.weather);
     updateShips(snapshot.ships);

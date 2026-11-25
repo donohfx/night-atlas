@@ -62,12 +62,25 @@ test("old hostnames redirect and keep the path", async t => {
 test("fog levels and the biggest ship in the harbour", async () => {
   const { fogFrom, biggestInHarbour } = await import("../web/atlas-extras.mjs");
   assert.equal(fogFrom({ visibility: 20000, weather_code: 0 }), 0);
-  assert.equal(fogFrom({ visibility: 200 }), 1);
-  assert.ok(fogFrom({ visibility: 20000, weather_code: 45 }) >= .5);
+  assert.ok(fogFrom({ visibility: 4000 }) < .2);
+  assert.ok(fogFrom({ visibility: 900 }) > .4 && fogFrom({ visibility: 900 }) < .6);
+  assert.equal(fogFrom({ visibility: 60 }), 1);
+  assert.ok(fogFrom({ visibility: 20000, weather_code: 45 }) >= .45);
   const ship = (name, length, extra = {}) => ({ name, length, lat: 44.65, lon: -63.57, age: 30, ...extra });
   const best = biggestInHarbour([ship("small", 20), ship("big", 290), ship("far", 400, { lon: -61 }),
     ship("old", 350, { age: 9000 }), ship("unsized", undefined)]);
   assert.equal(best.name, "big");
+});
+
+test("cloud, rain, snow and moon readings", async () => {
+  const { cloudFrom, precipitationFrom, moonlight } = await import("../web/atlas-extras.mjs");
+  assert.equal(cloudFrom({}), null);
+  assert.equal(cloudFrom({ cloud_cover: 100, cloud_cover_low: 100 }), 1);
+  assert.equal(precipitationFrom({ weather_code: 3, precipitation: 0 }), null);
+  assert.equal(precipitationFrom({ weather_code: 73 }).kind, "snow");
+  assert.equal(precipitationFrom({ weather_code: 65 }).kind, "rain");
+  const full = moonlight(Date.UTC(2026, 10, 24, 14, 53)/1000), dark = moonlight(Date.UTC(2026, 11, 9, 0, 52)/1000);
+  assert.ok(full > .95 && dark < .05, `${full} ${dark}`);
 });
 
 test("ship dimensions are read from static reports", async () => {
