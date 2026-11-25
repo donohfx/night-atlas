@@ -23,12 +23,12 @@ The ship function opens one short WebSocket subscription for the region, keeps a
 
 ### Usage and cost
 
-Netlify has two kinds of Free plan; check which one your team is on. The figures below are untested estimates. A collection takes about 40 seconds (AIS Stream is slow to connect, then it listens for 20), and ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). A first visit downloads about 4.6 MB.
+Netlify has two kinds of Free plan; check which one your team is on. The figures below are untested estimates. A collection takes about 26 seconds (AIS Stream can be slow to connect, so each sample may hear only a few ships; they accumulate over time), and ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). A first visit downloads about 4.6 MB.
 
-- **Legacy Free** (accounts created before 4 September 2025): 100 GB bandwidth (about 20,000 first visits) and 125,000 function calls per site each month. With someone watching nonstop, ship collection uses about 85 function-hours a month at 5 minutes; shorter intervals can exceed 100. [Legacy plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
-- **Credit-based Free:** 300 credits a month with a hard limit. At 1 GB, constant viewing at 5 minutes is roughly 850 compute credits (well over the allowance), one active hour a day about 35, and a 600-second TTL about 450. Requests and bandwidth also use credits. [Credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/)
+- **Legacy Free** (accounts created before 4 September 2025): 100 GB bandwidth (about 20,000 first visits) and 125,000 function calls per site each month. With someone watching nonstop, ship collection uses about 57 function-hours a month at 5 minutes. [Legacy plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
+- **Credit-based Free:** 300 credits a month with a hard limit. At 1 GB, constant viewing at 5 minutes is roughly 580 compute credits (over the allowance), one active hour a day about 25, and a 600-second TTL about 300. Requests and bandwidth also use credits. [Credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/)
 
-A scheduled function (`netlify/functions/ships-schedule.mjs`) also refreshes the snapshot **every 15 minutes** while nobody is visiting: about 32 function-hours a month on top of quiet-period usage (roughly 320 credits at 1 GB, which exceeds credit-based Free on its own). Edit its `schedule` or delete the file to change that. It runs only on published deploys.
+A scheduled function (`netlify/functions/ships-schedule.mjs`) also refreshes the snapshot **every 15 minutes** while nobody is visiting: up to about 21 function-hours a month (roughly 210 credits at 1 GB). Edit its `schedule` or delete the file to change that. It runs only on published deploys.
 
 Watch your usage page and raise the TTL if traffic is sustained.
 

@@ -41,7 +41,7 @@ async function refresh(store, snapshot, etag, key, ttl, now, collectSnapshot) {
   } catch {
     result = { healthy: false, points: snapshot.points, received: 0 };
   }
-  console.log(`AIS collection ${result.healthy ? "ok" : "failed"}: ${result.received} vessels in ${Math.round((now() - started) / 1000)} s`);
+  console.log(`AIS collection ${result.healthy ? "ok" : "failed"}: ${result.received} vessels, ${result.points.length} held, connected after ${result.connectedMs == null ? "never" : (result.connectedMs / 1000).toFixed(1) + " s"}, ${Math.round((now() - started) / 1000)} s total`);
   const finished = now();
   await store.setJSON(BLOB_KEY, {
     points: retained(result.points, finished),

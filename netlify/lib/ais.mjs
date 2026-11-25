@@ -1,10 +1,9 @@
 export const REGION = [-69.14, 42.83, -58.38, 47.63];
 export const RETENTION_MS = 24 * 60 * 60 * 1000;
 const MAX_VESSELS = 3000;
-// AIS Stream often takes 15-25 s to accept a connection. Connect plus listen must stay under the
-// function's 60 s limit.
-const CONNECT_MS = 30_000;
-const LISTEN_MS = 20_000;
+// Functions can be cut off at 30 s (Netlify legacy plans), and AIS Stream often takes 15-22 s to
+// accept a connection. So one deadline covers both: listen for whatever time is left, then save.
+const BUDGET_MS = 26_000;
 const URL = "wss://stream.aisstream.io/v0/stream";
 
 const POSITION = ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport"];
@@ -76,7 +75,7 @@ function update(event, vessels, metadataCache, seen, now) {
   });
 }
 
-export function collect(key, previous, WebSocket, now = Date.now, listenMs = LISTEN_MS) {
+export function collect(key, previous, WebSocket, now = Date.now, budgetMs = BUDGET_MS) {
   const vessels = new Map(retained(previous, now()).reverse().map(point => [point.mmsi, { ...point }]));
   const metadataCache = new Map();
   const seen = new Set();
@@ -85,7 +84,7 @@ export function collect(key, previous, WebSocket, now = Date.now, listenMs = LIS
   return new Promise(resolve => {
     const socket = new WebSocket(URL, {
       perMessageDeflate: true,
-      handshakeTimeout: CONNECT_MS,
+      handshakeTimeout: budgetMs,
       maxPayload: 64 * 1024,
     });
     let subscribed = false;
@@ -99,14 +98,16 @@ export function collect(key, previous, WebSocket, now = Date.now, listenMs = LIS
         healthy,
         points: retained([...vessels.values()], now()),
         received: seen.size,
+        connectedMs,
       });
     };
-    let timer = setTimeout(() => finish(false), CONNECT_MS);   // the listening clock starts on open
+    const started = now();
+    let connectedMs = null;
+    const timer = setTimeout(() => finish(subscribed), budgetMs);
     socket.on("error", () => finish(false));
     socket.on("close", () => finish(false));
     socket.on("open", () => {
-      clearTimeout(timer);
-      timer = setTimeout(() => finish(subscribed), listenMs);
+      connectedMs = now() - started;
       socket.send(JSON.stringify({
         APIKey: key,
         BoundingBoxes: [[[north, west], [south, east]]],
