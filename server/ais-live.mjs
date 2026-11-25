@@ -1,5 +1,5 @@
 // One long-lived AIS Stream subscription, shared by every visitor.
-import { REGION, retained, TYPES, update, URL as STREAM } from "../netlify/lib/ais.mjs";
+import { REGION, retained, TYPES, update, URL as STREAM } from "./ais.mjs";
 
 const QUIET_MS = 120_000;                 // no message for this long means the link is dead
 const SAVE_EVERY = 15_000;

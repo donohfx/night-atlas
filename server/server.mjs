@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import { gzipSync } from "node:zlib";
 import WebSocket from "ws";
-import buoys from "../netlify/functions/buoys.mjs";
+import buoys from "./buoys.mjs";
 import { createFeed } from "./ais-live.mjs";
 
 const TYPES = {
@@ -57,8 +57,7 @@ export function createApp({ root, feed, buoyHandler = buoys }) {
       if (path === "/api/buoys") {
         if (Date.now() - buoyCache.at > (buoyCache.body?.stations.length ? 900_000 : 60_000)) {
           buoyCache.at = Date.now();
-          const response = await buoyHandler(new Request("http://local/api/buoys"));
-          const body = await response.json();
+          const body = await buoyHandler();
           if (body.stations.length || !buoyCache.body) buoyCache.body = body;
         }
         const body = buoyCache.body ?? { stations: [] };

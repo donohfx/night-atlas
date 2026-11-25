@@ -86,7 +86,7 @@ Save your AIS Stream key as the only line in
 Use a local editor so the key stays out of shell history. Restart Noctalia
 after adding it. The desktop plugin connects from Python and serves its
 background map over a local loopback HTTP server. The public web version
-uses the site's Netlify snapshot endpoint. The chart is for display only and
+gets ships from its own server's `/api/ships`. The chart is for display only and
 lighthouse beams are approximate.
 
 ## Add a tray glyph

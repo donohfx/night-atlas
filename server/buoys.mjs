@@ -7,7 +7,6 @@ const stations = {
   "44011": ["Georges Bank", -66.55, 41.09],
 };
 const fields = ["WDIR", "WSPD", "GST", "WVHT", "DPD", "WTMP"];
-export const config = {path: "/api/buoys"};
 
 export function parseBuoy(text) {
   const [header, , ...rows] = text.trim().split(/\r?\n/);
@@ -27,8 +26,7 @@ export function parseBuoy(text) {
   return null;
 }
 
-export default async function buoys(request) {
-  if (request.method !== "GET") return new Response(null, {status: 405, headers: {Allow: "GET"}});
+export default async function buoys() {
   const readings = await Promise.allSettled(Object.entries(stations).map(async ([id, [name, lon, lat]]) => {
     const response = await fetch(`https://www.ndbc.noaa.gov/data/realtime2/${id}.txt`, {
       signal: AbortSignal.timeout(8500),
@@ -39,13 +37,5 @@ export default async function buoys(request) {
     return reading && {id, name, coordinates: [lon, lat], ...reading};
   }));
   const available = readings.flatMap(result => result.status === "fulfilled" && result.value ? [result.value] : []);
-  return Response.json({stations: available}, {
-    status: available.length ? 200 : 503,
-    headers: {
-      "Cache-Control": "public, max-age=60",
-      "Netlify-CDN-Cache-Control": available.length
-        ? "public, durable, s-maxage=900, stale-while-revalidate=900, stale-if-error=3600"
-        : "public, s-maxage=60",
-    },
-  });
+  return {stations: available};
 }

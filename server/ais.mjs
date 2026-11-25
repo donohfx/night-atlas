@@ -1,9 +1,6 @@
 export const REGION = [-69.14, 42.83, -58.38, 47.63];
 export const RETENTION_MS = 24 * 60 * 60 * 1000;
 const MAX_VESSELS = 3000;
-// Functions can be cut off at 30 s (Netlify legacy plans), and AIS Stream often takes 15-22 s to
-// accept a connection. So one deadline covers both: listen for whatever time is left, then save.
-const BUDGET_MS = 26_000;
 export const URL = "wss://stream.aisstream.io/v0/stream";
 
 const POSITION = ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport"];
@@ -72,67 +69,5 @@ export function update(event, vessels, metadataCache, seen, now) {
     course: bounded(report.Cog, 360),
     heading: bounded(report.TrueHeading, 360),
     timestamp: now,
-  });
-}
-
-export function collect(key, previous, WebSocket, now = Date.now, budgetMs = BUDGET_MS) {
-  const vessels = new Map(retained(previous, now()).reverse().map(point => [point.mmsi, { ...point }]));
-  const metadataCache = new Map();
-  const seen = new Set();
-  const [west, south, east, north] = REGION;
-
-  return new Promise(resolve => {
-    const socket = new WebSocket(URL, {
-      perMessageDeflate: true,
-      handshakeTimeout: budgetMs,
-      maxPayload: 64 * 1024,
-    });
-    let subscribed = false;
-    let finished = false;
-    const finish = (healthy) => {
-      if (finished) return;
-      finished = true;
-      clearTimeout(timer);
-      socket.terminate();
-      resolve({
-        healthy,
-        points: retained([...vessels.values()], now()),
-        received: seen.size,
-        connectedMs,
-      });
-    };
-    const started = now();
-    let connectedMs = null;
-    const timer = setTimeout(() => finish(subscribed), budgetMs);
-    socket.on("error", () => finish(false));
-    socket.on("close", () => finish(false));
-    socket.on("open", () => {
-      connectedMs = now() - started;
-      socket.send(JSON.stringify({
-        APIKey: key,
-        BoundingBoxes: [[[north, west], [south, east]]],
-        FilterMessageTypes: TYPES,
-      }), error => {
-        if (error) finish(false);
-      });
-    });
-    socket.on("message", payload => {
-      if (finished) return;
-      let event;
-      try {
-        event = JSON.parse(payload.toString());
-      } catch {
-        return;
-      }
-      if (!event || typeof event !== "object") return;
-      if ("error" in event || "Error" in event) {
-        finish(false);
-      } else if (event.MessageType === "SubscriptionConfirmation") {
-        subscribed = true;
-      } else if (TYPES.includes(event.MessageType)) {
-        subscribed = true;
-        update(event, vessels, metadataCache, seen, now());
-      }
-    });
   });
 }
