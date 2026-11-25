@@ -185,3 +185,19 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
   #dock, #credits { left: auto; right: max(6px, env(safe-area-inset-right)); }
   #credits { max-width: calc(100% - 12px); }
 }
+
+#simulated-weather {
+  position: absolute; z-index: 4; top: max(68px, env(safe-area-inset-top)); left: 50%;
+  transform: translateX(-50%); padding: 7px 12px; white-space: nowrap;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--accent); border-radius: 4px;
+  pointer-events: none;
+}
+.touring #rotate, .record-tour #rotate, .record-tour #controls, .record-tour #dock { display: none; }
+.record-tour #simulated-weather { top: max(18px, env(safe-area-inset-top)); }
+.record-tour #credit-list { display: block; max-width: 620px; }
+.record-tour #credits-toggle, .record-tour #credits > .osm { display: none; }
+@media (orientation: portrait) and (max-width: 599px) {
+  .touring #details {
+    left: 8px !important; top: auto !important; bottom: calc(var(--credits-height, 28px) + 75px);
+  }
+}

@@ -1,5 +1,5 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
-import {createExtras} from "./atlas-extras.mjs";
+import {biggestInHarbour, createExtras} from "./atlas-extras.mjs";
 
 setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
 
@@ -94,6 +94,15 @@ const [west, south, east, north] = chart.reliefBounds;
 const imageCorners = [[west,north],[east,north],[east,south],[west,south]];
 const mapBounds = [[-68.85, 42.99], [-56.30, 47.58]];
 const overview = [[-66.70, 43.22], [-57.60, 47.38]];
+const mapContainer = document.querySelector("#map");
+function navigationBounds() {
+  const {clientWidth,clientHeight} = mapContainer;
+  if (!clientWidth || clientHeight <= clientWidth) return mapBounds;
+  // A tall viewport needs room above and below the chart when the province fits its width.
+  const latitudeMargin = Math.min(25, 5 * clientHeight / clientWidth);
+  return [[mapBounds[0][0],mapBounds[0][1]-latitudeMargin],
+    [mapBounds[1][0],mapBounds[1][1]+latitudeMargin]];
+}
 // In priority order. Zoom bands keep the regional names separate from
 // neighbourhood and harbour labels as the camera moves closer.
 // [name, [lon,lat], minZoom, maxZoom, kind, marker options]. Point places (cities) sit beside
@@ -109,6 +118,14 @@ const places = [
   ["Northwest Arm", [-63.600,44.626], 12.4, Infinity, "water"],
   ["The Narrows", [-63.590,44.668], 13.0, Infinity, "water"],
 ];
+const showcasePlaces = [
+  ["Sambro Harbour", [-63.615,44.480], 11.5, Infinity, "major"],
+  ["Sambro Ledges", [-63.574,44.469], 11.5, Infinity, "water"],
+  ["Sambro Island", [-63.563,44.432], 11.5, Infinity, "major", {anchor:"top-right", offset:[-4,5]}],
+  ["Sable Island", [-59.910,43.920], 8.4, Infinity, "major"],
+  ["West End", [-60.023,43.932], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
+  ["East End", [-59.791,43.960], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
+];
 const labels = [];
 const freshAge = 1200;
 const marksZoom = 9.2;
@@ -122,7 +139,7 @@ const inland = ["!=",["get","class"],"ocean"];
 const map = new AtlasMap({
   container: "map",
   center: [-63.65,45.2], zoom: 6.70, bearing: -5, pitch: 0,
-  minZoom: 4.5, maxZoom: 16.5, maxBounds: mapBounds, maxCanvasSize:[5120,4096],
+  minZoom: 4.5, maxZoom: 16.5, maxBounds: navigationBounds(), maxCanvasSize:[5120,4096],
   dragRotate:false, pitchWithRotate:false, renderWorldCopies:false, attributionControl:false,
   fadeDuration:160,
   style: {
@@ -228,6 +245,7 @@ const map = new AtlasMap({
 map.touchZoomRotate.disableRotation();
 map.keyboard.disableRotation();
 const BEARING = -5;
+map.on("resize", () => map.setMaxBounds(navigationBounds()));
 map.on("rotate", () => { if (Math.abs(map.getBearing()-BEARING) > .01) map.setBearing(BEARING); });
 
 const status = document.querySelector("#status");
@@ -333,8 +351,11 @@ beamCanvas.className = "light-beams";
 beamCanvas.setAttribute("aria-hidden","true");
 map.getContainer().append(beamCanvas);
 const beamContext = beamCanvas.getContext("2d");
-const extras = createExtras({map, beamCanvas, accent:palette.primary, ships:() => ships.values(),
+const liveExtras = createExtras({map, beamCanvas, accent:palette.primary, ships:() => ships.values(),
   preview:weatherPreview});
+const liveFogCanvas = beamCanvas.previousElementSibling;
+const liveShipCard = document.querySelector("#dock > .ship-card");
+let tourWeather;
 let rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
 const flashing = new Set(["Fl","LFl","Q","VQ","UQ","IUQ","IVQ"]);
 let sweepSettings = {};
@@ -463,6 +484,7 @@ function drawBeams(timestamp) {
   beamContext.clearRect(0,0,width,height);
   const now = Date.now()/1000, zoom = map.getZoom(), bearing = map.getBearing();
   const bounds = map.getBounds();
+  const extras = touring ? tourWeather.effects : liveExtras;
   extras.setLayers(layersOn);
   extras.begin(width,height,density,now,night);
   const strength = Math.min(.32,.125+Math.max(0,zoom-7)*.031)*beamBoost*extras.strength();
@@ -639,8 +661,8 @@ function placeLabels() {
   const height = map.getContainer().clientHeight;
   const occupied = [];
   for (const label of labels) {
-    const {element, coordinates, min, max} = label;
-    let opacity = layersOn.labels ? Math.min(1, (zoom-min)/.65, (max-zoom)/.65) : 0;   // labels are opt-in
+    const {element, coordinates, min, max, showcase} = label;
+    let opacity = layersOn.labels && (!showcase || touring) ? Math.min(1, (zoom-min)/.65, (max-zoom)/.65) : 0;   // labels are opt-in
     if (opacity <= 0) {
       element.style.opacity = "0";
       continue;
@@ -653,7 +675,7 @@ function placeLabels() {
     } else {
       occupied.push(box);
     }
-    element.style.opacity = String(opacity*.86*labelScale);
+    element.style.opacity = String(opacity*.86*(showcase ? .84 : labelScale));
   }
 }
 
@@ -668,7 +690,8 @@ function showCard(title, rows, click) {
   details.replaceChildren(titleNode,...lines);
   details.hidden = false;
   details.style.left = Math.max(8, Math.min(innerWidth-details.offsetWidth-8,click.x+15))+"px";
-  details.style.top = Math.max(8, Math.min(document.querySelector("#dock").offsetTop-details.offsetHeight-8,click.y+14))+"px";
+  const bottom = recordTour ? innerHeight - document.querySelector("#credits").offsetHeight - 24 : document.querySelector("#dock").offsetTop;
+  details.style.top = Math.max(8, Math.min(bottom-details.offsetHeight-8,click.y+14))+"px";
 }
 
 function highlight(feature) {
@@ -683,7 +706,8 @@ function clearHover() {
   highlight(null);
 }
 
-function inspect(event) {
+function inspect(event, subject) {
+  if (touring && !subject) return;
   if (!loaded || map.isMoving()) {
     clearHover();
     return;
@@ -691,7 +715,7 @@ function inspect(event) {
   const {x,y} = event.point;
   const hoverable = ["vessels","ghosts","weather-buoys","marks","mark-labels","lights"].filter(id => map.getLayoutProperty(id,"visibility") !== "none");
   const radius = event.type === "mousemove" ? 5 : 14;
-  const features = map.queryRenderedFeatures([[x-radius,y-radius],[x+radius,y+radius]], {layers:hoverable});
+  const features = subject ? [subject] : map.queryRenderedFeatures([[x-radius,y-radius],[x+radius,y+radius]], {layers:hoverable});
   const vessel = features.find(f=>f.layer.id==="vessels");
   const ghost = features.find(f=>f.layer.id==="ghosts");
   const buoy = features.find(f=>f.layer.id.startsWith("weather-buoy"));
@@ -771,11 +795,17 @@ function inspect(event) {
     ],event.point);
   } else clearHover();
 }
-map.on("mousemove", inspect);
-map.on("click", inspect);
+map.on("mousemove", event => {
+  const {movementX, movementY} = event.originalEvent || {};
+  if (touring && (movementX || movementY)) { endTour(); return; }
+  inspect(event);
+});
+map.on("click", event => {
+  if (!suppressTourClick) inspect(event);
+});
 const canvas = map.getCanvas();
 canvas.addEventListener("pointerleave", event => {
-  if (event.pointerType === "mouse") clearHover();
+  if (!touring && event.pointerType === "mouse") clearHover();
 });
 let touchStart;
 canvas.addEventListener("touchstart", event => {
@@ -785,7 +815,7 @@ canvas.addEventListener("touchend", event => {
   const touch = event.changedTouches[0];
   const start = touchStart;
   touchStart = null;
-  if (!start || event.touches.length || !touch || touch.identifier !== start.identifier ||
+  if (suppressTourClick || !start || event.touches.length || !touch || touch.identifier !== start.identifier ||
       Math.hypot(touch.clientX-start.clientX,touch.clientY-start.clientY) > 12) return;
   const frame = canvas.getBoundingClientRect();
   inspect({type:"touch",point:{x:touch.clientX-frame.left,y:touch.clientY-frame.top}});
@@ -898,7 +928,7 @@ const conditions = {0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Overcast",45
 const compass = deg => ["N","NE","E","SE","S","SW","W","NW"][Math.round(((deg%360)+360)%360/45)%8];
 
 function updateWeather(w) {
-  extras.setWeather(w);
+  liveExtras.setWeather(w);
   const revision = JSON.stringify(w);
   if (revision === weatherRevision) return;
   weatherRevision = revision;
@@ -914,7 +944,7 @@ function updateWeather(w) {
   weatherCard.replaceChildren(...rows.map(([tag,cls,text]) => {
     const node = document.createElement(tag); node.className = cls; node.textContent = text; return node;
   }));
-  weatherCard.hidden = !layersOn.weather;
+  weatherCard.hidden = !layersOn.weather || !simulatedWeather.hidden;
 }
 
 function updateBuoys(stations) {
@@ -930,8 +960,12 @@ function updateBuoys(stations) {
 }
 
 // The tour temporarily demonstrates the night rendering, then restores the selected mode.
-let touring = false, tourNight = null, tourRevision = 0;
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+let touring = false, tourNight = null, tourAbort;
+let suppressTourClick = false;
+const simulatedWeather = document.querySelector("#simulated-weather");
+const recordTour = params.get("tour") === "record";
+const tourEase = t => t*t*(3-2*t);
+const clearWeather = {visibility:30000, cloud_cover:0, cloud_cover_low:0, weather_code:0, precipitation:0};
 const viewControl = document.querySelector("#view");
 const modeControl = document.querySelector("#mode");
 const layerControls = document.querySelector("#layers fieldset");
@@ -959,66 +993,151 @@ function savePreferences() {
   try { localStorage.setItem(storageKey, JSON.stringify(preferences)); } catch {}
 }
 
-function endTour() {
-  if (!touring) return;
-  ++tourRevision;
-  touring = false;
-  tourNight = null;
-  tourControl.textContent = "Tour";
-  clearHover();
-  applySettings(preferences);
+function beginTourWeather() {
+  // Keep the live preview and its fog interpolation intact while the showcase uses a clear baseline.
+  const effects = createExtras({map, beamCanvas, accent:palette.primary, ships:() => [], preview:clearWeather});
+  const canvas = beamCanvas.previousElementSibling;
+  // Live extras already supplied the shared style. The tour supplies its own vessel card.
+  document.head.lastElementChild.remove();
+  liveShipCard.parentElement.firstElementChild.remove();
+  tourWeather = {effects, canvas, liveFilter:map.getCanvas().style.filter};
+  map.getCanvas().style.filter = "";
+  liveFogCanvas.hidden = true;
+  liveShipCard.hidden = true;
 }
 
-// Ring and card for one named vessel, whatever else is moored on top of it.
-function spotlight(p) {
+function showSimulatedWeather(visible) {
+  simulatedWeather.hidden = !visible;
+  weatherCard.hidden = visible || !layersOn.weather || !weatherRevision || weatherRevision === "null";
+}
+
+function endTour() {
+  if (!touring) return;
+  tourAbort.abort();
+  touring = false;
+  tourNight = null;
+  map.stop();
+  clearHover();
+  map.getCanvas().style.cursor = "";
+  tourWeather.canvas.remove();
+  beamContext.clearRect(0,0,beamCanvas.width,beamCanvas.height);
+  liveFogCanvas.hidden = false;
+  map.getCanvas().style.filter = tourWeather.liveFilter;
+  tourWeather = null;
+  showSimulatedWeather(false);
+  document.body.classList.remove("touring");
+  tourControl.textContent = "Tour";
+  applySettings(preferences);
+  renderShips();
+}
+
+function pauseTour(ms, signal) {
+  return new Promise(resolve => {
+    const finish = () => {
+      clearTimeout(timer);
+      signal.removeEventListener("abort", finish);
+      resolve(!signal.aborted);
+    };
+    const timer = setTimeout(finish, ms);
+    signal.addEventListener("abort", finish, {once:true});
+  });
+}
+
+function inspectTourSubject(layer, id, coordinates, properties) {
+  const point = map.project(coordinates);
+  if (layer === "lights") point.x += 180;   // leave the entire sweep visible beside the lighthouse card
+  inspect({type:"mousemove", point},
+    {layer:{id:layer}, id, geometry:{coordinates}, properties});
+}
+
+function spotlight(p, ferry) {
+  if (!ferry) {
+    inspectTourSubject("vessels", p.mmsi, [p.lon,p.lat], {mmsi:p.mmsi});
+    return;
+  }
   highlight({layer:{id:"vessels"}, id:p.mmsi, geometry:{coordinates:[p.lon,p.lat]}});
-  const name = p.name.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-  showCard(name, ["Halifax Transit ferry", p.speed >= .5 ? `Last reported under way · ${p.speed.toFixed(1)} kn` : "At the terminal"],
+  const underway = (p.speed ?? 0) >= .5;
+  showCard(p.name, ["Halifax Transit ferry", underway ? `Last reported under way · ${p.speed.toFixed(1)} kn` : "Last reported stopped"],
     map.project([p.lon,p.lat]));
 }
 
 async function tour() {
-  if (touring) { endTour(); map.stop(); return; }
+  if (touring) { endTour(); return; }
+  beginTourWeather();
   touring = true;
-  const revision = ++tourRevision;
+  tourAbort = new AbortController();
+  const {signal} = tourAbort;
+  tourNight = false;
+  document.body.classList.add("touring");
+  document.querySelector("#layers").open = false;
   tourControl.textContent = "Stop tour";
   viewControl.value = "custom";
+  applySettings({...preferences, layers:{...preferences.layers, ships:true, seamarks:true,
+    lights:true, labels:true, fog:true, sky:true, rain:false, spotlight:false}});
+  renderShips();
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const peggys = () => activeLights.find(light => /peggy/i.test(light.name))?.coordinates;
-  // A Halifax Transit ferry from the latest snapshot, if one has been heard recently.
-  const ferry = [...ships.values()].filter(p => p.age <= freshAge && /^(RITA JOE|CHRISTOPHER STANNIX)\b/i.test(p.name || ""))
+  const portrait = innerWidth < 600 && innerHeight > innerWidth;
+  const pause = ms => pauseTour(ms, signal);
+  const move = (camera, duration, curve) => new Promise(resolve => {
+    const finish = () => {
+      map.off("moveend", finish);
+      signal.removeEventListener("abort", finish);
+      resolve(!signal.aborted);
+    };
+    signal.addEventListener("abort", finish, {once:true});
+    map.on("moveend", finish);
+    map[curve ? "flyTo" : "easeTo"]({...camera, duration:reducedMotion ? 0 : duration,
+      easing:tourEase, ...(curve ? {curve} : {})});
+    if (!map.isMoving()) finish();
+  });
+  const peggysId = activeLights.findIndex(light => /peggys point/i.test(light.name));
+  const peggys = activeLights[peggysId];
+  const buoy = markFeatures.find(f => aidName(f.properties) === "HS19" && f.properties.lit);
+  const harbour = [-63.565,44.655];
+  const sambro = {center:portrait ? [-63.5805,44.458] : [-63.579,44.458], zoom:portrait ? 12.78 : 13.12};
+  const sable = map.cameraForBounds([[-60.181,43.921],[-59.638,44.054]], {
+    bearing:BEARING, padding:{top:65,bottom:100,left:26,right:26},
+  });
+  if (!await move(overviewCamera(), 1400) || !await pause(1300)) return;
+
+  const vessels = [...ships.values()].filter(p => Number.isFinite(p.lon) && Number.isFinite(p.lat) &&
+    p.lon >= -63.66 && p.lon <= -63.49 && p.lat >= 44.56 && p.lat <= 44.73);
+  const ferry = vessels.filter(p => p.age <= freshAge && /^(RITA JOE|CHRISTOPHER STANNIX)\b/i.test(p.name || ""))
     .sort((a,b) => (b.speed >= .5) - (a.speed >= .5) || a.age-b.age)[0];
-  const stages = [
-    {camera:overviewCamera(), duration:800, hold:2400},
-    {lighthouse:peggys, duration:5500, hold:2800},
-    {camera:{center:[-63.48,44.52],zoom:10.6}, duration:4200, hold:2600, inspect:[-63.40,44.50]},
-    {camera:{center:ferry ? [ferry.lon,ferry.lat] : [-63.565,44.635], zoom:ferry ? 13.4 : 12.4}, duration:3600, hold:4000, ferry},
-    {camera:{center:[-63.52,44.60],zoom:11.6}, duration:4500, hold:600, night:true},
-    {camera:overviewCamera(), duration:5200, hold:5000},
-  ];
-  for (const stage of stages) {
-    if (revision !== tourRevision) return;
-    const center = stage.lighthouse?.();
-    const camera = center ? {center,zoom:12.6} : stage.camera;
-    if (!camera) continue;
-    if (stage.night) { tourNight = true; setNight(true); await wait(reducedMotion ? 0 : 2400); }   // stays dark
-    if (revision !== tourRevision) return;
-    clearHover();
-    const duration = reducedMotion ? 0 : stage.duration;
-    map.flyTo({...camera, duration, essential:!reducedMotion});
-    await wait(duration+100);
-    if (revision !== tourRevision) return;
-    const target = stage.lighthouse?.() || stage.inspect;
-    if (target) inspect({type:"mousemove",point:map.project(target)});
-    if (stage.ferry) spotlight(stage.ferry);
-    await wait(stage.hold);
-  }
-  if (revision === tourRevision) {
-    preferences.mode = "night";                        // the finale stays dark
-    savePreferences();
-    endTour();
-    viewControl.value = "nova-scotia";
-  }
+  const ship = ferry || biggestInHarbour(vessels.filter(p => p.age <= freshAge));
+  if (!await move({center:ship ? [ship.lon,ship.lat] : harbour, zoom:portrait ? 12.55 : 12.95}, 7400, 1.35)) return;
+  if (ship) spotlight(ship, Boolean(ferry));
+  if (!await pause(3820)) return;
+
+  clearHover();
+  tourNight = true;
+  setNight(true);
+  if (!await pause(5000)) return;
+
+  if (!await move({center:peggys?.coordinates || [-63.919,44.492], zoom:portrait ? 13.25 : 13.65}, 4200, 1.15)) return;
+  if (peggys) inspectTourSubject("lights", peggysId, peggys.coordinates, {id:peggysId, open:layersOn.openSources});
+  if (!await pause(3760)) return;
+
+  if (!await move({...sambro, zoom:portrait ? 11.95 : 12.3}, 4400, 1.15) ||
+      !await pause(800) || !await move(sambro, 2900) || !await pause(700)) return;
+  if (buoy) inspectTourSubject("marks", buoy.id, buoy.geometry.coordinates, buoy.properties);
+  if (!await pause(3120)) return;
+
+  clearHover();
+  showSimulatedWeather(true);
+  tourWeather.effects.setPreview({...clearWeather, visibility:100, weather_code:45, cloud_cover:65, cloud_cover_low:65});
+  if (!await pause(3400)) return;
+  tourWeather.effects.setPreview(clearWeather);
+  if (!await pause(3600)) return;
+  showSimulatedWeather(false);
+
+  if (!await move(sable, 3750, 1.25) || !await pause(2210)) return;
+  if (!await move(overviewCamera(), 5100, 1.25) || !await pause(3860)) return;
+
+  preferences.mode = "night";
+  savePreferences();
+  endTour();
+  viewControl.value = "nova-scotia";
 }
 
 function bindControls() {
@@ -1041,6 +1160,19 @@ function bindControls() {
     label.append(input, document.createTextNode(name));
     layerControls.append(label);
   }
+  document.addEventListener("pointerdown", event => {
+    suppressTourClick = touring && map.getContainer().contains(event.target);
+    if (!tourControl.contains(event.target)) endTour();
+  }, true);
+  document.addEventListener("click", event => {
+    if (!tourControl.contains(event.target)) endTour();
+  }, true);
+  document.addEventListener("wheel", endTour, {capture:true, passive:true});
+  document.addEventListener("keydown", event => {
+    if (touring && tourControl.contains(event.target) && [" ", "Enter"].includes(event.key)) return;
+    endTour();
+  }, true);
+  document.addEventListener("change", endTour, true);
   viewControl.addEventListener("change", () => {
     endTour();
     preferences.view = viewControl.value;
@@ -1200,14 +1332,14 @@ map.once("load", () => {
   }
 
   addVesselIcon("stationary-diamond",[[0,-7],[7,0],[0,7],[-7,0]]);
-  for (const [name, coordinates, min, max, importance, options = {}] of places) {
+  for (const [name, coordinates, min, max, importance, options = {}] of [...places, ...showcasePlaces]) {
     const element=document.createElement("span");
     element.className=`place place-${importance}`;
     element.textContent=name;
     const anchor = document.createElement("div");
     anchor.append(element);
     new Marker({element:anchor, ...options}).setLngLat(coordinates).addTo(map);
-    labels.push({element,coordinates,min,max});
+    labels.push({element,coordinates,min,max,showcase:showcasePlaces.some(([label]) => label === name)});
   }
   loaded=true;
   bindControls();
@@ -1217,9 +1349,10 @@ map.once("load", () => {
   const preview = new URLSearchParams(location.search).has("static");
   const credits = document.querySelector("#credits");
   new ResizeObserver(() => document.documentElement.style.setProperty("--credits-height", credits.offsetHeight+"px")).observe(credits);
+  let firstShips;
   if (preview) status.textContent = "Ships not configured";
   else {
-    refreshShips();
+    firstShips = refreshShips();
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden && !shipRefreshTimer) refreshShips();
     });
@@ -1227,10 +1360,18 @@ map.once("load", () => {
   }
   pollWhileVisible(refreshWeather,900000);
   pollWhileVisible(renderShips,10000);
-  setInterval(() => applySettings(preferences),30000);
+  setInterval(() => { if (!touring) applySettings(preferences); },30000);
   map.on("moveend",renderShips);
   blink();
   startBeams();
+  if (recordTour) {
+    document.body.classList.add("record-tour");
+    const initialTour = tourAbort;
+    map.once("idle", async () => {
+      await Promise.race([firstShips || Promise.resolve(), new Promise(resolve => setTimeout(resolve, 1800))]);
+      if (tourAbort === initialTour) tour();
+    });
+  }
   const gl=map.getCanvas().getContext("webgl2");
   console.info("Night Atlas MapLibre ready",gl?"WebGL2":"no WebGL2", gl?.getParameter(gl.MAX_TEXTURE_SIZE));
 });
