@@ -17,23 +17,47 @@ const params = new URLSearchParams(location.search);
 const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation","weather_code","wind_speed_10m","wind_direction_10m"]
   .filter(key => params.get(key) !== null && Number.isFinite(Number(params.get(key))));
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
-const [marksData, aidsData] = await Promise.all([
+const [marksData, aidsData, chsData] = await Promise.all([
   read("/seamarks.json").catch(() => collection()),
   read("/aids.json").catch(() => collection()),
+  read("/chs-marks.json").catch(() => collection()),
 ]);
 const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
 const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
-const coastGuardBuoys = new Map();
-for (const aid of aidsData.features) {
-  const name = aidName(aid.properties);
-  if (aid.properties.k !== "buoy" || !name) continue;
-  if (!coastGuardBuoys.has(name)) coastGuardBuoys.set(name, []);
-  coastGuardBuoys.get(name).push(aid.geometry.coordinates);
+const chartMarks = chsData.features;
+const markByLightNumber = new Map();
+for (const mark of chartMarks) {
+  const {k, ll, lit} = mark.properties;
+  if (k !== "beacon" || !ll || lit !== 1) continue;
+  if (!markByLightNumber.has(ll)) markByLightNumber.set(ll, []);
+  markByLightNumber.get(ll).push(mark);
 }
-const duplicateBuoy = f => f.properties.k === "buoy" &&
-  coastGuardBuoys.get(aidName(f.properties))?.some(([x,y]) =>
-    Math.hypot(x - f.geometry.coordinates[0], y - f.geometry.coordinates[1]) < .001);
-const markFeatures = [...marksData.features.filter(f => isMark(f) && !duplicateBuoy(f)), ...aidsData.features].map((f, id) => {
+function markDistanceMeters([x,y], [ox,oy]) {
+  return Math.hypot((x-ox)*Math.cos(y*Math.PI/180), y-oy)*111195;
+}
+const supplementalAids = aidsData.features.filter(f => {
+  if (!chartMarks.length) return true;
+  const p = f.properties;
+  if (p.k === "buoy") return false;
+  return !markByLightNumber.get(p.ll)?.some(mark => {
+    const q = mark.properties;
+    return p.lch === q.lch && (p.lcs || p.lc) === (q.lcs || q.lc)
+      && Number(p.lp || 0) === Number(q.lp || 0) && String(p.lg || 1) === String(q.lg || 1)
+      && markDistanceMeters(f.geometry.coordinates, mark.geometry.coordinates) <= 20;
+  });
+});
+const officialMarks = chartMarks.length ? chartMarks : supplementalAids.filter(isMark);
+function duplicateMark(f) {
+  const name = aidName(f.properties);
+  return officialMarks.some(other => {
+    if (f.properties.k !== other.properties.k) return false;
+    const candidate = aidName(other.properties);
+    const distance = markDistanceMeters(f.geometry.coordinates, other.geometry.coordinates);
+    return (name && name === candidate && distance <= 100)
+      || (chartMarks.length && distance <= 12 && (!name || !candidate));
+  });
+}
+const markFeatures = [...marksData.features.filter(f => isMark(f) && !duplicateMark(f)), ...supplementalAids, ...chartMarks].map((f, id) => {
   const p = f.properties;
   return {...f, id, properties:{...p, icon:`mk-${p.k}-${p.s || "pillar"}-${p.cs || p.c || "-"}-${p.pat || ""}`}};
 });
@@ -72,7 +96,7 @@ const labels = [];
 const freshAge = 1200;
 const marksZoom = 9.2;
 const allMarksZoom = 10.5;
-const visibleMarks = ["step", ["zoom"], ["!", ["has","ll"]], allMarksZoom, true];
+const visibleMarks = ["step", ["zoom"], ["!", ["any", ["has","ll"], ["==",["get","src"],"chs"]]], allMarksZoom, true];
 const activeLight = ["coalesce", ["feature-state","lit"], 1];
 const seaTint = "#102122";
 const detailOpacity = ["interpolate",["linear"],["zoom"],7.9,0,8.5,1];   // vector land in before raster steps show (from 7.9: z7 tiles exceed 65k vertices)
@@ -132,7 +156,7 @@ const map = new AtlasMap({
         paint:{"line-color":"#7f9a8e","line-opacity":["interpolate",["linear"],["zoom"],6,.2,10,.36],
           "line-width":.8,"line-dasharray":[2,3]}},
       {id:"mark-glow", type:"circle", source:"marks", minzoom:marksZoom, filter:["all",visibleMarks,["==",["get","lit"],1]],
-        paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","Bu","#84aaff","#f0eedc"],
+        paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","Bu","#84aaff","U","#84aaff","A","#ffb857","V","#bea0ff","O","#ffb16b","#f0eedc"],
           "circle-radius":["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],"circle-blur":.85,
           "circle-opacity":["*",["coalesce",["feature-state","lit"],1],.6]}},
       {id:"marks", type:"symbol", source:"marks", minzoom:marksZoom, filter:visibleMarks,
@@ -272,7 +296,7 @@ function blink() {
   const showAllMarks = map.getZoom() >= allMarksZoom;
   for (const rhythm of markRhythms) {
     const mark = markFeatures[rhythm.id];
-    if ((!showAllMarks && mark.properties.ll) || !view.contains(mark.geometry.coordinates)) continue;
+    if ((!showAllMarks && (mark.properties.ll || mark.properties.src === "chs")) || !view.contains(mark.geometry.coordinates)) continue;
     const lit = illuminated(rhythm,now) ? 1 : .05;
     if (lit !== rhythm.previous) {
       rhythm.previous = lit;
@@ -644,16 +668,21 @@ function inspect(event) {
   highlight(vessel || ghost || buoy || lightFeature || mark);
   if (!vessel && !ghost && !buoy && !lightFeature && mark) {
     const m = mark.properties;
-    const names = {R:"red",G:"green",Y:"yellow",B:"black",W:"white",Bu:"blue"};
+    const names = {R:"red",G:"green",Y:"yellow",B:"black",W:"white",Bu:"blue",U:"blue",E:"grey",N:"brown",A:"amber",V:"violet",O:"orange",M:"magenta",P:"pink"};
     const bands = [...(m.cs || m.c || "")].map(c => names[c]).filter(Boolean);
     const kind = m.k === "buoy" ? `${m.s ? m.s+" " : ""}buoy` : m.k;
     const purpose = (m.cat || "").replaceAll("_"," ");
-    const character = m.lg ? `${m.lch || ""}(${m.lg})` : m.lch;
-    const colours = (m.lcs || m.lc || "").split("/").map(c => names[c]).filter(Boolean).join("/");
+    const describeSignal = ({lch, lg, lcs, lc, lp}) => {
+      const character = lg && String(lg) !== "1" ? `${lch || ""}(${lg})` : lch;
+      const colours = (lcs || lc || "").split("/").map(c => names[c]).filter(Boolean).join("/");
+      return [character, colours, lp && lp+" s"].filter(Boolean).join(" ");
+    };
+    const additional = markFeatures[mark.id]?.properties.signals || [];
+    const signalText = [m, ...additional].map(describeSignal).filter(Boolean).join(" · ");
     showCard(m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
       [bands.join("/"), kind, purpose, m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
-      m.lit ? `Lit: ${[character, colours, m.lp && m.lp+" s"].filter(Boolean).join(" ") || "light details unrecorded"}` : "Lighting unrecorded",
-      m.ll ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
+      m.lit ? `Lit: ${signalText || "light details unrecorded"}` : m.src === "chs" && m.lit === 0 ? "Unlit" : "Lighting unrecorded",
+      m.src === "chs" ? "Canadian Hydrographic Service" : m.ll ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
     ],event.point);
     return;
   }
@@ -1061,7 +1090,7 @@ map.once("load", () => {
     ctx.stroke();
     map.addImage("ghost-arrow",ctx.getImageData(0,0,42,42),{pixelRatio:2});
   }
-  const markColors = {R:"#c9544d",G:"#3f9f6c",Y:"#dcb84f",B:"#2a2e2d",W:"#e3e0d2","-":"#7b8a82"};
+  const markColors = {R:"#c9544d",G:"#3f9f6c",Y:"#dcb84f",B:"#2a2e2d",W:"#e3e0d2",U:"#4e87c5",E:"#868b86",N:"#98674b",A:"#d7a142",V:"#9e74bb",O:"#e28c43",M:"#bd619e",P:"#d38ca6","-":"#7b8a82"};
   const outlines = {
     conical:[[0,-26],[11,0],[-11,0]],
     can:[[-9,-20],[9,-20],[9,0],[-9,0]],

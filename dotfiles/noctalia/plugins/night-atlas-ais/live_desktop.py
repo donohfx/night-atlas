@@ -36,6 +36,7 @@ ASSETS = {
     "/relief.jpg": ("relief.jpg", "image/jpeg"),
     "/relief-detail.jpg": ("relief-detail.jpg", "image/jpeg"),
     "/seamarks.json": ("seamarks.json", "application/json"),
+    "/chs-marks.json": ("chs-marks.json", "application/json"),
     "/aids.json": ("aids.json", "application/json"),
     "/vendor/maplibre-gl.mjs": ("vendor/maplibre-gl.mjs", "text/javascript"),
     "/vendor/maplibre-gl-shared.mjs": ("vendor/maplibre-gl-shared.mjs", "text/javascript"),
