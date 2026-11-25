@@ -961,6 +961,7 @@ function updateBuoys(stations) {
 
 // The tour temporarily demonstrates the night rendering, then restores the selected mode.
 let touring = false, tourNight = null, tourAbort;
+let tourFinished = false;
 let suppressTourClick = false;
 const simulatedWeather = document.querySelector("#simulated-weather");
 const recordTour = params.get("tour") === "record";
@@ -1015,6 +1016,7 @@ function endTour() {
   if (!touring) return;
   tourAbort.abort();
   touring = false;
+  tourFinished = false;
   tourNight = null;
   map.stop();
   clearHover();
@@ -1062,7 +1064,11 @@ function spotlight(p, ferry) {
 }
 
 async function tour() {
-  if (touring) { endTour(); return; }
+  if (touring) {
+    const replay = tourFinished;
+    endTour();
+    if (!replay) return;
+  }
   beginTourWeather();
   touring = true;
   tourAbort = new AbortController();
@@ -1130,9 +1136,12 @@ async function tour() {
 
   if (!await move(overviewCamera(), 5100, 1.25) || !await pause(3860)) return;
 
+  // Hold the final scene: restoring the visitor's layers here would blink. Any interaction restores them.
   preferences.mode = "night";
   savePreferences();
-  endTour();
+  tourFinished = true;
+  document.body.classList.remove("touring");
+  tourControl.textContent = "Tour";
   viewControl.value = "nova-scotia";
 }
 
@@ -1157,7 +1166,7 @@ function bindControls() {
     layerControls.append(label);
   }
   document.addEventListener("pointerdown", event => {
-    suppressTourClick = touring && map.getContainer().contains(event.target);
+    suppressTourClick = touring && !tourFinished && map.getContainer().contains(event.target);
     if (!tourControl.contains(event.target)) endTour();
   }, true);
   document.addEventListener("click", event => {
