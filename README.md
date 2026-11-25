@@ -4,7 +4,7 @@ An interactive maritime atlas of Nova Scotia, Halifax coast, and Halifax Harbour
 
 ## Web app
 
-Open the controls to change view, choose Chart, Night, or Auto, toggle layers, or start a tour. Hover or tap a feature to see its details. View, appearance, and layer preferences persist in your browser.
+Open the controls to change view, switch between chart and night with the moon/sun button (it follows Halifax daylight until you change it), toggle layers, or start a tour. Hover or tap a feature to see its details. View, appearance, and layer preferences persist in your browser.
 
 ```sh
 python -m http.server 8000 --directory web

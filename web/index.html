@@ -19,9 +19,10 @@
       <option value="halifax">Harbour</option>
       <option value="custom" disabled>Custom view</option>
     </select></label>
-    <label><span class="lbl">Mode</span> <select id="mode" aria-label="Mode" disabled>
-      <option value="chart">Chart</option><option value="night">Night</option><option value="auto" selected>Auto</option>
-    </select></label>
+    <button id="mode" type="button" aria-label="Switch to night mode" title="Switch to night mode" disabled>
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+    </button>
     <details id="layers"><summary>Layers</summary><fieldset aria-label="Visible layers" disabled></fieldset></details>
     <button id="tour" type="button" disabled>Tour</button>
   </header>

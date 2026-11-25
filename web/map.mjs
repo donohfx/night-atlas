@@ -716,6 +716,11 @@ function setNight(value) {
   labelScale = night ? .38 : 1;
   beamBoost = night ? 1.9 : 1;
   placeLabels();
+  // The button shows where a tap will take you: a moon by day, a sun by night.
+  const toggle = document.querySelector("#mode");
+  toggle.classList.toggle("is-night", night);
+  toggle.title = night ? "Switch to chart mode" : "Switch to night mode";
+  toggle.setAttribute("aria-label", toggle.title);
 
 }
 
@@ -865,7 +870,7 @@ async function tour() {
     await wait(stage.hold);
   }
   if (revision === tourRevision) {
-    preferences.mode = modeControl.value = "night";    // the finale stays dark
+    preferences.mode = "night";                        // the finale stays dark
     savePreferences();
     endTour();
     viewControl.value = "nova-scotia";
@@ -875,7 +880,6 @@ async function tour() {
 function bindControls() {
   viewControl.disabled = modeControl.disabled = layerControls.disabled = tourControl.disabled = false;
   viewControl.value = preferences.view;
-  modeControl.value = preferences.mode;
   const names = {ships:"Ships",ghosts:"Estimated positions",buoys:"Weather buoys",seamarks:"Seamarks",
     lights:"Lighthouses",weather:"Halifax weather",labels:"Place names"};
   for (const [id, name] of Object.entries(names)) {
@@ -902,10 +906,12 @@ function bindControls() {
   map.on("movestart", event => {
     if (event.originalEvent) { endTour(); viewControl.value = "custom"; }
   });
-  modeControl.addEventListener("change", () => {
+  modeControl.addEventListener("click", () => {
+    const target = !night;
     endTour();
     map.stop();
-    preferences.mode = modeControl.value;
+    // Choosing what daylight would show anyway goes back to following sunrise and sunset.
+    preferences.mode = target === isDark(Date.now()/1000) ? "auto" : target ? "night" : "chart";
     savePreferences();
     applySettings(preferences);
   });

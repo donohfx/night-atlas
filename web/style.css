@@ -159,3 +159,20 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
   .place-major { font-size: 10px; }
 }
 #credits.open > .osm { display: none; }
+
+/* One height for every control in the bar. */
+#controls { --control-height: 36px; }
+#controls select, #controls > button, #controls summary { box-sizing: border-box; height: var(--control-height); min-height: var(--control-height); }
+#controls > details { display: flex; }
+#controls summary { display: flex; align-items: center; gap: 5px; padding-block: 0; line-height: 1; list-style: none; }
+#controls summary::-webkit-details-marker { display: none; }
+#controls summary::before { content: "▸"; }
+#controls details[open] > summary::before { content: "▾"; }
+#controls > button { display: inline-flex; align-items: center; justify-content: center; }
+#controls #mode { width: var(--control-height); padding: 0; }
+#mode svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#mode .sun, #mode.is-night .moon { display: none; }
+#mode.is-night .sun { display: block; }
+@media (max-width: 540px), (max-height: 500px) and (pointer: coarse) {
+  #controls { --control-height: 34px; }
+}
