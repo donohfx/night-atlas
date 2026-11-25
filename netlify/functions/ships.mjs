@@ -34,19 +34,21 @@ async function refresh(store, snapshot, etag, key, ttl, now, collectSnapshot) {
     etag ? { onlyIfMatch: etag } : { onlyIfNew: true });
   if (!lease.modified) return;
 
+  const started = now();
   let result;
   try {
     result = await collectSnapshot(key, snapshot.points);
   } catch {
     result = { healthy: false, points: snapshot.points, received: 0 };
   }
+  console.log(`AIS collection ${result.healthy ? "ok" : "failed"}: ${result.received} vessels in ${Math.round((now() - started) / 1000)} s`);
   const finished = now();
   await store.setJSON(BLOB_KEY, {
     points: retained(result.points, finished),
     received: result.received,
     updatedAt: result.healthy ? finished : snapshot.updatedAt,
     leaseUntil: 0,
-    retryAfter: result.healthy ? 0 : finished + ttl * 1000,
+    retryAfter: result.healthy ? 0 : finished + Math.min(ttl, 60) * 1000,
   }, { onlyIfMatch: lease.etag });
 }
 

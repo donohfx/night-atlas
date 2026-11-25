@@ -23,10 +23,10 @@ The ship function opens one short WebSocket subscription for the region, keeps a
 
 ### Usage and cost
 
-Netlify has two kinds of Free plan; check which one your team is on. The figures below are untested estimates. A collection runs for about 18 seconds, and ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). A first visit downloads about 4.6 MB.
+Netlify has two kinds of Free plan; check which one your team is on. The figures below are untested estimates. A collection takes about 40 seconds (AIS Stream is slow to connect, then it listens for 20), and ships refresh every **5 minutes** by default (`AIS_SNAPSHOT_TTL_SECONDS=300`). A first visit downloads about 4.6 MB.
 
-- **Legacy Free** (accounts created before 4 September 2025): 100 GB bandwidth (about 20,000 first visits) and 125,000 function calls per site each month. With someone watching nonstop, ship collection uses about 41 function-hours a month at 5 minutes, or about 90 at 2 minutes. [Legacy plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
-- **Credit-based Free:** 300 credits a month with a hard limit. Constant viewing at 5 minutes is about 400 compute credits (over the allowance), one active hour a day about 17, and a 600-second TTL about 210. Requests and bandwidth also use credits. [Credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/)
+- **Legacy Free** (accounts created before 4 September 2025): 100 GB bandwidth (about 20,000 first visits) and 125,000 function calls per site each month. With someone watching nonstop, ship collection uses about 85 function-hours a month at 5 minutes; shorter intervals can exceed 100. [Legacy plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
+- **Credit-based Free:** 300 credits a month with a hard limit. At 1 GB, constant viewing at 5 minutes is roughly 850 compute credits (well over the allowance), one active hour a day about 35, and a 600-second TTL about 450. Requests and bandwidth also use credits. [Credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/)
 
 Watch your usage page and raise the TTL if traffic is sustained.
 

@@ -1,7 +1,10 @@
 export const REGION = [-69.14, 42.83, -58.38, 47.63];
 export const RETENTION_MS = 24 * 60 * 60 * 1000;
 const MAX_VESSELS = 3000;
-const LISTEN_MS = 18_000;
+// AIS Stream often takes 15-25 s to accept a connection. Connect plus listen must stay under the
+// function's 60 s limit.
+const CONNECT_MS = 30_000;
+const LISTEN_MS = 20_000;
 const URL = "wss://stream.aisstream.io/v0/stream";
 
 const POSITION = ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport"];
@@ -82,7 +85,7 @@ export function collect(key, previous, WebSocket, now = Date.now, listenMs = LIS
   return new Promise(resolve => {
     const socket = new WebSocket(URL, {
       perMessageDeflate: true,
-      handshakeTimeout: 5000,
+      handshakeTimeout: CONNECT_MS,
       maxPayload: 64 * 1024,
     });
     let subscribed = false;
@@ -98,10 +101,12 @@ export function collect(key, previous, WebSocket, now = Date.now, listenMs = LIS
         received: seen.size,
       });
     };
-    const timer = setTimeout(() => finish(subscribed), listenMs);
+    let timer = setTimeout(() => finish(false), CONNECT_MS);   // the listening clock starts on open
     socket.on("error", () => finish(false));
     socket.on("close", () => finish(false));
     socket.on("open", () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => finish(subscribed), listenMs);
       socket.send(JSON.stringify({
         APIKey: key,
         BoundingBoxes: [[[north, west], [south, east]]],
