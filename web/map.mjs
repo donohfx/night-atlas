@@ -1084,3 +1084,19 @@ map.once("load", () => {
   console.info("Night Atlas MapLibre ready",gl?"WebGL2":"no WebGL2", gl?.getParameter(gl.MAX_TEXTURE_SIZE));
 });
 map.on("error", event => console.warn("Night Atlas map:", event.error?.message || "unknown error"));
+
+// Phone extras: the collapsed credits and the "turn your phone" note.
+const creditsToggle = document.querySelector("#credits-toggle");
+creditsToggle.addEventListener("click", () => {
+  const open = document.querySelector("#credits").classList.toggle("open");
+  creditsToggle.setAttribute("aria-expanded", String(open));
+  creditsToggle.textContent = open ? "Close" : "Credits";
+});
+const rotateNote = document.querySelector("#rotate");
+let rotateDismissed = false;
+try { rotateDismissed = sessionStorage.getItem("night-atlas.rotate") === "dismissed"; } catch {}
+rotateNote.hidden = rotateDismissed;
+rotateNote.querySelector("button").addEventListener("click", () => {
+  rotateNote.hidden = true;
+  try { sessionStorage.setItem("night-atlas.rotate", "dismissed"); } catch {}
+});

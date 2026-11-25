@@ -100,3 +100,60 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
   #controls select, #controls button, #controls summary { min-height: 40px; }
   #details { max-width: calc(100vw - 16px); }
 }
+
+#credits-toggle { display: none; }
+
+/* "Turn your phone" note: phones held upright only; dismissible. */
+#rotate { display: none; }
+@media (orientation: portrait) and (max-width: 540px) {
+  #rotate:not([hidden]) {
+    position: absolute; z-index: 6; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    display: flex; align-items: center; gap: 10px; width: max-content; max-width: calc(100vw - 32px);
+    padding: 8px 8px 8px 12px; font-size: 13px; color: var(--paper);
+    background: var(--ink); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 4px 16px #0007;
+  }
+  #rotate button { font: inherit; min-width: 32px; min-height: 32px; color: var(--paper); background: transparent; border: 0; cursor: pointer; }
+}
+
+/* Phones, either way up: smaller chrome so the chart gets the screen. */
+@media (max-width: 540px), (max-height: 500px) and (pointer: coarse) {
+  #controls {
+    top: max(6px, env(safe-area-inset-top)); left: max(6px, env(safe-area-inset-left));
+    right: max(6px, env(safe-area-inset-right)); max-width: calc(100% - 12px);
+    flex-wrap: nowrap; gap: 4px; padding: 4px; font-size: 12px;
+  }
+  #controls h1, #controls .lbl { display: none; }
+  #controls label { min-width: 0; }
+  #controls select, #controls button, #controls summary { min-height: 32px; padding: 3px 6px; font-size: 12px; }
+  #controls select { max-width: 100%; }
+  #controls summary { padding-top: 7px; white-space: nowrap; }
+  #controls button { white-space: nowrap; }
+  #controls fieldset { max-height: calc(100dvh - 60px); overflow-y: auto; }
+  #controls fieldset label { min-height: 30px; }
+
+  #dock { left: max(6px, env(safe-area-inset-left)); bottom: calc(var(--credits-height, 28px) + max(6px, env(safe-area-inset-bottom)) + 4px); gap: 4px; }
+  #dock > * { border-radius: 4px; }
+  .weather-card { display: flex; gap: 6px; align-items: baseline; padding: 2px 8px 3px; }
+  .weather-card[hidden] { display: none; }
+  .weather-place, .weather-line { display: none; }
+  .weather-temp { font-size: 15px; }
+  .weather-sky { font-size: 11px; }
+  #dock #status { padding: 2px 8px; font-size: 10px; }
+
+  #credits {
+    left: max(6px, env(safe-area-inset-left)); right: max(6px, env(safe-area-inset-right));
+    bottom: max(6px, env(safe-area-inset-bottom)); padding: 2px 8px; font-size: 10px; line-height: 1.5;
+  }
+  #credits .beams, #credit-list { display: none; }
+  #credits-toggle {
+    display: inline-block; margin-left: 6px; padding: 2px 4px; font: inherit; color: var(--paper);
+    background: transparent; border: 0; text-decoration: underline; cursor: pointer;
+  }
+  #credits.open .beams { display: inline; }
+  #credits.open #credit-list { display: block; max-width: 560px; }
+
+  #details { min-width: 0; max-width: min(260px, calc(100vw - 16px)); padding: 6px 9px; font-size: 12px; }
+  .place { font-size: 9px; }
+  .place-region { font-size: 12px; }
+  .place-major { font-size: 10px; }
+}
