@@ -39,6 +39,8 @@ The public Open-Meteo endpoint is for noncommercial use under its hosted API ter
 
 See the [desktop install guide](dotfiles/README.md) for packages, backup and installation, Noctalia plugins, and the separate desktop AIS key at `~/.config/night-atlas/aisstream.key`. The embedded desktop map retains its local Python server and Noctalia integration. The browser version is adapted from the same map, with independent runtime entry points.
 
+Just want the live wallpaper on another Hyprland setup (such as Omarchy)? See [wallpaper/](wallpaper/README.md): no Noctalia needed.
+
 **Licences differ by file.** MIT covers the code. Map data keeps its own terms, and the lighthouse data is for **non-commercial use only**: see [DATA-LICENSE.md](DATA-LICENSE.md).
 
 [Build scripts and data sources](tools/README.md) · [Credits](CREDITS.md) · [MIT licence](LICENSE)

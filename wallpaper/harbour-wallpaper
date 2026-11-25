@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+# The chart as a live wallpaper on Hyprland, without Noctalia.
+set -euo pipefail
+here=$(dirname "$(readlink -f "$0")")
+app=$(readlink -f "$here/../dotfiles/noctalia/plugins/night-atlas-ais")
+config="$HOME/.config/night-atlas"
+venv="$config/.venv/bin/python"
+shim=/usr/lib/libgtk4-layer-shell.so
+port=8766
+map=harbour-wallpaper-map ships=harbour-wallpaper-ships
+
+die() { echo "harbour-wallpaper: $*" >&2; exit 1; }
+running() { systemctl --user is-active -q "$1.service"; }
+port_busy() { (exec 3<>"/dev/tcp/127.0.0.1/$port") 2>/dev/null; }
+ship_python() {
+  for p in "$venv" /usr/bin/python3; do
+    [[ -x $p ]] && "$p" -c 'import websockets.sync.client' 2>/dev/null && { echo "$p"; return; }
+  done
+  return 1
+}
+
+check() {
+  local bad=0
+  [[ -n ${WAYLAND_DISPLAY:-} && -n ${HYPRLAND_INSTANCE_SIGNATURE:-} ]] || { echo "not inside a Hyprland session"; bad=1; }
+  [[ -f $app/live_desktop.py ]] || { echo "map program not found: $app"; bad=1; }
+  [[ -f $shim ]] || { echo "missing gtk4-layer-shell ($shim)"; bad=1; }
+  /usr/bin/python3 - <<'PY' || { echo "missing Python GTK/WebKit packages (see README)"; bad=1; }
+import gi
+for name, version in (("Gtk", "4.0"), ("Gtk4LayerShell", "1.0"), ("WebKit", "6.0")):
+    gi.require_version(name, version)
+PY
+  return $bad
+}
+
+unit() { # name, command...
+  local name=$1; shift
+  systemctl --user reset-failed "$name.service" 2>/dev/null || true
+  systemd-run --user --quiet --collect --unit="$name" -p Restart=on-failure -p RestartSec=3 \
+    --setenv=WAYLAND_DISPLAY="$WAYLAND_DISPLAY" --setenv=HYPRLAND_INSTANCE_SIGNATURE="$HYPRLAND_INSTANCE_SIGNATURE" \
+    --setenv=NIGHT_ATLAS_OUTPUT="${NIGHT_ATLAS_OUTPUT:-}" "$@"
+}
+
+start() {
+  check || die "fix the above, then try again"
+  running $map && { echo "already running"; return; }
+  port_busy && die "port $port is in use (is the Noctalia Night Atlas plugin running?)"
+  mkdir -p -m 700 "$config"
+  unit $map --setenv=GDK_BACKEND=wayland --setenv=LD_PRELOAD="$shim" /usr/bin/python3 -B "$app/live_desktop.py"
+  if [[ ! -s $config/aisstream.key ]]; then
+    echo "map started without ships: put a free aisstream.io key in $config/aisstream.key, then restart"
+  elif py=$(ship_python); then
+    unit $ships -p StandardOutput=null "$py" -B "$app/feed.py"
+    echo "map and ships started (ships take a minute or so to appear)"
+  else
+    echo "map started without ships: install python-websockets, then restart"
+  fi
+}
+
+stop() {
+  systemctl --user stop $ships.service $map.service 2>/dev/null || true
+  echo "stopped"
+}
+
+view() {
+  case ${1:-} in nova-scotia|halifax-coast|halifax) ;; *) die "view: nova-scotia, halifax-coast or halifax" ;; esac
+  printf '{"id":"cli-%s","view":"%s"}\n' "$(date +%s%N)" "$1" > "$XDG_RUNTIME_DIR/night-atlas-live-command.json"
+}
+
+mode() {
+  case ${1:-} in chart|night|auto) ;; *) die "mode: chart, night or auto" ;; esac
+  mkdir -p -m 700 "$config"
+  /usr/bin/python3 - "$config/settings.json" "$1" <<'PY'
+import json, pathlib, sys
+path = pathlib.Path(sys.argv[1])
+try:
+    settings = json.loads(path.read_text())
+except (OSError, ValueError):
+    settings = {}
+settings.update(mode=sys.argv[2], override=None)
+path.write_text(json.dumps(settings))
+PY
+}
+
+case ${1:-} in
+  start) start ;;
+  stop) stop ;;
+  restart) stop; sleep 1; start ;;
+  status) for u in $map $ships; do echo "$u: $(systemctl --user is-active $u.service || true)"; done ;;
+  check) check && echo "ready" ;;
+  view) view "${2:-}" ;;
+  mode) mode "${2:-}" ;;
+  logs) journalctl --user -u $map -n 40 --no-pager ;;
+  *) echo "usage: harbour-wallpaper start|stop|restart|status|check|logs|view NAME|mode chart|night|auto"; exit 2 ;;
+esac
