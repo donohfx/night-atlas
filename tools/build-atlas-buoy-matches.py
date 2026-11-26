@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Match CHS buoys to the Coast Guard snapshot and write the combined-mode index."""
+import argparse
 import json
 import math
 from pathlib import Path
@@ -81,5 +82,10 @@ def build(chs, ccg):
 
 
 if __name__ == '__main__':
-    result = build(buoys(WEB / 'chs-marks.json'), buoys(WEB / 'aids.json'))
-    (WEB / 'ccg-buoy-matches.json').write_text(json.dumps(result, separators=(',', ':')) + '\n')
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--chs', type=Path, default=WEB / 'chs-marks.json')
+    parser.add_argument('--ccg', type=Path, default=WEB / 'aids.json')
+    parser.add_argument('--output', type=Path, default=WEB / 'ccg-buoy-matches.json')
+    args = parser.parse_args()
+    result = build(buoys(args.chs), buoys(args.ccg))
+    args.output.write_text(json.dumps(result, separators=(',', ':')) + '\n')

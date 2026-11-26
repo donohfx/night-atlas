@@ -743,7 +743,7 @@ export async function createAtlas({
       showCard(privateWarning ? privateWarningTitle(m) : m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
         [bands.join("/"), kind, purpose, privateWarning && m.n && "Private", m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
         m.lit ? `Lit: ${signalText || "light details unrecorded"}` : m.src === "chs" && m.lit === 0 ? "Unlit" : "Lighting unrecorded",
-        m.signalSrc === "ccg" ? "CHS mark · Canadian Coast Guard signal (charted unlit)" : m.src === "chs" ? "Canadian Hydrographic Service" : m.src === "ccg" ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
+        m.signalSrc === "ccg" ? "CHS mark · Canadian Coast Guard signal (charted unlit)" : m.src === "chs" ? "Canadian Hydrographic Service" : m.src === "ccg" ? ["Canadian Coast Guard", `LL ${m.ll.replace(/#\d+$/, "").replace(/^[A-Z]+/, "$& ")}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
       ],event.point);
       return;
     }

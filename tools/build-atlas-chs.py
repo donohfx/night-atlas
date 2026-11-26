@@ -13,13 +13,14 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-BOUNDS = (-68.85, 42.99, -56.30, 47.58)  # web/map.mjs
+BOUNDS = (-68.85, 42.99, -56.30, 47.58)  # mapBounds in web/atlas-core.mjs
 ENDPOINT = ('https://egisp.dfo-mpo.gc.ca/arcgis/rest/services/chs/ENC_MaritimeChartService'
             '/MapServer/exts/MaritimeChartService/MapServer/identify')
 
 
 class Identify:
-    def __init__(self, cache, offline):
+    def __init__(self, cache, offline, delay=1.05, budget=1480):
+        self.delay, self.budget = delay, budget
         self.cache = cache
         cache.mkdir(parents=True, exist_ok=True)
         self.offline = offline
@@ -38,9 +39,9 @@ class Identify:
             if self.offline:
                 raise RuntimeError(f'Missing cached tile {box}, {width}x{height}')
             for attempt in range(2):
-                if self.requests >= 1480:
+                if self.requests >= self.budget:
                     raise RuntimeError('CHS request budget reached')
-                time.sleep(1.05 if attempt == 0 else 20)
+                time.sleep(self.delay if attempt == 0 else max(20, self.delay))
                 self.requests += 1
                 try:
                     with urlopen(Request(url, headers={'User-Agent': 'Atlas research client'}), timeout=45) as response:
@@ -82,9 +83,24 @@ def grid(box, columns, rows):
             yield left, bottom, right, top
 
 
-def harvest(identify):
+# Longitude and latitude span of one harvest tile, as in the original 15 x 6 grid.
+TILE = ((BOUNDS[2] - BOUNDS[0]) / 15, (BOUNDS[3] - BOUNDS[1]) / 6)
+HALIFAX = (-63.57, 44.65)
+
+
+def tiles(bounds):
+    if tuple(bounds) == BOUNDS:
+        return list(grid(BOUNDS, 15, 6))
+    columns, rows = (math.ceil((bounds[i + 2] - bounds[i]) / TILE[i] - 1e-9) for i in (0, 1))
+    # Nearest first, so a partial harvest grows outward from Nova Scotia.
+    return sorted(grid(tuple(bounds), columns, rows), key=lambda b: math.hypot(
+        ((b[0] + b[2]) / 2 - HALIFAX[0]) * .7, (b[1] + b[3]) / 2 - HALIFAX[1]))
+
+
+def harvest(identify, bounds=BOUNDS, progress=None):
     records = {}
-    for index, box in enumerate(grid(BOUNDS, 15, 6), 1):
+    boxes = tiles(bounds)
+    for index, box in enumerate(boxes, 1):
         # Sample two display scales. Broad empty tiles still get a detailed pass:
         # a coarse response cannot establish that there are no large-scale ENCs.
         coarse = list(identify.tile(box, 18000))
@@ -92,7 +108,10 @@ def harvest(identify):
         for record in coarse + fine:
             a = record['attributes']
             records[(a['cellName'], a['rcid'])] = record
-        print(f'{index}/90 {len(coarse)}/{len(fine)} rows, {len(records)} distinct cell records', flush=True)
+        print(f'{index}/{len(boxes)} {len(coarse)}/{len(fine)} rows, {len(records)} distinct cell records, '
+              f'{identify.requests} new requests', flush=True)
+        if progress and (index % 20 == 0 or index == len(boxes)):
+            progress(records.values())
     return records.values()
 
 
@@ -116,8 +135,11 @@ def colours(attributes):
 
 
 def light_reference(info):
-    match = re.fullmatch(r'ATL(\d+(?:\.\d+)?)', info, re.IGNORECASE)
-    return match[1] if match else ''
+    match = re.fullmatch(r'(ATL|NFD|INL|ARC)(\d+(?:\.\d+)?)', info, re.IGNORECASE)
+    if not match:
+        return ''
+    prefix = match[1].upper()
+    return ('' if prefix == 'ATL' else prefix) + match[2]
 
 
 def field(attributes, key):
@@ -190,7 +212,7 @@ def signal(light):
         lp=float(period) if period else None).items() if value}
 
 
-def build(records):
+def build(records, bounds=BOUNDS):
     points = [r for r in records if r['geometryType'] == 'esriGeometryPoint' and 'x' in r.get('geometry', {})]
     lights = defaultdict(list)
     light_refs = set()
@@ -205,7 +227,7 @@ def build(records):
     for record in unique_marks(r for r in points if r['attributes']['objectType'].startswith(('BOY', 'BCN'))):
         a = record['attributes']
         x, y = xy = coordinates(record)
-        if not (BOUNDS[0] <= x <= BOUNDS[2] and BOUNDS[1] <= y <= BOUNDS[3]):
+        if not (bounds[0] <= x <= bounds[2] and bounds[1] <= y <= bounds[3]):
             continue
         kind = 'buoy' if a['objectType'].startswith('BOY') else 'beacon'
         shape = field(a, 'BOYSHP' if kind == 'buoy' else 'BCNSHP')
@@ -251,13 +273,23 @@ def main():
     parser.add_argument('--offline', action='store_true')
     parser.add_argument('--output', type=Path, default=ROOT / 'web/chs-marks.json')
     parser.add_argument('--inventory', type=Path, help='Save merged raw records for analysis')
+    parser.add_argument('--bounds', nargs=4, type=float, default=BOUNDS, metavar=('W', 'S', 'E', 'N'))
+    parser.add_argument('--delay', type=float, default=1.05, help='seconds before each request')
+    parser.add_argument('--budget', type=int, default=1480, help='most new requests in one run')
     args = parser.parse_args()
-    identify = Identify(args.cache, args.offline)
-    records = list(harvest(identify))
+    bounds = tuple(args.bounds)
+    identify = Identify(args.cache, args.offline, args.delay, args.budget)
+
+    def write(records):
+        temporary = args.output.with_suffix('.tmp')
+        temporary.write_text(json.dumps(build(records, bounds), ensure_ascii=False, separators=(',', ':')) + '\n')
+        temporary.replace(args.output)
+
+    records = list(harvest(identify, bounds, write))
     print(f'{identify.requests} new requests, largest response {identify.max_records} records')
     if args.inventory:
         args.inventory.write_text(json.dumps(records))
-    args.output.write_text(json.dumps(build(records), ensure_ascii=False, separators=(',', ':')) + '\n')
+    write(records)
 
 
 if __name__ == '__main__':
