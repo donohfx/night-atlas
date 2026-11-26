@@ -1,4 +1,6 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
+import {beamReach, mercator, metresPerUnit, shorelinePaths, STEPS} from "./atlas-shore.mjs";
+import {decodeReach, lightKey, reachRevision, validatedReachTables} from "./atlas-reach-table.mjs";
 import {aidName, isMark, markBuilder} from "./atlas-marks.mjs";
 import {biggestInHarbour, createExtras} from "./atlas-extras.mjs";
 
@@ -43,6 +45,7 @@ const palette = colors.dark;
 const marksFor = markBuilder(marksData, aidsData, chsData, buoyMatches);
 let markFeatures = marksFor(layersOn.openSources);
 let activeLights = layersOn.openSources ? openChart.lights : chart.lights;
+let reachKeys = activeLights.map(lightKey);
 const chartLines = marksData.features.filter(f => !isMark(f));
 for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", muted:"on_surface_variant",
                                           border:"outline_variant", accent:"primary"})) {
@@ -406,6 +409,7 @@ function switchSources(open) {
   markFeatures = marksFor(open);
   registerMarkIcons(markFeatures);
   activeLights = open ? openChart.lights : chart.lights;
+  reachKeys = activeLights.map(lightKey);
   markRhythms = markTiming(markFeatures);
   rhythms = lightTiming(activeLights);
   rhythmById = new Map(rhythms.map(rhythm => [rhythm.id,rhythm]));
@@ -429,55 +433,24 @@ function sectorColor(light,outgoing) {
   return null;
 }
 
-// Beams stop at the shore. For each sweeping light, rasterise the surrounding land once and
-// walk outwards along every half degree to find how far (metres) the beam can travel.
-const REACH = 30000, OWN_LAND = 250;     // metres; a light shines over its own rock or headland
-const MASK = 2048, STEPS = 720;
-const mercator = ([lon,lat]) => [(lon+180)/360, (1-Math.asinh(Math.tan(lat*Math.PI/180))/Math.PI)/2];
-const metresPerUnit = lat => 40075016.7*Math.cos(lat*Math.PI/180);
 let shores = null;
+let reachTables; // undefined while the table and its revisions are loading
 const reaches = new Map();
-read("/land.json").then(land => {
-  shores = land.features.flatMap(({geometry:g}) =>
-    (g.type === "Polygon" ? [g.coordinates] : g.coordinates).map(rings => {
-      const paths = rings.map(ring => ring.map(mercator));
-      let west = 1, north = 1, east = 0, south = 0;
-      for (const [x,y] of paths[0]) {
-        west = Math.min(west,x); east = Math.max(east,x);
-        north = Math.min(north,y); south = Math.max(south,y);
-      }
-      return {paths,west,north,east,south};
-    }));
-}).catch(error => console.warn("Night Atlas shoreline:", error.message));
-
-function beamReach(light) {
-  const [cx,cy] = mercator(light.coordinates);
-  const unit = metresPerUnit(light.coordinates[1]), span = REACH/unit;
-  const scale = MASK/(2*span), perPixel = unit/scale;
-  const canvas = document.createElement("canvas");
-  canvas.width = canvas.height = MASK;
-  const context = canvas.getContext("2d",{willReadFrequently:true});
-  context.beginPath();
-  for (const shore of shores) {
-    if (shore.east < cx-span || shore.west > cx+span || shore.south < cy-span || shore.north > cy+span) continue;
-    for (const path of shore.paths) {
-      for (const [i,[x,y]] of path.entries())
-        context[i ? "lineTo" : "moveTo"]((x-cx)*scale+MASK/2, (y-cy)*scale+MASK/2);
-      context.closePath();
-    }
-  }
-  context.fill("evenodd");
-  const pixels = context.getImageData(0,0,MASK,MASK).data;
-  const first = Math.ceil(OWN_LAND/perPixel);
-  return Float32Array.from({length:STEPS}, (_,step) => {
-    const angle = step*2*Math.PI/STEPS, dx = Math.sin(angle), dy = -Math.cos(angle);
-    for (let d = first; d < MASK/2; ++d) {
-      const x = Math.floor(MASK/2+dx*d), y = Math.floor(MASK/2+dy*d);
-      if (pixels[(y*MASK+x)*4+3] > 127) return d === first ? 0 : d*perPixel;
-    }
-    return REACH;
-  });
-}
+const shoreline = (async () => {
+  const response = await fetch("/land.json", {signal:AbortSignal.timeout(30000)});
+  if (!response.ok) throw new Error(`/land.json returned ${response.status}`);
+  const text = await response.text();
+  shores = shorelinePaths(JSON.parse(text));
+  return reachRevision(text);
+})().catch(error => {
+  console.warn("Night Atlas shoreline:", error.message);
+  return null;
+});
+Promise.all([shoreline, read("/beam-reach.json")]).then(async ([revision, table]) => {
+  reachTables = await validatedReachTables(table, revision, chart.lights, openChart.lights);
+}).catch(() => {}).finally(() => {
+  reachTables ??= {};
+});
 
 function drawBeams(timestamp) {
   beamFrame = 0;
@@ -502,15 +475,22 @@ function drawBeams(timestamp) {
   extras.setLayers(layersOn);
   extras.begin(width,height,density,now,night);
   const strength = Math.min(.32,.125+Math.max(0,zoom-7)*.031)*beamBoost*extras.strength();
+  const reachMode = layersOn.openSources ? "open" : "combined";
   let toMeasure = 1;                      // at most one new shoreline mask per frame
   for (const rhythm of layersOn.lights ? sweeping : []) {
     const light = activeLights[rhythm.id];
     if (!bounds.contains(light.coordinates)) continue;
-    let reach = reaches.get(rhythm.id);
+    const key = reachKeys[rhythm.id];
+    let reach = reaches.get(key);
     if (!reach) {
-      if (!shores || !toMeasure) continue;
-      --toMeasure;
-      reaches.set(rhythm.id, reach = beamReach(light));
+      if (reachTables === undefined) continue;
+      reach = decodeReach(reachTables[reachMode]?.[key]);
+      if (!reach) {
+        if (!shores || !toMeasure) continue;
+        --toMeasure;
+        reach = beamReach(light, shores);
+      }
+      reaches.set(key, reach);
     }
     // A turning lens: a beam passes any bearing once per charted period (that pass is what a
     // mariner sees as the flash), so the twin night lens turns at half the speed of the

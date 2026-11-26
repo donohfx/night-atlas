@@ -26,3 +26,18 @@ OpenStreetMap contributors update features. See [data licences](../CREDITS.md).
 ## Lighthouse data
 
 `web/chart-data.json` ships ready to use; the commands above do not rebuild it. `reconcile-atlas-signals.py` updates a chart file from saved Coast Guard List of Lights HTML sections plus an OpenStreetMap export, using `atlas-lighthouses.csv` and `atlas-light-overrides.json` (`--help` lists the arguments; needs `beautifulsoup4` and `lxml`). Terms: [DATA-LICENSE.md](../DATA-LICENSE.md).
+
+### Beam shoreline reach
+
+After rebuilding `web/land.json`, `web/chart-data.json` or `web/open-lights.json`, run
+`CHROME=/path/to/chrome node tools/beam-reach.mjs` from the app directory. This
+uses hardware Vulkan Chrome and the browser's existing 2D Canvas mask algorithm.
+Run the same command with `--check` to compare the checked-in table against a
+fresh computation for all coloured lights in both source datasets, including
+every light that a sweep override could enable in combined mode. The check
+reports absolute differences in metres and fails on any difference.
+
+The table stores the mask step for each half-degree bearing, preserving the
+exact original distance. Each dataset and the shoreline carry SHA-256 revision
+checks. The map computes missing or stale rows using the Canvas mask. The
+image build compresses the checked-in JSON with the other static files.
