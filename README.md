@@ -19,7 +19,7 @@ Open http://localhost:8000/?static. The static preview can display the chart and
 
 ## Fly.io with live ships
 
-One small always-on machine serves the map, keeps a single AIS Stream connection open and proxies the buoys.
+One small always-on machine serves the map, polls [Open Waters AIS](https://openwaters.io/ais/) for ships, keeps a single AIS Stream connection open as a backup and proxies the buoys. Set `OPENWATERS_USER_AGENT` to identify your copy with a contact, as Open Waters asks, or `OPENWATERS=off` to use AIS Stream alone.
 
 ```sh
 fly apps create your-app-name          # then set the same name as `app` in fly.toml

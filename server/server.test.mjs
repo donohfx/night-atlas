@@ -175,3 +175,26 @@ test("PMTiles uses byte ranges and exposes the configured archive base", async t
   assert.equal(await stale.text(),"0123456789");
   assert.equal((await fetch(archive,{headers:{"If-None-Match":head.headers.get("etag")}})).status,304);
 });
+
+test("Open Waters snapshots become ships, and AIS Stream covers an outage", async () => {
+  const { createOpenWaters, withFallback } = await import("./openwaters.mjs");
+  let time = Date.parse("2026-11-26T12:00:00Z"), answer;
+  const feature = (mmsi, lon, extra = {}) => ({ geometry: { coordinates: [lon, 44.6] },
+    properties: { mmsi, name: "TEST", sog: 5, cog: 90, heading: 511, length: 30, beam: 8,
+      seen: "2026-11-26T11:59:00Z", ...extra } });
+  const feed = createOpenWaters({ userAgent: "test", now: () => time, log: () => {},
+    fetch: async () => answer });
+  assert.equal(feed.snapshot().status, "waiting");
+  answer = { ok: true, json: async () => ({ features: [feature(1, -63.5), feature(2, -10)] }) };
+  await feed.start();
+  feed.stop();
+  const { status, points } = feed.snapshot();
+  assert.equal(status, "live");
+  assert.deepEqual(points, [{ mmsi: 1, name: "TEST", lat: 44.6, lon: -63.5, speed: 5, course: 90,
+    heading: null, length: 30, width: 8, age: 60 }]);
+  const other = { start() {}, stop() {}, snapshot: () => ({ status: "live", points: [], from: "backup" }) };
+  const both = withFallback([feed, other]);
+  assert.equal(both.snapshot().from, undefined);
+  time += 200_000;
+  assert.equal(both.snapshot().from, "backup");
+});
