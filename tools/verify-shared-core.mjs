@@ -12,6 +12,7 @@ assert(["web", "desktop", "tiles"].includes(kind) && root && output && fixtureRo
   "Usage: node tools/verify-shared-core.mjs web|desktop|tiles ASSET_DIR OUTPUT_DIR WEB_FIXTURE_DIR");
 const desktop = kind === "desktop";
 const tileComparison = kind === "tiles";
+const regional = tileComparison && process.env.ATLAS_VERIFY_REGION === "1";
 const compressBrotli = process.env.ATLAS_VERIFY_BROTLI === "1";
 const work = await fs.mkdtemp(path.join(os.tmpdir(), "atlas-visual-chrome-"));
 await fs.mkdir(output, {recursive:true});
@@ -34,6 +35,7 @@ let settings = {mode:"chart", layers:{openSources:false}}, command = null, sweep
 const counts = {};
 const transferred = {};
 const byteSnapshots = {};
+const focusFrames = {};
 const encoded = new Map();
 const presets = [];
 const mime = {".html":"text/html",".mjs":"text/javascript",".css":"text/css",".json":"application/json",
@@ -257,7 +259,19 @@ try {
       await sleep(1400);
     };
     const camera = (center,zoom) => evaluate(`window.__atlas.map.jumpTo(${JSON.stringify({center,zoom})}); true`);
-    const captures = [
+    const captures = regional ? [
+      ["overview",null,null],
+      ["focus-1-nova-scotia",[-63.68,45.23],7.65],
+      ["focus-2",[-64.05,45.37],7.65],
+      ["focus-3",[-65.25,45.82],7.65],
+      ["focus-4-new-brunswick",[-66.50,46.21],7.65],
+      ["saint-john",[-66.068,45.273],11],
+      ["moncton-northumberland",[-64.41,46.24],9.7],
+      ["shediac",[-64.54,46.28],11],
+      ["chaleur-bay",[-65.78,47.92],9.45],
+      ["dalhousie",[-66.37,48.05],11],
+      ["halifax",[-63.585,44.651],12.5],
+    ] : [
       ["overview",null,null], ["halifax",[-63.585,44.651],12.5], ["sambro",[-63.57,44.455],11.5],
       ["halifax-close",[-63.585,44.651],15.5],
     ];
@@ -270,6 +284,31 @@ try {
       console.log(warnings);
       throw error;
     }
+    const checkEdges = async () => {
+      const results = await evaluate(`(async () => {
+        const map = __atlas.map;
+        const {dataBounds:[w,s,e,n]} = await (await fetch("/region/config.json")).json();
+        const bounds = map.getMaxBounds();
+        const {clientWidth:width,clientHeight:height} = map.getContainer();
+        const original = {center:map.getCenter(),zoom:map.getZoom()};
+        const results = [];
+        for (const anchor of [bounds.getNorthWest(),bounds.getNorthEast(),
+          bounds.getSouthWest(),bounds.getSouthEast()]) {
+          map.jumpTo({center:anchor,zoom:map.getMinZoom()});
+          for (const corner of [[0,0],[width,0],[0,height],[width,height]]) {
+            const {lng,lat} = map.unproject(corner);
+            results.push(lng >= w && lng <= e && lat >= s && lat <= n);
+          }
+        }
+        map.jumpTo(original);
+        return results;
+      })()`);
+      assert(results.every(Boolean), "A camera corner fell outside the chart");
+    };
+    const focusState = async name => {
+      focusFrames[name] = await evaluate(`Object.fromEntries(["CA-NS","CA-NB","CA-PE","US"].map(id =>
+        [id, __atlas.map.getFeatureState({source:"provinces",sourceLayer:"_geojsonTileLayer",id}).shade]))`);
+    };
     const overviewCamera = await evaluate("({center:__atlas.map.getCenter().toArray(),zoom:__atlas.map.getZoom()})");
     for (const [name,center,zoom] of captures) {
       if (center) await camera(center,zoom);
@@ -280,6 +319,7 @@ try {
           "ghost before and after landfall");
       }
       await shot(name+"-chart");
+      if (regional) await focusState(name);
       byteSnapshots[name] = {...transferred};
     }
     await click("#mode");
@@ -289,6 +329,39 @@ try {
       else await camera(overviewCamera.center,overviewCamera.zoom);
       await settle();
       await shot(name+"-night");
+    }
+    if (regional) {
+      const nbShade = ["focus-1-nova-scotia","focus-2","focus-3"].map(name => focusFrames[name]["CA-NB"]);
+      assert(nbShade[0] > nbShade[1] && nbShade[1] > nbShade[2], "New Brunswick should fade through an intermediate opacity");
+      assert(focusFrames["focus-4-new-brunswick"]["CA-NS"] > focusFrames["focus-2"]["CA-NS"]);
+      assert(Object.values(focusFrames).every(state => state.US === .76));
+      await camera([-64.94,46.10],4.5);
+      await settle();
+      await focusState("wide");
+      assert(focusFrames.wide["CA-NB"] < .1 && focusFrames.wide["CA-NS"] < .1,
+        "Both provinces should brighten in a wide Fundy view");
+      await shot("wide-night");
+      await click("#mode");
+      await settle();
+      await shot("wide-chart");
+      await checkEdges();
+      await cdp("Emulation.setDeviceMetricsOverride",{width:390,height:844,deviceScaleFactor:2,mobile:true});
+      await navigate();
+      await settle();
+      await shot("phone-opening-chart");
+      await checkEdges();
+      await click("#rotate button");
+      await camera([-65.80,47.80],8.8);
+      await settle();
+      await shot("phone-chaleur-chart");
+      await click("#mode");
+      await settle();
+      await shot("phone-chaleur-night");
+      for (const [width,height] of [[1920,500],[320,960]]) {
+        await cdp("Emulation.setDeviceMetricsOverride",{width,height,deviceScaleFactor:1,mobile:false});
+        await evaluate("window.__atlas.map.resize(); true");
+        await checkEdges();
+      }
     }
   } else if (desktop) {
     await navigate();
@@ -380,7 +453,7 @@ try {
     await shot("tour-final");
   }
 } finally {
-  await fs.writeFile(path.join(output,"events.json"),JSON.stringify({renderer,errors,warnings,missing,counts,presets,frames,byteSnapshots},null,2));
+  await fs.writeFile(path.join(output,"events.json"),JSON.stringify({renderer,errors,warnings,missing,counts,presets,frames,byteSnapshots,focusFrames},null,2));
   if (browser) await Promise.race([browser("Browser.close").catch(()=>{}),sleep(400)]);
   for (const socket of sockets) socket.close();
   if (chrome?.pid) {

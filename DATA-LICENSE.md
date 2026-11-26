@@ -18,13 +18,15 @@ Combining these sources may not satisfy ODbL share-alike for the merged file. If
 
 `web/aids.json` (and its copy in the desktop plugin) is an unofficial, modified extract of the Canadian Coast Guard
 *List of Lights, Buoys and Fog Signals, Atlantic Coast*, via [NOTMAR](https://notmar.gc.ca/list-lights).
-The same non-commercial terms and attribution above apply. It is a snapshot for
+`web/region/aids.json` is drawn from the same Atlantic Coast volume and the
+Canadian Coast Guard's *List of Lights, Buoys and Fog Signals, Newfoundland and
+Labrador Coast*. The same non-commercial terms and attribution above apply. It is a snapshot for
 visualization and must never be used for navigation. Regenerate locally with
 `python tools/build-atlas-aids.py` (BeautifulSoup and lxml required).
 
 ## Canadian Hydrographic Service chart marks
 
-`web/chs-marks.json` and its desktop copy contain adapted buoy and beacon records from the
+`web/chs-marks.json`, its desktop copy, and the expanded `web/region/chs-marks.json` contain adapted buoy and beacon records from the
 [CHS ENC Maritime Chart Service](https://open.canada.ca/data/en/dataset/12b769c8-48b8-4562-80fb-4a2e5ee9b45b), Fisheries and Oceans Canada.
 [Contains information licensed under the Open Government Licence – Canada.](https://open.canada.ca/en/open-government-licence-canada/)
 This snapshot is for visualization and must never be used for navigation.
