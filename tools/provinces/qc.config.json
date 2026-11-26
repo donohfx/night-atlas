@@ -1,0 +1,28 @@
+{
+  "osmSource": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+  "nameRadius": 120,
+  "referenceRadius": 180,
+  "reviewRadius": 600,
+  "overrides": {
+    "node/4358680478": {
+      "aid": "atlantic:1770",
+      "reason": "Published cylindrical tower aligns with the named Île Rouge lighthouse by 2.8 m.",
+      "source": "https://notmar.gc.ca/publications/list-lights/atl/atl1620-en.php"
+    },
+    "node/6548305563": {
+      "aid": "atlantic:1761",
+      "reason": "Published white cylindrical tower aligns with the named Île Verte lighthouse by 1.7 m.",
+      "source": "https://notmar.gc.ca/publications/list-lights/atl/atl1620-en.php"
+    },
+    "way/472147375": {
+      "aid": "atlantic:1479",
+      "reason": "Published octagonal tower aligns with the named Île Brion lighthouse by 1.2 m.",
+      "source": "https://notmar.gc.ca/publications/list-lights/atl/atl14775-en.php"
+    },
+    "node/9413836260": {
+      "aid": "atlantic:2180",
+      "reason": "Named range structure is 3.8 m from the front and 489.4 m from the rear.",
+      "source": "https://notmar.gc.ca/publications/list-lights/atl/atl18238-en.php"
+    }
+  }
+}

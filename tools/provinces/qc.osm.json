@@ -1,0 +1,3078 @@
+{
+  "source": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+  "timestamp": "2026-11-26T17:27:21Z",
+  "elements": [
+    {
+      "id": "node/10181714347",
+      "coordinates": [
+        -69.7254725,
+        47.6800526
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Le Petit-Phare"
+      }
+    },
+    {
+      "id": "node/1068711113",
+      "coordinates": [
+        -74.6081513,
+        45.0406143
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "10",
+        "seamark:light:range": "13",
+        "seamark:name": "McGibbons Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1069833244",
+      "coordinates": [
+        -74.664407,
+        45.0148983
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1088598286",
+      "coordinates": [
+        -68.8927436,
+        48.4154749
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:1:character": "Fl",
+        "seamark:light:1:colour": "white",
+        "seamark:light:1:height": "34",
+        "seamark:light:1:period": "3",
+        "seamark:light:1:range": "12",
+        "seamark:light:1:sector_end": "295",
+        "seamark:light:1:sector_start": "11",
+        "seamark:light:reference": "H 2084",
+        "seamark:name": "Ile Bicquette",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/11112724664",
+      "coordinates": [
+        -71.1317683,
+        46.8450033
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1137333239",
+      "coordinates": [
+        -69.3486657,
+        48.0246884
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1137364397",
+      "coordinates": [
+        -69.1594372,
+        48.1789277
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1137367207",
+      "coordinates": [
+        -69.2389941,
+        48.1492628
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "15",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 2096",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Ile aux Basques",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1137374875",
+      "coordinates": [
+        -69.3862547,
+        48.0659064
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1142907621",
+      "coordinates": [
+        -69.7861252,
+        47.7873306
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1142908253",
+      "coordinates": [
+        -69.8066737,
+        47.911544
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "2",
+        "seamark:light:height": "63",
+        "seamark:light:period": "5",
+        "seamark:light:range": "13",
+        "seamark:light:reference": "H 2166",
+        "seamark:light:sequence": "0.2+(0.8)+0.2+(3.8)",
+        "seamark:name": "Cap de la Tete au Chien",
+        "seamark:type": "light_minor",
+        "wikidata": "Q27039023"
+      }
+    },
+    {
+      "id": "node/1142912025",
+      "coordinates": [
+        -69.9058613,
+        47.7705108
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Cap au Saumon",
+        "name:fr": "Phare de Cap au Saumon",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "25",
+        "seamark:light:period": "15",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 2182",
+        "seamark:name": "Cap au Saumon",
+        "seamark:type": "light_major",
+        "wikidata": "Q3378195"
+      }
+    },
+    {
+      "id": "node/1142940349",
+      "coordinates": [
+        -69.7977349,
+        47.7648163
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1148743991",
+      "coordinates": [
+        -69.8618886,
+        47.6228154
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "35",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2174",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Grande Ile",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1148754402",
+      "coordinates": [
+        -69.747734,
+        47.7162497
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "44",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2172",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Long Pilgrim",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1176339454",
+      "coordinates": [
+        -71.3291703,
+        46.7300401
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "59",
+        "seamark:light:range": "21",
+        "seamark:light:reference": "H 2330",
+        "seamark:name": "Pointe a Basile",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1203629308",
+      "coordinates": [
+        -70.9166326,
+        46.8752898
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Saint-Michel Range Lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "30",
+        "seamark:light:range": "23",
+        "seamark:light:reference": "H 2274",
+        "seamark:name": "St-Michel-de-Bellechasse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1206517375",
+      "coordinates": [
+        -70.6376853,
+        47.1970811
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "16",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2254",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Sault au Cochon",
+        "seamark:radar_reflector": "yes",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1206523880",
+      "coordinates": [
+        -70.6857883,
+        47.1408947
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "13",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 2255",
+        "seamark:name": "Cap Gribane",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1206538071",
+      "coordinates": [
+        -70.7019282,
+        47.12506
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "32",
+        "seamark:light:reference": "H 2256",
+        "seamark:name": "Cap Rouge",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1206547324",
+      "coordinates": [
+        -70.8658652,
+        47.0367881
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1206547413",
+      "coordinates": [
+        -70.7120609,
+        47.0889406
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "9",
+        "seamark:light:range": "21",
+        "seamark:light:reference": "H 2262",
+        "seamark:name": "Brule Bank",
+        "seamark:radar_transponder:category": "racon",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1206552257",
+      "coordinates": [
+        -70.9261723,
+        47.0190476
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1206553410",
+      "coordinates": [
+        -70.5160323,
+        47.0696201
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1206566146",
+      "coordinates": [
+        -70.8056197,
+        47.0080886
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "27",
+        "seamark:light:reference": "H 2267",
+        "seamark:name": "Pte. Argentenage",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1206573684",
+      "coordinates": [
+        -70.7165756,
+        47.1084733
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "41",
+        "seamark:light:period": "2",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 2259",
+        "seamark:name": "Cap Brule",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1207646801",
+      "coordinates": [
+        -70.2747805,
+        47.2169187
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "6",
+        "seamark:light:period": "6",
+        "seamark:light:range": "6",
+        "seamark:light:reference": "H 2226",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "St. Jean Port Joli",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1207658069",
+      "coordinates": [
+        -70.3595965,
+        47.2058329
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Pilier-de-Pierre",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "25",
+        "seamark:light:period": "6",
+        "seamark:light:range": "10",
+        "seamark:light:reference": "H 2228",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Fl 6s25m10M",
+        "seamark:type": "light_minor",
+        "wikidata": "Q16320827"
+      }
+    },
+    {
+      "id": "node/1207670246",
+      "coordinates": [
+        -70.4650027,
+        47.1335135
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "9",
+        "seamark:light:reference": "H 2244",
+        "seamark:name": "Hospital Rock",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1209314985",
+      "coordinates": [
+        -70.3604558,
+        47.3932824
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1209333356",
+      "coordinates": [
+        -70.4260031,
+        47.4383477
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "33",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 2218",
+        "seamark:name": "Cap aux Corbeaux",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1209335944",
+      "coordinates": [
+        -70.4308916,
+        47.4094406
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "16",
+        "seamark:light:period": "2.5",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 2208",
+        "seamark:name": "Pointe de la Prairie",
+        "seamark:type": "light_major",
+        "wikidata": "Q32753752"
+      }
+    },
+    {
+      "id": "node/1209565730",
+      "coordinates": [
+        -70.1400965,
+        47.6228802
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "20",
+        "seamark:light:period": "6",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 2194",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Point au Pic",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1209595127",
+      "coordinates": [
+        -70.235846,
+        47.5993025
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1216228505",
+      "coordinates": [
+        -69.6840057,
+        48.1079209
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1216463456",
+      "coordinates": [
+        -69.8034291,
+        48.1480662
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "18",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2122",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Cap de La Boule",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1216465472",
+      "coordinates": [
+        -69.7167,
+        48.1352741
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "12",
+        "seamark:light:period": "6",
+        "seamark:light:range": "9",
+        "seamark:light:reference": "H 2115",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe de I'Islet",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1216544765",
+      "coordinates": [
+        -69.8554598,
+        48.1514509
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "7",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2124",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Anse de Sable",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1216549404",
+      "coordinates": [
+        -69.8950128,
+        48.2169928
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "13",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 2126",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe aux Crepes",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/12587224046",
+      "coordinates": [
+        -68.033861,
+        48.680408
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1266616076",
+      "coordinates": [
+        -70.5701486,
+        48.3578631
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1266627403",
+      "coordinates": [
+        -70.9760769,
+        48.4420036
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1266680850",
+      "coordinates": [
+        -70.9269214,
+        48.4249657
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1266744182",
+      "coordinates": [
+        -70.7056752,
+        48.3758537
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "17",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2142",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Cape East",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1266836265",
+      "coordinates": [
+        -70.9834722,
+        48.4436657
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "24",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 2143",
+        "seamark:name": "Poste St. Martin",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1266849223",
+      "coordinates": [
+        -70.5350235,
+        48.3745326
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "15",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2140",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Cap Rouge",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1267029478",
+      "coordinates": [
+        -70.8127442,
+        48.4218298
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1267029569",
+      "coordinates": [
+        -70.98168,
+        48.4600094
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "28",
+        "seamark:light:reference": "H 2143.3",
+        "seamark:name": "Riviere Valin",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1274845171",
+      "coordinates": [
+        -70.2023251,
+        48.2721074
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "15",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2136",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe au Boeuf",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1274917476",
+      "coordinates": [
+        -70.1146776,
+        48.2605539
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "15",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 2133",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe Claveau",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1294429925",
+      "coordinates": [
+        -69.4687098,
+        48.2720787
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:landmark:height": "14",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "46",
+        "seamark:light:period": "6",
+        "seamark:light:range": "18",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Bon Desir.",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1299148215",
+      "coordinates": [
+        -64.2181094,
+        48.5014914
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "wikidata": "Q28578638"
+      }
+    },
+    {
+      "id": "node/1300149923",
+      "coordinates": [
+        -64.3171126,
+        48.4193381
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "LFl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "4",
+        "seamark:light:height": "26",
+        "seamark:light:period": "30",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 1718",
+        "seamark:light:sequence": "2+(3)+2+(3)+2+(3)+2+(13)",
+        "seamark:name": "Cap d'Espoir",
+        "seamark:type": "light_major",
+        "wikidata": "Q28581482"
+      }
+    },
+    {
+      "id": "node/1302787938",
+      "coordinates": [
+        -65.3256779,
+        49.2509788
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "wikidata": "Q28559032"
+      }
+    },
+    {
+      "id": "node/1304866440",
+      "coordinates": [
+        -65.7378513,
+        49.2308006
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "13",
+        "seamark:light:period": "2",
+        "seamark:light:reference": "H 1830.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1305144540",
+      "coordinates": [
+        -64.2010241,
+        48.8562821
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cap-des-Rosiers",
+        "seamark:light:character": "Oc",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "41",
+        "seamark:light:period": "20",
+        "seamark:light:range": "24",
+        "seamark:light:reference": "H 1768",
+        "seamark:light:sequence": "15+(5)",
+        "seamark:name": "Cap des Rosiers",
+        "seamark:type": "light_major",
+        "wikidata": "Q3378198"
+      }
+    },
+    {
+      "id": "node/1305827177",
+      "coordinates": [
+        -64.3163826,
+        48.8249642
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "31",
+        "seamark:light:period": "5",
+        "seamark:name": "Gros Cap aux Os",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1306172413",
+      "coordinates": [
+        -64.4377496,
+        48.8257889
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "10",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 1752",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1306173346",
+      "coordinates": [
+        -64.4128074,
+        48.8419427
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1316325490",
+      "coordinates": [
+        -60.4519722,
+        46.9043611
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "8.2",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 0870",
+        "seamark:name": "Dingwall Harbor",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1316333621",
+      "coordinates": [
+        -60.4520833,
+        46.9036944
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "8",
+        "seamark:light:period": "4",
+        "seamark:light:range": "4",
+        "seamark:light:reference": "H 0870.4",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1317474123",
+      "coordinates": [
+        -60.7977655,
+        46.8315579
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "7",
+        "seamark:light:period": "4",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 1176.4",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1318927083",
+      "coordinates": [
+        -61.0264235,
+        46.6495729
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Enragée Point Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "23",
+        "seamark:light:period": "24",
+        "seamark:light:range": "18",
+        "seamark:light:reference": "H 1188",
+        "seamark:light:sequence": "0.3+(3.7)+0.3+(3.7)+0.3+(15.7)",
+        "seamark:name": "Enragee Point",
+        "seamark:type": "light_major",
+        "wikidata": "Q28375754"
+      }
+    },
+    {
+      "id": "node/1324475785",
+      "coordinates": [
+        -73.6949128,
+        45.4322504
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "9",
+        "seamark:light:reference": "H 2519",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1339243886",
+      "coordinates": [
+        -64.601811,
+        49.1084978
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Pointe-à-la-Renomée",
+        "wikidata": "Q14870344"
+      }
+    },
+    {
+      "id": "node/13667874489",
+      "coordinates": [
+        -73.3561909,
+        45.7794482
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "front",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:exhibition": "24h",
+        "seamark:light:height": "10",
+        "seamark:light:range": "16",
+        "seamark:name": "Verchères, village – alignement antérieur, feu",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/13667914840",
+      "coordinates": [
+        -73.3614775,
+        45.7751186
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "rear",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:exhibition": "24h",
+        "seamark:light:height": "30.8",
+        "seamark:light:range": "16",
+        "seamark:name": "Verchères, village – alignement postérieur, feu",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1375381586",
+      "coordinates": [
+        -74.4007687,
+        45.1280559
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "rear",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "9",
+        "seamark:light:range": "14",
+        "seamark:light:reference": "H 2548",
+        "seamark:name": "Point Dupuis",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1377277351",
+      "coordinates": [
+        -74.322593,
+        45.1979111
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "17",
+        "seamark:light:reference": "H 2544.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1377279051",
+      "coordinates": [
+        -74.2865589,
+        45.2228307
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "20",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1377279116",
+      "coordinates": [
+        -74.2753448,
+        45.2236182
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "11",
+        "seamark:light:reference": "H 2543",
+        "seamark:name": "Hay Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1395526447",
+      "coordinates": [
+        -73.9551938,
+        45.3359297
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1419264827",
+      "coordinates": [
+        -74.653645,
+        45.0235419
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419268371",
+      "coordinates": [
+        -74.6620317,
+        45.0171728
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419273453",
+      "coordinates": [
+        -74.6601069,
+        45.0170189
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419274888",
+      "coordinates": [
+        -74.5548722,
+        45.0507825
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "8",
+        "seamark:light:period": "4",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 2572",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Stanley Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1419275107",
+      "coordinates": [
+        -74.4093134,
+        45.1278073
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "14",
+        "seamark:light:reference": "H 2548.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1419276359",
+      "coordinates": [
+        -74.5175925,
+        45.0675262
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "front",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "10",
+        "seamark:light:period": "4",
+        "seamark:light:range": "13",
+        "seamark:light:reference": "H 2568",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1419276912",
+      "coordinates": [
+        -74.5487332,
+        45.0555896
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "8",
+        "seamark:light:range": "11",
+        "seamark:light:reference": "H 2571",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1419434021",
+      "coordinates": [
+        -74.244345,
+        45.180532
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419434472",
+      "coordinates": [
+        -74.2638703,
+        45.1796245
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419616339",
+      "coordinates": [
+        -74.2059849,
+        45.2527322
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "6",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 2541",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Coteau-Landing",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420638625",
+      "coordinates": [
+        -73.8364576,
+        45.4249733
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420641537",
+      "coordinates": [
+        -73.8597606,
+        45.4224379
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420641916",
+      "coordinates": [
+        -73.7960202,
+        45.4028181
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "12",
+        "seamark:light:reference": "H 2517.2",
+        "seamark:name": "Kahnawake",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420642817",
+      "coordinates": [
+        -73.7458356,
+        45.4211185
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "9",
+        "seamark:light:reference": "H 2518.4",
+        "seamark:name": "Dixie",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420642919",
+      "coordinates": [
+        -73.8348171,
+        45.4250335
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420643018",
+      "coordinates": [
+        -73.7600387,
+        45.4189794
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "12",
+        "seamark:light:range": "11",
+        "seamark:light:reference": "H 2517.1",
+        "seamark:name": "Dorval",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420643616",
+      "coordinates": [
+        -73.7256939,
+        45.4327242
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420644516",
+      "coordinates": [
+        -73.8348854,
+        45.425247
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420644767",
+      "coordinates": [
+        -73.8025744,
+        45.4025718
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "20",
+        "seamark:light:reference": "H 2517.21",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420645890",
+      "coordinates": [
+        -73.8201705,
+        45.4278809
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420647329",
+      "coordinates": [
+        -73.8598887,
+        45.4221222
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1420647337",
+      "coordinates": [
+        -73.8367284,
+        45.4249642
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "25",
+        "seamark:light:reference": "H 2518.41",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1420648290",
+      "coordinates": [
+        -73.750571,
+        45.4259074
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "25",
+        "seamark:light:range": "11",
+        "seamark:light:reference": "H 2517.11",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1433564175",
+      "coordinates": [
+        -73.4396841,
+        45.712501
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "13",
+        "seamark:light:range": "14",
+        "seamark:light:reference": "H 2482",
+        "seamark:name": "Ile Deslauriers",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1552664235",
+      "coordinates": [
+        -66.7411045,
+        49.0890161
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1552680379",
+      "coordinates": [
+        -66.6887122,
+        49.1016533
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1552730033",
+      "coordinates": [
+        -66.484745,
+        49.1350751
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "4",
+        "seamark:light:period": "6",
+        "seamark:light:reference": "H 1854",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1560411728",
+      "coordinates": [
+        -64.7904342,
+        49.1630538
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1560425462",
+      "coordinates": [
+        -64.8476611,
+        49.1858635
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "9",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 1811",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1563850347",
+      "coordinates": [
+        -65.541633,
+        48.0637278
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1563857931",
+      "coordinates": [
+        -65.6123545,
+        48.0774619
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1564408927",
+      "coordinates": [
+        -64.9498422,
+        48.1513365
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Port-Daniel-Gascons",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "20",
+        "seamark:light:period": "5",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 1680",
+        "seamark:name": "West Point",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1564417227",
+      "coordinates": [
+        -64.8454517,
+        48.192013
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1565540559",
+      "coordinates": [
+        -67.8182017,
+        49.269102
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1565710677",
+      "coordinates": [
+        -67.3798781,
+        49.3170557
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1851407853",
+      "coordinates": [
+        -73.5450112,
+        45.4073218
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1920674788",
+      "coordinates": [
+        -64.206674,
+        50.220538
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île-aux-Perroquets",
+        "seamark:information": "Obscured by Mingan Island between 269° and 292° .Seasonal.Operates at night only.",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "24",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 1958",
+        "seamark:name": "Iles aux Perroquets",
+        "seamark:type": "light_major",
+        "wikidata": "Q16605095"
+      }
+    },
+    {
+      "id": "node/2190368380",
+      "coordinates": [
+        -60.3737779,
+        46.385118
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "wikidata": "Q28375765"
+      }
+    },
+    {
+      "id": "node/2190377767",
+      "coordinates": [
+        -60.4611083,
+        46.444453
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2190377798",
+      "coordinates": [
+        -60.4608619,
+        46.4447868
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2212326092",
+      "coordinates": [
+        -71.0241309,
+        48.4494517
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2212328810",
+      "coordinates": [
+        -71.0104078,
+        48.4565886
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2212328895",
+      "coordinates": [
+        -71.012701,
+        48.4567584
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2448051962",
+      "coordinates": [
+        -72.6032669,
+        46.275846
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443012",
+      "coordinates": [
+        -57.699229,
+        51.420314
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443043",
+      "coordinates": [
+        -57.6578466,
+        51.4204016
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443164",
+      "coordinates": [
+        -57.7045716,
+        51.4208242
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443343",
+      "coordinates": [
+        -57.7065319,
+        51.4214206
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443630",
+      "coordinates": [
+        -57.6604723,
+        51.4225828
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3275443717",
+      "coordinates": [
+        -57.6590649,
+        51.4228577
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3277008381",
+      "coordinates": [
+        -57.692875,
+        51.3556282
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3378531504",
+      "coordinates": [
+        -57.8034864,
+        51.3980849
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3378533182",
+      "coordinates": [
+        -57.8030964,
+        51.4004242
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3380419423",
+      "coordinates": [
+        -57.8414166,
+        51.3219909
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420603854",
+      "coordinates": [
+        -58.7562251,
+        50.7525938
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420610047",
+      "coordinates": [
+        -58.9735115,
+        50.835251
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420610183",
+      "coordinates": [
+        -58.8754701,
+        50.8360273
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420610207",
+      "coordinates": [
+        -58.9732127,
+        50.8361388
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420611007",
+      "coordinates": [
+        -58.9762078,
+        50.8425676
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420611023",
+      "coordinates": [
+        -58.9747467,
+        50.8430947
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420612240",
+      "coordinates": [
+        -58.9308581,
+        50.8586697
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3420625970",
+      "coordinates": [
+        -58.879122,
+        50.9300083
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427019437",
+      "coordinates": [
+        -59.0335654,
+        50.7691826
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427021769",
+      "coordinates": [
+        -59.0360617,
+        50.771923
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427972691",
+      "coordinates": [
+        -59.199683,
+        50.6604811
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427973206",
+      "coordinates": [
+        -59.1995129,
+        50.6615679
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427973592",
+      "coordinates": [
+        -59.2340667,
+        50.6622966
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427974530",
+      "coordinates": [
+        -59.2405014,
+        50.6636442
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427982971",
+      "coordinates": [
+        -59.2406872,
+        50.6803742
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3427983633",
+      "coordinates": [
+        -59.2411723,
+        50.6813274
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3428014429",
+      "coordinates": [
+        -59.0065117,
+        50.734249
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3447012513",
+      "coordinates": [
+        -58.9733255,
+        50.8092337
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3519495625",
+      "coordinates": [
+        -59.4573955,
+        50.4705597
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3519497834",
+      "coordinates": [
+        -59.4611928,
+        50.4890035
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3519498104",
+      "coordinates": [
+        -59.4689818,
+        50.4925999
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3519498123",
+      "coordinates": [
+        -59.4840373,
+        50.4931115
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3519498132",
+      "coordinates": [
+        -59.4863896,
+        50.4933028
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3558523962",
+      "coordinates": [
+        -59.6557748,
+        50.3049622
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3558532696",
+      "coordinates": [
+        -59.6071526,
+        50.4708305
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3592285666",
+      "coordinates": [
+        -60.0616046,
+        50.1632479
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3609615536",
+      "coordinates": [
+        -60.6976126,
+        50.1675668
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3609689140",
+      "coordinates": [
+        -60.6864412,
+        50.2072232
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3609729039",
+      "coordinates": [
+        -60.6977091,
+        50.2143091
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3609730560",
+      "coordinates": [
+        -60.6982564,
+        50.2153402
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3621582422",
+      "coordinates": [
+        -61.2655665,
+        50.1754511
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/3621592518",
+      "coordinates": [
+        -61.2631686,
+        50.1832557
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/3621602713",
+      "coordinates": [
+        -61.2540614,
+        50.1966308
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/3621604418",
+      "coordinates": [
+        -61.2541704,
+        50.1977608
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/3847176084",
+      "coordinates": [
+        -61.7371782,
+        50.0851145
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3847234901",
+      "coordinates": [
+        -61.8440229,
+        50.1818562
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/3847244972",
+      "coordinates": [
+        -61.8422702,
+        50.1864269
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4358680478",
+      "coordinates": [
+        -69.5547285,
+        48.0694333
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île rouge",
+        "name:fr": "Phare de l'Île rouge"
+      }
+    },
+    {
+      "id": "node/4408249607",
+      "coordinates": [
+        -65.9483025,
+        50.2821501
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Petit-Havre"
+      }
+    },
+    {
+      "id": "node/4604557384",
+      "coordinates": [
+        -62.7969506,
+        50.2834448
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4604568351",
+      "coordinates": [
+        -62.795963,
+        50.2842507
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4757111835",
+      "coordinates": [
+        -63.5943145,
+        50.2402073
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4757113255",
+      "coordinates": [
+        -63.6871742,
+        50.2039879
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4757117609",
+      "coordinates": [
+        -63.5577175,
+        50.2040196
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4757120775",
+      "coordinates": [
+        -63.6124963,
+        50.2379585
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4757120842",
+      "coordinates": [
+        -63.5952735,
+        50.2416563
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/479600509",
+      "coordinates": [
+        -66.1248888,
+        48.0869476
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Carleton",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "9",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 1638",
+        "seamark:name": "Pointe Tracadigache",
+        "seamark:type": "light_major",
+        "wikidata": "Q28657076"
+      }
+    },
+    {
+      "id": "node/4829593216",
+      "coordinates": [
+        -64.7815698,
+        50.2733583
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/5172178176",
+      "coordinates": [
+        -74.0487021,
+        45.2152177
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/5247935260",
+      "coordinates": [
+        -73.6712569,
+        45.5662429
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/6193857774",
+      "coordinates": [
+        -70.4302742,
+        47.3704417
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/6396091475",
+      "coordinates": [
+        -73.777604,
+        45.4445325
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare des hirondelles noires de Dorval",
+        "name:en": "Dorval Purple Martin Lighthouse",
+        "name:fr": "Phare des hirondelles noires de Dorval",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/6548288060",
+      "coordinates": [
+        -61.9593172,
+        47.3847384
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Borgot",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/6548305563",
+      "coordinates": [
+        -69.4242596,
+        48.0510696
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île Verte",
+        "wikidata": "Q3378454"
+      }
+    },
+    {
+      "id": "node/6549671354",
+      "coordinates": [
+        -65.8989599,
+        48.1697652
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "wikidata": "Q28659562"
+      }
+    },
+    {
+      "id": "node/6549674850",
+      "coordinates": [
+        -65.4828072,
+        48.0356737
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Pointe Bonaventure Lighthouse",
+        "wikidata": "Q28653990"
+      }
+    },
+    {
+      "id": "node/6549796285",
+      "coordinates": [
+        -69.6811911,
+        47.8725362
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Pot à l'Eau-de-vie",
+        "name:en": "Pot à l'Eau-de-vie lighthouse",
+        "name:fr": "Phare du Pot à l'Eau-de-vie",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "36",
+        "seamark:light:period": "2",
+        "seamark:light:reference": "H 2164",
+        "seamark:name": "Brandypot",
+        "seamark:type": "light_minor",
+        "wikidata": "Q16634749"
+      }
+    },
+    {
+      "id": "node/6549809241",
+      "coordinates": [
+        -61.773528,
+        47.3909053
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Échouerie",
+        "name:en": "Cap-Alright Lighthouse",
+        "name:fr": "Phare de l'Échouerie",
+        "wikidata": "Q20656079"
+      }
+    },
+    {
+      "id": "node/818424444",
+      "coordinates": [
+        -62.2598209,
+        49.0662738
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "17",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 1864",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Bagot Bluff",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/8200289580",
+      "coordinates": [
+        -73.6919713,
+        45.4331254
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/851639875",
+      "coordinates": [
+        -71.0205961,
+        48.4498333
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "9",
+        "seamark:light:reference": "H 2143.6",
+        "seamark:name": "Simard",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/857958389",
+      "coordinates": [
+        -68.1938937,
+        49.101299
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "36",
+        "seamark:light:period": "6",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 2056",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe de Manicouagan",
+        "seamark:radar_transponder:category": "racon",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/8762731097",
+      "coordinates": [
+        -64.375355,
+        49.8251779
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/878547660",
+      "coordinates": [
+        -64.162633,
+        48.7511047
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cap Gaspé",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "107",
+        "seamark:light:period": "5",
+        "seamark:light:range": "14",
+        "seamark:light:reference": "H 1762",
+        "seamark:name": "Cap Gaspe",
+        "seamark:type": "light_major",
+        "wikidata": "Q28570355"
+      }
+    },
+    {
+      "id": "node/879228078",
+      "coordinates": [
+        -61.7006427,
+        49.0856859
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "128",
+        "seamark:light:period": "1.5",
+        "seamark:light:range": "15",
+        "seamark:light:sequence": "0.2+(1.3)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/879554164",
+      "coordinates": [
+        -64.5232457,
+        49.8640756
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "27",
+        "seamark:light:period": "5",
+        "seamark:light:range": "19",
+        "seamark:light:reference": "H 1878",
+        "seamark:name": "West Point",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/879631210",
+      "coordinates": [
+        -64.1493481,
+        49.9516166
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "24",
+        "seamark:light:period": "30",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 1882",
+        "seamark:name": "Cap de Rabast",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/879980110",
+      "coordinates": [
+        -64.388325,
+        49.8414655
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "27",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 1870.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/880015648",
+      "coordinates": [
+        -61.8956997,
+        49.3511959
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cap-de-la-Table",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "34",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 1886",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Table Head",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/882671215",
+      "coordinates": [
+        -64.3455901,
+        49.8136142
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/882679947",
+      "coordinates": [
+        -64.3456579,
+        49.812538
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/896074423",
+      "coordinates": [
+        -62.9426796,
+        49.7314873
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare Carleton",
+        "name:en": "Carleton Lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "38",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 1884",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Carleton Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/896638055",
+      "coordinates": [
+        -63.594283,
+        49.3912932
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "21",
+        "seamark:light:period": "6",
+        "seamark:light:range": "8",
+        "seamark:light:reference": "H 1866",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/912816161",
+      "coordinates": [
+        -67.0060045,
+        49.8248898
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "45",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 2010",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Ile du Grand Caouis",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/915976574",
+      "coordinates": [
+        -73.4904911,
+        45.5990382
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "8",
+        "seamark:light:period": "2",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 2499",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/915977050",
+      "coordinates": [
+        -73.4928383,
+        45.5950727
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "16",
+        "seamark:light:period": "2",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 2499.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/924334517",
+      "coordinates": [
+        -73.4424489,
+        45.6868967
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "23",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 2487.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/938149259",
+      "coordinates": [
+        -68.1287175,
+        49.2359213
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "12",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 2054",
+        "seamark:name": "Baie Comeau",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/938153884",
+      "coordinates": [
+        -68.1409246,
+        49.2480842
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:1:category": "upper",
+        "seamark:light:1:character": "F",
+        "seamark:light:1:colour": "red",
+        "seamark:light:1:height": "67",
+        "seamark:light:1:sector_end": "237",
+        "seamark:light:1:sector_start": "237",
+        "seamark:light:reference": "H 2051.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/938165179",
+      "coordinates": [
+        -68.1383356,
+        49.2486941
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "60",
+        "seamark:light:period": "10",
+        "seamark:light:reference": "H 2052.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/9413836260",
+      "coordinates": [
+        -73.0249305,
+        46.066213
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Île du Moine Range Lighthouse"
+      }
+    },
+    {
+      "id": "node/942701132",
+      "coordinates": [
+        -68.0799738,
+        49.2559327
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "25",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 2050",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Pointe St. Pancrace",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/951123798",
+      "coordinates": [
+        -73.4401734,
+        45.6900595
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "12",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 2487",
+        "seamark:name": "Varennes",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/9528503593",
+      "coordinates": [
+        -73.9684851,
+        45.3308713
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Parc Saint-Pierre",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/1103546691",
+      "coordinates": [
+        -72.690624,
+        46.2890002
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1128318326",
+      "coordinates": [
+        -69.876628,
+        47.8437483
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Saint-Siméon"
+      }
+    },
+    {
+      "id": "way/1226562451",
+      "coordinates": [
+        -61.1445693,
+        47.8379613
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Rocher-aux-Oiseaux",
+        "seamark:light:character": "LFl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "49",
+        "seamark:light:period": "8",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 0882",
+        "seamark:light:sequence": "2+(6)",
+        "seamark:name": "Bird Rocks",
+        "seamark:type": "light_major",
+        "wikidata": "Q28659228"
+      }
+    },
+    {
+      "id": "way/1250934211",
+      "coordinates": [
+        -61.7050194,
+        47.2676373
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île-d'Entrée",
+        "wikidata": "Q19291759"
+      }
+    },
+    {
+      "id": "way/1359810257",
+      "coordinates": [
+        -68.0338618,
+        48.6804075
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1409573981",
+      "coordinates": [
+        -64.1626289,
+        48.7511068
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/286461501",
+      "coordinates": [
+        -67.366808,
+        49.3256196
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Pointe-des-Monts",
+        "wikidata": "Q15648998"
+      }
+    },
+    {
+      "id": "way/299595585",
+      "coordinates": [
+        -73.2673701,
+        45.8786506
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/317964466",
+      "coordinates": [
+        -66.1714061,
+        49.206126
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de La Martre",
+        "wikidata": "Q14826835"
+      }
+    },
+    {
+      "id": "way/393908972",
+      "coordinates": [
+        -73.5382167,
+        45.5185657
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Parc Jean-Drapeau",
+        "name:fr": "Phare du Parc Jean-Drapeau"
+      }
+    },
+    {
+      "id": "way/438446289",
+      "coordinates": [
+        -61.9712532,
+        47.2129587
+      ],
+      "tags": {
+        "description": "Il s'agit du plus haut phare des Îles de la Madeleine et le plus ancien de l'archipel ayant été conservé à peu de choses près comme à l'origine. Il n'est plus en activité.",
+        "man_made": "lighthouse",
+        "name": "Phare de l'Anse-à-la-Cabane",
+        "name:en": "Amherst Island Light",
+        "name:fr": "Phare de l'Anse-à-la-Cabane",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "17.1",
+        "seamark:light:period": "20",
+        "seamark:type": "light_major",
+        "wikidata": "Q3378435"
+      }
+    },
+    {
+      "id": "way/472147375",
+      "coordinates": [
+        -61.5085208,
+        47.7817601
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île-Brion",
+        "wikidata": "Q3378438"
+      }
+    },
+    {
+      "id": "way/557047296",
+      "coordinates": [
+        -67.5488289,
+        48.8500263
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Matane",
+        "wikidata": "Q28375386"
+      }
+    },
+    {
+      "id": "way/576710199",
+      "coordinates": [
+        -68.4689664,
+        48.5175224
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Pointe-au-Père",
+        "wikidata": "Q39858"
+      }
+    },
+    {
+      "id": "way/666331864",
+      "coordinates": [
+        -68.0339977,
+        48.6802823
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de la Pointe-Mitis",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "21",
+        "seamark:light:period": "7.5",
+        "seamark:light:reference": "H 2048",
+        "seamark:light:sequence": "0.2+(1)+0.2+(1)+0.2+(4.9)",
+        "seamark:name": "Pointe Mitis",
+        "seamark:type": "light_minor",
+        "wikidata": "Q15647701"
+      }
+    },
+    {
+      "id": "way/697211678",
+      "coordinates": [
+        -69.614372,
+        48.1081673
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare du Haut-fond Prince",
+        "name:fr": "Phare du Haut-fond Prince",
+        "wikidata": "Q2085048"
+      }
+    },
+    {
+      "id": "way/697865988",
+      "coordinates": [
+        -73.5264639,
+        45.5078477
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de l'Île Notre-Dame",
+        "seamark:type": "light_major"
+      }
+    }
+  ]
+}

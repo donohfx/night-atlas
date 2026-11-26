@@ -76,6 +76,30 @@ New marks outside the previous coverage use the Natural Earth Admin 1 layer
 to select the waters nearest Newfoundland and Labrador.
 It reads local files only.
 
+## St. Lawrence marks and river water
+
+`tools/build-atlas-river.py HARVEST AIDS ADMIN_SHAPEFILE STAGE` writes
+`web/region/river-STAGE.json` from a saved chart-mark export and a complete List
+of Lights build (Atlantic and Inland Waters sections). Run the stages in the
+order `gulf`, `lower`, `upper`; each one skips records held by earlier stages.
+The web map loads a bundle when it is visible near symbol zoom.
+
+The OSM split land polygons treat most inland water as land. After
+`extract-atlas-coast.py`, `build-atlas-live.py` and `build-atlas-provinces.py`
+(each replaces these files), run
+
+```sh
+python tools/cut-atlas-river-water.py web/region WATER.json [WATER.json ...] \
+  --border BORDER.json
+```
+
+once. The water inputs are Overpass `out geom` results holding the relations and
+closed ways listed in the script. The border input is the result of
+`rel(61320);way(r)(43.9,-76.9,45.1,-74.3);out geom;`. It replaces the
+generalised Ontario and US focus boundary upstream of Cornwall. Then rebuild the
+regional beam reach table. Other side waters appear only in the close-zoom
+OpenStreetMap water layer.
+
 ## Web tile build
 
 Run `npm run build:tiles` from the repository root with Node 24 and ImageMagick 7.

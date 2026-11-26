@@ -1,0 +1,410 @@
+{
+  "source": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+  "timestamp": "2026-11-26T17:27:21Z",
+  "elements": [
+    {
+      "id": "node/1411751640",
+      "coordinates": [
+        -76.11925,
+        44.3253262
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1412263279",
+      "coordinates": [
+        -75.8868907,
+        44.4089758
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1412507469",
+      "coordinates": [
+        -75.7546537,
+        44.5295233
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1416838224",
+      "coordinates": [
+        -75.1119314,
+        44.9335394
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1419266502",
+      "coordinates": [
+        -74.7137488,
+        45.0020092
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:1:character": "F",
+        "seamark:light:1:colour": "red",
+        "seamark:light:1:height": "16",
+        "seamark:light:1:sector_end": "277.75",
+        "seamark:light:1:sector_start": "276",
+        "seamark:light:2:character": "F",
+        "seamark:light:2:colour": "white",
+        "seamark:light:2:height": "16",
+        "seamark:light:2:sector_end": "279.25",
+        "seamark:light:2:sector_start": "277.75",
+        "seamark:light:3:character": "F",
+        "seamark:light:3:colour": "green",
+        "seamark:light:3:height": "16",
+        "seamark:light:3:sector_end": "281",
+        "seamark:light:3:sector_start": "279.25",
+        "seamark:light:reference": "H 2604",
+        "seamark:name": "No.10",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/2172874330",
+      "coordinates": [
+        -75.3136563,
+        44.8385055
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2172874372",
+      "coordinates": [
+        -75.3115715,
+        44.8390239
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2172874874",
+      "coordinates": [
+        -75.3028661,
+        44.8452452
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2172875009",
+      "coordinates": [
+        -75.3016319,
+        44.8470613
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2173697145",
+      "coordinates": [
+        -75.1367246,
+        44.9239733
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2173824748",
+      "coordinates": [
+        -75.1094254,
+        44.9367458
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4244776460",
+      "coordinates": [
+        -75.0664379,
+        44.944331
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Lighthouse"
+      }
+    },
+    {
+      "id": "node/529166256",
+      "coordinates": [
+        -76.3096098,
+        44.203861
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166258",
+      "coordinates": [
+        -76.3978142,
+        44.2323235
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166259",
+      "coordinates": [
+        -76.477852,
+        44.229405
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166260",
+      "coordinates": [
+        -76.1840724,
+        44.2388209
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166262",
+      "coordinates": [
+        -76.3069304,
+        44.2461264
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166277",
+      "coordinates": [
+        -76.4543608,
+        44.2244677
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166282",
+      "coordinates": [
+        -76.4504335,
+        44.2336304
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166284",
+      "coordinates": [
+        -76.328453,
+        44.1942543
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166287",
+      "coordinates": [
+        -76.3104129,
+        44.2043856
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166289",
+      "coordinates": [
+        -76.1845622,
+        44.2385129
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529166291",
+      "coordinates": [
+        -76.4773274,
+        44.2299268
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/529270178",
+      "coordinates": [
+        -76.381667,
+        44.2574426
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270233",
+      "coordinates": [
+        -76.3271185,
+        44.2770798
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270239",
+      "coordinates": [
+        -76.1911991,
+        44.2964562
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270704",
+      "coordinates": [
+        -76.2858648,
+        44.2991478
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270718",
+      "coordinates": [
+        -76.2755182,
+        44.3024501
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270736",
+      "coordinates": [
+        -76.2492116,
+        44.3041709
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270808",
+      "coordinates": [
+        -76.1905264,
+        44.3025576
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/529270809",
+      "coordinates": [
+        -76.1833711,
+        44.3112291
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/6520809576",
+      "coordinates": [
+        -76.1632916,
+        44.3217035
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/687193052",
+      "coordinates": [
+        -76.5149332,
+        44.2167919
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/687193053",
+      "coordinates": [
+        -76.5496301,
+        44.2082384
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/687193068",
+      "coordinates": [
+        -76.5373321,
+        44.2167337
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/9664700359",
+      "coordinates": [
+        -75.5095138,
+        44.7099476
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/403830283",
+      "coordinates": [
+        -75.5116553,
+        44.7102982
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Rotary Lighthouse"
+      }
+    },
+    {
+      "id": "way/783476461",
+      "coordinates": [
+        -76.4797172,
+        44.228954
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    }
+  ]
+}

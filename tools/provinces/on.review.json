@@ -1,0 +1,668 @@
+[
+  {
+    "osm": "node/1411751640",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 5.9 m away.",
+    "references": [],
+    "candidates": [
+      [
+        5.9,
+        "INL:INL366",
+        "Jackstraw Shoal"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL366",
+    "distanceMetres": 5.9,
+    "marks": [
+      [
+        "ccg",
+        "INL366",
+        "Jackstraw Shoal",
+        [
+          -76.119306,
+          44.325361
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.119295,
+          44.3253614
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1412263279",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 2.1 m away.",
+    "references": [],
+    "candidates": [
+      [
+        2.1,
+        "INL:INL358",
+        "Goose Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL358",
+    "distanceMetres": 2.1,
+    "marks": [
+      [
+        "ccg",
+        "INL358",
+        "Goose Island",
+        [
+          -75.886917,
+          44.408972
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -75.8869036,
+          44.4089819
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1412507469",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        1.1,
+        "INL:INL338",
+        "Light 150"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1416838224",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        50.2,
+        "INL:INL242.5",
+        "Doran Shoal front range light"
+      ],
+      [
+        400.8,
+        "INL:INL242.6",
+        "Doran Shoal rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419266502",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2604"
+    ],
+    "candidates": [
+      [
+        4.6,
+        "INL:INL185",
+        "Light 10 Sector"
+      ],
+      [
+        4.6,
+        "INL:INL185.2",
+        "Light 10 Direction"
+      ]
+    ],
+    "aid": "INL:INL185",
+    "distanceMetres": 4.6,
+    "marks": [
+      [
+        "ccg",
+        "INL185",
+        "Light 10 Sector",
+        [
+          -74.713806,
+          45.002
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "10",
+        [
+          -74.7137958,
+          45.0020183
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/2172874330",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.9,
+        "INL:INL280.5",
+        "Iroquois Approach rear range light"
+      ],
+      [
+        184.6,
+        "INL:INL280.4",
+        "Iroquois Approach front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2172874372",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        28.2,
+        "INL:INL280.4",
+        "Iroquois Approach front range light"
+      ],
+      [
+        174.2,
+        "INL:INL280.5",
+        "Iroquois Approach rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2172874874",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        5.9,
+        "INL:INL274.4",
+        "Iroquois Lock Direction"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2172875009",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        230.0,
+        "INL:INL274.4",
+        "Iroquois Lock Direction"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2173697145",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        16.6,
+        "INL:INL244.6",
+        "Weaver Shoal rear range light"
+      ],
+      [
+        457.8,
+        "INL:INL244.5",
+        "Weaver Shoal front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2173824748",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        36.2,
+        "INL:INL242.6",
+        "Doran Shoal rear range light"
+      ],
+      [
+        373.9,
+        "INL:INL242.5",
+        "Doran Shoal front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4244776460",
+    "name": "Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529166256",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        87.1,
+        "INL:INL380",
+        "Irvine Point front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166258",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529166259",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529166260",
+    "name": null,
+    "method": "reviewed override: The published white tower is 3.4 m away. The second OSM object is 50.6 m away.",
+    "references": [],
+    "candidates": [
+      [
+        3.4,
+        "INL:INL378",
+        "Wolfe Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL378",
+    "distanceMetres": 3.4,
+    "marks": [
+      [
+        "ccg",
+        "INL378",
+        "Wolfe Island",
+        [
+          -76.184111,
+          44.238833
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.1840972,
+          44.2388328
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166262",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 3.6 m away.",
+    "references": [],
+    "candidates": [
+      [
+        3.6,
+        "INL:INL393",
+        "Howe Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL393",
+    "distanceMetres": 3.6,
+    "marks": [
+      [
+        "ccg",
+        "INL393",
+        "Howe Island",
+        [
+          -76.306889,
+          44.246139
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.3068947,
+          44.2461394
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166277",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 2.6 m away.",
+    "references": [],
+    "candidates": [
+      [
+        2.6,
+        "INL:INL401",
+        "Cedar Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL401",
+    "distanceMetres": 2.6,
+    "marks": [
+      [
+        "ccg",
+        "INL401",
+        "Cedar Island",
+        [
+          -76.454361,
+          44.224444
+        ]
+      ],
+      [
+        "chs",
+        "INL401",
+        "",
+        [
+          -76.4543511,
+          44.2244469
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166282",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529166284",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        0.8,
+        "INL:INL384",
+        "Bayfield Island Sector"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166287",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        0.5,
+        "INL:INL380",
+        "Irvine Point front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166289",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        50.6,
+        "INL:INL378",
+        "Wolfe Island"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529166291",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529270178",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529270233",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.1,
+        "INL:INL394.6",
+        "Howe Island Ferry"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529270239",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 1.4 m away.",
+    "references": [],
+    "candidates": [
+      [
+        1.4,
+        "INL:INL370",
+        "Aubrey Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL370",
+    "distanceMetres": 1.4,
+    "marks": [
+      [
+        "ccg",
+        "INL370",
+        "Aubrey Island",
+        [
+          -76.191194,
+          44.296444
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.1911861,
+          44.2964453
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/529270704",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        1.0,
+        "INL:INL394.5",
+        "Bateau Channel 3"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529270718",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.8,
+        "INL:INL394.4",
+        "Bateau Channel 2"
+      ]
+    ]
+  },
+  {
+    "osm": "node/529270736",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/529270808",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 0.3 m away.",
+    "references": [],
+    "candidates": [
+      [
+        0.3,
+        "INL:INL369",
+        "Beaurivage Island"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL369",
+    "distanceMetres": 0.3,
+    "marks": [
+      [
+        "ccg",
+        "INL369",
+        "Beaurivage Island",
+        [
+          -76.190528,
+          44.302556
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.1905297,
+          44.3025644
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/529270809",
+    "name": null,
+    "method": "reviewed override: Unique nearby published cylindrical tower, 1.6 m away.",
+    "references": [],
+    "candidates": [
+      [
+        1.6,
+        "INL:INL368",
+        "Spectacles Shoal"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php",
+    "aid": "INL:INL368",
+    "distanceMetres": 1.6,
+    "marks": [
+      [
+        "ccg",
+        "INL368",
+        "Spectacles Shoal",
+        [
+          -76.183389,
+          44.311222
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -76.1833825,
+          44.3112169
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/6520809576",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        5.3,
+        "INL:INL367",
+        "Gananoque Harbour"
+      ]
+    ]
+  },
+  {
+    "osm": "node/687193052",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/687193053",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/687193068",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/9664700359",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        1.2,
+        "INL:INL312.5",
+        "Prescott Heritage Harbour"
+      ]
+    ]
+  },
+  {
+    "osm": "way/403830283",
+    "name": "Rotary Lighthouse",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        172.7,
+        "INL:INL312.5",
+        "Prescott Heritage Harbour"
+      ]
+    ]
+  },
+  {
+    "osm": "way/783476461",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  }
+]

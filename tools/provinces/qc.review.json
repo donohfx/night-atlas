@@ -1,0 +1,4280 @@
+[
+  {
+    "osm": "node/10181714347",
+    "name": "Le Petit-Phare",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1068711113",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        13.2,
+        "INL:INL153",
+        "McGibbons Point D80 Direction"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1069833244",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.1,
+        "INL:INL164",
+        "Cornwall Island front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1088598286",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2084"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/11112724664",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        6.0,
+        "atlantic:1927",
+        "Sainte-Pétronille (Beaulieu)"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1137333239",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1137364397",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1137367207",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2096"
+    ],
+    "candidates": [
+      [
+        41.5,
+        "atlantic:1756.4",
+        "Île aux Basques"
+      ]
+    ],
+    "aid": "atlantic:1756.4",
+    "distanceMetres": 41.5,
+    "marks": [
+      [
+        "ccg",
+        "1756.4",
+        "Île aux Basques",
+        [
+          -69.238444,
+          48.149194
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.2384472,
+          48.1492056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1137374875",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1142907621",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1142908253",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2166"
+    ],
+    "candidates": [
+      [
+        7.0,
+        "atlantic:1834",
+        "Cap de la Tête au Chien"
+      ]
+    ],
+    "aid": "atlantic:1834",
+    "distanceMetres": 7.0,
+    "marks": [
+      [
+        "ccg",
+        "1834",
+        "Cap de la Tête au Chien",
+        [
+          -69.806583,
+          47.911528
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1142912025",
+    "name": "Phare de Cap au Saumon",
+    "method": "international reference",
+    "references": [
+      "H2182"
+    ],
+    "candidates": [
+      [
+        6.3,
+        "atlantic:1836",
+        "Cap au Saumon"
+      ]
+    ],
+    "aid": "atlantic:1836",
+    "distanceMetres": 6.3,
+    "marks": [
+      [
+        "ccg",
+        "1836",
+        "Cap au Saumon",
+        [
+          -69.905944,
+          47.7705
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1142940349",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1148743991",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2174"
+    ],
+    "candidates": [
+      [
+        62.0,
+        "atlantic:1838",
+        "Grande Île Kamouraska"
+      ]
+    ],
+    "aid": "atlantic:1838",
+    "distanceMetres": 62.0,
+    "marks": [
+      [
+        "ccg",
+        "1838",
+        "Grande Île Kamouraska",
+        [
+          -69.862306,
+          47.622333
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.8623042,
+          47.6223417
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1148754402",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2172"
+    ],
+    "candidates": [
+      [
+        9.3,
+        "atlantic:1832",
+        "Le Long Pèlerin"
+      ]
+    ],
+    "aid": "atlantic:1832",
+    "distanceMetres": 9.3,
+    "marks": [
+      [
+        "ccg",
+        "1832",
+        "Le Long Pèlerin",
+        [
+          -69.747722,
+          47.716333
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.747725,
+          47.7163297
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1176339454",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2330"
+    ],
+    "candidates": [
+      [
+        2.3,
+        "atlantic:1964",
+        "Pointe à Basile front range light"
+      ],
+      [
+        2.3,
+        "atlantic:1964.1",
+        "Pointe à Basile"
+      ]
+    ],
+    "aid": "atlantic:1964",
+    "distanceMetres": 2.3,
+    "marks": [
+      [
+        "ccg",
+        "1964",
+        "Pointe à Basile front range light",
+        [
+          -71.329194,
+          46.730028
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -71.3291975,
+          46.7300389
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1203629308",
+    "name": "Saint-Michel Range Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H2274"
+    ],
+    "candidates": [
+      [
+        2.1,
+        "atlantic:1918",
+        "Saint-Michel front range light"
+      ]
+    ],
+    "aid": "atlantic:1918",
+    "distanceMetres": 2.1,
+    "marks": [
+      [
+        "ccg",
+        "1918",
+        "Saint-Michel front range light",
+        [
+          -70.916611,
+          46.875278
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.9166083,
+          46.87528
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206517375",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2254"
+    ],
+    "candidates": [
+      [
+        1.4,
+        "atlantic:1893",
+        "Sault-au-Cochon"
+      ]
+    ],
+    "aid": "atlantic:1893",
+    "distanceMetres": 1.4,
+    "marks": [
+      [
+        "ccg",
+        "1893",
+        "Sault-au-Cochon",
+        [
+          -70.637667,
+          47.197083
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.6376792,
+          47.1970764
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206523880",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2255"
+    ],
+    "candidates": [
+      [
+        1.0,
+        "atlantic:1895.2",
+        "Cap Gribane front range light"
+      ],
+      [
+        445.7,
+        "atlantic:1895.3",
+        "Cap Gribane rear range light"
+      ]
+    ],
+    "aid": "atlantic:1895.2",
+    "distanceMetres": 1.0,
+    "marks": [
+      [
+        "ccg",
+        "1895.2",
+        "Cap Gribane front range light",
+        [
+          -70.685778,
+          47.140889
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.6857744,
+          47.1409011
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206538071",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2256"
+    ],
+    "candidates": [
+      [
+        20.9,
+        "atlantic:1895.6",
+        "Cap Rouge front range light"
+      ]
+    ],
+    "aid": "atlantic:1895.6",
+    "distanceMetres": 20.9,
+    "marks": [
+      [
+        "ccg",
+        "1895.6",
+        "Cap Rouge front range light",
+        [
+          -70.701667,
+          47.125
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.7016781,
+          47.1250106
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206547324",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1206547413",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2262"
+    ],
+    "candidates": [
+      [
+        118.9,
+        "atlantic:1900",
+        "Banc du Cap Brûlé Upstream front range light"
+      ],
+      [
+        122.7,
+        "atlantic:1899",
+        "Banc du Cap Brûlé Downstream rear range light"
+      ]
+    ],
+    "aid": "atlantic:1900",
+    "distanceMetres": 118.9,
+    "marks": [
+      [
+        "ccg",
+        "1900",
+        "Banc du Cap Brûlé Upstream front range light",
+        [
+          -70.710806,
+          47.089583
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.7108056,
+          47.0896453
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.7107917,
+          47.0895967
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206552257",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        232.9,
+        "atlantic:1936.1",
+        "Sainte-Anne de Beaupré Sector"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206553410",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1206566146",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2267"
+    ],
+    "candidates": [
+      [
+        52.4,
+        "atlantic:1910.5",
+        "Pointe Argentenay front range light"
+      ]
+    ],
+    "aid": "atlantic:1910.5",
+    "distanceMetres": 52.4,
+    "marks": [
+      [
+        "ccg",
+        "1910.5",
+        "Pointe Argentenay front range light",
+        [
+          -70.805139,
+          47.00775
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.805125,
+          47.0077417
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1206573684",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2259"
+    ],
+    "candidates": [
+      [
+        1.5,
+        "atlantic:1902",
+        "Cap Brûlé"
+      ]
+    ],
+    "aid": "atlantic:1902",
+    "distanceMetres": 1.5,
+    "marks": [
+      [
+        "ccg",
+        "1902",
+        "Cap Brûlé",
+        [
+          -70.716556,
+          47.108472
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.7165544,
+          47.1084717
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1207646801",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2226"
+    ],
+    "candidates": [
+      [
+        8.2,
+        "atlantic:1875.8",
+        "Saint-Jean-Port-Joli"
+      ],
+      [
+        71.0,
+        "atlantic:1875.9",
+        "Saint-Jean-Port-Joli"
+      ],
+      [
+        87.6,
+        "atlantic:1875.5",
+        "Parc nautique de St-Jean-Port-Joli front range light"
+      ],
+      [
+        90.7,
+        "atlantic:1875",
+        "Saint-Jean-Port-Joli"
+      ],
+      [
+        129.5,
+        "atlantic:1875.7",
+        "Parc nautique de St-Jean-Port-Joli rear range light"
+      ]
+    ],
+    "aid": "atlantic:1875",
+    "distanceMetres": 90.7,
+    "marks": [
+      [
+        "ccg",
+        "1875",
+        "Saint-Jean-Port-Joli",
+        [
+          -70.274611,
+          47.216111
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.2746167,
+          47.21615
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.2746064,
+          47.216105
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1207658069",
+    "name": "Phare du Pilier-de-Pierre",
+    "method": "international reference",
+    "references": [
+      "H2228"
+    ],
+    "candidates": [
+      [
+        9.7,
+        "atlantic:1876",
+        "Pilier de Pierre"
+      ]
+    ],
+    "aid": "atlantic:1876",
+    "distanceMetres": 9.7,
+    "marks": [
+      [
+        "ccg",
+        "1876",
+        "Pilier de Pierre",
+        [
+          -70.359556,
+          47.20575
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.3595658,
+          47.2057547
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1207670246",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2244"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1209314985",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1209333356",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2218"
+    ],
+    "candidates": [
+      [
+        10.1,
+        "atlantic:1853",
+        "Cap-aux-Corbeaux rear range light"
+      ],
+      [
+        10.1,
+        "atlantic:1853.1",
+        "Cap-aux-Corbeaux"
+      ],
+      [
+        379.8,
+        "atlantic:1852",
+        "Cap-aux-Corbeaux front range light"
+      ],
+      [
+        379.8,
+        "atlantic:1852.1",
+        "Cap-aux-Corbeaux"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1209335944",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2208"
+    ],
+    "candidates": [
+      [
+        5.8,
+        "atlantic:1851",
+        "Pointe de la Prairie"
+      ]
+    ],
+    "aid": "atlantic:1851",
+    "distanceMetres": 5.8,
+    "marks": [
+      [
+        "ccg",
+        "1851",
+        "Pointe de la Prairie",
+        [
+          -70.430889,
+          47.409389
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.43088,
+          47.4093928
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1209565730",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2194"
+    ],
+    "candidates": [
+      [
+        39.3,
+        "atlantic:1844",
+        "Pointe-au-Pic"
+      ],
+      [
+        126.0,
+        "atlantic:1843.7",
+        "Pointe-au-Pic Breakwater"
+      ]
+    ],
+    "aid": "atlantic:1844",
+    "distanceMetres": 39.3,
+    "marks": [
+      [
+        "ccg",
+        "1844",
+        "Pointe-au-Pic",
+        [
+          -70.140056,
+          47.622528
+        ]
+      ],
+      [
+        "chs",
+        "1844",
+        "",
+        [
+          -70.140055,
+          47.6225281
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1209595127",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1216228505",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1216463456",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2122"
+    ],
+    "candidates": [
+      [
+        18.7,
+        "atlantic:1785",
+        "Cap de la Boule"
+      ]
+    ],
+    "aid": "atlantic:1785",
+    "distanceMetres": 18.7,
+    "marks": [
+      [
+        "ccg",
+        "1785",
+        "Cap de la Boule",
+        [
+          -69.803639,
+          48.147972
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.80365,
+          48.1479667
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1216465472",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2115"
+    ],
+    "candidates": [
+      [
+        17.7,
+        "atlantic:1783",
+        "Pointe de l'Islet"
+      ]
+    ],
+    "aid": "atlantic:1783",
+    "distanceMetres": 17.7,
+    "marks": [
+      [
+        "ccg",
+        "1783",
+        "Pointe de l'Islet",
+        [
+          -69.7165,
+          48.135361
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.7164989,
+          48.1353603
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1216544765",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2124"
+    ],
+    "candidates": [
+      [
+        21.1,
+        "atlantic:1786",
+        "Anse de Sable"
+      ]
+    ],
+    "aid": "atlantic:1786",
+    "distanceMetres": 21.1,
+    "marks": [
+      [
+        "ccg",
+        "1786",
+        "Anse de Sable",
+        [
+          -69.855222,
+          48.151556
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.8552247,
+          48.1515647
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1216549404",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2126"
+    ],
+    "candidates": [
+      [
+        13.3,
+        "atlantic:1788",
+        "Pointe aux Crêpes"
+      ]
+    ],
+    "aid": "atlantic:1788",
+    "distanceMetres": 13.3,
+    "marks": [
+      [
+        "ccg",
+        "1788",
+        "Pointe aux Crêpes",
+        [
+          -69.894833,
+          48.217
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.8948453,
+          48.2169889
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/12587224046",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        14.8,
+        "atlantic:1707",
+        "Pointe Mitis (Petit Mitis)"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1266616076",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1266627403",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        573.2,
+        "atlantic:1801",
+        "Poste-Saint-Martin front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1266680850",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1266744182",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2142"
+    ],
+    "candidates": [
+      [
+        4.0,
+        "atlantic:1798",
+        "Cap à l'Est"
+      ]
+    ],
+    "aid": "atlantic:1798",
+    "distanceMetres": 4.0,
+    "marks": [
+      [
+        "ccg",
+        "1798",
+        "Cap à l'Est",
+        [
+          -70.705667,
+          48.375889
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.7056803,
+          48.3758828
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1266836265",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2143"
+    ],
+    "candidates": [
+      [
+        15.5,
+        "atlantic:1801",
+        "Poste-Saint-Martin front range light"
+      ]
+    ],
+    "aid": "atlantic:1801",
+    "distanceMetres": 15.5,
+    "marks": [
+      [
+        "ccg",
+        "1801",
+        "Poste-Saint-Martin front range light",
+        [
+          -70.9835,
+          48.443528
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.9835028,
+          48.4435263
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1266849223",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2140"
+    ],
+    "candidates": [
+      [
+        13.1,
+        "atlantic:1795",
+        "Pointe Rouge"
+      ]
+    ],
+    "aid": "atlantic:1795",
+    "distanceMetres": 13.1,
+    "marks": [
+      [
+        "ccg",
+        "1795",
+        "Pointe Rouge",
+        [
+          -70.535194,
+          48.3745
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.5351942,
+          48.3745011
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1267029478",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1267029569",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2143.3"
+    ],
+    "candidates": [
+      [
+        21.8,
+        "atlantic:1805",
+        "Rivière Valin front range light"
+      ]
+    ],
+    "aid": "atlantic:1805",
+    "distanceMetres": 21.8,
+    "marks": [
+      [
+        "ccg",
+        "1805",
+        "Rivière Valin front range light",
+        [
+          -70.981583,
+          48.460194
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.9815942,
+          48.4601964
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1274845171",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2136"
+    ],
+    "candidates": [
+      [
+        6.2,
+        "atlantic:1793",
+        "Anse de Tabatière"
+      ]
+    ],
+    "aid": "atlantic:1793",
+    "distanceMetres": 6.2,
+    "marks": [
+      [
+        "ccg",
+        "1793",
+        "Anse de Tabatière",
+        [
+          -70.20225,
+          48.272083
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.2022467,
+          48.2720742
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1274917476",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2133"
+    ],
+    "candidates": [
+      [
+        12.8,
+        "atlantic:1791",
+        "Pointe Claveau"
+      ]
+    ],
+    "aid": "atlantic:1791",
+    "distanceMetres": 12.8,
+    "marks": [
+      [
+        "ccg",
+        "1791",
+        "Pointe Claveau",
+        [
+          -70.114556,
+          48.260472
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -70.1145606,
+          48.26047
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1294429925",
+    "name": null,
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        3.2,
+        "atlantic:1755",
+        "Bon-Désir"
+      ]
+    ],
+    "aid": "atlantic:1755",
+    "distanceMetres": 3.2,
+    "marks": [
+      [
+        "ccg",
+        "1755",
+        "Bon-Désir",
+        [
+          -69.468667,
+          48.272083
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1299148215",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1300149923",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1718"
+    ],
+    "candidates": [
+      [
+        10.0,
+        "atlantic:1403",
+        "Cap d’Espoir"
+      ]
+    ],
+    "aid": "atlantic:1403",
+    "distanceMetres": 10.0,
+    "marks": [
+      [
+        "ccg",
+        "1403",
+        "Cap d’Espoir",
+        [
+          -64.317139,
+          48.41925
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1302787938",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        2.9,
+        "atlantic:1651",
+        "Cap de la Madeleine"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1304866440",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1830.1"
+    ],
+    "candidates": [
+      [
+        435.7,
+        "atlantic:1652.5",
+        "Mont-Louis Sector Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1305144540",
+    "name": "Cap-des-Rosiers",
+    "method": "international reference",
+    "references": [
+      "H1768"
+    ],
+    "candidates": [
+      [
+        4.2,
+        "atlantic:1621",
+        "Cap-des-Rosiers"
+      ]
+    ],
+    "aid": "atlantic:1621",
+    "distanceMetres": 4.2,
+    "marks": [
+      [
+        "ccg",
+        "1621",
+        "Cap-des-Rosiers",
+        [
+          -64.201056,
+          48.85625
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1305827177",
+    "name": null,
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        1.8,
+        "atlantic:1420.5",
+        "Gros Cap aux Os"
+      ]
+    ],
+    "aid": "atlantic:1420.5",
+    "distanceMetres": 1.8,
+    "marks": [
+      [
+        "ccg",
+        "1420.5",
+        "Gros Cap aux Os",
+        [
+          -64.316361,
+          48.824972
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -64.3163722,
+          48.8249799
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1306172413",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1752"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1306173346",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1316325490",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H870"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1316333621",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H870.4"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1317474123",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1176.4"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1318927083",
+    "name": "Enragée Point Lighthouse",
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1188"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1324475785",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2519"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1339243886",
+    "name": "Pointe-à-la-Renomée",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/13667874489",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        2.5,
+        "atlantic:2319",
+        "Verchères Village front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/13667914840",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        4.3,
+        "atlantic:2320",
+        "Verchères Village rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1375381586",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2548"
+    ],
+    "candidates": [
+      [
+        35.4,
+        "INL:INL112",
+        "Pointe Dupuis rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1377277351",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2544.1"
+    ],
+    "candidates": [
+      [
+        93.1,
+        "INL:INL99.1",
+        "Pointe Beaudette rear range light"
+      ]
+    ],
+    "aid": "INL:INL99.1",
+    "distanceMetres": 93.1,
+    "marks": [
+      [
+        "ccg",
+        "INL99.1",
+        "Pointe Beaudette rear range light",
+        [
+          -74.322889,
+          45.198722
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -74.3228861,
+          45.198716
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1377279051",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        48.2,
+        "INL:INL94.1",
+        "Pointe au Foin Downstream rear range light"
+      ],
+      [
+        438.5,
+        "INL:INL94.3",
+        "Pointe au Foin Upstream rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1377279116",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2543"
+    ],
+    "candidates": [
+      [
+        44.8,
+        "INL:INL94",
+        "Pointe au Foin Downstream front range light"
+      ]
+    ],
+    "aid": "INL:INL94",
+    "distanceMetres": 44.8,
+    "marks": [
+      [
+        "ccg",
+        "INL94",
+        "Pointe au Foin Downstream front range light",
+        [
+          -74.275861,
+          45.223444
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -74.2758675,
+          45.2234469
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1395526447",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1419264827",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        203.8,
+        "INL:INL158",
+        "Third Crab Sector"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419268371",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        317.0,
+        "INL:INL164",
+        "Cornwall Island front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419273453",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        415.1,
+        "INL:INL164",
+        "Cornwall Island front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419274888",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2572"
+    ],
+    "candidates": [
+      [
+        3.5,
+        "INL:INL144",
+        "Stanley Island light D67"
+      ],
+      [
+        395.4,
+        "INL:INL141.5",
+        "Stanley Island East Direction"
+      ]
+    ],
+    "aid": "INL:INL144",
+    "distanceMetres": 3.5,
+    "marks": [
+      [
+        "ccg",
+        "INL144",
+        "Stanley Island light D67",
+        [
+          -74.554917,
+          45.050778
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "D67",
+        [
+          -74.5549061,
+          45.0507931
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419275107",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2548.1"
+    ],
+    "candidates": [
+      [
+        15.6,
+        "INL:INL111",
+        "Pointe Dupuis front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419276359",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2568"
+    ],
+    "candidates": [
+      [
+        4.4,
+        "INL:INL136",
+        "Cameron Island Upper front range light"
+      ]
+    ],
+    "aid": "INL:INL136",
+    "distanceMetres": 4.4,
+    "marks": [
+      [
+        "ccg",
+        "INL136",
+        "Cameron Island Upper front range light",
+        [
+          -74.517556,
+          45.067556
+        ]
+      ],
+      [
+        "chs",
+        "INL136",
+        "",
+        [
+          -74.5175357,
+          45.0675585
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419276912",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2571"
+    ],
+    "candidates": [
+      [
+        578.9,
+        "INL:INL141.5",
+        "Stanley Island East Direction"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1419434021",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1419434472",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1419616339",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2541"
+    ],
+    "candidates": [
+      [
+        7.8,
+        "INL:INL83",
+        "Canal de Soulanges Upper Entrance"
+      ]
+    ],
+    "aid": "INL:INL83",
+    "distanceMetres": 7.8,
+    "marks": [
+      [
+        "ccg",
+        "INL83",
+        "Canal de Soulanges Upper Entrance",
+        [
+          -74.206083,
+          45.252722
+        ]
+      ],
+      [
+        "chs",
+        "INL83",
+        "",
+        [
+          -74.2060867,
+          45.2527303
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1420638625",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420641537",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420641916",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2517.2"
+    ],
+    "candidates": [
+      [
+        4.8,
+        "INL:INL16.1",
+        "Kahnawake front range light"
+      ],
+      [
+        510.9,
+        "INL:INL16.2",
+        "Kahnawake rear range light"
+      ]
+    ],
+    "aid": "INL:INL16.1",
+    "distanceMetres": 4.8,
+    "marks": [
+      [
+        "ccg",
+        "INL16.1",
+        "Kahnawake front range light Racon G (- - .) X & S Bands",
+        [
+          -73.796028,
+          45.402861
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -73.7960233,
+          45.4028494
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1420642817",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2518.4"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420642919",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420643018",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2517.1"
+    ],
+    "candidates": [
+      [
+        1.5,
+        "INL:INL14.2",
+        "Dorval Course front range light"
+      ]
+    ],
+    "aid": "INL:INL14.2",
+    "distanceMetres": 1.5,
+    "marks": [
+      [
+        "ccg",
+        "INL14.2",
+        "Dorval Course front range light",
+        [
+          -73.760056,
+          45.418972
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -73.7600453,
+          45.4189803
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1420643616",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420644516",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420644767",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2517.21"
+    ],
+    "candidates": [
+      [
+        2.0,
+        "INL:INL16.2",
+        "Kahnawake rear range light"
+      ],
+      [
+        512.1,
+        "INL:INL16.1",
+        "Kahnawake front range light"
+      ]
+    ],
+    "aid": "INL:INL16.2",
+    "distanceMetres": 2.0,
+    "marks": [
+      [
+        "ccg",
+        "INL16.2",
+        "Kahnawake rear range light",
+        [
+          -73.802556,
+          45.402583
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -73.8025692,
+          45.4025756
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1420645890",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420647329",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420647337",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2518.41"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1420648290",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2517.11"
+    ],
+    "candidates": [
+      [
+        1.4,
+        "INL:INL14.3",
+        "Dorval Course rear range light"
+      ]
+    ],
+    "aid": "INL:INL14.3",
+    "distanceMetres": 1.4,
+    "marks": [
+      [
+        "ccg",
+        "INL14.3",
+        "Dorval Course rear range light",
+        [
+          -73.750583,
+          45.425917
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -73.7505825,
+          45.4259114
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1433564175",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2482"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1552664235",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        1.9,
+        "atlantic:1685",
+        "Cap-Chat"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1552680379",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        150.8,
+        "atlantic:1685.3",
+        "Cap-Chat Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1552730033",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H1854"
+    ],
+    "candidates": [
+      [
+        5.5,
+        "atlantic:1683",
+        "Sainte-Anne-des-Monts"
+      ],
+      [
+        243.1,
+        "atlantic:1683.1",
+        "Sainte-Anne-des-Monts harbour, North Breakwater"
+      ],
+      [
+        284.2,
+        "atlantic:1683.2",
+        "Sainte-Anne-des-Monts Harbour, South Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1560411728",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1560425462",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1811"
+    ],
+    "candidates": [
+      [
+        1.6,
+        "atlantic:1644",
+        "Cloridorme"
+      ],
+      [
+        574.9,
+        "atlantic:1642",
+        "Cloridorme front range light"
+      ]
+    ],
+    "aid": "atlantic:1644",
+    "distanceMetres": 1.6,
+    "marks": [
+      [
+        "ccg",
+        "1644",
+        "Cloridorme",
+        [
+          -64.847639,
+          49.185861
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -64.8476256,
+          49.1858497
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1563850347",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1563857931",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1564408927",
+    "name": "Phare de Port-Daniel-Gascons",
+    "method": "international reference",
+    "references": [
+      "H1680"
+    ],
+    "candidates": [
+      [
+        6.8,
+        "atlantic:1379",
+        "Port Daniel West"
+      ]
+    ],
+    "aid": "atlantic:1379",
+    "distanceMetres": 6.8,
+    "marks": [
+      [
+        "ccg",
+        "1379",
+        "Port Daniel West",
+        [
+          -64.94975,
+          48.151333
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -64.94975,
+          48.1513199
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1564417227",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1565540559",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1565710677",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1851407853",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1920674788",
+    "name": "Phare de l'Île-aux-Perroquets",
+    "method": "international reference",
+    "references": [
+      "H1958"
+    ],
+    "candidates": [
+      [
+        5.2,
+        "atlantic:1608",
+        "Îles aux Perroquets"
+      ]
+    ],
+    "aid": "atlantic:1608",
+    "distanceMetres": 5.2,
+    "marks": [
+      [
+        "ccg",
+        "1608",
+        "Îles aux Perroquets",
+        [
+          -64.206694,
+          50.220583
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/2190368380",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/2190377767",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/2190377798",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/2212326092",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        19.4,
+        "atlantic:1812",
+        "Simard rear range light"
+      ],
+      [
+        211.0,
+        "atlantic:1811",
+        "Simard front range light"
+      ],
+      [
+        369.4,
+        "atlantic:1802",
+        "Poste-Saint-Martin rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2212328810",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        41.5,
+        "atlantic:1808",
+        "Rivière du Caribou front range light"
+      ],
+      [
+        186.6,
+        "atlantic:1809",
+        "Rivière du Caribou rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2212328895",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        22.4,
+        "atlantic:1809",
+        "Rivière du Caribou rear range light"
+      ],
+      [
+        210.3,
+        "atlantic:1808",
+        "Rivière du Caribou front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/2448051962",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        7.8,
+        "atlantic:2113",
+        "Route de Port-Saint-François rear range light"
+      ],
+      [
+        10.0,
+        "atlantic:2113.1",
+        "Port Saint-François"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3275443012",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        77.2,
+        "atlantic:1538",
+        "Rivière Saint-Paul"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3275443043",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/3275443164",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        410.0,
+        "atlantic:1538",
+        "Rivière Saint-Paul"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3275443343",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        560.4,
+        "atlantic:1538",
+        "Rivière Saint-Paul"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3275443630",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/3275443717",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/3277008381",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        52.1,
+        "atlantic:1539",
+        "Île à la Baleine"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3378531504",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        38.7,
+        "atlantic:1539.125",
+        "Chenal du Vieux Fort"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3378533182",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        299.7,
+        "atlantic:1539.125",
+        "Chenal du Vieux Fort"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3380419423",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        63.6,
+        "atlantic:1539.13",
+        "Île Mermettes"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420603854",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        99.1,
+        "atlantic:1543",
+        "Île Plate"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420610047",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        44.1,
+        "atlantic:1549",
+        "Baie de La Tabatière Inner rear range light"
+      ],
+      [
+        120.3,
+        "atlantic:1548",
+        "Baie de La Tabatière Inner front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420610183",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        26.6,
+        "atlantic:1544",
+        "Île de la Boule"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420610207",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        22.9,
+        "atlantic:1548",
+        "Baie de La Tabatière Inner front range light"
+      ],
+      [
+        58.7,
+        "atlantic:1549",
+        "Baie de La Tabatière Inner rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420611007",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        10.5,
+        "atlantic:1547",
+        "Baie de La Tabatière Outer rear range light"
+      ],
+      [
+        141.1,
+        "atlantic:1546",
+        "Baie de La Tabatière Outer front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420611023",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        30.6,
+        "atlantic:1546",
+        "Baie de La Tabatière Outer front range light"
+      ],
+      [
+        120.6,
+        "atlantic:1547",
+        "Baie de La Tabatière Outer rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420612240",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        31.4,
+        "atlantic:1545",
+        "Île Cormandière"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3420625970",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        20.9,
+        "atlantic:1542.5",
+        "Île du Guet"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427019437",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        53.4,
+        "atlantic:1551",
+        "Baie des Moutons front range light"
+      ],
+      [
+        364.5,
+        "atlantic:1552",
+        "Baie des Moutons rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427021769",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        12.9,
+        "atlantic:1552",
+        "Baie des Moutons rear range light"
+      ],
+      [
+        325.5,
+        "atlantic:1551",
+        "Baie des Moutons front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427972691",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        33.1,
+        "atlantic:1557",
+        "Tête-à-la-Baleine front range light"
+      ],
+      [
+        144.3,
+        "atlantic:1558",
+        "Tête-à-la-Baleine rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427973206",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        24.3,
+        "atlantic:1558",
+        "Tête-à-la-Baleine rear range light"
+      ],
+      [
+        88.3,
+        "atlantic:1557",
+        "Tête-à-la-Baleine front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427973592",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        68.1,
+        "atlantic:1555",
+        "Tête-à-la-Baleine Centre front range light"
+      ],
+      [
+        476.5,
+        "atlantic:1556",
+        "Tête-à-la-Baleine Centre rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427974530",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.2,
+        "atlantic:1556",
+        "Tête-à-la-Baleine Centre rear range light"
+      ],
+      [
+        422.3,
+        "atlantic:1555",
+        "Tête-à-la-Baleine Centre front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427982971",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        127.7,
+        "atlantic:1554.3",
+        "Tête-à-la-Baleine"
+      ],
+      [
+        153.3,
+        "atlantic:1553",
+        "Tête-à-la-Baleine Inner front range light"
+      ],
+      [
+        165.8,
+        "atlantic:1554",
+        "Tête-à-la-Baleine Inner rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3427983633",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        179.4,
+        "atlantic:1554",
+        "Tête-à-la-Baleine Inner rear range light"
+      ],
+      [
+        221.9,
+        "atlantic:1553",
+        "Tête-à-la-Baleine Inner front range light"
+      ],
+      [
+        224.1,
+        "atlantic:1554.3",
+        "Tête-à-la-Baleine"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3428014429",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        27.5,
+        "atlantic:1550",
+        "Île Entrance"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3447012513",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/3519495625",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        12.8,
+        "atlantic:1558.7",
+        "Cap Airey"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3519497834",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        29.3,
+        "atlantic:1559",
+        "Falaise de l’Entrée"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3519498104",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        5.4,
+        "atlantic:1559.2",
+        "Île de l’Entrée"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3519498123",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        42.1,
+        "atlantic:1560",
+        "Harrington Harbour front range light"
+      ],
+      [
+        205.6,
+        "atlantic:1561",
+        "Harrington Harbour rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3519498132",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        37.8,
+        "atlantic:1561",
+        "Harrington Harbour rear range light"
+      ],
+      [
+        151.9,
+        "atlantic:1560",
+        "Harrington Harbour front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3558523962",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        82.6,
+        "atlantic:1562",
+        "Île Sainte-Marie"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3558532696",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        192.8,
+        "atlantic:1561.5",
+        "Rivière Nétagamiou"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3592285666",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        98.1,
+        "atlantic:1563",
+        "Rochers au Cormoran"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3609615536",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        97.7,
+        "atlantic:1564",
+        "Îles Triples"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3609689140",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        24.0,
+        "atlantic:1569",
+        "Havre Gethsémani front range light"
+      ],
+      [
+        84.9,
+        "atlantic:1570",
+        "Havre Gethsémani rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3609729039",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        34.8,
+        "atlantic:1566",
+        "Pointe Mackenzie rear range light"
+      ],
+      [
+        70.3,
+        "atlantic:1565",
+        "Pointe Mackenzie front range light"
+      ],
+      [
+        599.2,
+        "atlantic:1567",
+        "Pointe du Petit Lac front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3609730560",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        87.0,
+        "atlantic:1566",
+        "Pointe Mackenzie rear range light"
+      ],
+      [
+        189.1,
+        "atlantic:1565",
+        "Pointe Mackenzie front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3621582422",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        30.6,
+        "atlantic:1574",
+        "Pointe de Kégaska"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3621592518",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        136.2,
+        "atlantic:1573.3",
+        "Kegaska"
+      ],
+      [
+        280.4,
+        "atlantic:1573.1",
+        "Kegaska, John Guy barge"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3621602713",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        379.8,
+        "atlantic:1573",
+        "Kégaska rear range light"
+      ],
+      [
+        380.0,
+        "atlantic:1572",
+        "Kégaska front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3621604418",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        378.4,
+        "atlantic:1573",
+        "Kégaska rear range light"
+      ],
+      [
+        407.2,
+        "atlantic:1572",
+        "Kégaska front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3847176084",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/3847234901",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        69.0,
+        "atlantic:1576",
+        "Île Joncas"
+      ]
+    ]
+  },
+  {
+    "osm": "node/3847244972",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        459.4,
+        "atlantic:1576",
+        "Île Joncas"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4358680478",
+    "name": "Phare de l'Île rouge",
+    "method": "reviewed override: Published cylindrical tower aligns with the named Île Rouge lighthouse by 2.8 m.",
+    "references": [],
+    "candidates": [
+      [
+        2.8,
+        "atlantic:1770",
+        "Île Rouge"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/atl/atl1620-en.php",
+    "aid": "atlantic:1770",
+    "distanceMetres": 2.8,
+    "marks": [
+      [
+        "ccg",
+        "1770",
+        "Île Rouge",
+        [
+          -69.554694,
+          48.069444
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/4408249607",
+    "name": "Phare du Petit-Havre",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/4604557384",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        45.7,
+        "atlantic:1583",
+        "Baie Johan-Beetz front range light"
+      ],
+      [
+        151.7,
+        "atlantic:1584",
+        "Baie Johan-Beetz rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4604568351",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        46.3,
+        "atlantic:1584",
+        "Baie Johan-Beetz rear range light"
+      ],
+      [
+        135.3,
+        "atlantic:1583",
+        "Baie Johan-Beetz front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4757111835",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        49.4,
+        "atlantic:1587",
+        "Havre-Saint-Pierre front range light"
+      ],
+      [
+        203.4,
+        "atlantic:1588",
+        "Havre-Saint-Pierre rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4757113255",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        11.3,
+        "atlantic:1596",
+        "Île à Firmin"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4757117609",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        53.9,
+        "atlantic:1585",
+        "Petite Île au Marteau"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4757120775",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        34.6,
+        "atlantic:1590",
+        "Pointe aux Esquimaux front range light"
+      ],
+      [
+        223.1,
+        "atlantic:1591",
+        "Pointe aux Esquimaux rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4757120842",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        46.3,
+        "atlantic:1588",
+        "Havre-Saint-Pierre rear range light"
+      ],
+      [
+        154.5,
+        "atlantic:1587",
+        "Havre-Saint-Pierre front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/479600509",
+    "name": "Phare de Carleton",
+    "method": "international reference",
+    "references": [
+      "H1638"
+    ],
+    "candidates": [
+      [
+        0.4,
+        "atlantic:1365",
+        "Carleton"
+      ]
+    ],
+    "aid": "atlantic:1365",
+    "distanceMetres": 0.4,
+    "marks": [
+      [
+        "ccg",
+        "1365",
+        "Carleton",
+        [
+          -66.124889,
+          48.086944
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -66.1248825,
+          48.0869381
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "Carleton",
+        [
+          -66.1248735,
+          48.086941
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/4829593216",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        69.2,
+        "atlantic:1614.5",
+        "Rivière-au-Tonnerre"
+      ],
+      [
+        451.9,
+        "atlantic:1615",
+        "Rivière-au-Tonnerre front range light"
+      ],
+      [
+        565.9,
+        "atlantic:1616",
+        "Rivière-au-Tonnerre rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/5172178176",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        89.5,
+        "INL:INL57.5",
+        "St. Louis Bridge Steering light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/5247935260",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6193857774",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6396091475",
+    "name": "Phare des hirondelles noires de Dorval",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6548288060",
+    "name": "Phare du Borgot",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6548305563",
+    "name": "Phare de l'Île Verte",
+    "method": "reviewed override: Published white cylindrical tower aligns with the named Île Verte lighthouse by 1.7 m.",
+    "references": [],
+    "candidates": [
+      [
+        1.7,
+        "atlantic:1761",
+        "Île Verte"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/atl/atl1620-en.php",
+    "aid": "atlantic:1761",
+    "distanceMetres": 1.7,
+    "marks": [
+      [
+        "ccg",
+        "1761",
+        "Île Verte",
+        [
+          -69.42425,
+          48.051083
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/6549671354",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6549674850",
+    "name": "Pointe Bonaventure Lighthouse",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        38.2,
+        "atlantic:1369",
+        "Bonaventure front range light"
+      ],
+      [
+        173.9,
+        "atlantic:1369.1",
+        "Bonaventure rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/6549796285",
+    "name": "Phare du Pot à l'Eau-de-vie",
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H2164"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/6549809241",
+    "name": "Phare de l'Échouerie",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/818424444",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1864"
+    ],
+    "candidates": [
+      [
+        33.7,
+        "atlantic:1514",
+        "Escarpement Bagot"
+      ]
+    ],
+    "aid": "atlantic:1514",
+    "distanceMetres": 33.7,
+    "marks": [
+      [
+        "ccg",
+        "1514",
+        "Escarpement Bagot",
+        [
+          -62.259778,
+          49.065972
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -62.2597697,
+          49.0659739
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/8200289580",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/851639875",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2143.6"
+    ],
+    "candidates": [
+      [
+        53.1,
+        "atlantic:1811",
+        "Simard front range light"
+      ],
+      [
+        266.5,
+        "atlantic:1812",
+        "Simard rear range light"
+      ],
+      [
+        514.8,
+        "atlantic:1802",
+        "Poste-Saint-Martin rear range light"
+      ]
+    ],
+    "aid": "atlantic:1811",
+    "distanceMetres": 53.1,
+    "marks": [
+      [
+        "ccg",
+        "1811",
+        "Simard front range light",
+        [
+          -71.021306,
+          48.44975
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -71.0213097,
+          48.4497394
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/857958389",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2056"
+    ],
+    "candidates": [
+      [
+        9.6,
+        "atlantic:1719",
+        "Pointe de Manicouagan"
+      ]
+    ],
+    "aid": "atlantic:1719",
+    "distanceMetres": 9.6,
+    "marks": [
+      [
+        "ccg",
+        "1719",
+        "Pointe de Manicouagan Racon X (- . . -) X & S Bands",
+        [
+          -68.193833,
+          49.101222
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -68.1938456,
+          49.1012269
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/8762731097",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        4.4,
+        "atlantic:1519",
+        "Baie Ellis Main front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/878547660",
+    "name": "Cap Gaspé",
+    "method": "international reference",
+    "references": [
+      "H1762"
+    ],
+    "candidates": [
+      [
+        0.8,
+        "atlantic:1426",
+        "Cap Gaspé"
+      ]
+    ],
+    "aid": "atlantic:1426",
+    "distanceMetres": 0.8,
+    "marks": [
+      [
+        "ccg",
+        "1426",
+        "Cap Gaspé",
+        [
+          -64.162639,
+          48.751111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/879228078",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/879554164",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1878"
+    ],
+    "candidates": [
+      [
+        2.3,
+        "atlantic:1523",
+        "Pointe Ouest"
+      ]
+    ],
+    "aid": "atlantic:1523",
+    "distanceMetres": 2.3,
+    "marks": [
+      [
+        "ccg",
+        "1523",
+        "Pointe Ouest",
+        [
+          -64.52325,
+          49.864056
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -64.5232581,
+          49.864061
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/879631210",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1882"
+    ],
+    "candidates": [
+      [
+        5.1,
+        "atlantic:1515.2",
+        "Cap-de-Rabast"
+      ]
+    ],
+    "aid": "atlantic:1515.2",
+    "distanceMetres": 5.1,
+    "marks": [
+      [
+        "ccg",
+        "1515.2",
+        "Cap-de-Rabast",
+        [
+          -64.149278,
+          49.951611
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/879980110",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H1870.1"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/880015648",
+    "name": "Cap-de-la-Table",
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1886"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/882671215",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/882679947",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/896074423",
+    "name": "Phare Carleton",
+    "method": "international reference",
+    "references": [
+      "H1884"
+    ],
+    "candidates": [
+      [
+        9.0,
+        "atlantic:1514.2",
+        "Phare de Pointe-Carleton"
+      ]
+    ],
+    "aid": "atlantic:1514.2",
+    "distanceMetres": 9.0,
+    "marks": [
+      [
+        "ccg",
+        "1514.2",
+        "Phare de Pointe-Carleton",
+        [
+          -62.942611,
+          49.731556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/896638055",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1866"
+    ],
+    "candidates": [
+      [
+        32.8,
+        "atlantic:1515",
+        "Pointe du Sud-Ouest"
+      ]
+    ],
+    "aid": "atlantic:1515",
+    "distanceMetres": 32.8,
+    "marks": [
+      [
+        "ccg",
+        "1515",
+        "Pointe du Sud-Ouest",
+        [
+          -63.594694,
+          49.391417
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -63.5946964,
+          49.3914292
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/912816161",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2010"
+    ],
+    "candidates": [
+      [
+        176.0,
+        "atlantic:1686",
+        "Île du Grand Caoui"
+      ]
+    ],
+    "aid": "atlantic:1686",
+    "distanceMetres": 176.0,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "1686",
+        "Île du Grand Caoui",
+        [
+          -67.005944,
+          49.826472
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/915976574",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2499"
+    ],
+    "candidates": [
+      [
+        1.3,
+        "atlantic:2364",
+        "Route Maisonneuve-Longue-Pointe rear range light"
+      ],
+      [
+        476.0,
+        "atlantic:2363",
+        "Route Maisonneuve-Longue-Pointe front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/915977050",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2499.1"
+    ],
+    "candidates": [
+      [
+        1.2,
+        "atlantic:2363",
+        "Route Maisonneuve-Longue-Pointe front range light"
+      ],
+      [
+        475.9,
+        "atlantic:2364",
+        "Route Maisonneuve-Longue-Pointe rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/924334517",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2487.1"
+    ],
+    "candidates": [
+      [
+        2.0,
+        "atlantic:2344",
+        "Traverse de l'Île aux Vaches front range light"
+      ],
+      [
+        324.0,
+        "atlantic:2345",
+        "Traverse de l'Île aux Vaches rear range light"
+      ],
+      [
+        324.0,
+        "atlantic:2345.1",
+        "Traverse de l'Île aux Vaches"
+      ]
+    ]
+  },
+  {
+    "osm": "node/938149259",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H2054"
+    ],
+    "candidates": [
+      [
+        6.9,
+        "atlantic:1716",
+        "Baie-Comeau"
+      ],
+      [
+        323.3,
+        "atlantic:1715.7",
+        "Baie-Comeau Ferry"
+      ]
+    ],
+    "aid": "atlantic:1716",
+    "distanceMetres": 6.9,
+    "marks": [
+      [
+        "ccg",
+        "1716",
+        "Baie-Comeau",
+        [
+          -68.128694,
+          49.235861
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -68.1287006,
+          49.23587
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/938153884",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2051.1"
+    ],
+    "candidates": [
+      [
+        155.6,
+        "atlantic:1715",
+        "Anse du Moulin, Alcoa rear range light"
+      ],
+      [
+        211.7,
+        "atlantic:1714",
+        "Anse du Moulin, Alcoa front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/938165179",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2052.1"
+    ],
+    "candidates": [
+      [
+        124.6,
+        "atlantic:1714",
+        "Anse du Moulin, Alcoa front range light"
+      ],
+      [
+        258.1,
+        "atlantic:1715",
+        "Anse du Moulin, Alcoa rear range light"
+      ],
+      [
+        533.6,
+        "atlantic:1713",
+        "Anse du Moulin rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/9413836260",
+    "name": "Île du Moine Range Lighthouse",
+    "method": "reviewed override: Named range structure is 3.8 m from the front and 489.4 m from the rear.",
+    "references": [],
+    "candidates": [
+      [
+        3.8,
+        "atlantic:2180",
+        "Route de l’Île du Moine front range light"
+      ],
+      [
+        489.4,
+        "atlantic:2181",
+        "Route de l’Île du Moine rear range light"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/atl/atl18238-en.php",
+    "aid": "atlantic:2180",
+    "distanceMetres": 3.8,
+    "marks": [
+      [
+        "ccg",
+        "2180",
+        "Route de l’Île du Moine front range light",
+        [
+          -73.024889,
+          46.066194
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -73.0249015,
+          46.0661946
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/942701132",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2050"
+    ],
+    "candidates": [
+      [
+        261.3,
+        "atlantic:1709",
+        "Pointe Saint-Pancrace"
+      ]
+    ]
+  },
+  {
+    "osm": "node/951123798",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H2487"
+    ],
+    "candidates": [
+      [
+        77.7,
+        "atlantic:2345",
+        "Traverse de l'Île aux Vaches rear range light"
+      ],
+      [
+        77.7,
+        "atlantic:2345.1",
+        "Traverse de l'Île aux Vaches"
+      ],
+      [
+        395.2,
+        "atlantic:2344",
+        "Traverse de l'Île aux Vaches front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/9528503593",
+    "name": "Phare du Parc Saint-Pierre",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1103546691",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1128318326",
+    "name": "Phare de Saint-Siméon",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        502.6,
+        "atlantic:1835",
+        "Saint-Siméon"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1226562451",
+    "name": "Phare du Rocher-aux-Oiseaux",
+    "method": "international reference",
+    "references": [
+      "H882"
+    ],
+    "candidates": [
+      [
+        66.3,
+        "atlantic:1478",
+        "Rocher aux Oiseaux"
+      ]
+    ],
+    "aid": "atlantic:1478",
+    "distanceMetres": 66.3,
+    "marks": [
+      [
+        "ccg",
+        "1478",
+        "Rocher aux Oiseaux",
+        [
+          -61.144639,
+          47.838556
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -61.1446306,
+          47.8385667
+        ]
+      ],
+      [
+        "chs",
+        "1478",
+        "",
+        [
+          -61.1446294,
+          47.8385653
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1250934211",
+    "name": "Phare de l'Île-d'Entrée",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1359810257",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        14.7,
+        "atlantic:1707",
+        "Pointe Mitis (Petit Mitis)"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1409573981",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        0.9,
+        "atlantic:1426",
+        "Cap Gaspé"
+      ]
+    ]
+  },
+  {
+    "osm": "way/286461501",
+    "name": "Phare de Pointe-des-Monts",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/299595585",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        2.0,
+        "atlantic:2293",
+        "Lavaltrie rear range light"
+      ],
+      [
+        560.7,
+        "atlantic:2292",
+        "Lavaltrie front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "way/317964466",
+    "name": "Phare de La Martre",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        1.6,
+        "atlantic:1657",
+        "La Martre"
+      ]
+    ],
+    "aid": "atlantic:1657",
+    "distanceMetres": 1.6,
+    "marks": [
+      [
+        "ccg",
+        "1657",
+        "La Martre",
+        [
+          -66.171417,
+          49.206139
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/393908972",
+    "name": "Phare du Parc Jean-Drapeau",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        531.6,
+        "atlantic:2379.3",
+        "Pont Jacques-Cartier Bridge South Light"
+      ],
+      [
+        542.5,
+        "atlantic:2379.4",
+        "Pont Jacques-Cartier Bridge North Light"
+      ]
+    ]
+  },
+  {
+    "osm": "way/438446289",
+    "name": "Phare de l'Anse-à-la-Cabane",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/472147375",
+    "name": "Phare de l'Île-Brion",
+    "method": "reviewed override: Published octagonal tower aligns with the named Île Brion lighthouse by 1.2 m.",
+    "references": [],
+    "candidates": [
+      [
+        1.2,
+        "atlantic:1479",
+        "Île Brion"
+      ]
+    ],
+    "source": "https://notmar.gc.ca/publications/list-lights/atl/atl14775-en.php",
+    "aid": "atlantic:1479",
+    "distanceMetres": 1.2,
+    "marks": [
+      [
+        "ccg",
+        "1479",
+        "Île Brion",
+        [
+          -61.508528,
+          47.78175
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/557047296",
+    "name": "Phare de Matane",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/576710199",
+    "name": "Phare de Pointe-au-Père",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/666331864",
+    "name": "Phare de la Pointe-Mitis",
+    "method": "international reference",
+    "references": [
+      "H2048"
+    ],
+    "candidates": [
+      [
+        6.1,
+        "atlantic:1707",
+        "Pointe Mitis (Petit Mitis)"
+      ]
+    ],
+    "aid": "atlantic:1707",
+    "distanceMetres": 6.1,
+    "marks": [
+      [
+        "ccg",
+        "1707",
+        "Pointe Mitis (Petit Mitis)",
+        [
+          -68.034028,
+          48.680333
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/697211678",
+    "name": "Phare du Haut-fond Prince",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        6.2,
+        "atlantic:1773",
+        "Haut-fond Prince"
+      ]
+    ],
+    "aid": "atlantic:1773",
+    "distanceMetres": 6.2,
+    "marks": [
+      [
+        "ccg",
+        "1773",
+        "Haut-fond Prince",
+        [
+          -69.614361,
+          48.108222
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -69.6143569,
+          48.1082342
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/697865988",
+    "name": "Phare de l'Île Notre-Dame",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  }
+]

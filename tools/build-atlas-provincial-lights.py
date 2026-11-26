@@ -200,6 +200,10 @@ def main():
     args = parser.parse_args()
     assets = {source: load(ROOT / "web" / path)["features"] for source, path in {
         "ccg": "region/aids.json", "chs": "region/chs-marks.json", "osm": "seamarks.json"}.items()}
+    for path in sorted((ROOT / "web/region").glob("river-*.json")):
+        bundle = load(path)
+        assets["ccg"].extend(bundle["aids"])
+        assets["chs"].extend(bundle["marks"])
     original = load(ROOT / "web/chart-data.json")["lights"]
     grouped = defaultdict(list)
     marks = []
@@ -252,8 +256,11 @@ def main():
             for key in item["marks"]:
                 if key not in marks:
                     marks.append(key)
-    (ROOT / "web/region/lights.json").write_text(json.dumps(
+    output = ROOT / "web/region/lights.json"
+    staged = output.with_suffix(".tmp")
+    staged.write_text(json.dumps(
         {"lights": lights, "marks": marks}, ensure_ascii=False, separators=(",", ":")) + "\n")
+    staged.replace(output)
     print(f"{len(lights)} lighthouse signals; {len(marks)} duplicate marks suppressed in combined mode")
 
 

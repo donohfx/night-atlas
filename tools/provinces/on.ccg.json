@@ -1,0 +1,1081 @@
+[
+  {
+    "volume": "INL",
+    "ccg_id": "INL163.2",
+    "name": "Cornwall Marina",
+    "coordinates": [
+      -74.71844444444444,
+      45.01338888888889
+    ],
+    "intl": "H2586",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion. | 4.9",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL179",
+    "name": "Light 4",
+    "coordinates": [
+      -74.68366666666667,
+      45.000861111111114
+    ],
+    "intl": "H2601.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 7.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL185",
+    "name": "Light 10 Sector",
+    "coordinates": [
+      -74.71380555555555,
+      45.002
+    ],
+    "intl": "H2604",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 8.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        276.0,
+        277.75
+      ],
+      [
+        "W",
+        277.75,
+        279.25
+      ],
+      [
+        "G",
+        279.25,
+        281.0
+      ]
+    ],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark. | 13.4",
+    "remarks": "Seasonal. | R | 276°-277°45'; | W | 277°45'-279°15'; | G | 279°15'-281°."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL185.2",
+    "name": "Light 10 Direction",
+    "coordinates": [
+      -74.71380555555555,
+      45.002
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White square skeleton tower, orange triangular daymark. | 13.4",
+    "remarks": "Seasonal. | Visible on a bearing of 048°."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL237",
+    "name": "Pier Light 68",
+    "coordinates": [
+      -75.06852777777777,
+      44.93230555555556
+    ],
+    "intl": "H2670",
+    "colors": [
+      "R"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower. | 8.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL238",
+    "name": "Light 70",
+    "coordinates": [
+      -75.07908333333333,
+      44.93097222222222
+    ],
+    "intl": "H2671",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion, marked “70”. | 7.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL240.5",
+    "name": "Chrysler Marina Entrance",
+    "coordinates": [
+      -75.09391666666667,
+      44.93488888888889
+    ],
+    "intl": "H2672.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Mast.",
+    "remarks": "Private aid. | Year round."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL242.5",
+    "name": "Doran Shoal front range light",
+    "coordinates": [
+      -75.1121111111111,
+      44.93397222222222
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 8.5",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL242.6",
+    "name": "Doran Shoal rear range light",
+    "coordinates": [
+      -75.10908333333333,
+      44.936527777777776
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 14.5",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL244.5",
+    "name": "Weaver Shoal front range light",
+    "coordinates": [
+      -75.131,
+      44.92469444444444
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, white triangular daymark with black vertical stripe. | 8.0",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL244.6",
+    "name": "Weaver Shoal rear range light",
+    "coordinates": [
+      -75.13680555555555,
+      44.92411111111111
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, white triangular daymark with black vertical stripe. | 16.0",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL247.5",
+    "name": "Goose Neck Shoal front range light",
+    "coordinates": [
+      -75.147,
+      44.91477777777778
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 8.9",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL247.6",
+    "name": "Goose Neck Shoal rear range light",
+    "coordinates": [
+      -75.14877777777778,
+      44.91444444444444
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 11.2",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL248",
+    "name": "Light 81",
+    "coordinates": [
+      -75.14930555555556,
+      44.900527777777775
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion with marked “81”. | 6.3",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL249",
+    "name": "Light 82",
+    "coordinates": [
+      -75.15330555555556,
+      44.90152777777778
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion, marked “82”. | 6.3",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL274.4",
+    "name": "Iroquois Lock Direction",
+    "coordinates": [
+      -75.30288888888889,
+      44.845194444444445
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 12.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark. | 8.1",
+    "remarks": "Seasonal. | Visible on bearing of 026°."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL280.4",
+    "name": "Iroquois Approach front range light",
+    "coordinates": [
+      -75.31158333333333,
+      44.83927777777778
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 8.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL280.5",
+    "name": "Iroquois Approach rear range light",
+    "coordinates": [
+      -75.31363888888889,
+      44.83847222222222
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 12.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL312.5",
+    "name": "Prescott Heritage Harbour",
+    "coordinates": [
+      -75.50952777777778,
+      44.709944444444446
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White octagonal tower with green upper portion. | 6.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL333",
+    "name": "De Watteville Island front range light",
+    "coordinates": [
+      -75.73369444444444,
+      44.54761111111111
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower, orange triangular daymark with black vertical stripe. | 6.7",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL334",
+    "name": "De Watteville Island rear range light",
+    "coordinates": [
+      -75.73108333333333,
+      44.550111111111114
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Red skeleton tower, white enclosure with red lantern house, orange triangular daymark with black vertical stripe. | 14.5",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL335",
+    "name": "Light 147",
+    "coordinates": [
+      -75.7358888888889,
+      44.541916666666665
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion, marked “147”. | 7.7",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL338",
+    "name": "Light 150",
+    "coordinates": [
+      -75.75466666666667,
+      44.52952777777778
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion, marked “150”. | 7.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL339",
+    "name": "Light 151",
+    "coordinates": [
+      -75.75711111111112,
+      44.52291666666667
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion, marked “151”. | 7.5",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL339.3",
+    "name": "Crossover (Brockville) front range light",
+    "coordinates": [
+      -75.76472222222222,
+      44.526666666666664
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 2.0,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower, orange triangular daymark with black vertical stripe. | 7.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL339.4",
+    "name": "Crossover (Brockville) rear range light",
+    "coordinates": [
+      -75.76277777777777,
+      44.53238888888889
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White skeleton tower, orange triangular daymark with black vertical stripe. | 11.2",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL358",
+    "name": "Goose Island",
+    "coordinates": [
+      -75.88691666666666,
+      44.408972222222225
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 6.5",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL359",
+    "name": "Duck Rock",
+    "coordinates": [
+      -75.89258333333333,
+      44.400555555555556
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion. | 6.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL365.2",
+    "name": "Gananoque Narrows West",
+    "coordinates": [
+      -76.08825,
+      44.324555555555555
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 7.3",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL365.3",
+    "name": "Astounder Island",
+    "coordinates": [
+      -76.09441666666666,
+      44.31188888888889
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 5.9",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL366",
+    "name": "Jackstraw Shoal",
+    "coordinates": [
+      -76.11930555555556,
+      44.325361111111114
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 6.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL366.5",
+    "name": "Gananoque Floating Breakwater",
+    "coordinates": [
+      -76.15566666666666,
+      44.32486111111111
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical mast. | 3.0",
+    "remarks": "Private aid. | Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL367",
+    "name": "Gananoque Harbour",
+    "coordinates": [
+      -76.16325,
+      44.321666666666665
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 5.0",
+    "remarks": "Private aid. | Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL368",
+    "name": "Spectacles Shoal",
+    "coordinates": [
+      -76.18338888888889,
+      44.31122222222222
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 6.2",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL369",
+    "name": "Beaurivage Island",
+    "coordinates": [
+      -76.19052777777777,
+      44.30255555555556
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion. | 5.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL370",
+    "name": "Aubrey Island",
+    "coordinates": [
+      -76.19119444444445,
+      44.29644444444445
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with orange upper portion. | 8.9",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL378",
+    "name": "Wolfe Island",
+    "coordinates": [
+      -76.18411111111111,
+      44.23883333333333
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 8.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White tower. | 6.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL380",
+    "name": "Irvine Point front range light",
+    "coordinates": [
+      -76.31041666666667,
+      44.204388888888886
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Square skeleton tower, orange daymark with black vertical stripe. | 8.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL381",
+    "name": "Irvine Point rear range light",
+    "coordinates": [
+      -76.30816666666666,
+      44.211194444444445
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Square skeleton tower, orange daymark with black vertical stripe. | 16.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL384",
+    "name": "Bayfield Island Sector",
+    "coordinates": [
+      -76.32844444444444,
+      44.19425
+    ],
+    "intl": "H2826",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 10.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        260.5,
+        262.0
+      ],
+      [
+        "W",
+        262.25,
+        263.75
+      ],
+      [
+        "G",
+        264.0,
+        265.5
+      ]
+    ],
+    "section": "iw33-en.php",
+    "structure": "White square skeleton tower, orange triangular daymark. | 11.4",
+    "remarks": "Seasonal. | R | 260°30'-262°; | Al RW | 262°-262°15'; | W | 262°15'-263°45'; | Al GW | 263°45'-264°; | G | 264°-265°30'."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL393",
+    "name": "Howe Island",
+    "coordinates": [
+      -76.30688888888889,
+      44.246138888888886
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 8.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL394.4",
+    "name": "Bateau Channel 2",
+    "coordinates": [
+      -76.27552777777778,
+      44.302416666666666
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 7.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL394.5",
+    "name": "Bateau Channel 3",
+    "coordinates": [
+      -76.28586111111112,
+      44.29913888888889
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Cylindrical mast, white daymark with red upper portion. | 7.7",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL394.6",
+    "name": "Howe Island Ferry",
+    "coordinates": [
+      -76.32713888888888,
+      44.277055555555556
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 7.8",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL394.7",
+    "name": "Cassidy Shoal",
+    "coordinates": [
+      -76.35305555555556,
+      44.26255555555556
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with green upper portion. | 4.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL397.1",
+    "name": "Dawson Point North",
+    "coordinates": [
+      -76.42608333333334,
+      44.215472222222225
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "Cylindrical mast.",
+    "remarks": "Private aid. | Year round. | Operates 24 h."
+  },
+  {
+    "volume": "INL",
+    "ccg_id": "INL401",
+    "name": "Cedar Island",
+    "coordinates": [
+      -76.45436111111111,
+      44.224444444444444
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "iw33-en.php",
+    "structure": "White cylindrical tower with red upper portion. | 6.2",
+    "remarks": "Seasonal."
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "osmSource": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+  "nameRadius": 120,
+  "referenceRadius": 180,
+  "reviewRadius": 600,
+  "overrides": {
+    "node/529166260": {
+      "aid": "INL:INL378",
+      "reason": "The published white tower is 3.4 m away. The second OSM object is 50.6 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/529166262": {
+      "aid": "INL:INL393",
+      "reason": "Unique nearby published cylindrical tower, 3.6 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/529166277": {
+      "aid": "INL:INL401",
+      "reason": "Unique nearby published cylindrical tower, 2.6 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/529270239": {
+      "aid": "INL:INL370",
+      "reason": "Unique nearby published cylindrical tower, 1.4 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/1412263279": {
+      "aid": "INL:INL358",
+      "reason": "Unique nearby published cylindrical tower, 2.1 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/1411751640": {
+      "aid": "INL:INL366",
+      "reason": "Unique nearby published cylindrical tower, 5.9 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/529270808": {
+      "aid": "INL:INL369",
+      "reason": "Unique nearby published cylindrical tower, 0.3 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    },
+    "node/529270809": {
+      "aid": "INL:INL368",
+      "reason": "Unique nearby published cylindrical tower, 1.6 m away.",
+      "source": "https://notmar.gc.ca/publications/list-lights/inland-waters/iw33-en.php"
+    }
+  }
+}
