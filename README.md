@@ -3,7 +3,7 @@
 Two things live in this repository:
 
 - **Night Atlas** is a desktop theme for Hyprland and Noctalia: a live chart of Nova Scotia as the desktop background, with matching colours across the apps. See [Desktop](#desktop).
-- **[Harbour Watch](https://harbour.briandonohue.ca)** is the same chart hosted on the web, for anyone to browse: coastal relief, lighthouse signals and live ships.
+- **[Harbour Watch](https://harbour.briandonohue.ca)** is the web chart for Nova Scotia, New Brunswick and surrounding waters, with coastal relief, lighthouse signals and live ships.
 
 **Not for navigation.** Lighthouse beams are approximate.
 
@@ -40,9 +40,9 @@ PORT=8767 npm start
 ```
 
 Open http://localhost:8767/. Supply `AISSTREAM_API_KEY` to enable live ships.
-The build uses the checked-in chart inputs and writes six archives to `web/tiles/`.
+The build uses the checked-in chart inputs and writes seven archives to `web/tiles/`.
 For an external archive host, set `ATLAS_TILE_BASE_URL` to the root URL that
-contains the six files. The host must support HTTP byte ranges without content
+contains the seven files. The host must support HTTP byte ranges without content
 encoding, allow the web app's origin, and expose `ETag` and `Content-Range` to it.
 Use a versioned archive URL when publishing a replacement set.
 

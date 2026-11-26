@@ -17,7 +17,7 @@ const stage = mkdtempSync(join(output, ".build-"));
 const read = name => readFileSync(join(web, name), "utf8");
 const json = name => JSON.parse(read(name));
 const chart = json("chart-data.json");
-const bounds = chart.reliefBounds;
+const {dataBounds: bounds} = json("region/config.json");
 const magick = process.env.MAGICK || "magick";
 
 function archive(name, options, generate) {
@@ -40,10 +40,10 @@ async function vectorTiler() {
 
 function vector({index, encode, Wrapper}, name, minzoom, maxzoom, tolerance, indexMaxzoom = maxzoom) {
   const extent = 8192;
-  const tiles = index(json(name + ".json"), {geojsonVtOptions:{extent, maxZoom:indexMaxzoom,
+  const tiles = index(json("region/" + name + ".json"), {geojsonVtOptions:{extent, maxZoom:indexMaxzoom,
     buffer:2048, tolerance:tolerance*16}}, false);
   archive(name, {minzoom, maxzoom, type:1, compression:2,
-    metadata:{vector_layers:[{id:"_geojsonTileLayer", fields:name === "contours" ? {major:"Boolean"} : {}}]}}, add => {
+    metadata:{vector_layers:[{id:"_geojsonTileLayer", fields:name === "contours" ? {major:"Boolean"} : name === "provinces" ? {region:"String"} : {}}]}}, add => {
     const visit = (z,x,y) => {
       const tile = tiles.getTile(z,x,y);
       if (!tile?.numPoints) return;
@@ -60,7 +60,7 @@ function raster(name, input) {
   const size = 512, minzoom = 5, maxzoom = 8;
   const [left,top] = mercator([bounds[0],bounds[3]]);
   const [right,bottom] = mercator([bounds[2],bounds[1]]);
-  const file = join(web,input);
+  const file = join(web,"region",input);
   const [width,height] = execFileSync(magick, ["identify","-format","%w %h",file], {encoding:"utf8"}).split(" ").map(Number);
   const rgb = execFileSync(magick, [file,"-alpha","off","-depth","8","rgb:-"], {maxBuffer:width*height*3});
   archive(name, {minzoom,maxzoom,type:4,compression:1}, add => {
@@ -97,16 +97,19 @@ function raster(name, input) {
 }
 
 async function analysis() {
-  const land = read("land.json");
+  // The hand-built lights keep their original NS beam silhouettes. The
+  // regional shoreline is used for landfall detection across the web chart.
+  const legacyLand = read("land.json");
+  const land = json("region/land.json");
   const open = json("open-lights.json");
-  const tables = await validatedReachTables(json("beam-reach.json"), await reachRevision(land), chart.lights, open.lights);
+  const tables = await validatedReachTables(json("beam-reach.json"), await reachRevision(legacyLand), chart.lights, open.lights);
   const shore = new Map(), reaches = new Map();
   function area(areas,x,y) {
     const id = zxyToTileId(analysisZoom,x,y);
     if (!areas.has(id)) areas.set(id,{});
     return areas.get(id);
   }
-  for (const {paths} of shorelinePaths(JSON.parse(land))) {
+  for (const {paths} of shorelinePaths(land)) {
     for (const path of paths) for (let i=1; i<path.length; i++) {
       const [ax,ay] = path[i-1], [bx,by] = path[i];
       for (const [x,y] of analysisCells(ax,ay,bx,by)) {
@@ -137,6 +140,7 @@ try {
     const tiler = await vectorTiler();
     vector(tiler,"land",7,15,.4);
     vector(tiler,"contours",8,16,.375,18);
+    vector(tiler,"provinces",3,13,.7);
     raster("relief","relief.jpg");
     raster("relief-detail","relief-detail.webp");
     await analysis();

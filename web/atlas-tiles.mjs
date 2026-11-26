@@ -46,6 +46,7 @@ export function tiledAtlas(tileBase) {
   }
 
   return {
+    provinceSource:source("provinces","vector"),
     sources:{land:source("land","vector"),contours:source("contours","vector"),
       relief:source("relief","raster"),close:source("relief-detail","raster")},
     reach(x,y,mode,key) {

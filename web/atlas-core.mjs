@@ -27,7 +27,7 @@ export async function createAtlas({
   read, shorelineOptions, initialLayers = defaultLayers, sweepsPath, extraLinesPath,
   weatherPreview, detailImage, bounds, minZoom, marksAttribution, deferMarks = false,
   tour, showcasePlaces = [], describeShips, cardFrame, hideCardOnMiss = false,
-  onNight, wantNight = daylightMode, tiles,
+  onNight, wantNight = daylightMode, tiles, surface,
 }) {
   setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
 
@@ -65,7 +65,7 @@ export async function createAtlas({
     alt:lightColors[light.colors[1]] || "", third:lightColors[light.colors[2]] || "",
     verified: light.colors.length > 0 && (!open || light.character === "F" || light.period > 0), fixed:light.character === "F", rear:/\brear\b/i.test(light.name),
   }, id));
-  const [west, south, east, north] = chart.reliefBounds;
+  const [west, south, east, north] = surface?.bounds ?? chart.reliefBounds;
   const imageCorners = [[west,north],[east,north],[east,south],[west,south]];
   // In priority order. Zoom bands keep regional names separate from
   // neighbourhood and harbour labels as the camera moves closer.
@@ -130,11 +130,11 @@ export async function createAtlas({
       glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
       transition: {duration: 1100, delay: 0},
       sources: {
-        relief: {type:"image", url:"/relief.jpg", coordinates:imageCorners},
+        relief: {type:"image", url:surface?.relief ?? "/relief.jpg", coordinates:imageCorners},
         close: {type:"image", url:detailImage, coordinates:imageCorners},
         osm: {type:"vector", url:"https://tiles.openfreemap.org/planet/latest", bounds:[west,south,east,north]},
-        land:{type:"geojson",data:"/land.json",tolerance:.4,maxzoom:15},
-        contours:{type:"geojson", data:"/contours.json"},
+        land:{type:"geojson",data:surface?.land ?? "/land.json",tolerance:.4,maxzoom:15},
+        contours:{type:"geojson", data:surface?.contours ?? "/contours.json"},
         ...tiles?.sources,
         lights:{type:"geojson", data:collection(lightFeatures(activeLights, layersOn.openSources))},
         ships:{type:"geojson", data:collection()},

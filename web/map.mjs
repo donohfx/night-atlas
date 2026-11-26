@@ -1,10 +1,14 @@
-import {BEARING, createAtlas, defaultLayers, freshAge, jsonReader, mapBounds, overview} from "./atlas-core.mjs";
+import {BEARING, createAtlas, defaultLayers, freshAge, jsonReader, overview} from "./atlas-core.mjs";
+import {provinceFocus} from "./atlas-focus.mjs";
+import {mercator} from "./atlas-shore.mjs";
 import {tiledAtlas} from "./atlas-tiles.mjs";
 import {aidName} from "./atlas-marks.mjs";
 import {biggestInHarbour} from "./atlas-extras.mjs";
 
 const requestOptions = () => ({signal: AbortSignal.timeout(30000)});
-const read = jsonReader(requestOptions);
+const readAsset = jsonReader(requestOptions);
+const regional = new Set(["/aids.json", "/chs-marks.json", "/ccg-buoy-matches.json"]);
+const read = path => readAsset(regional.has(path) ? "/region"+path : path);
 const storageKey = "night-atlas.preferences";
 let saved = {};
 try {
@@ -25,6 +29,11 @@ const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
 // In priority order. Zoom bands keep the regional names separate from
 const showcasePlaces = [
+  ["New Brunswick", [-66.40,46.52], 6.5, 9.9, "region"],
+  ["Saint John", [-66.068,45.273], 7.6, Infinity, "major", {anchor:"bottom", offset:[0,-8]}],
+  ["Moncton", [-64.778,46.085], 8.0, Infinity, "major"],
+  ["Northumberland Strait", [-64.18,46.20], 7.8, 11.2, "water"],
+  ["Chaleur Bay", [-65.67,47.97], 7.3, 11.2, "water"],
   ["Sambro Harbour", [-63.615,44.480], 11.5, Infinity, "major"],
   ["Sambro Ledges", [-63.574,44.469], 11.5, Infinity, "water"],
   ["Sambro Island", [-63.563,44.432], 11.5, Infinity, "major", {anchor:"top-right", offset:[-4,5]}],
@@ -33,12 +42,21 @@ const showcasePlaces = [
   ["East End", [-59.791,43.960], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
 ];
 
+const [region, focusPoints, tileConfig] = await Promise.all([
+  read("/region/config.json"), read("/region/focus-points.json"),
+  params.has("static") ? null : read("/api/map-tiles"),
+]);
+const tiles = tileConfig ? tiledAtlas(tileConfig.tileBase) : undefined;
+const [west, south, east, north] = region.cameraBounds;
+const cameraBounds = [[west,south],[east,north]];
+let updateFocus = () => {};
 const tourState = {active:false, night:null, finished:false};
 const atlas = await createAtlas({
   read, shorelineOptions:requestOptions, initialLayers:preferences.layers,
-  tiles:params.has("static") ? undefined : tiledAtlas((await read("/api/map-tiles")).tileBase),
-  sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/relief-detail.webp",
-  bounds:() => mapBounds, minZoom:4.5, tour:tourState, showcasePlaces,
+  tiles, surface:{bounds:region.dataBounds, relief:"/region/relief.jpg",
+    land:"/region/land.json", contours:"/region/contours.json"},
+  sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/region/relief-detail.webp",
+  bounds:() => cameraBounds, minZoom:4.5, tour:tourState, showcasePlaces,
   describeShips(snapshot, points, fresh, lastHeard) {
     const status = ({
       live:snapshot.refresh ? "AIS live" : "AIS snapshot", stale:"AIS snapshot · stale", waiting:"Waiting for ships",
@@ -54,10 +72,31 @@ const atlas = await createAtlas({
     modeControl.classList.toggle("is-night", night);
     modeControl.title = night ? "Switch to chart mode" : "Switch to night mode";
     modeControl.setAttribute("aria-label", modeControl.title);
+    updateFocus();
   },
 });
 const {map, status, applySettings, clearHover, inspect, highlight, showCard,
   setNight, isDark, updateShips, updateWeather, updateBuoys} = atlas;
+updateFocus = provinceFocus(map, tiles?.provinceSource ??
+  {type:"geojson", data:"/region/provinces.json"}, focusPoints, Boolean(tiles), () => atlas.night, overviewCamera);
+
+// MaxBounds limits the unrotated camera. Also reserve room for its rotated
+// corners, including when the viewport changes aspect in portrait mode.
+function constrainViewport() {
+  const {clientWidth:width, clientHeight:height} = map.getContainer();
+  const [left, bottom] = mercator(cameraBounds[0]);
+  const [right, top] = mercator(cameraBounds[1]);
+  const angle = Math.abs(BEARING)*Math.PI/180;
+  const c = Math.cos(angle), s = Math.sin(angle);
+  const minZoom = Math.log2(Math.max((width*c+height*s)/(right-left),
+    (height*c+width*s)/(bottom-top))/512);
+  map.setMinZoom(Math.max(4.5, minZoom));
+}
+map.touchZoomRotate.disableRotation();
+map.touchPitch.disable();
+map.keyboard.disableRotation();
+constrainViewport();
+map.on("resize", constrainViewport);
 
 function overviewCamera() {
   return map.cameraForBounds(overview, {

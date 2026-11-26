@@ -42,23 +42,57 @@ checks. The map computes missing or stale rows using the Canvas mask. The
 image build compresses the checked-in JSON with the other static files.
 
 
+## Regional web chart inputs
+
+`web/region/config.json` holds the chart data and camera bounds. The smaller
+camera box leaves room for the rotated viewport corners. Keep the NOAA
+download grid larger than the data box. To regenerate the checked-in regional
+sources with the downloaded OSM, ETOPO and Natural Earth inputs:
+
+```sh
+data=.local/data
+region=web/region
+python tools/extract-atlas-coast.py "$data/land.shp" "$data/region-land.json.gz" --region "$region/config.json"
+python tools/build-atlas-live.py "$data/etopo.csv" "$data/region-land.json.gz" "$region" \
+  --halifax-elevation "$data/halifax.csv" --region "$region/config.json"
+python tools/build-atlas-provinces.py "$data/admin/ne_10m_admin_1_states_provinces.shp" "$region"
+rm "$region/relief-detail.jpg"
+```
+
+The regional grid is ETOPO1 from the ERDDAP dataset linked above (41° to 50°
+north, 71° to 55° west for the current chart). Halifax uses the same ETOPO
+2022 input as the Nova Scotia source. The
+[Natural Earth Admin 1 archive](https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_1_states_provinces.zip)
+supplies the provincial and US masks; OSM supplies their coastlines.
+
+Build the regional aids with `tools/build-atlas-aids.py --bounds W S E N
+--output web/region/aids.json --dropped LOG`, using the data bounds from the
+config and either the current Coast Guard sections or saved section HTML.
+Then run `python tools/build-atlas-regional-marks.py PATH_TO_SAVED_CHS_JSON`.
+This filters an existing export and retains the checked-in NS corrections.
+It reads local files only.
+
 ## Web tile build
 
 Run `npm run build:tiles` from the repository root with Node 24 and ImageMagick 7.
 The reference build used Node 24.22.3 and ImageMagick 7.1.2-36 with WebP support.
-The script takes its inputs from `web/` and makes no network requests. It works
+The script takes its regional chart inputs from `web/region/` and makes no network requests. It works
 with the MapLibre worker pinned in `web/vendor/`. With a different worker version,
 check the exported tiler adapter and compare against the corresponding GeoJSON
 render before rebuilding. `MAGICK` can point to an alternate executable.
 
 The web charts use Web Mercator pyramids for land, contours, relief, and close
-depth shading. Fixed zoom-10 cells index beam reaches by light and shoreline
-edges by track. The build validates the reach table against its source
-revisions before packaging. Source JSON and images stay checked in for
-rebuilds, static previews, and the desktop. Generated archives are ignored by Git.
+depth shading. The province masks are also tiled. Fixed zoom-10 cells index beam reaches by
+light and regional shoreline edges by track. The build validates the original
+NS beam table against its source revisions before packaging. Regional sources
+also support the static web preview. The desktop uses its original NS assets.
+Generated archives are ignored by Git.
 
 To compare captures, run `node tools/verify-shared-core.mjs tiles ASSET_DIR
 OUTPUT_DIR WEB_FIXTURE_DIR` once per build, sequentially. The tool uses
 hardware Vulkan Chrome only, with fixed time, weather and AIS fixtures.
 Set `ATLAS_VERIFY_BROTLI=1` to use the precompressed production encoding for
 static assets. `events.json` records completed response body bytes by stage.
+
+Set `ATLAS_VERIFY_REGION=1` with the regional tile build to capture New Brunswick,
+province focus and phone portrait and to check the rotated camera limits.
