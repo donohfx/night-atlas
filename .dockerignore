@@ -3,3 +3,7 @@
 !package-lock.json
 !server
 !web
+!tools
+# Local build output stays out; the image makes its own.
+web/tiles
+**/*.br
