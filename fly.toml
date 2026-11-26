@@ -3,6 +3,8 @@ app = "night-atlas"
 primary_region = "yyz"
 
 [env]
+  # How this copy identifies itself to Open Waters, with a contact (change if you deploy your own copy).
+  OPENWATERS_USER_AGENT = "harbour-watch/1.0 (+https://harbour.briandonohue.ca)"
   # Old addresses that should forward to the current one (remove if you deploy your own copy).
   REDIRECTS = "atlas.briandonohue.ca=harbour.briandonohue.ca"
 
