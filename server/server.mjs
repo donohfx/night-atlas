@@ -9,6 +9,7 @@ import WebSocket from "ws";
 import { sendArchive } from "./tile-files.mjs";
 import buoys from "./buoys.mjs";
 import { createFeed } from "./ais-live.mjs";
+import { createOpenWaters, withFallback } from "./openwaters.mjs";
 
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
@@ -134,7 +135,13 @@ export function createApp({ root, feed, buoyHandler = buoys, redirects = {}, til
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const key = process.env.AISSTREAM_API_KEY?.trim();
-  const feed = key ? createFeed({ key, WebSocket }) : null;
+  // Open Waters first; AIS Stream (when a key is set) covers its outages. OPENWATERS=off disables it.
+  const feeds = [
+    process.env.OPENWATERS !== "off" && createOpenWaters({
+      userAgent: process.env.OPENWATERS_USER_AGENT?.trim() || "harbour-map/1.0" }),
+    key && createFeed({ key, WebSocket }),
+  ].filter(Boolean);
+  const feed = feeds.length ? withFallback(feeds) : null;
   feed?.start();
   // REDIRECTS="old.example=new.example,other.example=new.example"
   const redirects = Object.fromEntries((process.env.REDIRECTS || "").split(",").filter(Boolean).map(pair => pair.trim().split("=")));
