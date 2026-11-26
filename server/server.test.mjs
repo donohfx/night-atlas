@@ -198,3 +198,14 @@ test("Open Waters snapshots become ships, and AIS Stream covers an outage", asyn
   time += 200_000;
   assert.equal(both.snapshot().from, "backup");
 });
+
+test("ship queries cover the region within the area limit", async () => {
+  const { snapshotURLs } = await import("./openwaters.mjs");
+  for (const region of [[-69.95, 42.35, -55.5, 48.65], [-76.9, 41.8, -52, 55]]) {
+    const boxes = snapshotURLs(region).map(url => new URL(url).searchParams.get("bbox").split(",").map(Number));
+    const areas = boxes.map(([s, w, n, e]) => (n - s) * (e - w));
+    assert.ok(areas.every(area => area <= 100.001), String(areas));
+    const total = (region[2] - region[0]) * (region[3] - region[1]);
+    assert.ok(Math.abs(areas.reduce((a, b) => a + b) - total) < .01);
+  }
+});

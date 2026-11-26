@@ -3,8 +3,20 @@
 import { REGION, retained } from "./ais.mjs";
 
 const [WEST, SOUTH, EAST, NORTH] = REGION;
-export const SNAPSHOT_URL = "https://ais.openwaters.io/v1/vessels"
-  + `?bbox=${SOUTH},${WEST},${NORTH},${EAST}&kind=vessel&max_age=24h`;
+const MAX_AREA = 100;   // square degrees one anonymous query may cover
+
+// The region cut into as few boxes as the query limit allows.
+export function snapshotURLs([west, south, east, north] = REGION) {
+  const rows = Math.max(1, Math.ceil((north - south) / Math.sqrt(MAX_AREA)));
+  const height = (north - south) / rows;
+  const columns = Math.max(1, Math.ceil((east - west) * height / MAX_AREA - 1e-9));
+  const width = (east - west) / columns, edge = value => Number(value.toFixed(5));
+  return Array.from({ length: rows * columns }, (_, i) => {
+    const x = west + (i % columns) * width, y = south + Math.floor(i / columns) * height;
+    return "https://ais.openwaters.io/v1/vessels"
+      + `?bbox=${edge(y)},${edge(x)},${edge(y + height)},${edge(x + width)}&kind=vessel&max_age=24h`;
+  });
+}
 const POLL_MS = 20_000, SLOWEST_MS = 300_000;
 export const HEALTHY_MS = 120_000;
 
@@ -38,16 +50,20 @@ export function createOpenWaters({ userAgent, fetch = globalThis.fetch, now = Da
 
   async function poll() {
     try {
-      const response = await fetch(SNAPSHOT_URL, {
-        headers: { "User-Agent": userAgent }, signal: AbortSignal.timeout(15_000),
-      });
-      if (!response.ok) {
-        const wait = Number(response.headers.get("retry-after")) * 1000;
-        if (wait > 0) delay = Math.min(wait, SLOWEST_MS);
-        throw new Error(`HTTP ${response.status}`);
+      const features = [];
+      for (const url of snapshotURLs()) {          // one at a time, to stay gentle
+        const response = await fetch(url, {
+          headers: { "User-Agent": userAgent }, signal: AbortSignal.timeout(15_000),
+        });
+        if (!response.ok) {
+          const wait = Number(response.headers.get("retry-after")) * 1000;
+          if (wait > 0) delay = Math.min(wait, SLOWEST_MS);
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const body = await response.json();
+        if (!Array.isArray(body.features)) throw new Error("unexpected response");
+        features.push(...body.features);
       }
-      const { features } = await response.json();
-      if (!Array.isArray(features)) throw new Error("unexpected response");
       const time = now();
       for (const point of features.map(feature => vessel(feature, time))) {
         if (point && !(vessels.get(point.mmsi)?.timestamp > point.timestamp)) vessels.set(point.mmsi, point);

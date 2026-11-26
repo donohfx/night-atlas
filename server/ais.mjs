@@ -1,4 +1,6 @@
-export const REGION = [-69.14, 42.83, -58.38, 47.63];
+import { readFileSync } from "node:fs";
+// Ships are collected over the whole charted area.
+export const REGION = JSON.parse(readFileSync(new globalThis.URL("../web/region/config.json", import.meta.url))).dataBounds;
 export const RETENTION_MS = 24 * 60 * 60 * 1000;
 const MAX_VESSELS = 3000;
 export const URL = "wss://stream.aisstream.io/v0/stream";
