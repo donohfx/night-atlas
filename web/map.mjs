@@ -22,15 +22,6 @@ const params = new URLSearchParams(location.search);
 const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation","weather_code","wind_speed_10m","wind_direction_10m"]
   .filter(key => params.get(key) !== null && Number.isFinite(Number(params.get(key))));
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
-const mapContainer = document.querySelector("#map");
-function navigationBounds() {
-  const {clientWidth,clientHeight} = mapContainer;
-  if (!clientWidth || clientHeight <= clientWidth) return mapBounds;
-  // A tall viewport needs room above and below the chart when the province fits its width.
-  const latitudeMargin = Math.min(25, 5 * clientHeight / clientWidth);
-  return [[mapBounds[0][0],mapBounds[0][1]-latitudeMargin],
-    [mapBounds[1][0],mapBounds[1][1]+latitudeMargin]];
-}
 // In priority order. Zoom bands keep the regional names separate from
 const showcasePlaces = [
   ["Sambro Harbour", [-63.615,44.480], 11.5, Infinity, "major"],
@@ -45,7 +36,7 @@ const tourState = {active:false, night:null, finished:false};
 const atlas = await createAtlas({
   read, shorelineOptions:requestOptions, initialLayers:preferences.layers,
   sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/relief-detail.webp",
-  bounds:navigationBounds, minZoom:4.5, tour:tourState, showcasePlaces,
+  bounds:() => mapBounds, minZoom:4.5, tour:tourState, showcasePlaces,
   describeShips(snapshot, points, fresh, lastHeard) {
     const status = ({
       live:snapshot.refresh ? "AIS live" : "AIS snapshot", stale:"AIS snapshot · stale", waiting:"Waiting for ships",
@@ -66,7 +57,6 @@ const atlas = await createAtlas({
 const {map, status, applySettings, clearHover, inspect, highlight, showCard,
   setNight, isDark, updateShips, updateWeather, updateBuoys} = atlas;
 
-map.on("resize", () => map.setMaxBounds(navigationBounds()));
 function overviewCamera() {
   return map.cameraForBounds(overview, {
     padding:{top:24,bottom:30,left:16,right:16}, bearing:BEARING,
