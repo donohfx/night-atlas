@@ -30,6 +30,10 @@ const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
 // In priority order. Zoom bands keep the regional names separate from
 const showcasePlaces = [
+  ["Gaspé", [-64.48,48.83], 8.2, Infinity, "major"],
+  ["Anticosti Island", [-63.0,49.43], 7.3, 10.5, "region"],
+  ["Îles de la Madeleine", [-61.81,47.43], 7.8, 11.2, "region"],
+  ["Québec", [-71.208,46.813], 7.9, Infinity, "major"],
   ["Newfoundland", [-56.5,48.75], 5.8, 8.5, "region"],
   ["Labrador", [-59.7,53.1], 5.6, 8.5, "region"],
   ["St. John's", [-52.71,47.56], 7.6, Infinity, "major"],
@@ -48,6 +52,11 @@ const showcasePlaces = [
   ["Sable Island", [-59.910,43.920], 8.4, Infinity, "major"],
   ["West End", [-60.023,43.932], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
   ["East End", [-59.791,43.960], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
+];
+
+// Defer the expanded marks until the chart is within reach of symbol zoom.
+const riverAreas = [
+  ["gulf", [-71.31,46.2,-57.0,52.0]],
 ];
 
 const [region, focusPoints, tileConfig, regionalLights] = await Promise.all([
@@ -87,6 +96,27 @@ const {map, status, applySettings, clearHover, inspect, highlight, showCard,
   setNight, isDark, updateShips, updateWeather, updateBuoys} = atlas;
 updateFocus = provinceFocus(map, tiles?.provinceSource ??
   {type:"geojson", data:"/region/provinces.json"}, focusPoints, Boolean(tiles), () => atlas.night, overviewCamera);
+
+const loadedRiverAreas = new Map();
+const loadingRiverAreas = new Set();
+async function loadRiverAreas() {
+  if (map.getZoom() < 8.75) return;
+  const visible = map.getBounds();
+  for (const [area, [w,s,e,n]] of riverAreas) {
+    if (loadedRiverAreas.has(area) || loadingRiverAreas.has(area) ||
+        visible.getEast() < w || visible.getWest() > e ||
+        visible.getNorth() < s || visible.getSouth() > n) continue;
+    loadingRiverAreas.add(area);
+    try {
+      loadedRiverAreas.set(area, await read(`/region/river-${area}.json`));
+      atlas.includeMarkAreas(riverAreas.flatMap(([id]) => loadedRiverAreas.has(id) ? [loadedRiverAreas.get(id)] : []));
+    } catch (error) {
+      console.warn("Night Atlas river marks:", error.message);
+    } finally {
+      loadingRiverAreas.delete(area);
+    }
+  }
+}
 
 // Constrain the rotated footprint so the chart edge stays outside the viewport.
 const [left, bottom] = mercator(cameraBounds[0]);
@@ -433,6 +463,8 @@ map.once("load", () => {
   pollWhileVisible(renderShips,10000);
   setInterval(() => { if (!tourState.active) applySettings(preferences); },30000);
   map.on("moveend",renderShips);
+  map.on("moveend",loadRiverAreas);
+  loadRiverAreas();
   if (recordTour) {
     document.body.classList.add("record-tour");
     const initialTour = tourAbort;
