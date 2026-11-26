@@ -12,9 +12,12 @@ from shapely.geometry.polygon import orient
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("land_shp", type=Path)
 parser.add_argument("output", type=Path)
+parser.add_argument("--region", type=Path, help="JSON containing dataBounds")
 args = parser.parse_args()
 
-bounds = (-69.14, 42.83, -55.50, 48.00)
+bounds = tuple(json.loads(args.region.read_text())["dataBounds"]) if args.region else (
+    -69.14, 42.83, -55.50, 48.00
+)
 clip = box(*bounds)
 with args.land_shp.open("rb") as stream:
     reader = shapefile.Reader(shp=stream)

@@ -13,6 +13,7 @@ parser.add_argument("elevation", type=Path)
 parser.add_argument("land", type=Path)
 parser.add_argument("output", type=Path)
 parser.add_argument("--halifax-elevation", type=Path)
+parser.add_argument("--region", type=Path, help="Build unshaded web relief for this region config")
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
 
@@ -20,11 +21,16 @@ args.output.mkdir(parents=True, exist_ok=True)
 # the four corners when it is rotated five degrees.
 WEST, SOUTH, EAST, NORTH = -69.70, 42.35, -55.50, 48.18
 WIDTH, HEIGHT = 4096, 2800
+if args.region:
+    WEST, SOUTH, EAST, NORTH = json.loads(args.region.read_text())["dataBounds"]
+    WIDTH = round(WIDTH * (EAST - WEST) / 14.2)
 
 def mercator(lat):
     return np.arcsinh(np.tan(np.deg2rad(lat)))
 
 north_m, south_m = mercator(NORTH), mercator(SOUTH)
+if args.region:
+    HEIGHT = round(HEIGHT * (north_m - south_m) / (mercator(48.18) - mercator(42.35)))
 def pixel(lon, lat):
     return (np.asarray(lon) - WEST) * (WIDTH - 1) / (EAST - WEST), (
         north_m - mercator(lat)
@@ -53,21 +59,23 @@ def resample(grid):
 
 levels = resample(elevation)
 relief = resample(shade)
-fundy = np.interp(lons, [-69, -67, -65.8, -64.8, -64.2, -63.8, -63.3],
-                  [43.7, 44.57, 44.97, 45.47, 45.80, 46.04, 47.6])
-exposure = 1 - 0.82 * np.clip((lats[:, None] - fundy) / .48, 0, 1)
-# Islands stay bright: PEI straddles the Fundy/Northumberland dimming curve (longitude-only), and
-# Newfoundland's corner sits just north of its eastern end. Keep the mainland backdrop (NB, Maine)
-# dim, but lift PEI (outline drawn through Northumberland Strait, clear of NB's coast) and
-# everything east of 62W.
-PEI_REGION = [(-64.45, 46.60), (-64.45, 46.97), (-64.00, 47.14), (-62.60, 46.58), (-61.85, 46.48),
-              (-61.88, 45.95), (-62.50, 45.95), (-63.30, 46.10), (-63.65, 46.20), (-64.10, 46.38)]
-_island = Image.new("L", (len(lons), len(lats)), 0)
-ImageDraw.Draw(_island).polygon([tuple(map(float, pixel(lo, la))) for lo, la in PEI_REGION], fill=255)
-_island = np.asarray(_island.filter(ImageFilter.GaussianBlur(10)), dtype=float) / 255
-_east = np.clip((lons + 62.4) / .4, 0, 1)[None, :]
-exposure = np.maximum(exposure, np.maximum(_island, _east))
-land_tones = np.array([11, 22, 22]) + exposure[..., None] * (
+exposure = 1
+if not args.region:
+    fundy = np.interp(lons, [-69, -67, -65.8, -64.8, -64.2, -63.8, -63.3],
+                      [43.7, 44.57, 44.97, 45.47, 45.80, 46.04, 47.6])
+    exposure = 1 - 0.82 * np.clip((lats[:, None] - fundy) / .48, 0, 1)
+    # Islands stay bright: PEI straddles the Fundy/Northumberland dimming curve (longitude-only), and
+    # Newfoundland's corner sits just north of its eastern end. Keep the mainland backdrop (NB, Maine)
+    # dim, but lift PEI (outline drawn through Northumberland Strait, clear of NB's coast) and
+    # everything east of 62W.
+    PEI_REGION = [(-64.45, 46.60), (-64.45, 46.97), (-64.00, 47.14), (-62.60, 46.58), (-61.85, 46.48),
+                  (-61.88, 45.95), (-62.50, 45.95), (-63.30, 46.10), (-63.65, 46.20), (-64.10, 46.38)]
+    _island = Image.new("L", (len(lons), len(lats)), 0)
+    ImageDraw.Draw(_island).polygon([tuple(map(float, pixel(lo, la))) for lo, la in PEI_REGION], fill=255)
+    _island = np.asarray(_island.filter(ImageFilter.GaussianBlur(10)), dtype=float) / 255
+    _east = np.clip((lons + 62.4) / .4, 0, 1)[None, :]
+    exposure = np.maximum(exposure, np.maximum(_island, _east))
+land_tones = np.array([11, 22, 22]) + np.asarray(exposure)[..., None] * (
     np.array([14, 22, 15]) + (np.clip(levels, 0, 400) * .045 + relief * 6)[..., None]
 )
 water_tones = np.array([11, 22, 22]) + (
@@ -78,8 +86,9 @@ water_tones = np.array([11, 22, 22]) + (
 # chart area with complete, topological OSM polygons.
 mask = Image.fromarray((levels > 0).astype("uint8") * 255)
 draw = ImageDraw.Draw(mask)
-mx0, my0 = pixel(-69.14, 48.00)
-mx1, my1 = pixel(-55.50, 42.83)
+mask_bounds = (WEST, SOUTH, EAST, NORTH) if args.region else (-69.14, 42.83, -55.50, 48.00)
+mx0, my0 = pixel(mask_bounds[0], mask_bounds[3])
+mx1, my1 = pixel(mask_bounds[2], mask_bounds[1])
 draw.rectangle((float(mx0), float(my0), float(mx1), float(my1)), fill=0)
 coast = Image.new("RGBA", mask.size)
 coast_draw = ImageDraw.Draw(coast)
