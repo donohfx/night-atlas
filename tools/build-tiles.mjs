@@ -42,6 +42,8 @@ function vector({index, encode, Wrapper}, name, minzoom, maxzoom, tolerance, ind
   const extent = 8192;
   const tiles = index(json("region/" + name + ".json"), {geojsonVtOptions:{extent, maxZoom:indexMaxzoom,
     buffer:2048, tolerance:tolerance*16}}, false);
+  const cache = tiles.tileIndex?.tiles;
+  assert(cache, "Review the tile cache adapter after updating MapLibre");
   archive(name, {minzoom, maxzoom, type:1, compression:2,
     metadata:{vector_layers:[{id:"_geojsonTileLayer", fields:name === "contours" ? {major:"Boolean"} : name === "provinces" ? {region:"String"} : {}}]}}, add => {
     const visit = (z,x,y) => {
@@ -51,6 +53,8 @@ function vector({index, encode, Wrapper}, name, minzoom, maxzoom, tolerance, ind
         add(zxyToTileId(z,x,y), gzipSync(encode(new Wrapper(tile.features,{version:2,extent}), "__$json__:"), {level:1}));
       }
       if (z < maxzoom) for (let dy=0;dy<2;dy++) for (let dx=0;dx<2;dx++) visit(z+1,x*2+dx,y*2+dy);
+      // This subtree is written: drop it, or the whole pyramid stays in memory.
+      delete cache[((1<<z)*y+x)*32+z];
     };
     visit(0,0,0);
   });
@@ -141,20 +145,33 @@ async function analysis() {
   }
 }
 
-try {
-  if (process.argv.includes("--analysis-only")) await analysis();
-  else {
-    const tiler = await vectorTiler();
-    vector(tiler,"land",7,14,.4);
-    // Overscale the z14 contours. At this extent their encoding precision
-    // already exceeds the source grid's precision, including Halifax.
-    vector(tiler,"contours",8,14,.375,18);
-    vector(tiler,"provinces",3,13,.7);
-    raster("relief","relief.jpg");
-    raster("relief-detail","relief-detail.webp");
-    await analysis();
+// One process per archive: each releases its memory before the next starts, so the
+// whole build fits a small image builder. HEAP_MB caps each process.
+const jobs = {
+  land: async () => vector(await vectorTiler(),"land",7,14,.4),
+  // Overscale the z14 contours. At this extent their encoding precision
+  // already exceeds the source grid's precision, including Halifax.
+  contours: async () => vector(await vectorTiler(),"contours",8,14,.375,18),
+  provinces: async () => vector(await vectorTiler(),"provinces",3,13,.7),
+  relief: () => raster("relief","relief.jpg"),
+  "relief-detail": () => raster("relief-detail","relief-detail.webp"),
+  analysis,
+};
+const job = process.argv.includes("--analysis-only") ? "analysis"
+  : process.argv.find(arg => arg.startsWith("--job="))?.slice(6);
+
+if (job) {
+  try {
+    assert(jobs[job], "Unknown job " + job);
+    await jobs[job]();
+    for (const name of readdirSync(stage)) renameSync(join(stage,name),join(output,name));
+  } finally {
+    rmSync(stage,{recursive:true,force:true});
   }
-  for (const name of readdirSync(stage)) renameSync(join(stage,name),join(output,name));
-} finally {
+} else {
   rmSync(stage,{recursive:true,force:true});
+  const heap = "--max-old-space-size=" + (process.env.HEAP_MB || 2048);
+  for (const name of Object.keys(jobs)) {
+    execFileSync(process.execPath, [heap, fileURLToPath(import.meta.url), "--job="+name], {stdio:"inherit"});
+  }
 }
