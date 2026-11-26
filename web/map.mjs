@@ -94,18 +94,19 @@ const [right, top] = mercator(cameraBounds[1]);
 const angle = Math.abs(BEARING)*Math.PI/180;
 const c = Math.cos(angle), s = Math.sin(angle);
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
-map.setTransformConstrain((center, requestedZoom) => {
+function constrainCamera(center, requestedZoom, eastLimit = right) {
   const {clientWidth:width, clientHeight:height} = map.getContainer();
   const spanX = width*c + height*s + 2;
   const spanY = height*c + width*s + 2;
-  const minimum = Math.log2(Math.max(spanX/(right-left), spanY/(bottom-top))/512);
+  const minimum = Math.log2(Math.max(spanX/(eastLimit-left), spanY/(bottom-top))/512);
   const zoom = clamp(requestedZoom, Math.max(4.5, minimum), map.getMaxZoom());
   const scale = 1024*2**zoom;
   const [x, y] = mercator([center.lng, center.lat]);
-  const longitude = clamp(x, left+spanX/scale, right-spanX/scale)*360-180;
+  const longitude = clamp(x, left+spanX/scale, eastLimit-spanX/scale)*360-180;
   const latitude = Math.atan(Math.sinh(Math.PI*(1-2*clamp(y, top+spanY/scale, bottom-spanY/scale))))*180/Math.PI;
   return {center:new LngLat(longitude, latitude), zoom};
-});
+}
+map.setTransformConstrain((center, zoom) => constrainCamera(center, zoom));
 map.touchZoomRotate.disableRotation();
 map.touchPitch.disable();
 map.keyboard.disableRotation();
@@ -119,10 +120,15 @@ function overviewCamera() {
     padding:{top:24,bottom:30,left:16,right:16}, bearing:BEARING,
   });
   const {clientWidth:width, clientHeight:height} = map.getContainer();
-  if (!camera || height <= width) return camera;
-  const [south,north] = PORTRAIT_LATITUDES.map(latitude => mercator([0,latitude])[1]);
-  const zoom = Math.max(camera.zoom, Math.log2(height/(512*Math.abs(south-north))));
-  return {...camera, zoom};
+  if (!camera) return camera;
+  let {zoom} = camera;
+  if (height > width) {
+    const [south,north] = PORTRAIT_LATITUDES.map(latitude => mercator([0,latitude])[1]);
+    zoom = Math.max(zoom, Math.log2(height/(512*Math.abs(south-north))));
+  }
+  // Preserve the original overview on wide screens where the chart width set its zoom.
+  const [overviewEast] = mercator([-52,0]);
+  return {...camera, ...constrainCamera(camera.center, zoom, overviewEast)};
 }
 function applyOverview(duration = 0) {
   const camera = overviewCamera();

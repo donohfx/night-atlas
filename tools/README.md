@@ -59,7 +59,7 @@ rm "$region/relief-detail.jpg"
 ```
 
 The regional grid is ETOPO1 from the ERDDAP dataset linked above (41° to 56°
-north, 78° to 51° west for the current chart). Halifax uses the same ETOPO
+north, 78° to 49° west for the current chart). Halifax uses the same ETOPO
 2022 input as the Nova Scotia source. The
 [Natural Earth Admin 1 archive](https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_1_states_provinces.zip)
 supplies the provincial and US masks; OSM supplies their coastlines.

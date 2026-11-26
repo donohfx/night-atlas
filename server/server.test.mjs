@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { brotliCompressSync } from "node:zlib";
 import test from "node:test";
-import { retained, RETENTION_MS } from "./ais.mjs";
+import { retained, REGION, RETENTION_MS } from "./ais.mjs";
 import { request } from "node:http";
 import { createFeed } from "./ais-live.mjs";
 import { parseBuoy } from "./buoys.mjs";
@@ -226,7 +226,7 @@ test("Open Waters snapshots become ships, and AIS Stream covers an outage", asyn
 
 test("ship queries cover the region within the area limit", async () => {
   const { snapshotURLs } = await import("./openwaters.mjs");
-  for (const region of [[-69.95, 42.35, -55.5, 48.65], [-76.9, 41.8, -52, 55]]) {
+  for (const region of [[-69.95, 42.35, -55.5, 48.65], REGION]) {
     const boxes = snapshotURLs(region).map(url => new URL(url).searchParams.get("bbox").split(",").map(Number));
     const areas = boxes.map(([s, w, n, e]) => (n - s) * (e - w));
     assert.ok(areas.every(area => area <= 100.001), String(areas));
