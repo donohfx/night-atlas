@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node server/server.mjs",
-    "test": "node --test server/*.test.mjs"
+    "test": "npm run check:desktop && node --test server/*.test.mjs",
+    "sync:desktop": "node tools/sync-desktop.mjs",
+    "check:desktop": "node tools/sync-desktop.mjs --check"
   },
   "dependencies": {
     "ws": "8.23.0"

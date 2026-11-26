@@ -9,3 +9,6 @@ __pycache__/
 *.pyc
 *.key
 *.br
+
+# Locally traced chart data.
+tss-traced.json

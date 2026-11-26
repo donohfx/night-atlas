@@ -28,7 +28,12 @@ STARTED = time.time()
 ASSETS = {
     "/": ("index.html", "text/html"),
     "/map.mjs": ("map.mjs", "text/javascript"),
+    "/atlas-core.mjs": ("atlas-core.mjs", "text/javascript"),
     "/atlas-extras.mjs": ("atlas-extras.mjs", "text/javascript"),
+    "/atlas-marks.mjs": ("atlas-marks.mjs", "text/javascript"),
+    "/atlas-reach-table.mjs": ("atlas-reach-table.mjs", "text/javascript"),
+    "/atlas-shore.mjs": ("atlas-shore.mjs", "text/javascript"),
+    "/beam-reach.json": ("beam-reach.json", "application/json"),
     "/style.css": ("style.css", "text/css"),
     "/chart-data.json": ("chart-data.json", "application/json"),
     "/land.json": ("land.json.gz", "application/json"),
@@ -212,6 +217,9 @@ class Request(BaseHTTPRequestHandler):
                                    "weather": WEATHER or None}).encode(), "application/json")
         elif self.path == "/palette.json":
             self.reply((ROOT.parent.parent / "palettes/NightAtlas.json").read_bytes(), "application/json")
+        elif self.path == "/tss-traced.json":
+            empty = {"type": "FeatureCollection", "features": []}
+            self.reply(json.dumps(load_json(ROOT / "live" / "tss-traced.json", empty)).encode(), "application/json")
         elif self.path in ASSETS:
             name, mime = ASSETS[self.path]
             self.reply((ROOT / "live" / name).read_bytes(), mime, name.endswith(".gz"), self.path.startswith("/vendor/"))
