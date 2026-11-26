@@ -4,6 +4,7 @@ import {mercator} from "./atlas-shore.mjs";
 import {tiledAtlas} from "./atlas-tiles.mjs";
 import {aidName} from "./atlas-marks.mjs";
 import {LngLat} from "./vendor/maplibre-gl.mjs";
+import {halifaxWeather, pickWeatherPlace} from "./weather-places.mjs";
 import {biggestInHarbour} from "./atlas-extras.mjs";
 
 const requestOptions = () => ({signal: AbortSignal.timeout(30000)});
@@ -211,6 +212,7 @@ function endTour() {
   tourControl.textContent = "Tour";
   applySettings(preferences);
   renderShips();
+  scheduleWeather();
 }
 
 function pauseTour(ms, signal) {
@@ -251,6 +253,7 @@ async function tour() {
   }
   atlas.beginTourWeather(clearWeather);
   tourState.active = true;
+  refreshWeather();
   tourAbort = new AbortController();
   const {signal} = tourAbort;
   tourState.night = false;
@@ -329,7 +332,7 @@ function bindControls() {
   viewControl.disabled = modeControl.disabled = layerControls.disabled = tourControl.disabled = false;
   viewControl.value = preferences.view;
   const names = {ships:"Ships",ghosts:"Estimated positions",buoys:"Weather buoys",seamarks:"Seamarks",
-    lights:"Lighthouses",openSources:"Open sources only",weather:"Halifax weather",fog:"Fog",sky:"Cloud and moonlight",rain:"Rain and snow",spotlight:"Ship of the night",labels:"Place names"};
+    lights:"Lighthouses",openSources:"Open sources only",weather:"Weather",fog:"Fog",sky:"Cloud and moonlight",rain:"Rain and snow",spotlight:"Ship of the night",labels:"Place names"};
   for (const [id, name] of Object.entries(names)) {
     const label = document.createElement("label");
     const input = document.createElement("input");
@@ -379,12 +382,63 @@ function bindControls() {
   tourControl.addEventListener("click", tour);
 }
 
-const weatherURL = "https://api.open-meteo.com/v1/forecast?latitude=44.65&longitude=-63.58"
-  + "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,"
-  + "wind_gusts_10m,precipitation,visibility,cloud_cover,cloud_cover_low&wind_speed_unit=kn&timezone=America%2FHalifax";
-async function refreshWeather() {
-  try { updateWeather((await read(weatherURL)).current); } catch { /* Keep last good reading. */ }
+const weatherInterval = 15 * 60 * 1000;
+const weatherCache = new Map(), weatherRequests = new Map();
+let localWeatherPlace = null, selectedWeatherPlace = halifaxWeather;
+let weatherMoveTimer, weatherRefreshTimer;
+
+function scheduleWeatherRefresh(delay) {
+  clearTimeout(weatherRefreshTimer);
+  weatherRefreshTimer = setTimeout(refreshWeather, delay);
 }
+
+function showWeather(place, reading) {
+  updateWeather(reading);
+  // The shared card defaults to Halifax. Only the web host supplies a local label.
+  if (reading) document.querySelector(".weather-place").textContent = place.name;
+}
+
+async function fetchTownWeather(place) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${place.lat}&longitude=${place.lng}`
+    + "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,"
+    + "wind_gusts_10m,precipitation,visibility,cloud_cover,cloud_cover_low&wind_speed_unit=kn&timezone=America%2FHalifax";
+  try {
+    const {current} = await read(url);
+    if (!Number.isFinite(current?.temperature_2m)) return;
+    weatherCache.set(place, {reading:current, fetchedAt:Date.now()});
+    if (place !== selectedWeatherPlace || document.hidden) return;
+    if (!tourState.active && (weatherMoveTimer || map.isMoving())) return;
+    showWeather(place, current);
+    scheduleWeatherRefresh(weatherInterval);
+  } catch { /* A cached reading can stay visible for its own town during an outage. */ }
+  finally { weatherRequests.delete(place); }
+}
+
+function refreshWeather() {
+  if (document.hidden || (!tourState.active && (weatherMoveTimer || map.isMoving()))) return;
+  if (!tourState.active) localWeatherPlace = pickWeatherPlace(map.getCenter(), map.getZoom(), localWeatherPlace);
+  const place = tourState.active ? halifaxWeather : localWeatherPlace ?? halifaxWeather;
+  selectedWeatherPlace = place;
+  const cached = weatherCache.get(place);
+  showWeather(place, cached?.reading ?? null);
+  const remaining = cached ? weatherInterval - (Date.now() - cached.fetchedAt) : 0;
+  scheduleWeatherRefresh(remaining > 0 ? remaining : weatherInterval);
+  if (remaining <= 0 && !weatherRequests.has(place)) weatherRequests.set(place, fetchTownWeather(place));
+}
+
+function cancelWeatherMove() {
+  clearTimeout(weatherMoveTimer);
+  weatherMoveTimer = null;
+}
+
+function scheduleWeather() {
+  cancelWeatherMove();
+  weatherMoveTimer = setTimeout(() => {
+    weatherMoveTimer = null;
+    refreshWeather();
+  }, 300);
+}
+
 let buoyRetry;
 async function refreshBuoys() {
   clearTimeout(buoyRetry);
@@ -466,7 +520,10 @@ map.once("load", () => {
     });
     pollWhileVisible(refreshBuoys,1800000);
   }
-  pollWhileVisible(refreshWeather,900000);
+  refreshWeather();
+  map.on("movestart", cancelWeatherMove);
+  map.on("moveend", () => { if (!tourState.active) scheduleWeather(); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleWeather(); });
   pollWhileVisible(renderShips,10000);
   setInterval(() => { if (!tourState.active) applySettings(preferences); },30000);
   map.on("moveend",renderShips);

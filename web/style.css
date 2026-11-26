@@ -141,9 +141,9 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
 
   #dock { left: max(6px, env(safe-area-inset-left)); bottom: calc(var(--credits-height, 28px) + max(6px, env(safe-area-inset-bottom)) + 4px); gap: 4px; }
   #dock > * { border-radius: 4px; }
-  .weather-card { display: flex; gap: 6px; align-items: baseline; padding: 2px 8px 3px; }
+  .weather-card { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; padding: 2px 8px 3px; }
   .weather-card[hidden] { display: none; }
-  .weather-place, .weather-line { display: none; }
+  .weather-line { display: none; }
   .weather-temp { font-size: 15px; }
   .weather-sky { font-size: 11px; }
   #dock #status { padding: 2px 8px; font-size: 10px; }
