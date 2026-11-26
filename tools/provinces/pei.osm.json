@@ -1,0 +1,997 @@
+{
+  "source": "https://download.geofabrik.de/north-america/canada/prince-edward-island/prince-edward-island-261124.osm.pbf",
+  "elements": [
+    {
+      "id": "node/1045711207",
+      "coordinates": [
+        -62.4217238,
+        46.4700416
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "5",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 1170.4",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Naufrage",
+        "seamark:type": "light_minor",
+        "wikidata": "Q47088755"
+      }
+    },
+    {
+      "id": "node/1635896067",
+      "coordinates": [
+        -63.5049316,
+        46.207185
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "14",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 1032.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1635912323",
+      "coordinates": [
+        -63.6972001,
+        46.2442317
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "6",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 1044",
+        "seamark:light:sequence": "1+(3)",
+        "seamark:radar_reflector": "yes",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1635912801",
+      "coordinates": [
+        -63.6994337,
+        46.2451562
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "10",
+        "seamark:light:period": "4",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 1039",
+        "seamark:name": "Port Borden",
+        "seamark:type": "light_minor",
+        "wikidata": "Q47016759"
+      }
+    },
+    {
+      "id": "node/1748032273",
+      "coordinates": [
+        -63.4968192,
+        46.2045076
+      ],
+      "tags": {
+        "historic": "yes",
+        "man_made": "lighthouse",
+        "name": "Wrights Range Front Lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "7",
+        "seamark:light:range": "12",
+        "seamark:light:reference": "H 1032",
+        "seamark:name": "Wrights Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1748034323",
+      "coordinates": [
+        -63.4888432,
+        46.2141852
+      ],
+      "tags": {
+        "alt_name": "Leard's Front Range Light",
+        "alt_name_1": "Palmer's Back Range Light",
+        "man_made": "lighthouse",
+        "name": "Victoria Range Light",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "12",
+        "seamark:light:reference": "H 1029.1",
+        "seamark:type": "light_minor",
+        "wikidata": "Q30575042"
+      }
+    },
+    {
+      "id": "node/1748035564",
+      "coordinates": [
+        -63.4928771,
+        46.2212755
+      ],
+      "tags": {
+        "alt_name": "Leards Range Rear Light",
+        "man_made": "lighthouse",
+        "name": "Leards Back Range Light",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "31",
+        "seamark:light:reference": "H 1028.1",
+        "seamark:type": "light_minor",
+        "wikidata": "Q6510000"
+      }
+    },
+    {
+      "id": "node/1760405101",
+      "coordinates": [
+        -63.2915902,
+        46.4540527
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "12",
+        "seamark:light:period": "10",
+        "seamark:light:reference": "H 1141",
+        "seamark:name": "North Rustico Harbor",
+        "seamark:type": "light_minor",
+        "wikidata": "Q7056565"
+      }
+    },
+    {
+      "id": "node/1760405293",
+      "coordinates": [
+        -63.2919858,
+        46.4553274
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "8",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 1142",
+        "seamark:name": "N. Rustico",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1760405373",
+      "coordinates": [
+        -63.3074925,
+        46.456874
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1760405392",
+      "coordinates": [
+        -63.2881231,
+        46.457076
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "3",
+        "seamark:light:period": "3",
+        "seamark:light:reference": "H 1140",
+        "seamark:light:sequence": "1+(2)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1760511023",
+      "coordinates": [
+        -63.1481136,
+        46.4246946
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "11",
+        "seamark:light:period": "5",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 1150",
+        "seamark:light:sequence": "0.5+(4.5)",
+        "seamark:name": "Cape Stanhope",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1806628055",
+      "coordinates": [
+        -64.2347138,
+        46.8772306
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "13",
+        "seamark:light:reference": "H 1072.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1806628417",
+      "coordinates": [
+        -64.2358916,
+        46.8791254
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "5",
+        "seamark:light:reference": "H 1072",
+        "seamark:name": "Miminegash",
+        "seamark:type": "light_minor",
+        "wikidata": "Q6862255"
+      }
+    },
+    {
+      "id": "node/1806785287",
+      "coordinates": [
+        -64.0660441,
+        46.7932529
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "8",
+        "seamark:light:reference": "H 1094",
+        "seamark:name": "Northport",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1806785941",
+      "coordinates": [
+        -64.0368071,
+        46.7987062
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "18",
+        "seamark:light:period": "10",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 1086",
+        "seamark:name": "Cascumpeque Island",
+        "seamark:type": "light_minor",
+        "wikidata": "Q5048273"
+      }
+    },
+    {
+      "id": "node/1806823788",
+      "coordinates": [
+        -64.3868,
+        46.620294
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "West point",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "20",
+        "seamark:light:period": "12",
+        "seamark:light:range": "12",
+        "seamark:light:reference": "H 1062",
+        "seamark:name": "West Point",
+        "seamark:type": "light_minor",
+        "wikidata": "Q30575123"
+      }
+    },
+    {
+      "id": "node/1808235183",
+      "coordinates": [
+        -64.134629,
+        46.4020913
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "LFl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "20",
+        "seamark:light:period": "5",
+        "seamark:light:range": "12",
+        "seamark:light:reference": "H 1056",
+        "seamark:light:sequence": "2+(3)",
+        "seamark:name": "Cape Egmont",
+        "seamark:type": "light_minor",
+        "wikidata": "Q30575081"
+      }
+    },
+    {
+      "id": "node/1918057029",
+      "coordinates": [
+        -63.8663732,
+        46.5935166
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "4",
+        "seamark:light:period": "4",
+        "seamark:light:range": "2",
+        "seamark:light:reference": "H 1124",
+        "seamark:light:sequence": "1+(3)",
+        "seamark:name": "Port Hill Wharf",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918114541",
+      "coordinates": [
+        -63.6601084,
+        46.5383761
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1918114654",
+      "coordinates": [
+        -63.6615774,
+        46.5392741
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1918118655",
+      "coordinates": [
+        -63.7014277,
+        46.5539126
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1918120419",
+      "coordinates": [
+        -63.6566664,
+        46.5613787
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "14",
+        "seamark:light:reference": "H 1116",
+        "seamark:name": "Darnley Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918120803",
+      "coordinates": [
+        -63.6515299,
+        46.5645505
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "22",
+        "seamark:light:reference": "H 1116.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918121049",
+      "coordinates": [
+        -63.7121875,
+        46.5734902
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "10",
+        "seamark:light:reference": "H 1106",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918121073",
+      "coordinates": [
+        -63.7112751,
+        46.5743251
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "8",
+        "seamark:light:reference": "H 1110",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918121134",
+      "coordinates": [
+        -63.7136171,
+        46.5768172
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "10",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 1110.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1918121163",
+      "coordinates": [
+        -63.7203136,
+        46.5780988
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "17",
+        "seamark:light:period": "2",
+        "seamark:light:reference": "H 1106.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1921049913",
+      "coordinates": [
+        -63.8101244,
+        46.3159156
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Seacow Head Light",
+        "wikidata": "Q7440295"
+      }
+    },
+    {
+      "id": "node/1923035534",
+      "coordinates": [
+        -63.6942417,
+        46.250216
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2101914911",
+      "coordinates": [
+        -63.0298282,
+        46.4040193
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2101916229",
+      "coordinates": [
+        -63.04084,
+        46.409394
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2103586452",
+      "coordinates": [
+        -62.8326942,
+        46.4336565
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2104916294",
+      "coordinates": [
+        -62.7476107,
+        46.4419419
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "St. Peters Harbour Light",
+        "wikidata": "Q7591472"
+      }
+    },
+    {
+      "id": "node/2104972299",
+      "coordinates": [
+        -62.4221532,
+        46.259175
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2104973503",
+      "coordinates": [
+        -62.4359779,
+        46.2659517
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2105020725",
+      "coordinates": [
+        -62.3508454,
+        46.3288836
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2105022713",
+      "coordinates": [
+        -62.2554448,
+        46.3477563
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2105031552",
+      "coordinates": [
+        -62.2474787,
+        46.3459657
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Souris East Lighthouse"
+      }
+    },
+    {
+      "id": "node/2106149580",
+      "coordinates": [
+        -62.1082235,
+        46.3768948
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2106174295",
+      "coordinates": [
+        -62.067436,
+        46.4686444
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2106174393",
+      "coordinates": [
+        -62.0702446,
+        46.4691043
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2186383934",
+      "coordinates": [
+        -62.4600565,
+        46.0035076
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2186385250",
+      "coordinates": [
+        -62.4922461,
+        46.0149317
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2186385783",
+      "coordinates": [
+        -62.4782213,
+        46.0215006
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Murray Harbour Range Front Lighthouse"
+      }
+    },
+    {
+      "id": "node/2186396429",
+      "coordinates": [
+        -62.4666491,
+        46.1438886
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2186488364",
+      "coordinates": [
+        -62.7462422,
+        45.949921
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major",
+        "wikidata": "Q8032223"
+      }
+    },
+    {
+      "id": "node/2186507079",
+      "coordinates": [
+        -62.7513385,
+        45.9484003
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/2186519275",
+      "coordinates": [
+        -63.1804386,
+        46.1170481
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/3643001014",
+      "coordinates": [
+        -63.1431214,
+        46.4300481
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Covehead Lighthouse",
+        "wikidata": "Q45324426"
+      }
+    },
+    {
+      "id": "node/6436068843",
+      "coordinates": [
+        -63.1395063,
+        46.1961697
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Warren Cove Back Range Lighthouse"
+      }
+    },
+    {
+      "id": "node/6436068844",
+      "coordinates": [
+        -63.1382134,
+        46.1989731
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Warren Cove Front Range Light",
+        "wikidata": "Q47001406"
+      }
+    },
+    {
+      "id": "node/6436147903",
+      "coordinates": [
+        -63.1293512,
+        46.1906188
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Blockhouse Point Lighthouse",
+        "wikidata": "Q30575034"
+      }
+    },
+    {
+      "id": "node/6548334650",
+      "coordinates": [
+        -63.1495804,
+        46.2339917
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Brighton Beach Range Rear Light",
+        "seamark:type": "light_major",
+        "wikidata": "Q46996993"
+      }
+    },
+    {
+      "id": "node/6549745508",
+      "coordinates": [
+        -63.9422563,
+        46.6875656
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "wikidata": "Q6649496"
+      }
+    },
+    {
+      "id": "node/7592707474",
+      "coordinates": [
+        -62.7456012,
+        45.9500244
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Front Range Light",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/1247058230",
+      "coordinates": [
+        -63.8169927,
+        46.3797473
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1247058335",
+      "coordinates": [
+        -63.8070452,
+        46.3986969
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1247058336",
+      "coordinates": [
+        -63.8097592,
+        46.3953113
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1247058758",
+      "coordinates": [
+        -63.7714898,
+        46.3913241
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1413361984",
+      "coordinates": [
+        -63.2433828,
+        46.4161262
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1537847417",
+      "coordinates": [
+        -63.701578,
+        46.5590079
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/361588779",
+      "coordinates": [
+        -61.9719788,
+        46.4525215
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "East Point Lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "30",
+        "seamark:light:period": "5",
+        "seamark:light:range": "11",
+        "seamark:light:reference": "H 0920",
+        "seamark:name": "East Point",
+        "seamark:type": "light_minor",
+        "wikidata": "Q30575032"
+      }
+    },
+    {
+      "id": "way/361785944",
+      "coordinates": [
+        -62.4664902,
+        46.1442968
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Panmure"
+      }
+    },
+    {
+      "id": "way/362427077",
+      "coordinates": [
+        -63.0390055,
+        46.0502005
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Point Prim Lighthouse",
+        "wikidata": "Q18167815"
+      }
+    },
+    {
+      "id": "way/366707075",
+      "coordinates": [
+        -63.4872488,
+        46.510404
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "New London Range Rear Lighthouse"
+      }
+    },
+    {
+      "id": "way/366707658",
+      "coordinates": [
+        -63.5061407,
+        46.5340121
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Tryon Lighthouse",
+        "wikidata": "Q5035107"
+      }
+    },
+    {
+      "id": "way/386241760",
+      "coordinates": [
+        -63.9968881,
+        47.0577072
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "yellow",
+        "seamark:light:height": "24",
+        "seamark:light:period": "5",
+        "seamark:light:range": "18",
+        "seamark:light:reference": "H 1076",
+        "seamark:light:sequence": "1+(4)",
+        "seamark:name": "North Cape",
+        "seamark:type": "light_major",
+        "wikidata": "Q7054358"
+      }
+    },
+    {
+      "id": "way/520004934",
+      "coordinates": [
+        -63.7050771,
+        46.2500663
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Point Borden Range Rear Lighthouse"
+      }
+    },
+    {
+      "id": "way/543767996",
+      "coordinates": [
+        -63.1475533,
+        46.2306998
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Brighton Beach Range Front Light",
+        "seamark:type": "light_major",
+        "wikidata": "Q45324401"
+      }
+    },
+    {
+      "id": "way/752608907",
+      "coordinates": [
+        -62.4211082,
+        46.4698665
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Shipwreck Point Lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/907905214",
+      "coordinates": [
+        -64.0623291,
+        46.7939769
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Northport Rear Range Lighthouse",
+        "wikidata": "Q45324411"
+      }
+    },
+    {
+      "id": "way/923793712",
+      "coordinates": [
+        -63.0736617,
+        46.1944089
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Haszard Point Range Front",
+        "wikidata": "Q5680754"
+      }
+    },
+    {
+      "id": "way/923793731",
+      "coordinates": [
+        -63.0708995,
+        46.199907
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Haszard Point Range Rear Light",
+        "wikidata": "Q46996667"
+      }
+    }
+  ]
+}

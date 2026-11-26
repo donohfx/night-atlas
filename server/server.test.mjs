@@ -123,6 +123,31 @@ test("precompressed files are negotiated, each with its own ETag", async t => {
   assert.equal((await fetch(base + "/index.html.br")).status, 404);
 });
 
+test("untiled sources stream precompressed and identity responses", async t => {
+  const root = mkdtempSync(join(tmpdir(), "atlas-source-"));
+  t.after(() => rmSync(root, { recursive: true }));
+  const source = JSON.stringify({ type: "FeatureCollection", features: [] });
+  writeFileSync(join(root, "land.json"), source);
+  const compressed = brotliCompressSync(Buffer.from(source));
+  writeFileSync(join(root, "land.json.br"), compressed);
+  const base = await listen(t, createApp({ root }));
+  const url = base + "/land.json";
+  const brHeaders = { "Accept-Encoding": "gzip, br" };
+  const br = await fetch(url, { headers: brHeaders });
+  assert.equal(br.headers.get("content-encoding"), "br");
+  assert.equal(br.headers.get("content-length"), String(compressed.length));
+  assert.equal(await br.text(), source);
+  const etag = br.headers.get("etag");
+  const head = await fetch(url, { method: "HEAD", headers: brHeaders });
+  assert.equal(head.headers.get("etag"), etag);
+  assert.equal(await head.text(), "");
+  assert.equal((await fetch(url, { headers: { ...brHeaders, "If-None-Match": etag } })).status, 304);
+  const identity = await fetch(url, { headers: { "Accept-Encoding": "gzip, br;q=0", "If-None-Match": etag } });
+  assert.equal(identity.status, 200);
+  assert.equal(identity.headers.get("content-encoding"), null);
+  assert.equal(await identity.text(), source);
+});
+
 test("ship snapshots are shared for a second and buoy refreshes are shared", async t => {
   let snapshots = 0, calls = 0, fail = true;
   const base = await listen(t, createApp({ root: fileURLToPath(new URL("../web", import.meta.url)),

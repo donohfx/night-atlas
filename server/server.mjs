@@ -1,6 +1,8 @@
 // Night Atlas as one small always-on server: the static map, live ships and buoys.
 import { createServer } from "node:http";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { open } from "node:fs/promises";
+import { pipeline } from "node:stream/promises";
 import { extname, join, relative } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
@@ -16,6 +18,11 @@ const TYPES = {
   ".json": "application/json", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".txt": "text/plain; charset=utf-8",
 };
 const SECURITY = { "X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin-when-cross-origin" };
+// These source assets are used by the untiled preview. Keep only their paths in memory.
+const STREAMED = new Set([
+  "/land.json", "/region/land.json", "/region/provinces.json", "/region/contours.json",
+  "/region/relief.jpg", "/beam-reach.json", "/region/beam-reach.json",
+]);
 
 // Cache the small static responses. Archives are indexed by path and streamed on demand.
 function loadFiles(root, archives) {
@@ -29,11 +36,17 @@ function loadFiles(root, archives) {
       continue;
     }
     if (!TYPES[extname(entry.name)]) continue;
-    const body = readFileSync(path), type = TYPES[extname(entry.name)];
+    const type = TYPES[extname(entry.name)];
     const text = !/^image\/(jpeg|webp)/.test(type);
+    const brPath = text && existsSync(path + ".br") ? path + ".br" : null;
+    if (STREAMED.has(route)) {
+      files.set(route, { path, type, brPath });
+      continue;
+    }
+    const body = readFileSync(path);
     files.set(route, {
       body, type, gzip: text ? gzipSync(body, { level: 9 }) : null,
-      br: text && existsSync(path + ".br") ? readFileSync(path + ".br") : null,   // made by precompress.mjs
+      br: brPath ? readFileSync(brPath) : null,   // made by precompress.mjs
       hash: createHash("sha1").update(body).digest("hex"),
     });
   }
@@ -46,6 +59,28 @@ const accepts = (req, name) => String(req.headers["accept-encoding"] || "").spli
   return coding === name && !params.some(p => /^\s*q=0(\.0*)?\s*$/.test(p));
 });
 const encodingFor = (req, { br, gzip }) => br && accepts(req, "br") ? "br" : gzip && accepts(req, "gzip") ? "gzip" : null;
+
+async function sendSource(req, res, { path, type, brPath }) {
+  const encoding = brPath && accepts(req, "br") ? "br" : null;
+  const file = await open(encoding ? brPath : path, "r");
+  try {
+    const { size, mtimeMs } = await file.stat();
+    const etag = `"${size.toString(16)}-${mtimeMs}${encoding ? "-br" : ""}"`;
+    const headers = { ...SECURITY, ETag: etag, Vary: "Accept-Encoding", "Cache-Control": "public, max-age=300" };
+    if (req.headers["if-none-match"] === etag) {
+      res.writeHead(304, headers);
+      return res.end();
+    }
+    res.writeHead(200, { ...headers, "Content-Type": type, "Content-Length": size,
+      ...(encoding ? { "Content-Encoding": encoding } : {}) });
+    if (req.method === "HEAD") return res.end();
+    await pipeline(file.createReadStream({ autoClose: false }), res).catch(error => {
+      if (error.code !== "ERR_STREAM_PREMATURE_CLOSE") throw error;
+    });
+  } finally {
+    await file.close();
+  }
+}
 const prepare = value => {
   const body = Buffer.from(JSON.stringify(value));
   return { body, gzip: gzipSync(body) };
@@ -116,6 +151,7 @@ export function createApp({ root, feed, buoyHandler = buoys, redirects = {}, til
       }
       const file = files.get(path);
       if (!file) return send(req, res, 404, { "Content-Type": "text/plain" }, plain("Not found"));
+      if (file.path) return await sendSource(req, res, file);
       const encoding = encodingFor(req, file);
       const etag = `"${file.hash}${encoding ? "-" + encoding : ""}"`;
       const headers = { "Content-Type": file.type, ETag: etag,

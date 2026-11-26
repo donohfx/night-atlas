@@ -1,0 +1,100 @@
+{
+  "osmSource": "https://download.geofabrik.de/north-america/canada/prince-edward-island/prince-edward-island-261124.osm.pbf",
+  "referenceRadius": 500,
+  "nameRadius": 200,
+  "reviewRadius": 500,
+  "overrides": {
+    "node/1045711207": {
+      "aid": null,
+      "reason": "The red Naufrage West Breakwater reference identifies an offshore aid 395 m away. It stays a chart mark. Shipwreck Point is matched independently to the named lighthouse."
+    },
+    "node/1760405101": {
+      "aid": "atlantic:1057",
+      "reason": "The two North Rustico OSM references are transposed against the published positions. This node is 23 m from the inner breakwater light; the harbour tower is 146 m away."
+    },
+    "node/1760405293": {
+      "aid": "atlantic:1056",
+      "reason": "The two North Rustico OSM references are transposed against the published positions. This node is 12 m from the harbour tower; the inner breakwater light is 166 m away."
+    },
+    "node/1760511023": {
+      "aid": null,
+      "reason": "The legacy Cape Stanhope node shares H1150 with Covehead Harbour but is 708 m away. The named Covehead tower matches the current position."
+    },
+    "node/1806785287": {
+      "aid": null,
+      "reason": "The current Northport front range reference is 284 m from this OSM node. The front range remains a chart mark; the rear tower has its own verified match."
+    },
+    "node/2104972299": {
+      "aid": "atlantic:949.5",
+      "reason": "The published Annandale sector tower is 4 m from this object, distinct from the west breakwater."
+    },
+    "node/2186385783": {
+      "aid": "atlantic:964",
+      "reason": "The named Murray Harbour front range tower is 4 m from the published front range position."
+    },
+    "node/2186488364": {
+      "aid": "atlantic:976",
+      "reason": "Wood Islands lighthouse is 10 m from the published square tower, separate from both breakwater lights."
+    },
+    "node/2186507079": {
+      "aid": "atlantic:975.1",
+      "reason": "The mapped object is 1 m from the published east breakwater tower, separate from Wood Islands lighthouse."
+    },
+    "node/3643001014": {
+      "aid": "atlantic:1051",
+      "reason": "The named Covehead tower is 2 m from the published Covehead Harbour position."
+    },
+    "node/6436068843": {
+      "aid": "atlantic:997",
+      "reason": "The named Warren Cove back range tower is 3 m from the published rear range position."
+    },
+    "node/6548334650": {
+      "aid": "atlantic:995",
+      "reason": "The named Brighton Beach rear range tower is 2 m from the published rear range position."
+    },
+    "node/7592707474": {
+      "aid": null,
+      "reason": "The named front range tower is distinct from Wood Islands lighthouse; no matching active aid was found at its location."
+    },
+    "way/1247058230": {
+      "aid": "atlantic:1020",
+      "reason": "The building is 3 m from the published Summerside Harbour wharf light, an octagonal tower."
+    },
+    "way/1247058335": {
+      "aid": "atlantic:1018.2",
+      "reason": "The building is 1 m from the published Summerside Outer rear range tower."
+    },
+    "way/1247058336": {
+      "aid": "atlantic:1018.1",
+      "reason": "The building is 3 m from the published Summerside Outer front range tower."
+    },
+    "way/1247058758": {
+      "aid": "atlantic:1022",
+      "reason": "The building is 4 m from the published Summerside rear range tower."
+    },
+    "way/361785944": {
+      "aid": "atlantic:953",
+      "reason": "The named Panmure tower is 11 m from the published Panmure Head tower. The older unnamed node is 37 m away."
+    },
+    "way/362427077": {
+      "aid": "atlantic:983",
+      "reason": "The named Point Prim tower is 2 m from the published Prim Point position."
+    },
+    "way/366707075": {
+      "aid": "atlantic:1060.01",
+      "reason": "The named New London rear range building is 5 m from the published New London tower."
+    },
+    "way/543767996": {
+      "aid": "atlantic:994",
+      "reason": "The named Brighton Beach front range tower is within 1 m of the published front range position."
+    },
+    "way/923793712": {
+      "aid": "atlantic:991",
+      "reason": "The named Haszard Point front range tower is 2 m from the published front range position."
+    },
+    "way/923793731": {
+      "aid": "atlantic:992",
+      "reason": "The named Haszard Point rear range tower is 2 m from the published rear range position."
+    }
+  }
+}
