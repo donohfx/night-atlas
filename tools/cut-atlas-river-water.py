@@ -3,10 +3,11 @@
 split the Ontario and US focus masks along the OSM boundary in the upper river."""
 
 import argparse
+import gzip
 import json
 from pathlib import Path
 
-from shapely import box, make_valid, union_all
+from shapely import box, make_valid, prepare, union_all
 from shapely.geometry import LineString, Polygon, mapping, shape
 from shapely.geometry.polygon import orient
 from shapely.ops import linemerge, polygonize
@@ -22,6 +23,8 @@ RELATIONS = {
     14035280, 14037369, 14039201, 14040790,
     # Saguenay.
     1563926, 1565088, 1575130, 1575134, 1575135, 1575162, 1575271,
+    # Lake of Two Mountains and Rivière des Prairies.
+    331499, 1747225, 1764952,
 }
 # Closed ways: part of the Saguenay and the Montreal South Shore Canal approach.
 WAYS = {112084761, 128587006, 129895381, 129895402, 129896286}
@@ -102,6 +105,42 @@ def split_border(path, north, extent):
     print(f"{path}: boundary split, {len(updated)} polygons")
 
 
+def lines(geometry):
+    if geometry.geom_type == "LineString":
+        if not geometry.is_empty:
+            yield geometry
+    elif hasattr(geometry, "geoms"):
+        for part in geometry.geoms:
+            yield from lines(part)
+
+
+def write_paint(path, land_path, water):
+    """What the relief tiles repaint: the water as sea, and the banks to outline.
+
+    Call before land_path is cut. The margin also covers the old coastline where
+    it crossed a river mouth; it never reaches over the remaining land.
+    """
+    reach = water.buffer(.004)
+    prepare(reach)
+    nearby = [shape(f["geometry"]) for f in json.loads(land_path.read_text())["features"]]
+    land = union_all([part.intersection(reach) for part in nearby if reach.intersects(part)]
+                     ).difference(water)
+    paint = reach.difference(land).simplify(.0003, preserve_topology=True)
+    shore = linemerge(list(lines(water.boundary.intersection(land.buffer(.00001))))
+                      ).simplify(.0003, preserve_topology=False)
+    def coordinates(line):
+        return [[round(x, 5), round(y, 5)] for x, y in line.coords]
+    data = {
+        "attribution": "© OpenStreetMap contributors, ODbL",
+        "water": [[coordinates(ring) for ring in [polygon.exterior, *polygon.interiors]]
+                  for polygon in polygons(paint)],
+        "shore": [coordinates(line) for line in lines(shore)],
+    }
+    text = json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode()
+    path.write_bytes(gzip.compress(text, 9, mtime=0))
+    print(f"{path}: {len(data['water'])} polygons, {len(data['shore'])} shores, {path.stat().st_size:,} bytes")
+
+
 def cut_file(path, water):
     original = json.loads(path.read_text())
     updated = []
@@ -126,6 +165,7 @@ def main():
                         help="Saved Overpass water queries with out geom")
     parser.add_argument("--border", type=Path, required=True,
                         help="Saved Overpass query for the ways of relation 61320 near the river")
+    parser.add_argument("--paint", type=Path, default=Path(__file__).with_name("river-water.json.gz"))
     args = parser.parse_args()
     elements = [e for path in args.overpass for e in json.loads(path.read_text())["elements"]]
     relations = {r["id"]: r for r in elements if r["type"] == "relation" and r["id"] in RELATIONS}
@@ -139,6 +179,7 @@ def main():
                       ).simplify(.000025, preserve_topology=True)
     border = [e for e in json.loads(args.border.read_text())["elements"] if e["type"] == "way"]
     north, extent = north_of_border(border, bounds)
+    write_paint(args.paint, args.region / "land.json", water)
     for name in ("land.json", "provinces.json"):
         cut_file(args.region / name, water)
     split_border(args.region / "provinces.json", north, extent)

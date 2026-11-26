@@ -100,6 +100,12 @@ generalised Ontario and US focus boundary upstream of Cornwall. Then rebuild the
 regional beam reach table. Other side waters appear only in the close-zoom
 OpenStreetMap water layer.
 
+The same run writes `tools/river-water.json.gz`, a compact simplified copy of
+the cut water and its banks (© OpenStreetMap contributors, ODbL). The relief
+tile build paints it in the sea tone, because the relief grid shows inland water
+as land. Depth contours are unchanged. The untiled `?static` preview uses the
+unpainted relief image.
+
 ## Web tile build
 
 Run `npm run build:tiles` from the repository root with Node 24 and ImageMagick 7.

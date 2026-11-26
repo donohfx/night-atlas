@@ -9,6 +9,7 @@ import {mercator, shorelinePaths} from "../web/atlas-shore.mjs";
 import {zxyToTileId} from "../web/vendor/pmtiles.mjs";
 import {analysisCells, analysisZoom} from "../web/atlas-area.mjs";
 import {writeArchive} from "./write-pmtiles.mjs";
+import {riverPainter} from "./paint-river-water.mjs";
 
 const web = fileURLToPath(new URL("../web/", import.meta.url));
 const output = join(web, "tiles");
@@ -69,6 +70,8 @@ function raster(name, input) {
   const rgb = execFileSync(magick, ["-limit","width","16KP","-limit","height","16KP",file,"-alpha","off","-depth","8","rgb:-"], {maxBuffer:width*height*3});
   const encoding = name === "relief" ? ["-quality","90","-define","webp:use-sharp-yuv=true"] :
     ["-define","webp:lossless=true"];
+  const paint = name === "relief" &&
+    riverPainter(new URL("river-water.json.gz", import.meta.url), mercator);
   archive(name, {minzoom,maxzoom,type:4,compression:1}, add => {
     for (let z=minzoom; z<=maxzoom; z++) {
       const scale = 2**z;
@@ -94,6 +97,7 @@ function raster(name, input) {
               pixels[p+3] = 255;
             }
           }
+          if (paint) paint(pixels,size,z,x,y);
           add(zxyToTileId(z,x,y), execFileSync(magick, ["-size",size+"x"+size,"-depth","8","rgba:-",
             ...encoding,"-define","webp:method=2","webp:-"], {input:pixels,maxBuffer:pixels.length}));
         }
