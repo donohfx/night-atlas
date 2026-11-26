@@ -154,7 +154,8 @@ try {
   await cdp("Network.setCacheDisabled",{cacheDisabled:true});
   await cdp("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
   await cdp("Page.addScriptToEvaluateOnNewDocument",{source:`
-    Date.now=()=>${stamp};
+    window.__visualClock=${stamp};
+    Date.now=()=>window.__visualClock;
     let seed=7205;
     Math.random=()=>((seed=(Math.imul(1664525,seed)+1013904223)>>>0)/4294967296);
     window.__renderers=new Set();
@@ -183,6 +184,17 @@ try {
       : 'document.querySelector("#tour")?.disabled === false && document.querySelector("#status").textContent.includes("AIS live")'),"map and AIS");
     assert((await evaluate("[...__renderers]")).some(rendererHardware),"No hardware renderer in the map");
     await sleep(2100);
+  }
+  function advanceWeather(steps) {
+    return evaluate(`new Promise(resolve => {
+      let remaining=${steps};
+      const timer=setInterval(() => {
+        window.__visualClock+=95;
+        if (--remaining>0) return;
+        clearInterval(timer);
+        setTimeout(resolve,75);
+      },45);
+    })`);
   }
   const click = selector => evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
   const credit = open => ready(`document.querySelector("[data-ccg-credit]").hidden === ${open}`);
@@ -253,14 +265,24 @@ try {
     await sleep(1000);
     await shot("combined");
     await navigate("retain&visibility="+fog.visibility+"&weather_code=45&cloud_cover=65&cloud_cover_low=65");
+    await advanceWeather(35);
+    await wait(ready('document.querySelector(".maplibregl-canvas").style.filter.includes("blur")'),"settled fog");
     await shot("fog");
     await click("#tour");
     await wait(ready('document.body.classList.contains("touring")'),"web tour start");
     const started = performance.now();
-    for (const [seconds,name] of [[2,"overview"],[12,"ferry"],[16,"night"],[25,"peggys"],[37,"sambro"],[41,"fog"],[44,"clear"]]) {
+    for (const [seconds,name] of [[2,"overview"],[12,"ferry"],[16,"night"],[25,"peggys"],[37,"sambro"]]) {
       await sleep(Math.max(0,seconds*1000-(performance.now()-started)));
       await shot("tour-"+name);
     }
+    await wait(ready('document.querySelector("#simulated-weather").hidden === false'),"tour fog switch");
+    await advanceWeather(35);
+    await wait(ready('document.querySelector(".maplibregl-canvas").style.filter.includes("blur")'),"settled tour fog");
+    await shot("tour-fog");
+    await sleep(Math.max(0,43200-(performance.now()-started)));
+    await advanceWeather(35);
+    await wait(ready('!document.querySelector(".maplibregl-canvas").style.filter'),"tour fog lifting");
+    await shot("tour-clear");
     await wait(ready('!document.body.classList.contains("touring")'),"web tour final hold",20000);
     await sleep(500);
     await shot("tour-final");
