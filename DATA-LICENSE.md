@@ -41,6 +41,15 @@ visualization and must never be used for navigation. Regenerate locally with
 This snapshot is for visualization and must never be used for navigation.
 Regenerate with `python tools/build-atlas-chs.py`, or add `--offline` to use the cached responses.
 
+## Canadian Geographical Names Data Base
+
+Natural Resources Canada supplies the [Canadian Geographical Names Data Base](https://open.canada.ca/data/en/dataset/e27c6eba-3c5d-4051-9db2-082dc6411c2c).
+[Contains information licensed under the Open Government Licence – Canada.](https://open.canada.ca/en/open-government-licence-canada/)
+The gazetteer snapshot is clipped to the regional chart bounds and adapted for display.
+The website resolves duplicate names at render time using separately sourced OpenStreetMap
+tiles from OpenFreeMap. Official Canadian spellings take precedence. U.S. names come from
+OpenStreetMap under the ODbL.
+
 ## Other data
 
 See [CREDITS.md](CREDITS.md) for OpenStreetMap, NOAA, Open-Meteo, AIS Stream and the other sources.

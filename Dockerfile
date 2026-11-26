@@ -2,7 +2,7 @@
 FROM node:24-alpine AS tiles
 RUN apk add --no-cache imagemagick imagemagick-jpeg imagemagick-webp
 WORKDIR /app
-COPY tools/build-tiles.mjs tools/write-pmtiles.mjs tools/paint-river-water.mjs tools/river-water.json.gz ./tools/
+COPY tools/build-tiles.mjs tools/build-gazetteer.mjs tools/gazetteer.json.gz tools/write-pmtiles.mjs tools/paint-river-water.mjs tools/river-water.json.gz ./tools/
 COPY web ./web
 RUN node tools/build-tiles.mjs
 

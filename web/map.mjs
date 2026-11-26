@@ -5,6 +5,7 @@ import {tiledAtlas} from "./atlas-tiles.mjs";
 import {aidName} from "./atlas-marks.mjs";
 import {LngLat} from "./vendor/maplibre-gl.mjs";
 import {halifaxWeather, pickWeatherPlace} from "./weather-places.mjs";
+import {placeNames} from "./atlas-names.mjs";
 import {biggestInHarbour} from "./atlas-extras.mjs";
 
 const requestOptions = () => ({signal: AbortSignal.timeout(30000)});
@@ -19,7 +20,7 @@ try {
 const preferences = {
   mode:["chart","night","auto"].includes(saved.mode) ? saved.mode : "auto",
   view:["halifax","halifax-coast","nova-scotia"].includes(saved.view) ? saved.view : "nova-scotia",
-  layers:{...defaultLayers},
+  layers:{...defaultLayers, labels:true},
 };
 for (const id of Object.keys(defaultLayers)) {
   if (typeof saved.layers?.[id] === "boolean") preferences.layers[id] = saved.layers[id];
@@ -29,37 +30,6 @@ const params = new URLSearchParams(location.search);
 const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation","weather_code","wind_speed_10m","wind_direction_10m"]
   .filter(key => params.get(key) !== null && Number.isFinite(Number(params.get(key))));
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
-// In priority order. Zoom bands keep the regional names separate from
-const showcasePlaces = [
-  ["Gaspé", [-64.48,48.83], 8.2, Infinity, "major"],
-  ["Anticosti Island", [-63.0,49.43], 7.3, 10.5, "region"],
-  ["Îles de la Madeleine", [-61.81,47.43], 7.8, 11.2, "region"],
-  ["Québec", [-71.208,46.813], 7.9, Infinity, "major"],
-  ["Trois-Rivières", [-72.546,46.350], 8.2, Infinity, "major"],
-  ["Montréal", [-73.554,45.509], 7.9, Infinity, "major"],
-  ["Lac Saint-Pierre", [-72.75,46.18], 8.5, 12.5, "water"],
-  ["Kingston", [-76.48,44.23], 8.5, Infinity, "major"],
-  ["Thousand Islands", [-76.03,44.32], 8.5, 12.2, "water"],
-  ["Newfoundland", [-56.5,48.75], 5.8, 8.5, "region"],
-  ["Labrador", [-59.7,53.1], 5.6, 8.5, "region"],
-  ["St. John's", [-52.71,47.56], 7.6, Infinity, "major"],
-  ["Corner Brook", [-57.95,48.96], 8.4, Infinity, "major", {anchor:"bottom", offset:[0,-8]}],
-  ["Bay of Islands", [-58.14,49.15], 8.4, 12, "water"],
-  ["Cabot Strait", [-59.70,47.25], 7.1, 10, "water"],
-  ["Strait of Belle Isle", [-56.65,51.55], 7.8, 11.2, "water"],
-  ["New Brunswick", [-66.40,46.52], 6.5, 9.9, "region"],
-  ["Saint John", [-66.068,45.273], 7.6, Infinity, "major", {anchor:"bottom", offset:[0,-8]}],
-  ["Moncton", [-64.778,46.085], 8.0, Infinity, "major"],
-  ["Northumberland Strait", [-64.18,46.20], 7.8, 11.2, "water"],
-  ["Chaleur Bay", [-65.67,47.97], 7.3, 11.2, "water"],
-  ["Sambro Harbour", [-63.615,44.480], 11.5, Infinity, "major"],
-  ["Sambro Ledges", [-63.574,44.469], 11.5, Infinity, "water"],
-  ["Sambro Island", [-63.563,44.432], 11.5, Infinity, "major", {anchor:"top-right", offset:[-4,5]}],
-  ["Sable Island", [-59.910,43.920], 8.4, Infinity, "major"],
-  ["West End", [-60.023,43.932], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
-  ["East End", [-59.791,43.960], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
-];
-
 // Defer the expanded marks until the chart is within reach of symbol zoom.
 const riverAreas = [
   ["gulf", [-72.33,46.7,-57.0,52.0]],
@@ -76,12 +46,13 @@ const [west, south, east, north] = region.cameraBounds;
 const cameraBounds = [[west,south],[east,north]];
 let updateFocus = () => {};
 const tourState = {active:false, night:null, finished:false};
+let names;
 const atlas = await createAtlas({
-  read, shorelineOptions:requestOptions, initialLayers:preferences.layers,
+  read, shorelineOptions:requestOptions, initialLayers:{...preferences.layers, labels:false},
   tiles, regionalLights, surface:{bounds:region.dataBounds, relief:"/region/relief.jpg",
     land:"/region/land.json", contours:"/region/contours.json"},
   sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/region/relief-detail.webp",
-  bounds:() => cameraBounds, minZoom:4.5, tour:tourState, showcasePlaces,
+  bounds:() => cameraBounds, minZoom:4.5, tour:tourState,
   describeShips(snapshot, points, fresh, lastHeard) {
     const status = ({
       live:snapshot.refresh ? "AIS live" : "AIS snapshot", stale:"AIS snapshot · stale", waiting:"Waiting for ships",
@@ -94,14 +65,22 @@ const atlas = await createAtlas({
     return {minimum:8, margin:8, bottom};
   },
   onNight(night) {
+    names?.night(night);
     modeControl.classList.toggle("is-night", night);
     modeControl.title = night ? "Switch to chart mode" : "Switch to night mode";
     modeControl.setAttribute("aria-label", modeControl.title);
     updateFocus();
   },
 });
-const {map, status, applySettings, clearHover, inspect, highlight, showCard,
+const {map, status, clearHover, inspect, highlight, showCard,
   setNight, isDark, updateShips, updateWeather, updateBuoys} = atlas;
+const tileBase = new URL(tileConfig?.tileBase ?? "/tiles/", location.href);
+if (!tileBase.pathname.endsWith("/")) tileBase.pathname += "/";
+names = placeNames(map, new URL("gazetteer.pmtiles", tileBase).href, preferences.layers.labels);
+function applySettings(settings) {
+  atlas.applySettings({...settings, layers:{...settings.layers, labels:false}});
+  names.show(settings.layers.labels);
+}
 updateFocus = provinceFocus(map, tiles?.provinceSource ??
   {type:"geojson", data:"/region/provinces.json"}, focusPoints, Boolean(tiles), () => atlas.night, overviewCamera);
 

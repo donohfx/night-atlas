@@ -9,6 +9,7 @@ import {mercator, shorelinePaths} from "../web/atlas-shore.mjs";
 import {zxyToTileId} from "../web/vendor/pmtiles.mjs";
 import {analysisCells, analysisZoom} from "../web/atlas-area.mjs";
 import {writeArchive} from "./write-pmtiles.mjs";
+import {buildGazetteer} from "./build-gazetteer.mjs";
 import {riverPainter} from "./paint-river-water.mjs";
 
 const web = fileURLToPath(new URL("../web/", import.meta.url));
@@ -164,6 +165,7 @@ const jobs = {
   provinces: async () => vector(await vectorTiler(),"provinces",3,13,.7),
   relief: () => raster("relief","relief.jpg"),
   "relief-detail": () => raster("relief-detail","relief-detail.webp"),
+  gazetteer: () => buildGazetteer(join(stage, "gazetteer.pmtiles"), bounds),
   shore,
   "beam-reach": beamReach,
 };
