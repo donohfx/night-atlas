@@ -1,5 +1,5 @@
 export const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
-const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
+export const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
 function markDistanceMeters([x,y], [ox,oy]) {
   return Math.hypot((x-ox)*Math.cos(y*Math.PI/180), y-oy)*111195;
 }

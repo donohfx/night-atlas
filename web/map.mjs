@@ -1,5 +1,5 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
-import {isMark, markBuilder} from "./atlas-marks.mjs";
+import {aidName, isMark, markBuilder} from "./atlas-marks.mjs";
 import {biggestInHarbour, createExtras} from "./atlas-extras.mjs";
 
 setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
