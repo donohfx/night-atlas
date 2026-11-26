@@ -1,7 +1,7 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
 import {beamReach, mercator, metresPerUnit, shorelinePaths, STEPS} from "./atlas-shore.mjs";
 import {decodeReach, lightKey, reachRevision, validatedReachTables} from "./atlas-reach-table.mjs";
-import {isMark, markBuilder} from "./atlas-marks.mjs";
+import {isMark, isPrivateWarning, markBuilder, nearestMark, privateWarningFilter, privateWarningTitle} from "./atlas-marks.mjs";
 import {createExtras} from "./atlas-extras.mjs";
 
 export const defaultLayers = Object.freeze({ships:true, ghosts:true, buoys:true, seamarks:true,
@@ -86,6 +86,33 @@ export async function createAtlas({
   const marksZoom = 9.2;
   const allMarksZoom = 10.5;
   const visibleMarks = ["step", ["zoom"], ["!", ["any", ["has","ll"], ["==",["get","src"],"chs"]]], allMarksZoom, true];
+  const privateMarksZoom = 13.25;
+  const [markGlow, markIcon, markLabel] = [
+    {id:"mark-glow", type:"circle", source:"marks", minzoom:marksZoom, filter:["all",visibleMarks,["==",["get","lit"],1]],
+      paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","Bu","#84aaff","U","#84aaff","A","#ffb857","V","#bea0ff","O","#ffb16b","#f0eedc"],
+        "circle-radius":["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],"circle-blur":.85,
+        "circle-opacity":["*",["coalesce",["feature-state","lit"],1],.6]}},
+    {id:"marks", type:"symbol", source:"marks", minzoom:marksZoom, filter:visibleMarks,
+      layout:{"icon-image":["get","icon"],"icon-allow-overlap":true,"icon-ignore-placement":true,"icon-anchor":"bottom",
+        "icon-size":["interpolate",["linear"],["zoom"],9.2,.28,11,.5,13,.95,15,1.15]},
+      paint:{"icon-opacity":["interpolate",["linear"],["zoom"],9.2,0,10.4,.9]}},
+    {id:"mark-labels", type:"symbol", source:"marks", minzoom:12.75, filter:["has","ref"],
+      layout:{"text-field":["get","ref"],"text-font":["Noto Sans Regular"],"text-size":11,
+        "text-anchor":"top","text-offset":[0,.25],"text-padding":2},
+      paint:{"text-color":"#d8e6de","text-halo-color":"#0b1414","text-halo-width":1.2}},
+  ];
+  const markLayers = [
+    {...markGlow, id:"private-mark-glow", minzoom:privateMarksZoom,
+      filter:["all", privateWarningFilter, ["==", ["get","lit"], 1]]},
+    {...markIcon, id:"private-marks", minzoom:privateMarksZoom, filter:privateWarningFilter},
+    {...markLabel, id:"private-mark-labels", minzoom:privateMarksZoom,
+      filter:["all", privateWarningFilter, ["!=", ["coalesce", ["get","n"], ""], ""]],
+      layout:{...markLabel.layout, "text-field":["get","n"]}},
+    ...[markGlow, markIcon, markLabel].map(layer => ({
+      ...layer, filter:["all", ["!", privateWarningFilter], layer.filter],
+    })),
+  ];
+  const markHitLayers = markLayers.filter(layer => layer.type === "symbol").map(layer => layer.id);
   const activeLight = ["coalesce", ["feature-state","lit"], 1];
   const seaTint = "#102122";
   const detailOpacity = ["interpolate",["linear"],["zoom"],7.9,0,8.5,1];   // vector land in before raster steps show (from 7.9: z7 tiles exceed 65k vertices)
@@ -144,18 +171,7 @@ export async function createAtlas({
         {id:"ferries", type:"line", source:"seamarks", filter:["==",["get","k"],"ferry"],
           paint:{"line-color":"#7f9a8e","line-opacity":["interpolate",["linear"],["zoom"],6,.2,10,.36],
             "line-width":.8,"line-dasharray":[2,3]}},
-        {id:"mark-glow", type:"circle", source:"marks", minzoom:marksZoom, filter:["all",visibleMarks,["==",["get","lit"],1]],
-          paint:{"circle-color":["match",["coalesce",["get","lc"],""],"R","#f36c64","G","#6adca1","Y","#efce6a","Bu","#84aaff","U","#84aaff","A","#ffb857","V","#bea0ff","O","#ffb16b","#f0eedc"],
-            "circle-radius":["interpolate",["linear"],["zoom"],9.2,2,11,4.5,14,10],"circle-blur":.85,
-            "circle-opacity":["*",["coalesce",["feature-state","lit"],1],.6]}},
-        {id:"marks", type:"symbol", source:"marks", minzoom:marksZoom, filter:visibleMarks,
-          layout:{"icon-image":["get","icon"],"icon-allow-overlap":true,"icon-ignore-placement":true,"icon-anchor":"bottom",
-            "icon-size":["interpolate",["linear"],["zoom"],9.2,.28,11,.5,13,.95,15,1.15]},
-          paint:{"icon-opacity":["interpolate",["linear"],["zoom"],9.2,0,10.4,.9]}},
-        {id:"mark-labels", type:"symbol", source:"marks", minzoom:12.75, filter:["has","ref"],
-          layout:{"text-field":["get","ref"],"text-font":["Noto Sans Regular"],"text-size":11,
-            "text-anchor":"top","text-offset":[0,.25],"text-padding":2},
-          paint:{"text-color":"#d8e6de","text-halo-color":"#0b1414","text-halo-width":1.2}},
+        ...markLayers,
         {id:"light-halo", type:"circle", source:"lights",
           // a rear range light sits almost on its front one: one halo until close enough to part them
           filter:["step",["zoom"],["all",["get","verified"],["!",["get","rear"]]],10,["get","verified"]],
@@ -275,9 +291,11 @@ export async function createAtlas({
       }
     }
     if (map.getZoom() < marksZoom || !layersOn.seamarks) return;
-    const showAllMarks = map.getZoom() >= allMarksZoom;
+    const zoom = map.getZoom();
+    const showAllMarks = zoom >= allMarksZoom;
     for (const rhythm of markRhythms) {
       const mark = markFeatures[rhythm.id];
+      if (zoom < privateMarksZoom && isPrivateWarning(mark.properties)) continue;
       if ((!showAllMarks && (mark.properties.ll || mark.properties.src === "chs")) || !view.contains(mark.geometry.coordinates)) continue;
       const lit = illuminated(rhythm,now) ? 1 : .05;
       if (lit !== rhythm.previous) {
@@ -676,23 +694,18 @@ export async function createAtlas({
       return;
     }
     const {x,y} = event.point;
-    const hoverable = ["vessels","ghosts","weather-buoys","marks","mark-labels","lights"].filter(id => map.getLayoutProperty(id,"visibility") !== "none");
+    const hoverable = ["vessels","ghosts","weather-buoys",...markHitLayers,"lights"].filter(id => map.getLayoutProperty(id,"visibility") !== "none");
     const radius = event.type === "mousemove" ? 5 : 14;
     const features = subject ? [subject] : map.queryRenderedFeatures([[x-radius,y-radius],[x+radius,y+radius]], {layers:hoverable});
     const vessel = features.find(f=>f.layer.id==="vessels");
     const ghost = features.find(f=>f.layer.id==="ghosts");
     const buoy = features.find(f=>f.layer.id.startsWith("weather-buoy"));
     const lightFeature = features.find(f=>f.layer.id==="lights" && f.properties.open === layersOn.openSources);
-    let mark, markDistance = Infinity;
-    for (const candidate of features) {
-      if (!["marks","mark-labels"].includes(candidate.layer.id) || candidate.properties.open !== layersOn.openSources) continue;
-      const anchor = map.project(candidate.geometry.coordinates);
-      const distance = Math.hypot(x - anchor.x, y - anchor.y);
-      if (distance < markDistance) {
-        mark = candidate;
-        markDistance = distance;
-      }
-    }
+    const mark = nearestMark(features.filter(f => markHitLayers.includes(f.layer.id) && f.properties.open === layersOn.openSources)
+      .map(feature => {
+        const anchor = map.project(feature.geometry.coordinates);
+        return {feature, distance:Math.hypot(x - anchor.x, y - anchor.y)};
+      }));
     map.getCanvas().style.cursor = vessel || ghost || buoy || lightFeature || mark ? "pointer" : "";
     highlight(vessel || ghost || buoy || lightFeature || mark);
     if (!vessel && !ghost && !buoy && !lightFeature && mark) {
@@ -708,8 +721,9 @@ export async function createAtlas({
       };
       const additional = markFeatures[mark.id]?.properties.signals || [];
       const signalText = [m, ...additional].map(describeSignal).filter(Boolean).join(" · ");
-      showCard(m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
-        [bands.join("/"), kind, purpose, m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
+      const privateWarning = isPrivateWarning(m);
+      showCard(privateWarning ? privateWarningTitle(m) : m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
+        [bands.join("/"), kind, purpose, privateWarning && m.n && "Private", m.ref && !m.n?.includes(m.ref) && m.ref].filter(Boolean).join(" · "),
         m.lit ? `Lit: ${signalText || "light details unrecorded"}` : m.src === "chs" && m.lit === 0 ? "Unlit" : "Lighting unrecorded",
         m.signalSrc === "ccg" ? "CHS mark · Canadian Coast Guard signal (charted unlit)" : m.src === "chs" ? "Canadian Hydrographic Service" : m.src === "ccg" ? ["Canadian Coast Guard", `LL ${m.ll}`, m.date && `page ${m.date}`].filter(Boolean).join(" · ") : "OpenStreetMap",
       ],event.point);
@@ -765,7 +779,7 @@ export async function createAtlas({
 
   const toggles = {
     ships:["vessels","course-vectors"], ghosts:["ghosts","ghost-trails"],
-    buoys:["weather-buoys"], seamarks:["tss-zone","tss-lines","ferries","mark-glow","marks","mark-labels"],
+    buoys:["weather-buoys"], seamarks:["tss-zone","tss-lines","ferries",...markLayers.map(layer => layer.id)],
     weather:[],                      // stub: future wind/precipitation overlay (e.g. Open-Meteo)
     lights:["light-halo","lights","light-sector-2","light-sector-3"],
   };
@@ -806,6 +820,8 @@ export async function createAtlas({
     "vessels":{"icon-opacity":[["get","opacity"],["*",["get","opacity"],.5]]},
     "light-halo":{"circle-opacity":[["*",activeLight,["case",["get","fixed"],.28,.42]],["*",activeLight,["case",["get","fixed"],.36,.62]]]},
   };
+
+  modePaint["private-mark-glow"] = modePaint["mark-glow"];
 
   function setNight(value) {
     if (value === night) return;

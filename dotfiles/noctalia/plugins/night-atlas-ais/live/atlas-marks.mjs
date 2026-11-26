@@ -1,3 +1,22 @@
+const privateWarningFields = {src:"chs", k:"beacon", cat:"general warning mark", status:"private"};
+export const isPrivateWarning = p => Object.entries(privateWarningFields).every(([key, value]) => p[key] === value);
+export const privateWarningFilter = ["all", ...Object.entries(privateWarningFields)
+  .map(([key, value]) => ["==", ["get", key], value])];
+
+export function privateWarningTitle(p) {
+  return p.n || (p.lit ? "Private warning light" : "Private warning mark");
+}
+
+export function nearestMark(hits) {
+  const buoyHit = hits.some(({feature}) => feature.properties.k === "buoy");
+  let best;
+  for (const hit of hits) {
+    if (buoyHit && isPrivateWarning(hit.feature.properties)) continue;
+    if (!best || hit.distance < best.distance) best = hit;
+  }
+  return best?.feature;
+}
+
 export const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
 export const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
 function markDistanceMeters([x,y], [ox,oy]) {

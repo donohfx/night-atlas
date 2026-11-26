@@ -219,6 +219,8 @@ def build(records):
         if re.fullmatch(r'[A-Z]{0,5}\d{1,4}[A-Z]?', name):
             p['ref'] = name
         p['src'] = 'chs'
+        if field(a, 'STATUS') == 'private':
+            p['status'] = 'private'
         colocated = sorted(lights[xy], key=lambda r: (r['attributes']['cellName'] != a['cellName'], rank(r)))
         info = field(a, 'INFORM')
         if colocated:
