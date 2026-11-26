@@ -4,11 +4,15 @@ import fs from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
+import {brotliCompressSync, constants, gzipSync} from "node:zlib";
+import {sendArchive} from "../server/tile-files.mjs";
 
 const [kind, root, output, fixtureRoot] = process.argv.slice(2);
-assert(["web", "desktop"].includes(kind) && root && output && fixtureRoot,
-  "Usage: node atlas-consolidate-visual.mjs web|desktop ASSET_DIR OUTPUT_DIR WEB_FIXTURE_DIR");
+assert(["web", "desktop", "tiles"].includes(kind) && root && output && fixtureRoot,
+  "Usage: node tools/verify-shared-core.mjs web|desktop|tiles ASSET_DIR OUTPUT_DIR WEB_FIXTURE_DIR");
 const desktop = kind === "desktop";
+const tileComparison = kind === "tiles";
+const compressBrotli = process.env.ATLAS_VERIFY_BROTLI === "1";
 const work = await fs.mkdtemp(path.join(os.tmpdir(), "atlas-visual-chrome-"));
 await fs.mkdir(output, {recursive:true});
 const stamp = 1795610000000;
@@ -17,10 +21,20 @@ const weather = {visibility:30000, weather_code:0, cloud_cover:0, cloud_cover_lo
 const fog = {...weather, visibility:100, weather_code:45, cloud_cover:65, cloud_cover_low:65};
 const ships = {points:[{mmsi:123456789, lon:-63.56, lat:44.657, age:1, course:175, speed:9,
   name:"RITA JOE", type:"Passenger"}], status:"live", refresh:60, asOf:stamp};
+if (tileComparison) {
+  // At the same stale fix, the faster track has already intersected land.
+  for (const [mmsi,speed] of [[123456790,2],[123456791,8]]) {
+    ships.points.push({mmsi,lon:-63.56,lat:44.657,age:1300,course:290,speed,
+      name:"GHOST FIXTURE",type:"Passenger"});
+  }
+}
 const buoys = [{id:"44258", name:"Halifax Harbour", coordinates:[-63.4,44.50], observed:stamp/1000,
   WDIR:225, WSPD:8, GST:12, WVHT:1.5, DPD:9, WTMP:9}];
 let settings = {mode:"chart", layers:{openSources:false}}, command = null, sweeps = {};
 const counts = {};
+const transferred = {};
+const byteSnapshots = {};
+const encoded = new Map();
 const presets = [];
 const mime = {".html":"text/html",".mjs":"text/javascript",".css":"text/css",".json":"application/json",
   ".jpg":"image/jpeg",".webp":"image/webp",".svg":"image/svg+xml"};
@@ -29,7 +43,29 @@ let origin;
 const server = http.createServer(async (req,res) => {
   const name = new URL(req.url, origin).pathname.slice(1) || "index.html";
   counts[name] = (counts[name] || 0) + 1;
-  const json = data => res.writeHead(200, {"Content-Type":"application/json"}).end(JSON.stringify(data));
+  if (tileComparison) {
+    const writeHead = res.writeHead.bind(res);
+    let length = 0;
+    res.writeHead = (status, headers) => {
+      length = Number(headers?.["Content-Length"] || 0);
+      return writeHead(status, headers);
+    };
+    res.once("finish", () => {
+      transferred[name] = (transferred[name] || 0) + length;
+    });
+    if (/^tiles\/[a-z0-9-]+\.pmtiles$/.test(name)) {
+      try { return await sendArchive(req,res,path.join(root,name),{}); }
+      catch (error) {
+        if (error.code !== "ENOENT") throw error;
+        missing.push(name);
+        return res.writeHead(404).end();
+      }
+    }
+  }
+  const json = data => {
+    const body = JSON.stringify(data);
+    res.writeHead(200, {"Content-Type":"application/json","Content-Length":Buffer.byteLength(body)}).end(body);
+  };
   if (name === "state") return json({settings, command, ships, weather, buoys, sweeps});
   if (name === "command") return json(command);
   if (name === "viewport") return json(null);
@@ -39,6 +75,7 @@ const server = http.createServer(async (req,res) => {
     presets.push(JSON.parse(data));
     return json(null);
   }
+  if (tileComparison && name === "api/map-tiles") return json({tileBase:"/tiles/"});
   if (name === "api/ships") return json(ships);
   if (name === "api/buoys") return json({stations:buoys});
   if (name === "fixture/weather") return json({current:weather});
@@ -63,8 +100,22 @@ const server = http.createServer(async (req,res) => {
         .replaceAll("https://tiles.openfreemap.org/fonts", origin+"/fixture/empty")
         .replaceAll("https://api.open-meteo.com/v1/forecast", origin+"/fixture/weather")
         .replaceAll("https://gc.zgo.at/count.js", origin+"/fixture/counter.js");
+      if (tileComparison && name === "map.mjs") data = data.replace("} = atlas;", "} = atlas; window.__atlas = atlas;");
     }
-    res.writeHead(200, {"Content-Type":mime[path.extname(name)] || "application/octet-stream"}).end(data);
+    const headers = {"Content-Type":mime[path.extname(name)] || "application/octet-stream"};
+    if (tileComparison) {
+      if (/\.(html|css|mjs|json|svg)$/.test(name)) {
+        const encoding = compressBrotli ? "br" : "gzip";
+        if (!encoded.has(name)) encoded.set(name, compressBrotli ? brotliCompressSync(Buffer.from(data), {
+          params:{[constants.BROTLI_PARAM_QUALITY]:11},
+        }) : gzipSync(data,{level:9}));
+        data = encoded.get(name);
+        headers["Content-Encoding"] = encoding;
+      }
+      headers["Content-Length"] = Buffer.byteLength(data);
+      headers["Cache-Control"] = "public, max-age=300";
+    }
+    res.writeHead(200, headers).end(data);
   } catch (error) {
     missing.push(name);
     res.writeHead(404).end();
@@ -83,6 +134,7 @@ const wait = async (fn,label,limit=12000) => {
 };
 const sockets = [];
 const errors = [];
+const warnings = [];
 async function connect(url) {
   const socket = new WebSocket(url);
   sockets.push(socket);
@@ -98,6 +150,7 @@ async function connect(url) {
     if (method === "Runtime.exceptionThrown") errors.push(params.exceptionDetails);
     if (method === "Log.entryAdded" && params.entry.level === "error") errors.push(params.entry);
     if (method === "Runtime.consoleAPICalled" && ["error","assert"].includes(params.type)) errors.push(params.args);
+    if (method === "Runtime.consoleAPICalled" && params.type === "warning") warnings.push(params.args.map(arg => arg.value || arg.description));
     if (pending.has(message.id)) {
       const {resolve,reject} = pending.get(message.id);
       pending.delete(message.id);
@@ -151,7 +204,7 @@ try {
   await cdp("Log.enable");
   await cdp("Page.enable");
   await cdp("Network.enable");
-  await cdp("Network.setCacheDisabled",{cacheDisabled:true});
+  await cdp("Network.setCacheDisabled",{cacheDisabled:!tileComparison});
   await cdp("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
   await cdp("Page.addScriptToEvaluateOnNewDocument",{source:`
     window.__visualClock=${stamp};
@@ -169,7 +222,7 @@ try {
       return context;
     };
     if (!location.search.includes("retain")) {
-      localStorage.setItem("night-atlas.preferences",JSON.stringify({mode:"chart",view:"halifax-coast"}));
+      localStorage.setItem("night-atlas.preferences",JSON.stringify({mode:"chart",view:"${tileComparison ? "nova-scotia" : "halifax-coast"}"}));
     }
   `});
   async function shot(name) {
@@ -198,7 +251,46 @@ try {
   }
   const click = selector => evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
   const credit = open => ready(`document.querySelector("[data-ccg-credit]").hidden === ${open}`);
-  if (desktop) {
+  if (tileComparison) {
+    const settle = async () => {
+      await wait(ready("window.__atlas?.map.loaded() && window.__atlas.map.areTilesLoaded()"),"visible tiles",30000);
+      await sleep(1400);
+    };
+    const camera = (center,zoom) => evaluate(`window.__atlas.map.jumpTo(${JSON.stringify({center,zoom})}); true`);
+    const captures = [
+      ["overview",null,null], ["halifax",[-63.585,44.651],12.5], ["sambro",[-63.57,44.455],11.5],
+      ["halifax-close",[-63.585,44.651],15.5],
+    ];
+    try { await navigate(); }
+    catch (error) {
+      console.log(await evaluate(`({status:document.querySelector("#status").textContent,
+        loaded:__atlas.map.loaded(), tiles:__atlas.map.areTilesLoaded(),
+        states:__atlas.map.style.tileManagers.relief._inViewTiles.getAllTiles().map(t=>[t.tileID.key,t.state]),
+        sources:Object.keys(__atlas.map.getStyle().sources).map(name=>[name,__atlas.map.isSourceLoaded(name)])})`));
+      console.log(warnings);
+      throw error;
+    }
+    const overviewCamera = await evaluate("({center:__atlas.map.getCenter().toArray(),zoom:__atlas.map.getZoom()})");
+    for (const [name,center,zoom] of captures) {
+      if (center) await camera(center,zoom);
+      await settle();
+      if (name === "halifax") {
+        await wait(ready(`__atlas.map.getSource("ghosts").getData().then(data =>
+          JSON.stringify(data.features.filter(f=>f.geometry.type==="Point").map(f=>f.id))==="[123456790]")`),
+          "ghost before and after landfall");
+      }
+      await shot(name+"-chart");
+      byteSnapshots[name] = {...transferred};
+    }
+    await click("#mode");
+    await wait(ready('document.querySelector("#mode").classList.contains("is-night")'),"web night mode");
+    for (const [name,center,zoom] of captures.toReversed()) {
+      if (center) await camera(center,zoom);
+      else await camera(overviewCamera.center,overviewCamera.zoom);
+      await settle();
+      await shot(name+"-night");
+    }
+  } else if (desktop) {
     await navigate();
     for (const view of ["halifax","halifax-coast","nova-scotia"]) {
       command = {id:view,view};
@@ -288,7 +380,7 @@ try {
     await shot("tour-final");
   }
 } finally {
-  await fs.writeFile(path.join(output,"events.json"),JSON.stringify({renderer,errors,missing,counts,presets,frames},null,2));
+  await fs.writeFile(path.join(output,"events.json"),JSON.stringify({renderer,errors,warnings,missing,counts,presets,frames,byteSnapshots},null,2));
   if (browser) await Promise.race([browser("Browser.close").catch(()=>{}),sleep(400)]);
   for (const socket of sockets) socket.close();
   if (chrome?.pid) {
