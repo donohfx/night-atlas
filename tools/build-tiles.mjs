@@ -102,32 +102,41 @@ function raster(name, input) {
   });
 }
 
-async function analysis() {
-  // The hand-built lights keep their original NS beam silhouettes. The
-  // regional shoreline is used for landfall detection across the web chart.
-  const legacyLand = read("land.json");
-  const regionalLand = read("region/land.json");
-  const land = JSON.parse(regionalLand);
-  const open = json("open-lights.json");
-  const tables = await validatedReachTables(json("beam-reach.json"), await reachRevision(legacyLand), chart.lights, open.lights);
-  const regional = json("region/lights.json");
-  const regionalTables = await validatedReachTables(json("region/beam-reach.json"),
-    await reachRevision(regionalLand), regional.lights, []);
-  const shore = new Map(), reaches = new Map();
-  function area(areas,x,y) {
-    const id = zxyToTileId(analysisZoom,x,y);
-    if (!areas.has(id)) areas.set(id,{});
-    return areas.get(id);
-  }
-  for (const {paths} of shorelinePaths(land)) {
+function analysisArea(areas,x,y) {
+  const id = zxyToTileId(analysisZoom,x,y);
+  if (!areas.has(id)) areas.set(id,{});
+  return areas.get(id);
+}
+
+function analysisArchive(name, areas) {
+  archive(name,{minzoom:analysisZoom,maxzoom:analysisZoom,type:0,compression:2},add => {
+    for (const [id,data] of areas) add(id,gzipSync(JSON.stringify(data)));
+  });
+}
+
+function shore() {
+  const areas = new Map();
+  for (const {paths} of shorelinePaths(json("region/land.json"))) {
     for (const path of paths) for (let i=1; i<path.length; i++) {
       const [ax,ay] = path[i-1], [bx,by] = path[i];
       for (const [x,y] of analysisCells(ax,ay,bx,by)) {
-        const cell = area(shore,x,y);
+        const cell = analysisArea(areas,x,y);
         (cell.segments ??= []).push([ax,ay,bx,by]);
       }
     }
   }
+  analysisArchive("shore", areas);
+}
+
+async function beamReach() {
+  // The hand-built lights keep their original NS beam silhouettes.
+  const open = json("open-lights.json");
+  const tables = await validatedReachTables(json("beam-reach.json"),
+    await reachRevision(read("land.json")), chart.lights, open.lights);
+  const regional = json("region/lights.json");
+  const regionalTables = await validatedReachTables(json("region/beam-reach.json"),
+    await reachRevision(read("region/land.json")), regional.lights, []);
+  const areas = new Map();
   for (const [mode, {lights}, entries] of [["combined",chart,tables.combined], ["open",open,tables.open],
     ["combined",regional,regionalTables.combined]]) {
     for (const light of lights.filter(light => light.colors.length)) {
@@ -135,14 +144,10 @@ async function analysis() {
       const reach = entries?.[key];
       assert(decodeReach(reach), "Rebuild beam-reach.json for "+mode+" "+key);
       const [[x,y]] = analysisCells(...mercator(light.coordinates),...mercator(light.coordinates));
-      (area(reaches,x,y)[mode] ??= {})[key] = reach;
+      (analysisArea(areas,x,y)[mode] ??= {})[key] = reach;
     }
   }
-  for (const [name,areas] of [["shore",shore],["beam-reach",reaches]]) {
-    archive(name,{minzoom:analysisZoom,maxzoom:analysisZoom,type:0,compression:2},add => {
-      for (const [id,data] of areas) add(id,gzipSync(JSON.stringify(data)));
-    });
-  }
+  analysisArchive("beam-reach", areas);
 }
 
 // One process per archive: each releases its memory before the next starts, so the
@@ -155,23 +160,25 @@ const jobs = {
   provinces: async () => vector(await vectorTiler(),"provinces",3,13,.7),
   relief: () => raster("relief","relief.jpg"),
   "relief-detail": () => raster("relief-detail","relief-detail.webp"),
-  analysis,
+  shore,
+  "beam-reach": beamReach,
 };
-const job = process.argv.includes("--analysis-only") ? "analysis"
-  : process.argv.find(arg => arg.startsWith("--job="))?.slice(6);
+const job = process.argv.find(arg => arg.startsWith("--job="))?.slice(6);
 
 if (job) {
   try {
     assert(jobs[job], "Unknown job " + job);
     await jobs[job]();
     for (const name of readdirSync(stage)) renameSync(join(stage,name),join(output,name));
+    console.log(`${job}: peak Node RSS ${process.resourceUsage().maxRSS} KiB`);
   } finally {
     rmSync(stage,{recursive:true,force:true});
   }
 } else {
   rmSync(stage,{recursive:true,force:true});
   const heap = "--max-old-space-size=" + (process.env.HEAP_MB || 2048);
-  for (const name of Object.keys(jobs)) {
+  const selected = process.argv.includes("--analysis-only") ? ["shore", "beam-reach"] : Object.keys(jobs);
+  for (const name of selected) {
     execFileSync(process.execPath, [heap, fileURLToPath(import.meta.url), "--job="+name], {stdio:"inherit"});
   }
 }
