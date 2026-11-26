@@ -3,6 +3,7 @@ import {provinceFocus} from "./atlas-focus.mjs";
 import {mercator} from "./atlas-shore.mjs";
 import {tiledAtlas} from "./atlas-tiles.mjs";
 import {aidName} from "./atlas-marks.mjs";
+import {LngLat} from "./vendor/maplibre-gl.mjs";
 import {biggestInHarbour} from "./atlas-extras.mjs";
 
 const requestOptions = () => ({signal: AbortSignal.timeout(30000)});
@@ -29,6 +30,13 @@ const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
 // In priority order. Zoom bands keep the regional names separate from
 const showcasePlaces = [
+  ["Newfoundland", [-56.5,48.75], 5.8, 8.5, "region"],
+  ["Labrador", [-59.7,53.1], 5.6, 8.5, "region"],
+  ["St. John's", [-52.71,47.56], 7.6, Infinity, "major"],
+  ["Corner Brook", [-57.95,48.96], 8.4, Infinity, "major", {anchor:"bottom", offset:[0,-8]}],
+  ["Bay of Islands", [-58.14,49.15], 8.4, 12, "water"],
+  ["Cabot Strait", [-59.70,47.25], 7.1, 10, "water"],
+  ["Strait of Belle Isle", [-56.65,51.55], 7.8, 11.2, "water"],
   ["New Brunswick", [-66.40,46.52], 6.5, 9.9, "region"],
   ["Saint John", [-66.068,45.273], 7.6, Infinity, "major", {anchor:"bottom", offset:[0,-8]}],
   ["Moncton", [-64.778,46.085], 8.0, Infinity, "major"],
@@ -80,23 +88,28 @@ const {map, status, applySettings, clearHover, inspect, highlight, showCard,
 updateFocus = provinceFocus(map, tiles?.provinceSource ??
   {type:"geojson", data:"/region/provinces.json"}, focusPoints, Boolean(tiles), () => atlas.night, overviewCamera);
 
-// MaxBounds limits the unrotated camera. Also reserve room for its rotated
-// corners, including when the viewport changes aspect in portrait mode.
-function constrainViewport() {
+// Constrain the rotated footprint so the chart edge stays outside the viewport.
+const [left, bottom] = mercator(cameraBounds[0]);
+const [right, top] = mercator(cameraBounds[1]);
+const angle = Math.abs(BEARING)*Math.PI/180;
+const c = Math.cos(angle), s = Math.sin(angle);
+const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+map.setTransformConstrain((center, requestedZoom) => {
   const {clientWidth:width, clientHeight:height} = map.getContainer();
-  const [left, bottom] = mercator(cameraBounds[0]);
-  const [right, top] = mercator(cameraBounds[1]);
-  const angle = Math.abs(BEARING)*Math.PI/180;
-  const c = Math.cos(angle), s = Math.sin(angle);
-  const minZoom = Math.log2(Math.max((width*c+height*s)/(right-left),
-    (height*c+width*s)/(bottom-top))/512);
-  map.setMinZoom(Math.max(4.5, minZoom));
-}
+  const spanX = width*c + height*s + 2;
+  const spanY = height*c + width*s + 2;
+  const minimum = Math.log2(Math.max(spanX/(right-left), spanY/(bottom-top))/512);
+  const zoom = clamp(requestedZoom, Math.max(4.5, minimum), map.getMaxZoom());
+  const scale = 1024*2**zoom;
+  const [x, y] = mercator([center.lng, center.lat]);
+  const longitude = clamp(x, left+spanX/scale, right-spanX/scale)*360-180;
+  const latitude = Math.atan(Math.sinh(Math.PI*(1-2*clamp(y, top+spanY/scale, bottom-spanY/scale))))*180/Math.PI;
+  return {center:new LngLat(longitude, latitude), zoom};
+});
 map.touchZoomRotate.disableRotation();
 map.touchPitch.disable();
 map.keyboard.disableRotation();
-constrainViewport();
-map.on("resize", constrainViewport);
+map.setMaxPitch(0);
 
 function overviewCamera() {
   return map.cameraForBounds(overview, {

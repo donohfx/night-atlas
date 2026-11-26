@@ -57,12 +57,14 @@ function vector({index, encode, Wrapper}, name, minzoom, maxzoom, tolerance, ind
 }
 
 function raster(name, input) {
-  const size = 512, minzoom = 5, maxzoom = 8;
+  const size = 512, minzoom = 4, maxzoom = 8;
   const [left,top] = mercator([bounds[0],bounds[3]]);
   const [right,bottom] = mercator([bounds[2],bounds[1]]);
   const file = join(web,"region",input);
-  const [width,height] = execFileSync(magick, ["identify","-format","%w %h",file], {encoding:"utf8"}).split(" ").map(Number);
-  const rgb = execFileSync(magick, [file,"-alpha","off","-depth","8","rgb:-"], {maxBuffer:width*height*3});
+  const [width,height] = execFileSync(magick, ["identify","-limit","width","16KP","-limit","height","16KP","-format","%w %h",file], {encoding:"utf8"}).split(" ").map(Number);
+  const rgb = execFileSync(magick, ["-limit","width","16KP","-limit","height","16KP",file,"-alpha","off","-depth","8","rgb:-"], {maxBuffer:width*height*3});
+  const encoding = name === "relief" ? ["-quality","90","-define","webp:use-sharp-yuv=true"] :
+    ["-define","webp:lossless=true"];
   archive(name, {minzoom,maxzoom,type:4,compression:1}, add => {
     for (let z=minzoom; z<=maxzoom; z++) {
       const scale = 2**z;
@@ -89,7 +91,7 @@ function raster(name, input) {
             }
           }
           add(zxyToTileId(z,x,y), execFileSync(magick, ["-size",size+"x"+size,"-depth","8","rgba:-",
-            "-define","webp:lossless=true","-define","webp:method=2","webp:-"], {input:pixels,maxBuffer:pixels.length}));
+            ...encoding,"-define","webp:method=2","webp:-"], {input:pixels,maxBuffer:pixels.length}));
         }
       }
     }
@@ -143,8 +145,10 @@ try {
   if (process.argv.includes("--analysis-only")) await analysis();
   else {
     const tiler = await vectorTiler();
-    vector(tiler,"land",7,15,.4);
-    vector(tiler,"contours",8,16,.375,18);
+    vector(tiler,"land",7,14,.4);
+    // Overscale the z14 contours. At this extent their encoding precision
+    // already exceeds the source grid's precision, including Halifax.
+    vector(tiler,"contours",8,14,.375,18);
     vector(tiler,"provinces",3,13,.7);
     raster("relief","relief.jpg");
     raster("relief-detail","relief-detail.webp");
