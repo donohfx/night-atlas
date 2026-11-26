@@ -1,4 +1,5 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
+import {isMark, markBuilder} from "./atlas-marks.mjs";
 import {biggestInHarbour, createExtras} from "./atlas-extras.mjs";
 
 setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
@@ -10,74 +11,38 @@ const read = async path => {
   if (!response.ok) throw new Error(`${path} returned ${response.status}`);
   return response.json();
 };
-const [chart, colors, sweeps] = await Promise.all([read("/chart-data.json"), read("/palette.json"), read("/sweeps.json").catch(() => ({}))]);
-const palette = colors.dark;
+let layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, sky:true, rain:true, spotlight:true, labels:false, openSources:false};
+const storageKey = "night-atlas.preferences";
+let saved = {};
+try {
+  saved = JSON.parse(localStorage.getItem(storageKey)) || {};
+} catch {}
+const preferences = {
+  mode:["chart","night","auto"].includes(saved.mode) ? saved.mode : "auto",
+  view:["halifax","halifax-coast","nova-scotia"].includes(saved.view) ? saved.view : "nova-scotia",
+  layers:{...layersOn},
+};
+for (const id of Object.keys(layersOn)) {
+  if (typeof saved.layers?.[id] === "boolean") preferences.layers[id] = saved.layers[id];
+}
+layersOn = {...preferences.layers};
 // Pretend weather for a look on a fine day, e.g. ?visibility=300&cloud_cover=100 or ?weather_code=63
 const params = new URLSearchParams(location.search);
 const pretendKeys = ["visibility","cloud_cover","cloud_cover_low","precipitation","weather_code","wind_speed_10m","wind_direction_10m"]
   .filter(key => params.get(key) !== null && Number.isFinite(Number(params.get(key))));
 const weatherPreview = pretendKeys.length ? Object.fromEntries(pretendKeys.map(key => [key, Number(params.get(key))])) : null;
-const [marksData, aidsData, chsData, buoyMatches, openChart] = await Promise.all([
+const [chart, colors, sweeps, marksData, aidsData, chsData, buoyMatches, openChart] = await Promise.all([
+  read("/chart-data.json"), read("/palette.json"), read("/sweeps.json").catch(() => ({})),
   read("/seamarks.json").catch(() => collection()),
   read("/aids.json").catch(() => collection()),
   read("/chs-marks.json").catch(() => collection()),
   read("/ccg-buoy-matches.json").catch(() => ({fillIns:[], overrides:[]})),
   read("/open-lights.json").catch(() => ({lights:[]})),
 ]);
-const isMark = f => f.geometry.type === "Point" && ["buoy","beacon"].includes(f.properties.k);
-const aidName = p => (p.ref || p.n || "").toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
-const chartMarks = chsData.features;
-const markByLightNumber = new Map();
-for (const mark of chartMarks) {
-  const {k, ll, lit} = mark.properties;
-  if (k !== "beacon" || !ll || lit !== 1) continue;
-  if (!markByLightNumber.has(ll)) markByLightNumber.set(ll, []);
-  markByLightNumber.get(ll).push(mark);
-}
-function markDistanceMeters([x,y], [ox,oy]) {
-  return Math.hypot((x-ox)*Math.cos(y*Math.PI/180), y-oy)*111195;
-}
-const fillIns = new Set(buoyMatches.fillIns);
-const ccgBuoys = new Map(aidsData.features.filter(f => f.properties.k === "buoy").map(f => [f.properties.ll,f]));
-const markKey = (coordinates, name) => JSON.stringify([coordinates, name || ""]);
-const ccgSignals = new Map(buoyMatches.overrides.map(o => [markKey(o.coordinates, o.name), ccgBuoys.get(o.ccg)]));
-const supplementalAids = aidsData.features.filter(f => {
-  const p = f.properties;
-  if (p.k === "buoy") return !chartMarks.length || fillIns.has(p.ll);
-  return !markByLightNumber.get(p.ll)?.some(mark => {
-    const q = mark.properties;
-    return p.lch === q.lch && (p.lcs || p.lc) === (q.lcs || q.lc)
-      && Number(p.lp || 0) === Number(q.lp || 0) && String(p.lg || 1) === String(q.lg || 1)
-      && markDistanceMeters(f.geometry.coordinates, mark.geometry.coordinates) <= 20;
-  });
-}).map(f => ({...f, properties:{...f.properties, src:"ccg"}}));
-function duplicateMark(f, official) {
-  const name = aidName(f.properties);
-  return official.some(other => {
-    if (f.properties.k !== other.properties.k) return false;
-    const candidate = aidName(other.properties);
-    const distance = markDistanceMeters(f.geometry.coordinates, other.geometry.coordinates);
-    return (name && name === candidate && distance <= 100)
-      || (other.properties.src === "chs" && distance <= 12 && (!name || !candidate));
-  });
-}
-function marksFor(open) {
-  const ccg = open ? [] : supplementalAids;
-  const official = [...chartMarks, ...ccg.filter(isMark)];
-  const osm = marksData.features.filter(f => isMark(f) && !duplicateMark(f, official));
-  return [...osm, ...ccg, ...chartMarks].map((f, id) => {
-    const p = {...f.properties, src:f.properties.src || "osm"};
-    const replacement = !open && p.src === "chs" && ccgSignals.get(markKey(f.geometry.coordinates, p.n));
-    if (replacement && p.lit === 0) {
-      const {lc, lcs, lch, lp, lg, seq} = replacement.properties;
-      Object.assign(p, {lit:1, lc, lcs, lch, lp, lg, seq, signalSrc:"ccg"});
-    }
-    return {...f, id, properties:{...p, open, icon:`mk-${p.k}-${p.s || "pillar"}-${p.cs || p.c || "-"}-${p.pat || ""}`}};
-  });
-}
-const combinedMarks = marksFor(false), openMarks = marksFor(true);
-let markFeatures = combinedMarks;
-let activeLights = chart.lights;
+const palette = colors.dark;
+const marksFor = markBuilder(marksData, aidsData, chsData, buoyMatches);
+let markFeatures = marksFor(layersOn.openSources);
+let activeLights = layersOn.openSources ? openChart.lights : chart.lights;
 const chartLines = marksData.features.filter(f => !isMark(f));
 for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", muted:"on_surface_variant",
                                           border:"outline_variant", accent:"primary"})) {
@@ -152,7 +117,7 @@ const map = new AtlasMap({
       osm: {type:"vector", url:"https://tiles.openfreemap.org/planet/latest", bounds:[west,south,east,north]},
       land:{type:"geojson",data:"/land.json",tolerance:.4,maxzoom:15},
       contours:{type:"geojson", data:"/contours.json"},
-      lights:{type:"geojson", data:collection(lightFeatures(activeLights, false))},
+      lights:{type:"geojson", data:collection(lightFeatures(activeLights, layersOn.openSources))},
       ships:{type:"geojson", data:collection()},
       vectors:{type:"geojson", data:collection()},
       hover:{type:"geojson", data:collection()},
@@ -252,7 +217,7 @@ const status = document.querySelector("#status");
 const details = document.querySelector("#details");
 let loaded = false, ships = new Map();
 let shipRevision = "", statusText = "Waiting for ships", highlighted = null;
-let buoyRevision = "", layersOn = {ships:true, ghosts:true, buoys:true, seamarks:true, lights:true, weather:true, fog:true, sky:true, rain:true, spotlight:true, labels:false, openSources:false};
+let buoyRevision = "";
 let night = null, labelScale = 1, beamBoost = 1;
 const ghostWindow = 7200;           // seconds a vessel keeps drifting after its last report
 const ghosts = new Map();
@@ -388,9 +353,58 @@ function classifySweeps(settings) {
   sweepIds = new Set(sweeping.map(rhythm => rhythm.id));
 }
 classifySweeps({});
+function registerMarkIcons(features) {
+  const markColors = {R:"#c9544d",G:"#3f9f6c",Y:"#dcb84f",B:"#2a2e2d",W:"#e3e0d2",U:"#4e87c5",E:"#868b86",N:"#98674b",A:"#d7a142",V:"#9e74bb",O:"#e28c43",M:"#bd619e",P:"#d38ca6","-":"#7b8a82"};
+  const outlines = {
+    conical:[[0,-26],[11,0],[-11,0]],
+    can:[[-9,-20],[9,-20],[9,0],[-9,0]],
+    spar:[[-4,-30],[4,-30],[4,0],[-4,0]],
+    pillar:[[-4,-28],[4,-28],[10,0],[-10,0]],
+    barrel:[[-11,-12],[11,-12],[11,0],[-11,0]],
+    beacon:[[-2,-30],[2,-30],[2,0],[-2,0]],
+  };
+  function addMarkIcon(name, {k, s, cs, c, pat}) {
+    if (map.hasImage(name)) return;
+    const icon = document.createElement("canvas");
+    icon.width = 40; icon.height = 44;
+    const ctx = icon.getContext("2d");
+    ctx.translate(20,38);
+    const shape = k === "beacon" || s === "stake" || s === "tower" || s === "perch" ? "beacon"
+      : (outlines[s] ? s : s === "spherical" ? "spherical" : s === "cylindrical" ? "can" : "pillar");
+    ctx.beginPath();
+    if (k === "light") ctx.arc(0,-3,5.5,0,Math.PI*2);
+    else if (shape === "spherical") ctx.arc(0,-10,10,0,Math.PI*2);
+    else outlines[shape].forEach(([x,y],i) => i ? ctx.lineTo(x,y) : ctx.moveTo(x,y));
+    ctx.closePath();
+    ctx.save();
+    ctx.clip();
+    const bands = [...(cs || c || "-")];
+    const vertical = pat === "vertical";
+    for (const [i,band] of bands.entries()) {      // painted top to bottom (or left to right)
+      ctx.fillStyle = markColors[band] || markColors["-"];
+      if (vertical) ctx.fillRect(-12+i*24/bands.length,-32,24/bands.length+.5,34);
+      else ctx.fillRect(-12,-32+i*32/bands.length,24,32/bands.length+.5);
+    }
+    ctx.restore();
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#0b1414";
+    ctx.lineWidth = 2.2;
+    ctx.stroke();
+    if (k === "beacon") {                          // small top mark on the pole
+      ctx.fillStyle = markColors[bands[0]] || markColors["-"];
+      ctx.beginPath(); ctx.arc(0,-30,4.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    } else if (k === "buoy") {                      // waterline
+      ctx.strokeStyle = "#8fb8b155"; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.ellipse(0,1,13,2.6,0,0,Math.PI*2); ctx.stroke();
+    }
+    map.addImage(name, ctx.getImageData(0,0,40,44), {pixelRatio:2});
+  }
+  for (const {properties} of features) addMarkIcon(properties.icon, properties);
+}
 function switchSources(open) {
   clearHover();
-  markFeatures = open ? openMarks : combinedMarks;
+  markFeatures = marksFor(open);
+  registerMarkIcons(markFeatures);
   activeLights = open ? openChart.lights : chart.lights;
   markRhythms = markTiming(markFeatures);
   rhythms = lightTiming(activeLights);
@@ -977,19 +991,6 @@ const presets = {
   "halifax-coast": () => map.easeTo({center:[-63.616,44.569], zoom:10.85, duration:450}),
   "nova-scotia": () => applyOverview(450),
 };
-const storageKey = "night-atlas.preferences";
-let saved = {};
-try {
-  saved = JSON.parse(localStorage.getItem(storageKey)) || {};
-} catch {}
-let preferences = {
-  mode:["chart","night","auto"].includes(saved.mode) ? saved.mode : "auto",
-  view:Object.hasOwn(presets,saved.view) ? saved.view : "nova-scotia",
-  layers:{...layersOn},
-};
-for (const id of Object.keys(layersOn)) {
-  if (typeof saved.layers?.[id] === "boolean") preferences.layers[id] = saved.layers[id];
-}
 function savePreferences() {
   try { localStorage.setItem(storageKey, JSON.stringify(preferences)); } catch {}
 }
@@ -1278,52 +1279,8 @@ map.once("load", () => {
     ctx.stroke();
     map.addImage("ghost-arrow",ctx.getImageData(0,0,42,42),{pixelRatio:2});
   }
-  const markColors = {R:"#c9544d",G:"#3f9f6c",Y:"#dcb84f",B:"#2a2e2d",W:"#e3e0d2",U:"#4e87c5",E:"#868b86",N:"#98674b",A:"#d7a142",V:"#9e74bb",O:"#e28c43",M:"#bd619e",P:"#d38ca6","-":"#7b8a82"};
-  const outlines = {
-    conical:[[0,-26],[11,0],[-11,0]],
-    can:[[-9,-20],[9,-20],[9,0],[-9,0]],
-    spar:[[-4,-30],[4,-30],[4,0],[-4,0]],
-    pillar:[[-4,-28],[4,-28],[10,0],[-10,0]],
-    barrel:[[-11,-12],[11,-12],[11,0],[-11,0]],
-    beacon:[[-2,-30],[2,-30],[2,0],[-2,0]],
-  };
-  function addMarkIcon(name, {k, s, cs, c, pat}) {
-    if (map.hasImage(name)) return;
-    const icon = document.createElement("canvas");
-    icon.width = 40; icon.height = 44;
-    const ctx = icon.getContext("2d");
-    ctx.translate(20,38);
-    const shape = k === "beacon" || s === "stake" || s === "tower" || s === "perch" ? "beacon"
-      : (outlines[s] ? s : s === "spherical" ? "spherical" : s === "cylindrical" ? "can" : "pillar");
-    ctx.beginPath();
-    if (k === "light") ctx.arc(0,-3,5.5,0,Math.PI*2);
-    else if (shape === "spherical") ctx.arc(0,-10,10,0,Math.PI*2);
-    else outlines[shape].forEach(([x,y],i) => i ? ctx.lineTo(x,y) : ctx.moveTo(x,y));
-    ctx.closePath();
-    ctx.save();
-    ctx.clip();
-    const bands = [...(cs || c || "-")];
-    const vertical = pat === "vertical";
-    for (const [i,band] of bands.entries()) {      // painted top to bottom (or left to right)
-      ctx.fillStyle = markColors[band] || markColors["-"];
-      if (vertical) ctx.fillRect(-12+i*24/bands.length,-32,24/bands.length+.5,34);
-      else ctx.fillRect(-12,-32+i*32/bands.length,24,32/bands.length+.5);
-    }
-    ctx.restore();
-    ctx.lineJoin = "round";
-    ctx.strokeStyle = "#0b1414";
-    ctx.lineWidth = 2.2;
-    ctx.stroke();
-    if (k === "beacon") {                          // small top mark on the pole
-      ctx.fillStyle = markColors[bands[0]] || markColors["-"];
-      ctx.beginPath(); ctx.arc(0,-30,4.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
-    } else if (k === "buoy") {                      // waterline
-      ctx.strokeStyle = "#8fb8b155"; ctx.lineWidth = 1.4;
-      ctx.beginPath(); ctx.ellipse(0,1,13,2.6,0,0,Math.PI*2); ctx.stroke();
-    }
-    map.addImage(name, ctx.getImageData(0,0,40,44), {pixelRatio:2});
-  }
-  for (const feature of [...combinedMarks, ...openMarks]) addMarkIcon(feature.properties.icon, feature.properties);
+  registerMarkIcons(markFeatures);
+  document.querySelector("[data-ccg-credit]").hidden = layersOn.openSources;
   {                                                // NOAA/ECCC weather buoy: yellow discus with mast
     const icon = document.createElement("canvas");
     icon.width = 44; icon.height = 48;
