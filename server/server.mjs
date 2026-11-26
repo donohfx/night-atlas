@@ -6,6 +6,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import { gzipSync } from "node:zlib";
 import WebSocket from "ws";
+import { sendArchive } from "./tile-files.mjs";
 import buoys from "./buoys.mjs";
 import { createFeed } from "./ais-live.mjs";
 
@@ -15,15 +16,21 @@ const TYPES = {
 };
 const SECURITY = { "X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin-when-cross-origin" };
 
-// Everything public is read into memory once; only these exact paths can be requested.
-function loadFiles(root) {
+// Cache the small static responses. Archives are indexed by path and streamed on demand.
+function loadFiles(root, archives) {
   const files = new Map();
   for (const entry of readdirSync(root, { recursive: true, withFileTypes: true })) {
-    if (!entry.isFile() || !TYPES[extname(entry.name)]) continue;
+    if (!entry.isFile()) continue;
     const path = join(entry.parentPath, entry.name);
+    const route = "/" + relative(root, path);
+    if (/^\/tiles\/[a-z0-9-]+\.pmtiles$/.test(route)) {
+      archives.set(route, path);
+      continue;
+    }
+    if (!TYPES[extname(entry.name)]) continue;
     const body = readFileSync(path), type = TYPES[extname(entry.name)];
     const text = !/^image\/(jpeg|webp)/.test(type);
-    files.set("/" + relative(root, path), {
+    files.set(route, {
       body, type, gzip: text ? gzipSync(body, { level: 9 }) : null,
       br: text && existsSync(path + ".br") ? readFileSync(path + ".br") : null,   // made by precompress.mjs
       hash: createHash("sha1").update(body).digest("hex"),
@@ -43,8 +50,10 @@ const prepare = value => {
   return { body, gzip: gzipSync(body) };
 };
 
-export function createApp({ root, feed, buoyHandler = buoys, redirects = {} }) {
-  const files = loadFiles(root);
+export function createApp({ root, feed, buoyHandler = buoys, redirects = {}, tileBase = process.env.ATLAS_TILE_BASE_URL || "/tiles/" }) {
+  const archives = new Map();
+  const files = loadFiles(root, archives);
+  const tileConfig = prepare({tileBase});
   const SHIPS_MS = 1000;                  // one prepared snapshot serves everyone who asks within a second
   let ships = { at: 0, ready: null };
   const buoyCache = { at: 0, ready: prepare({ stations: [] }), ok: false, pending: null };
@@ -86,6 +95,8 @@ export function createApp({ root, feed, buoyHandler = buoys, redirects = {} }) {
         return res.end();
       }
       const path = req.url.split("?")[0];
+      if (archives.has(path)) return await sendArchive(req, res, archives.get(path), SECURITY);
+      if (path === "/api/map-tiles") return json(req, res, 200, tileConfig, {"Cache-Control":"no-cache"});
       if (path === "/api/ships") {
         if (!ships.ready || Date.now() - ships.at >= SHIPS_MS) {
           ships = { at: Date.now(),

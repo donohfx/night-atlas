@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { EventEmitter } from "node:events";
 import { fileURLToPath } from "node:url";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { brotliCompressSync } from "node:zlib";
@@ -29,7 +29,7 @@ test("feed keeps vessels and reports live", () => {
   feed.stop();
 });
 
-test("server serves only the map and its two endpoints", async t => {
+test("server serves the map and live data endpoints", async t => {
   const app = createApp({ root: fileURLToPath(new URL("../web", import.meta.url)), feed: null,
     buoyHandler: async () => ({ stations: [{ id: "x" }] }) });
   await new Promise(done => app.listen(0, "127.0.0.1", done));
@@ -141,4 +141,37 @@ test("ship snapshots are shared for a second and buoy refreshes are shared", asy
   const warm = await Promise.all(Array.from({ length: 12 }, () => fetch(base + "/api/buoys")));
   assert.deepEqual([...new Set(warm.map(r => r.status))], [200]);
   assert.equal(calls, 2);
+});
+
+test("PMTiles uses byte ranges and exposes the configured archive base", async t => {
+  const root = mkdtempSync(join(tmpdir(), "atlas-tiles-"));
+  t.after(() => rmSync(root, {recursive:true}));
+  mkdirSync(join(root,"tiles"));
+  writeFileSync(join(root,"tiles","land.pmtiles"),"0123456789");
+  const tileBase = "https://storage.example/maps/v1/";
+  const base = await listen(t,createApp({root,tileBase}));
+  const archive = base+"/tiles/land.pmtiles";
+  const get = range => fetch(archive,{headers:{Range:range,"Accept-Encoding":"gzip, br"}});
+  assert.deepEqual(await (await fetch(base+"/api/map-tiles")).json(),{tileBase});
+  for (const [query,range,body] of [
+    ["bytes=2-4","2-4","234"], ["bytes=8-","8-9","89"],
+    ["bytes=-2","8-9","89"], ["bytes=8-16383","8-9","89"],
+  ]) {
+    const response = await get(query);
+    assert.equal(response.status,206);
+    assert.equal(response.headers.get("content-range"),`bytes ${range}/10`);
+    assert.equal(response.headers.get("content-encoding"),null);
+    assert.equal(await response.text(),body);
+  }
+  const invalid = await get("bytes=10-");
+  assert.equal(invalid.status,416);
+  assert.equal(invalid.headers.get("content-range"),"bytes */10");
+  const head = await fetch(archive,{method:"HEAD"});
+  assert.equal(head.headers.get("content-length"),"10");
+  assert.equal(head.headers.get("accept-ranges"),"bytes");
+  assert.equal(await head.text(),"");
+  const stale = await fetch(archive,{headers:{Range:"bytes=2-4","If-Range":'"stale"'}});
+  assert.equal(stale.status,200);
+  assert.equal(await stale.text(),"0123456789");
+  assert.equal((await fetch(archive,{headers:{"If-None-Match":head.headers.get("etag")}})).status,304);
 });
