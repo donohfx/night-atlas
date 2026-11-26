@@ -65,19 +65,36 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
 }
 #controls :focus-visible, #credits a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 #controls summary { display: list-item; padding-top: 8px; }
-#controls fieldset {
+.layers-panel {
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
-  min-width: 180px;
+  width: min(258px, calc(100vw - 24px));
+  min-width: 0;
+  max-height: calc(100dvh - 85px - env(safe-area-inset-bottom));
   margin: 0;
-  padding: 6px 9px;
+  padding: 10px 13px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   border: 1px solid var(--border);
   border-radius: 5px;
   background: var(--ink);
   box-shadow: 0 4px 12px #0005;
 }
-#controls fieldset label { display: flex; min-height: 35px; align-items: center; gap: 7px; cursor: pointer; }
+.layers-groups { display: grid; gap: 12px; }
+.layers-groups h2, .layers-source h3 {
+  margin: 0 0 3px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+.layers-groups label { display: flex; min-height: 30px; align-items: center; gap: 7px; cursor: pointer; }
+.layers-groups input { flex: none; margin: 0 2px; }
+.layers-source { margin-top: 5px; padding: 7px 0 0 10px; border-left: 1px solid var(--border); }
+.layers-source h3 { color: var(--paper); }
+.layers-source p { margin: 0 0 3px; color: var(--muted); font-size: 11px; }
+body:has(#layers[open]) #rotate { display: none; }
 #controls input { accent-color: var(--accent); }
 #credits {
   pointer-events: auto;
@@ -132,8 +149,7 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
   #controls select { max-width: 100%; }
   #controls summary { padding-top: 7px; white-space: nowrap; }
   #controls button { white-space: nowrap; }
-  #controls fieldset { max-height: calc(100dvh - 60px); overflow-y: auto; }
-  #controls fieldset label { min-height: 30px; }
+  .layers-panel { max-height: calc(100dvh - 58px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
 
   #dock { left: max(6px, env(safe-area-inset-left)); bottom: calc(var(--credits-height, 28px) + max(6px, env(safe-area-inset-bottom)) + 4px); gap: 4px; }
   #dock > * { border-radius: 4px; }
@@ -197,3 +213,8 @@ body { background: #0b1414; color: var(--paper); font: 14px "Iosevka Aile", Iose
 
 #map .maplibregl-marker:has(> .place) { display: none; }
 .chart-names { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+@media (orientation: landscape) and (max-height: 500px) and (min-width: 550px) {
+  .layers-panel { width: 420px; left: 0; right: auto; }
+  .layers-groups { grid-template-columns: 1fr 1fr; column-gap: 18px; }
+}

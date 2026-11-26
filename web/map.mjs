@@ -159,7 +159,8 @@ const tourEase = t => t*t*(3-2*t);
 const clearWeather = {visibility:30000, cloud_cover:0, cloud_cover_low:0, weather_code:0, precipitation:0};
 const viewControl = document.querySelector("#view");
 const modeControl = document.querySelector("#mode");
-const layerControls = document.querySelector("#layers fieldset");
+const layersMenu = document.querySelector("#layers");
+const layerControls = layersMenu.querySelector("fieldset");
 const tourControl = document.querySelector("#tour");
 
 const presets = {
@@ -310,12 +311,8 @@ async function tour() {
 function bindControls() {
   viewControl.disabled = modeControl.disabled = layerControls.disabled = tourControl.disabled = false;
   viewControl.value = preferences.view;
-  const names = {ships:"Ships",ghosts:"Estimated positions",buoys:"Weather buoys",seamarks:"Seamarks",
-    lights:"Lighthouses",openSources:"Open sources only",weather:"Weather",fog:"Fog",sky:"Cloud and moonlight",rain:"Rain and snow",spotlight:"Ship of the night",labels:"Place names"};
-  for (const [id, name] of Object.entries(names)) {
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    input.type = "checkbox";
+  for (const input of layerControls.querySelectorAll("[data-layer]")) {
+    const id = input.dataset.layer;
     input.checked = preferences.layers[id];
     input.addEventListener("change", () => {
       preferences.layers[id] = input.checked;
@@ -324,9 +321,13 @@ function bindControls() {
       applySettings(preferences);
       renderShips();
     });
-    label.append(input, document.createTextNode(name));
-    layerControls.append(label);
   }
+  layersMenu.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || !layersMenu.open) return;
+    event.preventDefault();
+    layersMenu.open = false;
+    layersMenu.querySelector("summary").focus();
+  });
   document.addEventListener("pointerdown", event => {
     suppressTourClick = tourState.active && !tourState.finished && map.getContainer().contains(event.target);
     if (!tourControl.contains(event.target)) endTour();
