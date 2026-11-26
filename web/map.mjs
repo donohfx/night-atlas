@@ -111,10 +111,18 @@ map.touchPitch.disable();
 map.keyboard.disableRotation();
 map.setMaxPitch(0);
 
+// A tall screen shows part of the province, filling its height with these latitudes,
+// instead of shrinking until the whole province fits across.
+const PORTRAIT_LATITUDES = [42.99, 47.58];
 function overviewCamera() {
-  return map.cameraForBounds(overview, {
+  const camera = map.cameraForBounds(overview, {
     padding:{top:24,bottom:30,left:16,right:16}, bearing:BEARING,
   });
+  const {clientWidth:width, clientHeight:height} = map.getContainer();
+  if (!camera || height <= width) return camera;
+  const [south,north] = PORTRAIT_LATITUDES.map(latitude => mercator([0,latitude])[1]);
+  const zoom = Math.max(camera.zoom, Math.log2(height/(512*Math.abs(south-north))));
+  return {...camera, zoom};
 }
 function applyOverview(duration = 0) {
   const camera = overviewCamera();
