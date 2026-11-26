@@ -27,7 +27,7 @@ export async function createAtlas({
   read, shorelineOptions, initialLayers = defaultLayers, sweepsPath, extraLinesPath,
   weatherPreview, detailImage, bounds, minZoom, marksAttribution, deferMarks = false,
   tour, showcasePlaces = [], describeShips, cardFrame, hideCardOnMiss = false,
-  onNight, wantNight = daylightMode,
+  onNight, wantNight = daylightMode, tiles,
 }) {
   setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
 
@@ -118,6 +118,7 @@ export async function createAtlas({
   const detailOpacity = ["interpolate",["linear"],["zoom"],7.9,0,8.5,1];   // vector land in before raster steps show (from 7.9: z7 tiles exceed 65k vertices)
   const inland = ["!=",["get","class"],"ocean"];
 
+  const vectorLayer = tiles ? {"source-layer":"_geojsonTileLayer"} : {};
   const map = new AtlasMap({
     container: "map",
     center: [-63.65,45.2], zoom: 6.70, bearing: -5, pitch: 0,
@@ -134,6 +135,7 @@ export async function createAtlas({
         osm: {type:"vector", url:"https://tiles.openfreemap.org/planet/latest", bounds:[west,south,east,north]},
         land:{type:"geojson",data:"/land.json",tolerance:.4,maxzoom:15},
         contours:{type:"geojson", data:"/contours.json"},
+        ...tiles?.sources,
         lights:{type:"geojson", data:collection(lightFeatures(activeLights, layersOn.openSources))},
         ships:{type:"geojson", data:collection()},
         vectors:{type:"geojson", data:collection()},
@@ -148,11 +150,11 @@ export async function createAtlas({
         {id:"relief", type:"raster", source:"relief", paint:{"raster-fade-duration":0}},
         {id:"water-depth-shading", type:"raster", source:"close", minzoom:7.9,
           paint:{"raster-opacity":detailOpacity,"raster-fade-duration":0}},
-        {id:"land-fill",type:"fill",source:"land",minzoom:7.9,
+        {id:"land-fill", ...vectorLayer,type:"fill",source:"land",minzoom:7.9,
           paint:{"fill-color":"#23352e","fill-opacity":detailOpacity}},
         {id:"fine-water", type:"fill", source:"osm", "source-layer":"water", minzoom:9.0, filter:inland,
           paint:{"fill-color":seaTint,"fill-opacity":["interpolate",["linear"],["zoom"],9,0,11,.96]}},
-        {id:"coastline",type:"line",source:"land",minzoom:7.9,
+        {id:"coastline", ...vectorLayer,type:"line",source:"land",minzoom:7.9,
           paint:{"line-color":"#687f70","line-opacity":["interpolate",["linear"],["zoom"],7.9,0,8.5,.5,11,.64],
             "line-width":["interpolate",["linear"],["zoom"],9,.5,15,1.05]}},
         {id:"fine-shoreline", type:"line", source:"osm", "source-layer":"water", minzoom:10, filter:inland,
@@ -160,7 +162,7 @@ export async function createAtlas({
             "line-width":["interpolate",["linear"],["zoom"],10,.42,15,.85]}},
         {id:"waterways", type:"line", source:"osm", "source-layer":"waterway", minzoom:12,
           paint:{"line-color":"#41635d","line-opacity":.62,"line-width":["interpolate",["linear"],["zoom"],12,.45,16,1.35]}},
-        {id:"bathymetry", type:"line", source:"contours", minzoom:8.5,
+        {id:"bathymetry", ...vectorLayer, type:"line", source:"contours", minzoom:8.5,
           paint:{"line-color":"#567a71","line-width":["case",["get","major"],.8,.5],
             "line-opacity":["interpolate",["linear"],["zoom"],8.5,0,10,.43,14,.28]}},
         {id:"tss-zone", type:"fill", source:"seamarks", filter:["==",["get","k"],"separation_zone"],
@@ -430,7 +432,7 @@ export async function createAtlas({
   let shores = null;
   let reachTables; // undefined while the table and its revisions are loading
   const reaches = new Map();
-  const shoreline = (async () => {
+  const shoreline = tiles ? null : (async () => {
     const response = await fetch("/land.json", shorelineOptions());
     if (!response.ok) throw new Error(`/land.json returned ${response.status}`);
     const text = await response.text();
@@ -440,7 +442,7 @@ export async function createAtlas({
     console.warn("Night Atlas shoreline:", error.message);
     return null;
   });
-  Promise.all([shoreline, read("/beam-reach.json")]).then(async ([revision, table]) => {
+  if (!tiles) Promise.all([shoreline, read("/beam-reach.json")]).then(async ([revision, table]) => {
     reachTables = await validatedReachTables(table, revision, chart.lights, openChart.lights);
   }).catch(() => {}).finally(() => {
     reachTables ??= {};
@@ -477,8 +479,8 @@ export async function createAtlas({
       const key = reachKeys[rhythm.id];
       let reach = reaches.get(key);
       if (!reach) {
-        if (reachTables === undefined) continue;
-        reach = decodeReach(reachTables[reachMode]?.[key]);
+        if (!tiles && reachTables === undefined) continue;
+        reach = decodeReach(tiles ? tiles.reach(...mercator(light.coordinates),reachMode,key) : reachTables[reachMode]?.[key]);
         if (!reach) {
           if (!shores || !toMeasure) continue;
           --toMeasure;
@@ -572,16 +574,26 @@ export async function createAtlas({
     const [ax,ay] = mercator([p.lon,p.lat]), [bx,by] = mercator(deadReckon(p,reach));
     const dx = bx-ax, dy = by-ay;
     let nearest = Infinity;
-    for (const shore of shores) {
-      if (shore.east < Math.min(ax,bx) || shore.west > Math.max(ax,bx) ||
-          shore.south < Math.min(ay,by) || shore.north > Math.max(ay,by)) continue;
-      for (const path of shore.paths) {
-        for (let i=1; i<path.length; ++i) {
-          const [cx,cy] = path[i-1], ex = path[i][0]-cx, ey = path[i][1]-cy;
-          const cross = dx*ey-dy*ex;
-          if (!cross) continue;
-          const along = ((cx-ax)*ey-(cy-ay)*ex)/cross, edge = ((cx-ax)*dy-(cy-ay)*dx)/cross;
-          if (along >= 0 && along <= 1 && edge >= 0 && edge <= 1) nearest = Math.min(nearest, along*reach);
+    function intersect(cx,cy,ex,ey) {
+      const cross = dx*ey-dy*ex;
+      if (!cross) return;
+      const along = ((cx-ax)*ey-(cy-ay)*ex)/cross, edge = ((cx-ax)*dy-(cy-ay)*dx)/cross;
+      if (along >= 0 && along <= 1 && edge >= 0 && edge <= 1) nearest = Math.min(nearest, along*reach);
+    }
+    if (tiles) {
+      const segments = tiles.segments(ax,ay,bx,by,refreshLandfalls);
+      if (!segments) return null;
+      for (const [cx,cy,ex,ey] of segments) intersect(cx,cy,ex-cx,ey-cy);
+    } else {
+      if (!shores) return null;
+      for (const shore of shores) {
+        if (shore.east < Math.min(ax,bx) || shore.west > Math.max(ax,bx) ||
+            shore.south < Math.min(ay,by) || shore.north > Math.max(ay,by)) continue;
+        for (const path of shore.paths) {
+          for (let i=1; i<path.length; ++i) {
+            const [cx,cy] = path[i-1];
+            intersect(cx,cy,path[i][0]-cx,path[i][1]-cy);
+          }
         }
       }
     }
@@ -589,13 +601,19 @@ export async function createAtlas({
     return nearest;
   }
 
+  let lastShipSnapshot;
+  function refreshLandfalls() {
+    if (lastShipSnapshot) updateShips(lastShipSnapshot);
+  }
+
   function updateShips(snapshot) {
+    lastShipSnapshot = snapshot;
     const points = snapshot.points || [];
     const drifting = p => layersOn.ghosts && p.age > freshAge && p.age < ghostWindow && p.speed >= .5 && p.course != null
-      && shores && p.speed*p.age/3600 < landfall(p);
+      && p.speed*p.age/3600 < landfall(p);
     // Ghost positions move with time, so refresh the revision every 10 s while any exist.
     const revision = JSON.stringify(points.map(p => [p.mmsi,p.lon,p.lat,p.course,p.speed,
-      p.age <= freshAge, p.age < 86400])) + (points.some(drifting) ? Math.floor(Date.now()/10000) : "");
+      p.age <= freshAge, p.age < 86400, drifting(p)])) + (points.some(drifting) ? Math.floor(Date.now()/10000) : "");
     ships = new Map(points.map(p => [p.mmsi,p]));
     if (revision !== shipRevision) {
       shipRevision = revision;

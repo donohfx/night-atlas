@@ -31,7 +31,20 @@ Get a free key from the [AIS Stream account page](https://aisstream.io/account).
 
 The page counts visits with [GoatCounter](https://www.goatcounter.com/) (no cookies). In `web/index.html`, remove that script or put your own site code in it.
 
-To run it locally: `npm ci`, then `AISSTREAM_API_KEY=your-key npm start`.
+To run the tiled chart locally, use Node 24 and ImageMagick:
+
+```sh
+npm ci
+npm run build:tiles
+PORT=8767 npm start
+```
+
+Open http://localhost:8767/. Supply `AISSTREAM_API_KEY` to enable live ships.
+The build uses the checked-in chart inputs and writes six archives to `web/tiles/`.
+For an external archive host, set `ATLAS_TILE_BASE_URL` to the root URL that
+contains the six files. The host must support HTTP byte ranges without content
+encoding, allow the web app's origin, and expose `ETag` and `Content-Range` to it.
+Use a versioned archive URL when publishing a replacement set.
 
 The public Open-Meteo endpoint is for noncommercial use under its hosted API terms. See [Credits](CREDITS.md) for data and software licences.
 

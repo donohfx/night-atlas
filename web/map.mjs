@@ -1,4 +1,5 @@
 import {BEARING, createAtlas, defaultLayers, freshAge, jsonReader, mapBounds, overview} from "./atlas-core.mjs";
+import {tiledAtlas} from "./atlas-tiles.mjs";
 import {aidName} from "./atlas-marks.mjs";
 import {biggestInHarbour} from "./atlas-extras.mjs";
 
@@ -44,6 +45,7 @@ const showcasePlaces = [
 const tourState = {active:false, night:null, finished:false};
 const atlas = await createAtlas({
   read, shorelineOptions:requestOptions, initialLayers:preferences.layers,
+  tiles:params.has("static") ? undefined : tiledAtlas((await read("/api/map-tiles")).tileBase),
   sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/relief-detail.webp",
   bounds:navigationBounds, minZoom:4.5, tour:tourState, showcasePlaces,
   describeShips(snapshot, points, fresh, lastHeard) {

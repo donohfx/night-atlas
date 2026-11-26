@@ -1,8 +1,7 @@
 # Rebuild chart data
 
 Run from the repository root. Use a scratch directory such as `.local/data`
-for upstream files and intermediate results. The shipped tiles and datasets
-are ready to use without regenerating them.
+for upstream files and intermediate results. The checked-in datasets are ready to use as tile build inputs.
 
 ```sh
 python -m venv .local/data-venv
@@ -41,3 +40,25 @@ The table stores the mask step for each half-degree bearing, preserving the
 exact original distance. Each dataset and the shoreline carry SHA-256 revision
 checks. The map computes missing or stale rows using the Canvas mask. The
 image build compresses the checked-in JSON with the other static files.
+
+
+## Web tile build
+
+Run `npm run build:tiles` from the repository root with Node 24 and ImageMagick 7.
+The reference build used Node 24.22.3 and ImageMagick 7.1.2-36 with WebP support.
+The script takes its inputs from `web/` and makes no network requests. It works
+with the MapLibre worker pinned in `web/vendor/`. With a different worker version,
+check the exported tiler adapter and compare against the corresponding GeoJSON
+render before rebuilding. `MAGICK` can point to an alternate executable.
+
+The web charts use Web Mercator pyramids for land, contours, relief, and close
+depth shading. Fixed zoom-10 cells index beam reaches by light and shoreline
+edges by track. The build validates the reach table against its source
+revisions before packaging. Source JSON and images stay checked in for
+rebuilds, static previews, and the desktop. Generated archives are ignored by Git.
+
+To compare captures, run `node tools/verify-shared-core.mjs tiles ASSET_DIR
+OUTPUT_DIR WEB_FIXTURE_DIR` once per build, sequentially. The tool uses
+hardware Vulkan Chrome only, with fixed time, weather and AIS fixtures.
+Set `ATLAS_VERIFY_BROTLI=1` to use the precompressed production encoding for
+static assets. `events.json` records completed response body bytes by stage.

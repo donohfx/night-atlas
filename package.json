@@ -10,7 +10,8 @@
     "start": "node server/server.mjs",
     "test": "npm run check:desktop && node --test server/*.test.mjs",
     "sync:desktop": "node tools/sync-desktop.mjs",
-    "check:desktop": "node tools/sync-desktop.mjs --check"
+    "check:desktop": "node tools/sync-desktop.mjs --check",
+    "build:tiles": "node tools/build-tiles.mjs"
   },
   "dependencies": {
     "ws": "8.23.0"
