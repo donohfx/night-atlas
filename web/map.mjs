@@ -37,6 +37,8 @@ const showcasePlaces = [
   ["Trois-Rivières", [-72.546,46.350], 8.2, Infinity, "major"],
   ["Montréal", [-73.554,45.509], 7.9, Infinity, "major"],
   ["Lac Saint-Pierre", [-72.75,46.18], 8.5, 12.5, "water"],
+  ["Kingston", [-76.48,44.23], 8.5, Infinity, "major"],
+  ["Thousand Islands", [-76.03,44.32], 8.5, 12.2, "water"],
   ["Newfoundland", [-56.5,48.75], 5.8, 8.5, "region"],
   ["Labrador", [-59.7,53.1], 5.6, 8.5, "region"],
   ["St. John's", [-52.71,47.56], 7.6, Infinity, "major"],
@@ -59,8 +61,9 @@ const showcasePlaces = [
 
 // Defer the expanded marks until the chart is within reach of symbol zoom.
 const riverAreas = [
-  ["gulf", [-71.31,46.2,-57.0,52.0]],
-  ["lower", [-73.70,45.3,-71.29,47.48]],
+  ["gulf", [-72.33,46.7,-57.0,52.0]],
+  ["lower", [-73.65,45.0,-71.29,46.75]],
+  ["upper", [-76.55,44.08,-73.50,45.57]],
 ];
 
 const [region, focusPoints, tileConfig, regionalLights] = await Promise.all([

@@ -13,6 +13,13 @@ REGION = WEB / "region"
 AREAS = ("gulf", "lower", "upper")
 QUEBEC_CITY = -71.30
 MONTREAL = -73.53
+LOWER_RIVER = [
+    (-73.65, 45.45), (-73.50, 45.40), (-73.24, 45.62),
+    (-73.04, 45.92), (-72.60, 46.12), (-72.20, 46.25),
+    (-71.73, 46.53), (-71.30, 46.67), (-71.30, 46.94),
+    (-71.81, 46.77), (-72.33, 46.53), (-72.69, 46.38),
+    (-73.18, 46.11), (-73.49, 45.86), (-73.65, 45.72),
+]
 # Bounds for the supplied harvest, avoiding Lake Ontario, Ottawa and the
 # Rideau. Include both sides of the international navigation channel.
 UPPER_RIVER = [
@@ -68,20 +75,24 @@ def main():
     longitude_scale = .65
     tree = STRtree([scale(union_all(outlines[code]), xfact=longitude_scale, origin=(0, 0))
                     for code in codes])
-    upper = Polygon(UPPER_RIVER)
+    lower, upper = Polygon(LOWER_RIVER), Polygon(UPPER_RIVER)
 
     def area(mark, chart):
         x, y = xy(mark)
         if chart and not aids_builder.inside((x, y), bounds):
             return None
-        if not chart and ll(mark).startswith("INL"):
-            return "upper"
-        if x < MONTREAL:
-            return "upper" if chart and upper.covers(Point(x, y)) else "lower"
-        if x < QUEBEC_CITY:
-            return "lower" if not chart or 45.3 <= y <= 47.3 else None
         if not chart:
-            return "gulf"
+            number = ll(mark).split("#")[0]
+            if number.startswith("INL"):
+                return "upper"
+            if not number[0].isdigit() or not 1169.1 <= float(number) <= 2384:
+                return None
+            return "lower" if x < QUEBEC_CITY and y < 47.3 else "gulf"
+        if x < QUEBEC_CITY:
+            point = Point(x, y)
+            if x < MONTREAL and upper.covers(point):
+                return "upper"
+            return "lower" if lower.covers(point) else None
         # Select new Quebec waters using the same distance model as NL.
         # Include the Quebec City approaches on either side of the river.
         nearest = tree.query_nearest(Point(x * longitude_scale, y))
