@@ -1,0 +1,2647 @@
+[
+  {
+    "osm": "node/10566489451",
+    "name": "St. Shott's Lightstation",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1279496107",
+    "name": "Cape Race Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H444"
+    ],
+    "candidates": [
+      [
+        2.5,
+        "NFD:NFD1",
+        "Cape Race Light Station & Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD1",
+    "distanceMetres": 2.5,
+    "marks": [
+      [
+        "ccg",
+        "NFD1",
+        "Cape Race Light Station & Fog Signal",
+        [
+          -53.073611,
+          46.658583
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1280962258",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H514"
+    ],
+    "candidates": [
+      [
+        149.6,
+        "NFD:NFD465",
+        "Random Head Harbour Light"
+      ]
+    ],
+    "aid": "NFD:NFD465",
+    "distanceMetres": 149.6,
+    "marks": [
+      [
+        "ccg",
+        "NFD465",
+        "Random Head Harbour Light",
+        [
+          -53.545306,
+          48.09475
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/12895430401",
+    "name": "Little Port Head",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        4.8,
+        "NFD:NFD196",
+        "Little Port Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD196",
+    "distanceMetres": 4.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD196",
+        "Little Port Head Light",
+        [
+          -58.428111,
+          49.108639
+        ]
+      ],
+      [
+        "chs",
+        "NFD196",
+        "Little Port Head",
+        [
+          -58.4288889,
+          49.1086111
+        ]
+      ],
+      [
+        "chs",
+        "NFD196",
+        "",
+        [
+          -58.4281061,
+          49.1086275
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1301132683",
+    "name": "Fort Amherst Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H458"
+    ],
+    "candidates": [
+      [
+        6.8,
+        "NFD:NFD506",
+        "Fort Amherst Light Station and Fog Signal"
+      ],
+      [
+        412.9,
+        "NFD:NFD505.5",
+        "North Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD506",
+    "distanceMetres": 6.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD506",
+        "Fort Amherst Light Station and Fog Signal",
+        [
+          -52.680444,
+          47.563306
+        ]
+      ],
+      [
+        "chs",
+        "NFD506",
+        "",
+        [
+          -52.68045,
+          47.5633139
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1342162012",
+    "name": "Channel Head Lighttower",
+    "method": "reviewed override: The named Channel Head tower is 3 m from the published station. The wharf mast is separate.",
+    "references": [],
+    "candidates": [
+      [
+        2.9,
+        "NFD:NFD160",
+        "Channel Head Light Station"
+      ],
+      [
+        211.9,
+        "NFD:NFD160.7",
+        "Channel Gut Wharf Light"
+      ]
+    ],
+    "aid": "NFD:NFD160",
+    "distanceMetres": 2.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD160",
+        "Channel Head Light Station Racon C (- . - .) X & S Bands",
+        [
+          -59.1235,
+          47.565833
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "Channel Head",
+        [
+          -59.1235,
+          47.5658333
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1345117197",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H220"
+    ],
+    "candidates": [
+      [
+        1.0,
+        "NFD:NFD173",
+        "Cape Ray Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD173",
+    "distanceMetres": 1.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD173",
+        "Cape Ray Light Station and Fog Signal",
+        [
+          -59.303917,
+          47.621111
+        ]
+      ],
+      [
+        "chs",
+        "NFD173",
+        "Cape Ray",
+        [
+          -59.3039064,
+          47.6211044
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1345991362",
+    "name": null,
+    "method": "Published front and rear positions conflict with the two OSM references. Keep both published range lights as chart marks.",
+    "references": [
+      "H223"
+    ],
+    "candidates": [
+      [
+        47.6,
+        "NFD:NFD167",
+        "Port aux Basques rear range light"
+      ],
+      [
+        246.5,
+        "NFD:NFD166",
+        "Port aux Basques front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1360518307",
+    "name": null,
+    "method": "Published front and rear positions conflict with the two OSM references. Keep both published range lights as chart marks.",
+    "references": [
+      "H223.1"
+    ],
+    "candidates": [
+      [
+        2.3,
+        "NFD:NFD166",
+        "Port aux Basques front range light"
+      ],
+      [
+        199.0,
+        "NFD:NFD167",
+        "Port aux Basques rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1360518463",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H227"
+    ],
+    "candidates": [
+      [
+        18.4,
+        "NFD:NFD170",
+        "Pikes Island Breakwater Light"
+      ],
+      [
+        368.1,
+        "NFD:NFD163",
+        "Vardys Island Light (Rhode Island)"
+      ],
+      [
+        374.8,
+        "NFD:NFD162",
+        "Graveyard Point Light"
+      ]
+    ],
+    "aid": "NFD:NFD163",
+    "distanceMetres": 368.1,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "NFD163",
+        "Vardys Island Light (Rhode Island)",
+        [
+          -59.13675,
+          47.577111
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "Vardys Island",
+        [
+          -59.13675,
+          47.5771111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1360518654",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H224"
+    ],
+    "candidates": [
+      [
+        74.9,
+        "NFD:NFD163",
+        "Vardys Island Light (Rhode Island)"
+      ],
+      [
+        363.7,
+        "NFD:NFD170",
+        "Pikes Island Breakwater Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1429434965",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H388"
+    ],
+    "candidates": [
+      [
+        6.9,
+        "NFD:NFD42",
+        "Sound Island Point Light"
+      ]
+    ],
+    "aid": "NFD:NFD42",
+    "distanceMetres": 6.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD42",
+        "Sound Island Point Light",
+        [
+          -54.167139,
+          47.789167
+        ]
+      ],
+      [
+        "chs",
+        "NFD42",
+        "Sound Island Point",
+        [
+          -54.1671381,
+          47.7891654
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1432007245",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H470"
+    ],
+    "candidates": [
+      [
+        5.3,
+        "NFD:NFD493",
+        "Bell Island Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD493",
+    "distanceMetres": 5.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD493",
+        "Bell Island Light Station",
+        [
+          -52.916444,
+          47.655028
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1435062802",
+    "name": "Hant's Harbour Lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        4.5,
+        "NFD:NFD470",
+        "Hant’s Harbour Light"
+      ],
+      [
+        466.5,
+        "NFD:NFD470.1",
+        "Hant’s Harbour Breakwater Light"
+      ]
+    ],
+    "aid": "NFD:NFD470",
+    "distanceMetres": 4.5,
+    "marks": [
+      [
+        "ccg",
+        "NFD470",
+        "Hant’s Harbour Light",
+        [
+          -53.254444,
+          48.021778
+        ]
+      ],
+      [
+        "chs",
+        "NFD470",
+        "Hant's Harbour",
+        [
+          -53.2544444,
+          48.0217778
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1435065101",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H502"
+    ],
+    "candidates": [
+      [
+        43.9,
+        "NFD:NFD471",
+        "Old Perlican Light"
+      ]
+    ],
+    "aid": "NFD:NFD471",
+    "distanceMetres": 43.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD471",
+        "Old Perlican Light",
+        [
+          -53.026167,
+          48.089556
+        ]
+      ],
+      [
+        "chs",
+        "NFD471",
+        "Old Perlican",
+        [
+          -53.0261667,
+          48.0895556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1435086942",
+    "name": "Heart's Content Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H510"
+    ],
+    "candidates": [
+      [
+        7.1,
+        "NFD:NFD468",
+        "Heart’s Content Light"
+      ]
+    ],
+    "aid": "NFD:NFD468",
+    "distanceMetres": 7.1,
+    "marks": [
+      [
+        "ccg",
+        "NFD468",
+        "Heart’s Content Light",
+        [
+          -53.385083,
+          47.88225
+        ]
+      ],
+      [
+        "chs",
+        "NFD468",
+        "",
+        [
+          -53.3850944,
+          47.882264
+        ]
+      ],
+      [
+        "chs",
+        "NFD468",
+        "",
+        [
+          -53.3850833,
+          47.88225
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1435090056",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H506"
+    ],
+    "candidates": [
+      [
+        19.9,
+        "NFD:NFD469",
+        "Jeans Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD469",
+    "distanceMetres": 19.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD469",
+        "Jeans Head Light",
+        [
+          -53.363472,
+          47.927028
+        ]
+      ],
+      [
+        "chs",
+        "NFD469",
+        "Jeans Head",
+        [
+          -53.3635124,
+          47.9268811
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1439830701",
+    "name": "Powles Head Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H442"
+    ],
+    "candidates": [
+      [
+        183.8,
+        "NFD:NFD5",
+        "Powles Head Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD5",
+    "distanceMetres": 183.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD5",
+        "Powles Head Light Station",
+        [
+          -53.401639,
+          46.690278
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446330301",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H520"
+    ],
+    "candidates": [
+      [
+        11.8,
+        "NFD:NFD462",
+        "Fort Point Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD462",
+    "distanceMetres": 11.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD462",
+        "Fort Point Light Station and Fog Signal",
+        [
+          -53.345889,
+          48.365528
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446629644",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H522"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1446754532",
+    "name": null,
+    "method": "The referenced Long Liner Wharf light lies 348 m away. Keep it and the nearby breakwater as separate chart marks.",
+    "references": [
+      "H539"
+    ],
+    "candidates": [
+      [
+        23.1,
+        "NFD:NFD447",
+        "Bonavista Breakwater Light"
+      ],
+      [
+        288.0,
+        "NFD:NFD448.1",
+        "Bonavista Floating Wharf Light"
+      ],
+      [
+        348.1,
+        "NFD:NFD448",
+        "Long Liner Wharf Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446754650",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H537"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1446757242",
+    "name": "Bonavista Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H536"
+    ],
+    "candidates": [
+      [
+        25.3,
+        "NFD:NFD449",
+        "Cape Bonavista Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD449",
+    "distanceMetres": 25.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD449",
+        "Cape Bonavista Light Station and Fog Signal",
+        [
+          -53.085389,
+          48.701611
+        ]
+      ],
+      [
+        "chs",
+        "NFD449",
+        "",
+        [
+          -53.0853889,
+          48.7016111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446767775",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1446776738",
+    "name": "Green Island (Catalina) Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H526"
+    ],
+    "candidates": [
+      [
+        17.1,
+        "NFD:NFD453",
+        "Green Island (Catalina) Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD453",
+    "distanceMetres": 17.1,
+    "marks": [
+      [
+        "ccg",
+        "NFD453",
+        "Green Island (Catalina) Light Station and Fog Signal",
+        [
+          -53.043444,
+          48.504111
+        ]
+      ],
+      [
+        "chs",
+        "NFD453",
+        "Green Island Light Station (Catalina)",
+        [
+          -53.0434444,
+          48.5041111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446777036",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H526.5"
+    ],
+    "candidates": [
+      [
+        69.8,
+        "NFD:NFD453.2",
+        "Burnt Point (Catalina) Light"
+      ]
+    ],
+    "aid": "NFD:NFD453.2",
+    "distanceMetres": 69.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD453.2",
+        "Burnt Point (Catalina) Light",
+        [
+          -53.049556,
+          48.509111
+        ]
+      ],
+      [
+        "chs",
+        "NFD453.2",
+        "Burnt Point",
+        [
+          -53.0495556,
+          48.5091111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1446777136",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H527.1"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1446777201",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H528"
+    ],
+    "candidates": [
+      [
+        402.1,
+        "NFD:NFD454",
+        "Catalina Harbour Outer front range light"
+      ],
+      [
+        423.0,
+        "NFD:NFD455",
+        "Catalina Harbour Outer rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1493886451",
+    "name": null,
+    "method": "The OSM seamark is 436 m from the published wharf position. Keep the wharf and the separate Pitman’s Island light as chart marks.",
+    "references": [
+      "H232.4"
+    ],
+    "candidates": [
+      [
+        429.8,
+        "NFD:NFD157",
+        "Pitman’s Island Light"
+      ],
+      [
+        435.6,
+        "NFD:NFD156.8",
+        "Isle aux Morts Wharf Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1500710237",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H205.2"
+    ],
+    "candidates": [
+      [
+        52.3,
+        "NFD:NFD180.1",
+        "Port Harmon Breakwater Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1500710893",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H205.08"
+    ],
+    "candidates": [
+      [
+        409.9,
+        "NFD:NFD180.1",
+        "Port Harmon Breakwater Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1632794386",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1654746729",
+    "name": "Bay Bulls Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H452"
+    ],
+    "candidates": [
+      [
+        10.2,
+        "NFD:NFD508",
+        "Bull Head (Bay Bulls) Light"
+      ]
+    ],
+    "aid": "NFD:NFD508",
+    "distanceMetres": 10.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD508",
+        "Bull Head (Bay Bulls) Light",
+        [
+          -52.746833,
+          47.31075
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1654914071",
+    "name": "Ferryland Head Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H450"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD509",
+        "Ferryland Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD509",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD509",
+        "Ferryland Head Light",
+        [
+          -52.857417,
+          47.016778
+        ]
+      ],
+      [
+        "chs",
+        "NFD509",
+        "Ferryland Head",
+        [
+          -52.8574167,
+          47.0167778
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1831615705",
+    "name": "Carbonear Island",
+    "method": "international reference",
+    "references": [
+      "H490"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD477",
+        "Carbonear Island Light"
+      ]
+    ],
+    "aid": "NFD:NFD477",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD477",
+        "Carbonear Island Light",
+        [
+          -53.164361,
+          47.739611
+        ]
+      ],
+      [
+        "chs",
+        "NFD477",
+        "Carbonear Island",
+        [
+          -53.1643611,
+          47.7396111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1831650832",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H484"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD479",
+        "Harbour Grace Islands Light"
+      ]
+    ],
+    "aid": "NFD:NFD479",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD479",
+        "Harbour Grace Islands Light",
+        [
+          -53.141806,
+          47.711778
+        ]
+      ],
+      [
+        "chs",
+        "NFD479",
+        "Harbour Grace Islands",
+        [
+          -53.1418056,
+          47.7117778
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1831659237",
+    "name": "Point of Beach",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        15.7,
+        "NFD:NFD481.1",
+        "Point of Beach Sector"
+      ]
+    ],
+    "aid": "NFD:NFD481.1",
+    "distanceMetres": 15.7,
+    "marks": [
+      [
+        "ccg",
+        "NFD481.1",
+        "Point of Beach Sector",
+        [
+          -53.214444,
+          47.69
+        ]
+      ],
+      [
+        "chs",
+        "NFD481.1",
+        "Point of Beach",
+        [
+          -53.2144444,
+          47.69
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1832274207",
+    "name": "Brigus Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H478"
+    ],
+    "candidates": [
+      [
+        8.6,
+        "NFD:NFD488",
+        "Brigus Light"
+      ]
+    ],
+    "aid": "NFD:NFD488",
+    "distanceMetres": 8.6,
+    "marks": [
+      [
+        "ccg",
+        "NFD488",
+        "Brigus Light",
+        [
+          -53.182028,
+          47.5485
+        ]
+      ],
+      [
+        "chs",
+        "NFD488",
+        "Brigus",
+        [
+          -53.1820278,
+          47.5485
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1832315470",
+    "name": "Ballyhack Point Light",
+    "method": "international reference",
+    "references": [
+      "H476"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD489",
+        "Ballyhack Point Light"
+      ]
+    ],
+    "aid": "NFD:NFD489",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD489",
+        "Ballyhack Point Light",
+        [
+          -53.191056,
+          47.446111
+        ]
+      ],
+      [
+        "chs",
+        "NFD489",
+        "Ballyhack Pt",
+        [
+          -53.1910556,
+          47.4461111
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1832505500",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H472"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD497",
+        "Portugal Cove Breakwater Light"
+      ],
+      [
+        219.3,
+        "NFD:NFD495",
+        "Portugal Cove front range light"
+      ],
+      [
+        272.3,
+        "NFD:NFD496",
+        "Portugal Cove rear range light"
+      ]
+    ],
+    "aid": "NFD:NFD497",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD497",
+        "Portugal Cove Breakwater Light",
+        [
+          -52.858667,
+          47.626306
+        ]
+      ],
+      [
+        "chs",
+        "NFD497",
+        "Portugal Cove",
+        [
+          -52.8586667,
+          47.6263056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1834890148",
+    "name": "Cape Pine Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H440"
+    ],
+    "candidates": [
+      [
+        27.4,
+        "NFD:NFD6",
+        "Cape Pine Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD6",
+    "distanceMetres": 27.4,
+    "marks": [
+      [
+        "ccg",
+        "NFD6",
+        "Cape Pine Light Station and Fog Signal",
+        [
+          -53.531417,
+          46.616972
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1834890149",
+    "name": "Trepassey Harbour Light",
+    "method": "international reference",
+    "references": [
+      "H443"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD4",
+        "Trepassey Harbour Light"
+      ]
+    ],
+    "aid": "NFD:NFD4",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD4",
+        "Trepassey Harbour Light",
+        [
+          -53.38275,
+          46.724556
+        ]
+      ],
+      [
+        "chs",
+        "NFD4",
+        "Trepassey Harbour",
+        [
+          -53.38275,
+          46.7245556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1837777129",
+    "name": "La Haye Point Light",
+    "method": "international reference",
+    "references": [
+      "H436"
+    ],
+    "candidates": [
+      [
+        75.2,
+        "NFD:NFD8",
+        "La Haye Point Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD8",
+    "distanceMetres": 75.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD8",
+        "La Haye Point Light Station and Fog Signal",
+        [
+          -53.616333,
+          46.904333
+        ]
+      ],
+      [
+        "chs",
+        "NFD8",
+        "La Haye Point",
+        [
+          -53.6163333,
+          46.9043333
+        ]
+      ],
+      [
+        "chs",
+        "NFD8",
+        "La Haye Pt",
+        [
+          -53.6163333,
+          46.9043333
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1837790906",
+    "name": "Great Colinet Island Light",
+    "method": "international reference",
+    "references": [
+      "H434"
+    ],
+    "candidates": [
+      [
+        70.0,
+        "NFD:NFD9",
+        "Great Colinet Island Light"
+      ]
+    ],
+    "aid": "NFD:NFD9",
+    "distanceMetres": 70.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD9",
+        "Great Colinet Island Light",
+        [
+          -53.685361,
+          47.012806
+        ]
+      ],
+      [
+        "chs",
+        "NFD9",
+        "Great Colinet Island",
+        [
+          -53.6853611,
+          47.0128056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1838781045",
+    "name": "Bordeaux Island Light",
+    "method": "international reference",
+    "references": [
+      "H394"
+    ],
+    "candidates": [
+      [
+        31.1,
+        "NFD:NFD39",
+        "Bordeaux Island Light"
+      ]
+    ],
+    "aid": "NFD:NFD39",
+    "distanceMetres": 31.1,
+    "marks": [
+      [
+        "ccg",
+        "NFD39",
+        "Bordeaux Island Light",
+        [
+          -54.0315,
+          47.741556
+        ]
+      ],
+      [
+        "chs",
+        "NFD39",
+        "",
+        [
+          -54.0314938,
+          47.7415607
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1838826346",
+    "name": "North Harbour Point Lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD40",
+        "North Harbour Point Light"
+      ]
+    ],
+    "aid": "NFD:NFD40",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD40",
+        "North Harbour Point Light",
+        [
+          -54.097972,
+          47.820556
+        ]
+      ],
+      [
+        "chs",
+        "NFD40",
+        "North Harbour Point",
+        [
+          -54.0979659,
+          47.8206467
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1920573673",
+    "name": "Rose Blanche Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H242.5"
+    ],
+    "candidates": [
+      [
+        3.2,
+        "NFD:NFD150.19",
+        "Rose Blanche Light"
+      ]
+    ],
+    "aid": "NFD:NFD150.19",
+    "distanceMetres": 3.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD150.19",
+        "Rose Blanche Light",
+        [
+          -58.694694,
+          47.601861
+        ]
+      ],
+      [
+        "chs",
+        "NFD150.19",
+        "Rose Blanche",
+        [
+          -58.6946944,
+          47.6018611
+        ]
+      ],
+      [
+        "chs",
+        "NFD150.19",
+        "Rose Blanche Point",
+        [
+          -58.6946944,
+          47.6018611
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1920574884",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H321"
+    ],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD106",
+        "Grand Bank Wharf Light"
+      ],
+      [
+        67.6,
+        "NFD:NFD107",
+        "Grand Bank West Pier Light"
+      ],
+      [
+        105.1,
+        "NFD:NFD106.5",
+        "Grand Bank Sector Light"
+      ],
+      [
+        169.3,
+        "NFD:NFD108",
+        "Grand Bank Breakwater Light"
+      ]
+    ],
+    "aid": "NFD:NFD107",
+    "distanceMetres": 67.6,
+    "marks": [
+      [
+        "ccg",
+        "NFD107",
+        "Grand Bank West Pier Light",
+        [
+          -55.749639,
+          47.101889
+        ]
+      ],
+      [
+        "chs",
+        "NFD107",
+        "",
+        [
+          -55.7496275,
+          47.1018556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/2503341103",
+    "name": "Cape St Francis Lighthouse",
+    "method": "reviewed override: Cape St Francis matches the published light station within 9 m.",
+    "references": [],
+    "candidates": [
+      [
+        9.0,
+        "NFD:NFD499",
+        "Cape St. Francis Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD499",
+    "distanceMetres": 9.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD499",
+        "Cape St. Francis Light Station",
+        [
+          -52.786583,
+          47.808722
+        ]
+      ],
+      [
+        "chs",
+        "NFD499",
+        "Cape St. Francis",
+        [
+          -52.7865833,
+          47.8087222
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/2539913331",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        68.4,
+        "NFD:NFD5",
+        "Powles Head Light Station"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4181578599",
+    "name": "Allan's Island lighthouse",
+    "method": "international reference",
+    "references": [
+      "H350"
+    ],
+    "candidates": [
+      [
+        5.3,
+        "NFD:NFD76",
+        "Allan’s Island Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD76",
+    "distanceMetres": 5.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD76",
+        "Allan’s Island Light Station and Fog Signal",
+        [
+          -55.797639,
+          46.846667
+        ]
+      ],
+      [
+        "chs",
+        "NFD76",
+        "Lamaline",
+        [
+          -55.7976389,
+          46.8466667
+        ]
+      ],
+      [
+        "chs",
+        "NFD76",
+        "Lamaline Light Station",
+        [
+          -55.7976389,
+          46.8466667
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/4181701592",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        41.2,
+        "NFD:NFD77",
+        "Lamaline front range light"
+      ],
+      [
+        146.4,
+        "NFD:NFD78",
+        "Lamaline rear range light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4207811418",
+    "name": "Woody Point Lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        7.7,
+        "NFD:NFD200",
+        "Woody Point Light"
+      ]
+    ],
+    "aid": "NFD:NFD200",
+    "distanceMetres": 7.7,
+    "marks": [
+      [
+        "ccg",
+        "NFD200",
+        "Woody Point Light",
+        [
+          -57.912472,
+          49.504778
+        ]
+      ],
+      [
+        "chs",
+        "NFD200",
+        "",
+        [
+          -57.9124667,
+          49.5047833
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/4207812020",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        18.3,
+        "NFD:NFD205",
+        "Gadds Point Light"
+      ],
+      [
+        435.1,
+        "NFD:NFD204",
+        "Norris Point Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/4209161732",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/4209161895",
+    "name": "Cow Head Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/448387859",
+    "name": "Point Amour Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H114"
+    ],
+    "candidates": [
+      [
+        27.8,
+        "NFD:NFD227",
+        "Amour Point Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD227",
+    "distanceMetres": 27.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD227",
+        "Amour Point Light Station",
+        [
+          -56.858139,
+          51.460472
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/469724587",
+    "name": "Long Point Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H640"
+    ],
+    "candidates": [
+      [
+        8.4,
+        "NFD:NFD358",
+        "Long Point (Twillingate) Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD358",
+    "distanceMetres": 8.4,
+    "marks": [
+      [
+        "ccg",
+        "NFD358",
+        "Long Point (Twillingate) Light Station and Fog Signal",
+        [
+          -54.8,
+          49.687778
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/470734373",
+    "name": "Cape Spear",
+    "method": "international reference",
+    "references": [
+      "H454"
+    ],
+    "candidates": [
+      [
+        0.3,
+        "NFD:NFD507",
+        "Cape Spear Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD507",
+    "distanceMetres": 0.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD507",
+        "Cape Spear Light Station and Fog Signal",
+        [
+          -52.622306,
+          47.521167
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/491406196",
+    "name": "Lobster Cove Head Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H164"
+    ],
+    "candidates": [
+      [
+        15.3,
+        "NFD:NFD201",
+        "Lobster Cove Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD201",
+    "distanceMetres": 15.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD201",
+        "Lobster Cove Head Light",
+        [
+          -57.955861,
+          49.602833
+        ]
+      ],
+      [
+        "chs",
+        "NFD201",
+        "Lobster Cove Head",
+        [
+          -57.9566667,
+          49.6027778
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -57.95585,
+          49.6028333
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/500968008",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H668"
+    ],
+    "candidates": [
+      [
+        2.2,
+        "NFD:NFD352",
+        "Mill Point Light (Botwood)"
+      ]
+    ],
+    "aid": "NFD:NFD352",
+    "distanceMetres": 2.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD352",
+        "Mill Point Light (Botwood)",
+        [
+          -55.334611,
+          49.147556
+        ]
+      ],
+      [
+        "chs",
+        "NFD352",
+        "",
+        [
+          -55.3346167,
+          49.1475556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/5904514599",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        11.1,
+        "NFD:NFD141",
+        "Northwest Head Light Station and Fog Signal"
+      ]
+    ]
+  },
+  {
+    "osm": "node/6548305562",
+    "name": "Phare de Point-Amour",
+    "method": "reviewed override: Point Amour is the French name for the published Amour Point tower, 22 m away.",
+    "references": [],
+    "candidates": [
+      [
+        21.9,
+        "NFD:NFD227",
+        "Amour Point Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD227",
+    "distanceMetres": 21.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD227",
+        "Amour Point Light Station",
+        [
+          -56.858139,
+          51.460472
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/6549644647",
+    "name": "St. Jacques Island Lighthouse",
+    "method": "reviewed override: The St. Jacques Island named structure matches the published island light station within 29 m.",
+    "references": [],
+    "candidates": [
+      [
+        28.8,
+        "NFD:NFD118",
+        "St. Jacques Island Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD118",
+    "distanceMetres": 28.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD118",
+        "St. Jacques Island Light Station and Fog Signal",
+        [
+          -55.406389,
+          47.473889
+        ]
+      ],
+      [
+        "chs",
+        "NFD118",
+        "",
+        [
+          -55.4063889,
+          47.4738889
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/6549771759",
+    "name": "Offer Wadham Lighthouse",
+    "method": "reviewed override: Offer Wadham matches the published Offer Wadham Island light within 4 m.",
+    "references": [],
+    "candidates": [
+      [
+        4.3,
+        "NFD:NFD396",
+        "Offer Wadham Island Light"
+      ]
+    ],
+    "aid": "NFD:NFD396",
+    "distanceMetres": 4.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD396",
+        "Offer Wadham Island Light",
+        [
+          -53.762806,
+          49.593417
+        ]
+      ],
+      [
+        "chs",
+        "NFD396",
+        "",
+        [
+          -53.7628097,
+          49.5934067
+        ]
+      ],
+      [
+        "chs",
+        "NFD396",
+        "",
+        [
+          -53.7628016,
+          49.5934041
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/6721296932",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        173.1,
+        "NFD:NFD185",
+        "Long Point Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/7767904807",
+    "name": "Green Island",
+    "method": "reviewed override: The Green Island name, international reference H0348, white isophase and ten-second period agree.",
+    "references": [],
+    "candidates": [
+      [
+        61.2,
+        "NFD:NFD100",
+        "Green Island Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD100",
+    "distanceMetres": 61.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD100",
+        "Green Island Light Station and Fog Signal",
+        [
+          -56.085694,
+          46.879722
+        ]
+      ],
+      [
+        "chs",
+        "NFD100",
+        "Green Island",
+        [
+          -56.0856944,
+          46.8797222
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/7775380949",
+    "name": "Black Head lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        42.3,
+        "NFD:NFD74",
+        "Black Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD74",
+    "distanceMetres": 42.3,
+    "marks": [
+      [
+        "ccg",
+        "NFD74",
+        "Black Head Light",
+        [
+          -55.560833,
+          46.905
+        ]
+      ],
+      [
+        "chs",
+        "NFD74",
+        "Black Head",
+        [
+          -55.5608333,
+          46.905
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/7775681886",
+    "name": "Brunette Island",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        0.0,
+        "NFD:NFD101",
+        "Brunette Island Light"
+      ]
+    ],
+    "aid": "NFD:NFD101",
+    "distanceMetres": 0.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD101",
+        "Brunette Island Light",
+        [
+          -55.866306,
+          47.257417
+        ]
+      ],
+      [
+        "chs",
+        "NFD101",
+        "Brunette Island",
+        [
+          -55.8663056,
+          47.2574167
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1047736355",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1071513295",
+    "name": "Fox Point Lighthouse",
+    "method": "reviewed override: The Fox Point structure matches the Fishing Point station within 7 m. The harbour light is separate.",
+    "references": [],
+    "candidates": [
+      [
+        7.1,
+        "NFD:NFD240",
+        "Fox Point (Fishing Point) Light Station and Fog Signal"
+      ],
+      [
+        445.2,
+        "NFD:NFD242",
+        "St. Anthony Harbour Light"
+      ]
+    ],
+    "aid": "NFD:NFD240",
+    "distanceMetres": 7.1,
+    "marks": [
+      [
+        "ccg",
+        "NFD240",
+        "Fox Point (Fishing Point) Light Station and Fog Signal",
+        [
+          -55.555083,
+          51.356111
+        ]
+      ],
+      [
+        "chs",
+        "NFD240",
+        "Fox Point (Fishing Point)",
+        [
+          -55.5550694,
+          51.3561306
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1124285588",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        8.2,
+        "NFD:NFD358",
+        "Long Point (Twillingate) Light Station and Fog Signal"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1157365568",
+    "name": "Cape Anguille Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H218"
+    ],
+    "candidates": [
+      [
+        26.9,
+        "NFD:NFD175",
+        "Cape Anguille Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD175",
+    "distanceMetres": 26.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD175",
+        "Cape Anguille Light Station and Fog Signal",
+        [
+          -59.41125,
+          47.900556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1311164165",
+    "name": "King's Cove Lighthouse",
+    "method": "reviewed override: The King’s Cove lighthouse matches the published Kings Cove Head tower.",
+    "references": [],
+    "candidates": [
+      [
+        85.0,
+        "NFD:NFD443",
+        "Kings Cove Head Light"
+      ]
+    ],
+    "aid": "NFD:NFD443",
+    "distanceMetres": 85.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD443",
+        "Kings Cove Head Light",
+        [
+          -53.323611,
+          48.575556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1383480540",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        16.3,
+        "NFD:NFD144",
+        "Boar Island Light Station and Fog Signal"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1412751114",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        23.9,
+        "NFD:NFD449",
+        "Cape Bonavista Light Station and Fog Signal"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1451961303",
+    "name": "Fortune Head light station",
+    "method": "international reference",
+    "references": [
+      "H325"
+    ],
+    "candidates": [
+      [
+        25.9,
+        "NFD:NFD102",
+        "Fortune Head Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD102",
+    "distanceMetres": 25.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD102",
+        "Fortune Head Light Station and Fog Signal",
+        [
+          -55.859444,
+          47.074444
+        ]
+      ],
+      [
+        "chs",
+        "NFD102",
+        "Fortune Head",
+        [
+          -55.8594444,
+          47.0744444
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1466483142",
+    "name": "Conche Lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        58.7,
+        "NFD:NFD247",
+        "Conche Light"
+      ],
+      [
+        144.0,
+        "NFD:NFD247.1",
+        "Conche Wharf Light"
+      ]
+    ],
+    "aid": "NFD:NFD247",
+    "distanceMetres": 58.7,
+    "marks": [
+      [
+        "ccg",
+        "NFD247",
+        "Conche Light",
+        [
+          -55.897278,
+          50.886083
+        ]
+      ],
+      [
+        "chs",
+        "NFD247",
+        "Conche",
+        [
+          -55.89728,
+          50.8860833
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1548517152",
+    "name": "Cape St. Mary's Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H432"
+    ],
+    "candidates": [
+      [
+        14.0,
+        "NFD:NFD14",
+        "Cape St. Mary's Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD14",
+    "distanceMetres": 14.0,
+    "marks": [
+      [
+        "ccg",
+        "NFD14",
+        "Cape St. Mary's Light Station and Fog Signal",
+        [
+          -54.196,
+          46.823056
+        ]
+      ],
+      [
+        "chs",
+        "NFD14",
+        "Cape St. Mary's",
+        [
+          -54.1960119,
+          46.8230472
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1557493252",
+    "name": "Cape Race Lighthouse",
+    "method": "reviewed override: The named tower footprint and the existing OSM node refer to the same station.",
+    "references": [],
+    "candidates": [
+      [
+        2.9,
+        "NFD:NFD1",
+        "Cape Race Light Station & Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD1",
+    "distanceMetres": 2.9,
+    "marks": [
+      [
+        "ccg",
+        "NFD1",
+        "Cape Race Light Station & Fog Signal",
+        [
+          -53.073611,
+          46.658583
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1570810365",
+    "name": "Green Point Lighthouse",
+    "method": "reviewed override: The named Green Point tower matches the Bay Roberts station within 3 m.",
+    "references": [],
+    "candidates": [
+      [
+        2.5,
+        "NFD:NFD486",
+        "Green Point (Bay Roberts) Light"
+      ]
+    ],
+    "aid": "NFD:NFD486",
+    "distanceMetres": 2.5,
+    "marks": [
+      [
+        "ccg",
+        "NFD486",
+        "Green Point (Bay Roberts) Light",
+        [
+          -53.176694,
+          47.611472
+        ]
+      ],
+      [
+        "chs",
+        "NFD486",
+        "Green Pt",
+        [
+          -53.1766944,
+          47.6114722
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/223699724",
+    "name": "Point Richie Lighthouse",
+    "method": "reviewed override: Point Richie matches the Pointe Riche tower within 12 m.",
+    "references": [],
+    "candidates": [
+      [
+        12.4,
+        "NFD:NFD211",
+        "Pointe Riche Light"
+      ]
+    ],
+    "aid": "NFD:NFD211",
+    "distanceMetres": 12.4,
+    "marks": [
+      [
+        "ccg",
+        "NFD211",
+        "Pointe Riche Light",
+        [
+          -57.410222,
+          50.6985
+        ]
+      ],
+      [
+        "chs",
+        "",
+        "",
+        [
+          -57.4102222,
+          50.6985056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/443491647",
+    "name": "Puffin Island Lighthouse",
+    "method": "reviewed override: The named Puffin Island structure matches the published light station within 12 m.",
+    "references": [],
+    "candidates": [
+      [
+        11.8,
+        "NFD:NFD430",
+        "Puffin Island Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD430",
+    "distanceMetres": 11.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD430",
+        "Puffin Island Light Station and Fog Signal",
+        [
+          -53.550889,
+          49.061667
+        ]
+      ],
+      [
+        "chs",
+        "NFD430",
+        "Puffin Island",
+        [
+          -53.5508833,
+          49.0616639
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/476050017",
+    "name": "Belle Isle Northeast Light",
+    "method": "reviewed override: Belle Isle Northeast matches the published north-end station within 8 m.",
+    "references": [],
+    "candidates": [
+      [
+        7.8,
+        "NFD:NFD232",
+        "Belle Isle North End Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD232",
+    "distanceMetres": 7.8,
+    "marks": [
+      [
+        "ccg",
+        "NFD232",
+        "Belle Isle North End Light Station",
+        [
+          -55.280361,
+          52.013639
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/526231911",
+    "name": "Colombier Island Lighthouse",
+    "method": "reviewed override: The named Colombier Island tower matches the published station within 12 m.",
+    "references": [],
+    "candidates": [
+      [
+        12.4,
+        "NFD:NFD156",
+        "Colombier Islands Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD156",
+    "distanceMetres": 12.4,
+    "marks": [
+      [
+        "ccg",
+        "NFD156",
+        "Colombier Islands Light Station",
+        [
+          -58.897306,
+          47.591917
+        ]
+      ],
+      [
+        "chs",
+        "NFD156",
+        "Colombier Islands",
+        [
+          -58.8973144,
+          47.5919064
+        ]
+      ],
+      [
+        "chs",
+        "NFD156",
+        "",
+        [
+          -58.8973139,
+          47.5919056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/726984756",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        7.4,
+        "NFD:NFD200",
+        "Woody Point Light"
+      ]
+    ]
+  },
+  {
+    "osm": "way/828322224",
+    "name": "Cape Norman Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/830322192",
+    "name": "New Férolle Peninsula Light",
+    "method": "reviewed override: The named New Férolle tower matches the published station within 25 m.",
+    "references": [],
+    "candidates": [
+      [
+        25.2,
+        "NFD:NFD220",
+        "New Ferolle Peninsula Light Station and Fog Signal"
+      ]
+    ],
+    "aid": "NFD:NFD220",
+    "distanceMetres": 25.2,
+    "marks": [
+      [
+        "ccg",
+        "NFD220",
+        "New Ferolle Peninsula Light Station and Fog Signal",
+        [
+          -57.095694,
+          51.022806
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/832372948",
+    "name": "Keppel Island Lighthouse (old)",
+    "method": "The tagged old structure remains distinct from the current named Keppel Island station.",
+    "references": [],
+    "candidates": [
+      [
+        2.2,
+        "NFD:NFD208",
+        "Keppel Island Light Station"
+      ]
+    ]
+  },
+  {
+    "osm": "way/832372950",
+    "name": "Keppel Island Lighthouse",
+    "method": "reviewed override: The named current lighthouse is 31 m from the published light. The adjacent old structure is historic.",
+    "references": [],
+    "candidates": [
+      [
+        30.5,
+        "NFD:NFD208",
+        "Keppel Island Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD208",
+    "distanceMetres": 30.5,
+    "marks": [
+      [
+        "ccg",
+        "NFD208",
+        "Keppel Island Light Station",
+        [
+          -57.322194,
+          50.633028
+        ]
+      ],
+      [
+        "chs",
+        "NFD208",
+        "Keppel Island Light Station",
+        [
+          -57.3221944,
+          50.6330278
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/944351082",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        20.8,
+        "NFD:NFD227",
+        "Amour Point Light Station"
+      ]
+    ]
+  },
+  {
+    "osm": "way/996043564",
+    "name": "Quirpon Lighthouse",
+    "method": "reviewed override: The published Cape Bauld station on Quirpon Island is 20 m from the named Quirpon Lighthouse.",
+    "references": [],
+    "candidates": [
+      [
+        20.1,
+        "NFD:NFD225",
+        "Cape Bauld Light Station"
+      ]
+    ],
+    "aid": "NFD:NFD225",
+    "distanceMetres": 20.1,
+    "marks": [
+      [
+        "ccg",
+        "NFD225",
+        "Cape Bauld Light Station",
+        [
+          -55.426639,
+          51.640056
+        ]
+      ]
+    ]
+  }
+]

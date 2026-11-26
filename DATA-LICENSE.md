@@ -28,7 +28,8 @@ uses the provincial layer only in combined mode.
 *List of Lights, Buoys and Fog Signals, Atlantic Coast*, via [NOTMAR](https://notmar.gc.ca/list-lights).
 `web/region/aids.json` is drawn from the same Atlantic Coast volume and the
 Canadian Coast Guard's *List of Lights, Buoys and Fog Signals, Newfoundland and
-Labrador Coast*. The same non-commercial terms and attribution above apply. It is a snapshot for
+Labrador Coast*, and the Nunatsiavut section of the Canadian Coast Guard's
+*List of Lights, Buoys and Fog Signals, Arctic Coast*. The same non-commercial terms and attribution above apply. It is a snapshot for
 visualization and must never be used for navigation. Regenerate locally with
 `python tools/build-atlas-aids.py` (BeautifulSoup and lxml required).
 

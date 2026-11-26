@@ -128,6 +128,8 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "web/aids.json")
     parser.add_argument("--bounds", nargs=4, type=float, metavar=("W", "S", "E", "N"),
                         help="default: mapBounds in web/atlas-core.mjs")
+    parser.add_argument("--atlantic-bounds", nargs=4, type=float, metavar=("W", "S", "E", "N"),
+                        help="optional smaller coverage for the Atlantic volume")
     parser.add_argument("--dropped", type=Path, help="write every aid left out as a duplicate, with the reason")
     args = parser.parse_args()
     chart = json.loads((ROOT / "web/chart-data.json").read_text())
@@ -142,18 +144,21 @@ def main():
     dropped = []
     for source, html in sections(args.sections):
         prefix, first, last = volume(source)
+        coverage = args.atlantic_bounds if not prefix and args.atlantic_bounds else bounds
         rows = list(parse(html))
         if not rows and not prefix:
             raise SystemExit(f"No positioned lit aids parsed from {source}")
         for coordinates, properties, intl in rows:
             kind, number = properties["k"], float(properties["ll"])
-            if not (first <= number <= last) or not inside(coordinates, bounds):
+            if not (first <= number <= last) or not inside(coordinates, coverage):
                 continue
             properties["ll"] = key = prefix + properties["ll"]
             drop = lambda reason: dropped.append({"ll": key, "name": properties["n"],
                                                   "coordinates": coordinates, "reason": reason})
             if key in seen:
                 if any(same_aid(other, (coordinates, properties)) for other in seen[key]):
+                    drop("repeated listing in the same volume")
+                    counts["repeated listings"] += 1
                     continue
                 # The volume reuses a number for a different aid: keep both, told apart by a suffix.
                 seen[key].append((coordinates, properties))

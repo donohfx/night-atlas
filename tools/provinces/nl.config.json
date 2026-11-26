@@ -1,0 +1,96 @@
+{
+  "osmSource": "https://download.geofabrik.de/north-america/canada/newfoundland-and-labrador/newfoundland-and-labrador-261124.osm.pbf",
+  "referenceRadius": 500,
+  "nameRadius": 200,
+  "reviewRadius": 500,
+  "overrides": {
+    "node/1342162012": {
+      "aid": "NFD:NFD160",
+      "reason": "The named Channel Head tower is 3 m from the published station. The wharf mast is separate."
+    },
+    "node/1345991362": {
+      "aid": null,
+      "reason": "Published front and rear positions conflict with the two OSM references. Keep both published range lights as chart marks."
+    },
+    "node/1360518307": {
+      "aid": null,
+      "reason": "Published front and rear positions conflict with the two OSM references. Keep both published range lights as chart marks."
+    },
+    "node/1446754532": {
+      "aid": null,
+      "reason": "The referenced Long Liner Wharf light lies 348 m away. Keep it and the nearby breakwater as separate chart marks."
+    },
+    "node/1493886451": {
+      "aid": null,
+      "reason": "The OSM seamark is 436 m from the published wharf position. Keep the wharf and the separate Pitman’s Island light as chart marks."
+    },
+    "node/2503341103": {
+      "aid": "NFD:NFD499",
+      "reason": "Cape St Francis matches the published light station within 9 m."
+    },
+    "node/6548305562": {
+      "aid": "NFD:NFD227",
+      "reason": "Point Amour is the French name for the published Amour Point tower, 22 m away."
+    },
+    "node/6549644647": {
+      "aid": "NFD:NFD118",
+      "reason": "The St. Jacques Island named structure matches the published island light station within 29 m."
+    },
+    "node/6549771759": {
+      "aid": "NFD:NFD396",
+      "reason": "Offer Wadham matches the published Offer Wadham Island light within 4 m."
+    },
+    "node/7767904807": {
+      "aid": "NFD:NFD100",
+      "reason": "The Green Island name, international reference H0348, white isophase and ten-second period agree."
+    },
+    "way/1071513295": {
+      "aid": "NFD:NFD240",
+      "reason": "The Fox Point structure matches the Fishing Point station within 7 m. The harbour light is separate."
+    },
+    "way/1311164165": {
+      "aid": "NFD:NFD443",
+      "reason": "The King’s Cove lighthouse matches the published Kings Cove Head tower."
+    },
+    "way/1557493252": {
+      "aid": "NFD:NFD1",
+      "reason": "The named tower footprint and the existing OSM node refer to the same station."
+    },
+    "way/1570810365": {
+      "aid": "NFD:NFD486",
+      "reason": "The named Green Point tower matches the Bay Roberts station within 3 m."
+    },
+    "way/223699724": {
+      "aid": "NFD:NFD211",
+      "reason": "Point Richie matches the Pointe Riche tower within 12 m."
+    },
+    "way/443491647": {
+      "aid": "NFD:NFD430",
+      "reason": "The named Puffin Island structure matches the published light station within 12 m."
+    },
+    "way/476050017": {
+      "aid": "NFD:NFD232",
+      "reason": "Belle Isle Northeast matches the published north-end station within 8 m."
+    },
+    "way/526231911": {
+      "aid": "NFD:NFD156",
+      "reason": "The named Colombier Island tower matches the published station within 12 m."
+    },
+    "way/830322192": {
+      "aid": "NFD:NFD220",
+      "reason": "The named New Férolle tower matches the published station within 25 m."
+    },
+    "way/832372948": {
+      "aid": null,
+      "reason": "The tagged old structure remains distinct from the current named Keppel Island station."
+    },
+    "way/832372950": {
+      "aid": "NFD:NFD208",
+      "reason": "The named current lighthouse is 31 m from the published light. The adjacent old structure is historic."
+    },
+    "way/996043564": {
+      "aid": "NFD:NFD225",
+      "reason": "The published Cape Bauld station on Quirpon Island is 20 m from the named Quirpon Lighthouse."
+    }
+  }
+}

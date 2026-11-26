@@ -1,0 +1,1585 @@
+{
+  "source": "https://download.geofabrik.de/north-america/canada/newfoundland-and-labrador/newfoundland-and-labrador-261124.osm.pbf",
+  "elements": [
+    {
+      "id": "node/10566489451",
+      "coordinates": [
+        -53.5961872,
+        46.6212617
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "St. Shott's Lightstation"
+      }
+    },
+    {
+      "id": "node/1279496107",
+      "coordinates": [
+        -53.0736371,
+        46.6585967
+      ],
+      "tags": {
+        "description": "The lighthouse was established in 1856 using an coal oil lamp. It was replaced in 1907 with the current lighthouse. There was also a wireless station here, and heard the distress call of the Titanic, and relayed the messages further inland.",
+        "historic": "yes",
+        "man_made": "lighthouse",
+        "name": "Cape Race Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:group": "2",
+        "seamark:fog_signal:period": "60",
+        "seamark:fog_signal:sequence": "3+(3)+3+(51)",
+        "seamark:landmark:height": "21",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "51.8",
+        "seamark:light:period": "7.5",
+        "seamark:light:range": "27",
+        "seamark:light:reference": "H 0444",
+        "seamark:light:sequence": "0.2+(7.3)",
+        "seamark:name": "Cape Race Light",
+        "seamark:type": "landmark",
+        "tourism": "attraction",
+        "wikidata": "Q1034470"
+      }
+    },
+    {
+      "id": "node/1280962258",
+      "coordinates": [
+        -53.5433331,
+        48.0950239
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "38",
+        "seamark:light:period": "3",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0514",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Motion Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/12895430401",
+      "coordinates": [
+        -58.4281198,
+        49.1086821
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Little Port Head"
+      }
+    },
+    {
+      "id": "node/1301132683",
+      "coordinates": [
+        -52.6803733,
+        47.563344
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Fort Amherst Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:landmark:height": "5",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:exhibition": "24h",
+        "seamark:light:height": "40.1",
+        "seamark:light:period": "15",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 0458",
+        "seamark:light:sequence": "1+(14)",
+        "seamark:name": "Fort Amherst",
+        "seamark:reference": "506 H458",
+        "seamark:type": "landmark",
+        "wikidata": "Q28375024"
+      }
+    },
+    {
+      "id": "node/1342162012",
+      "coordinates": [
+        -59.1234632,
+        47.5658399
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Channel Head Lighttower",
+        "wikidata": "Q28375490"
+      }
+    },
+    {
+      "id": "node/1345117197",
+      "coordinates": [
+        -59.3039057,
+        47.6211061
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "ref:admiralty": "H0220",
+        "ref:nga": "110-2492",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:group": "1",
+        "seamark:fog_signal:period": "60",
+        "seamark:fog_signal:sequence": "4+(56)",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "36",
+        "seamark:light:period": "15",
+        "seamark:light:range": "17",
+        "seamark:light:sequence": "1+(14)",
+        "seamark:name": "Cape Ray",
+        "seamark:type": "light_major",
+        "wikidata": "Q28375954"
+      }
+    },
+    {
+      "id": "node/1345991362",
+      "coordinates": [
+        -59.1453354,
+        47.5805376
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "lower",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "39",
+        "seamark:light:reference": "H 0223",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1360518307",
+      "coordinates": [
+        -59.142484,
+        47.5794346
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "67",
+        "seamark:light:reference": "H 0223.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1360518463",
+      "coordinates": [
+        -59.1321754,
+        47.5759134
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "6",
+        "seamark:light:period": "4",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 0227",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Vardys Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1360518654",
+      "coordinates": [
+        -59.1361084,
+        47.5776274
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "9",
+        "seamark:light:period": "4",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0224",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Graveyard Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1429434965",
+      "coordinates": [
+        -54.1670467,
+        47.7891722
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "10",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 0388",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Sound Island Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1432007245",
+      "coordinates": [
+        -52.9163756,
+        47.6550394
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:landmark:height": "3",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "52.7",
+        "seamark:light:period": "6",
+        "seamark:light:range": "17",
+        "seamark:light:reference": "H 0470",
+        "seamark:light:sequence": "1+(5)",
+        "seamark:name": "Bell Island",
+        "seamark:reference": "493 H470",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1435062802",
+      "coordinates": [
+        -53.2544926,
+        48.0217535
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Hant's Harbour Lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "4",
+        "seamark:light:period": "4",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1435065101",
+      "coordinates": [
+        -53.02558,
+        48.0895047
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "38",
+        "seamark:light:period": "3",
+        "seamark:light:reference": "H 0502",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Old Perlican",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1435086942",
+      "coordinates": [
+        -53.3850418,
+        47.8823078
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Heart's Content Lighthouse",
+        "seamark:light:character": "Oc",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "25",
+        "seamark:light:period": "6",
+        "seamark:light:range": "11",
+        "seamark:light:reference": "H 0510",
+        "seamark:light:sequence": "4+(2)",
+        "seamark:name": "Heart's Content Harbor",
+        "seamark:type": "light_major",
+        "wikidata": "Q44452402"
+      }
+    },
+    {
+      "id": "node/1435090056",
+      "coordinates": [
+        -53.3636782,
+        47.9271423
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "48",
+        "seamark:light:period": "4",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0506",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Jeans Head",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1439830701",
+      "coordinates": [
+        -53.4017687,
+        46.6886273
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Powles Head Lighthouse",
+        "seamark:fog_signal:category": "whistle",
+        "seamark:fog_signal:group": "1",
+        "seamark:fog_signal:period": "60",
+        "seamark:fog_signal:sequence": "5+(55)",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "1",
+        "seamark:light:height": "30.6",
+        "seamark:light:period": "10",
+        "seamark:light:range": "22",
+        "seamark:light:reference": "H 0442",
+        "seamark:light:sequence": "0.2+(9.8)",
+        "seamark:name": "Powles Head Light",
+        "seamark:topmark:colour": "red;white",
+        "seamark:topmark:colour_pattern": "vertical",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1446330301",
+      "coordinates": [
+        -53.3460411,
+        48.3655605
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "24",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 0520",
+        "seamark:name": "Fort Point",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1446629644",
+      "coordinates": [
+        -53.2084123,
+        48.3498237
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:reference": "H 0522",
+        "seamark:name": "Horse Chops",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1446754532",
+      "coordinates": [
+        -53.1186632,
+        48.6495745
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "3",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 0539",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1446754650",
+      "coordinates": [
+        -53.1284271,
+        48.6519106
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "15",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0537",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Squarry Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1446757242",
+      "coordinates": [
+        -53.0856544,
+        48.7014654
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Bonavista Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "51",
+        "seamark:light:period": "10",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 0536",
+        "seamark:light:sequence": "0.5+(9.5)",
+        "seamark:name": "Cape Bonavista",
+        "seamark:type": "light_major",
+        "wikidata": "Q5034596"
+      }
+    },
+    {
+      "id": "node/1446767775",
+      "coordinates": [
+        -53.1944227,
+        48.5853874
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1446776738",
+      "coordinates": [
+        -53.0436468,
+        48.5041863
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Green Island (Catalina) Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "28",
+        "seamark:light:period": "18",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 0526",
+        "seamark:name": "Green Island",
+        "seamark:type": "light_major",
+        "wikidata": "Q44452496"
+      }
+    },
+    {
+      "id": "node/1446777036",
+      "coordinates": [
+        -53.0505027,
+        48.5091226
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "5",
+        "seamark:light:period": "6",
+        "seamark:light:reference": "H 0526.5",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Burnt Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1446777136",
+      "coordinates": [
+        -53.0675554,
+        48.5112505
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:category": "upper",
+        "seamark:light:character": "F",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "23",
+        "seamark:light:reference": "H 0527.1",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1446777201",
+      "coordinates": [
+        -53.0633834,
+        48.5120434
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "7",
+        "seamark:light:period": "3",
+        "seamark:light:reference": "H 0528",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Manuel Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1493886451",
+      "coordinates": [
+        -58.9841482,
+        47.5829612
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "4",
+        "seamark:light:period": "3",
+        "seamark:light:reference": "H 0232.4",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Ile aux Morts",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1500710237",
+      "coordinates": [
+        -58.5414284,
+        48.5079098
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "5",
+        "seamark:light:period": "6",
+        "seamark:light:reference": "H 0205.2",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Port Harmon",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1500710893",
+      "coordinates": [
+        -58.5396441,
+        48.5109049
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "4",
+        "seamark:light:period": "4",
+        "seamark:light:reference": "H 0205.08",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/1632794386",
+      "coordinates": [
+        -58.5347488,
+        48.5162409
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/1654746729",
+      "coordinates": [
+        -52.746946,
+        47.3108009
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Bay Bulls Lighthouse",
+        "seamark:landmark:height": "27",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:exhibition": "24h",
+        "seamark:light:height": "60",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 0452",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Bull Head",
+        "seamark:reference": "508",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1654914071",
+      "coordinates": [
+        -52.8574167,
+        47.0167778
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Ferryland Head Lighthouse",
+        "seamark:landmark:height": "8",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "57.9",
+        "seamark:light:period": "10",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 0450",
+        "seamark:light:sequence": "0.2+(9.8)",
+        "seamark:name": "Ferryland Head",
+        "seamark:reference": "509",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1831615705",
+      "coordinates": [
+        -53.1643611,
+        47.7396111
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Carbonear Island",
+        "seamark:landmark:height": "4",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "4.3",
+        "seamark:light:period": "6",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 0490",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Carbonear",
+        "seamark:reference": "477",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1831650832",
+      "coordinates": [
+        -53.1418056,
+        47.7117778
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:landmark:height": "4",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "41.4",
+        "seamark:light:period": "4",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 0484",
+        "seamark:light:sequence": "0.5+(3.5)",
+        "seamark:name": "Harbour Grace Islands",
+        "seamark:reference": "479",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1831659237",
+      "coordinates": [
+        -53.214569,
+        47.690114
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Point of Beach",
+        "seamark:light:1:character": "F",
+        "seamark:light:1:colour": "red",
+        "seamark:light:1:height": "6.3",
+        "seamark:light:1:range": "14",
+        "seamark:light:1:sector_end": "235.5",
+        "seamark:light:1:sector_start": "234.5",
+        "seamark:light:2:character": "Al",
+        "seamark:light:2:colour": "red;white",
+        "seamark:light:2:height": "6.3",
+        "seamark:light:2:period": "4",
+        "seamark:light:2:range": "14",
+        "seamark:light:2:sector_end": "236",
+        "seamark:light:2:sector_start": "235.5",
+        "seamark:light:3:colour": "white",
+        "seamark:light:3:height": "6.3",
+        "seamark:light:3:range": "14",
+        "seamark:light:3:sector_end": "238",
+        "seamark:light:3:sector_start": "236",
+        "seamark:light:4:character": "Al",
+        "seamark:light:4:colour": "green;white",
+        "seamark:light:4:height": "6.3",
+        "seamark:light:4:period": "4",
+        "seamark:light:4:range": "14",
+        "seamark:light:4:sector_end": "238.5",
+        "seamark:light:4:sector_start": "238",
+        "seamark:light:5:colour": "green",
+        "seamark:light:5:height": "6.3",
+        "seamark:light:5:range": "14",
+        "seamark:light:5:sector_end": "239.5",
+        "seamark:light:5:sector_start": "238.5",
+        "seamark:name": "Point of Beach Sector",
+        "seamark:reference": "481.1",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1832274207",
+      "coordinates": [
+        -53.1819273,
+        47.5484632
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Brigus Lighthouse",
+        "seamark:landmark:height": "6",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "34.4",
+        "seamark:light:period": "3",
+        "seamark:light:range": "7",
+        "seamark:light:reference": "H 0478",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Brigus",
+        "seamark:reference": "488",
+        "seamark:topmark:colour_pattern": "horizontal",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1832315470",
+      "coordinates": [
+        -53.1910556,
+        47.4461111
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Ballyhack Point Light",
+        "seamark:landmark:height": "4",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "11.3",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0476",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Ballyhack Point",
+        "seamark:reference": "489",
+        "seamark:topmark:colour_pattern": "horizontal",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1832505500",
+      "coordinates": [
+        -52.8586667,
+        47.6263056
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:fog_signal:category": "whistle",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "5.1",
+        "seamark:light:period": "6",
+        "seamark:light:range": "4",
+        "seamark:light:reference": "H 0472",
+        "seamark:name": "Portugal Cove",
+        "seamark:reference": "497",
+        "seamark:topmark:colour_pattern": "squared",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1834890148",
+      "coordinates": [
+        -53.5317109,
+        46.6171135
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Pine Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:sequence": "4+(56)",
+        "seamark:landmark:height": "18",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "95.7",
+        "seamark:light:period": "5",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 0440",
+        "seamark:light:sequence": "0.5+(4.5)",
+        "seamark:name": "Cape Pine",
+        "seamark:type": "landmark",
+        "wikidata": "Q15071756"
+      }
+    },
+    {
+      "id": "node/1834890149",
+      "coordinates": [
+        -53.38275,
+        46.7245556
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Trepassey Harbour Light",
+        "seamark:fog_signal:category": "whistle",
+        "seamark:landmark:height": "4",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "5",
+        "seamark:light:period": "6",
+        "seamark:light:range": "6",
+        "seamark:light:reference": "H 0443",
+        "seamark:name": "Trepassey",
+        "seamark:reference": "4",
+        "seamark:topmark:colour_pattern": "vertical",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1837777129",
+      "coordinates": [
+        -53.6153626,
+        46.904199
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "La Haye Point Light",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:group": "1",
+        "seamark:fog_signal:period": "30",
+        "seamark:fog_signal:sequence": "3+(27)",
+        "seamark:landmark:height": "9",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "18.9",
+        "seamark:light:period": "6",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 0436",
+        "seamark:light:sequence": "0.4+(5.6)",
+        "seamark:name": "Point La Haye",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1837790906",
+      "coordinates": [
+        -53.6844402,
+        47.0127668
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Great Colinet Island Light",
+        "seamark:landmark:height": "4",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "20",
+        "seamark:light:period": "3",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0434",
+        "seamark:light:sequence": "0.5+(2.5)",
+        "seamark:name": "Great Colinet Island",
+        "seamark:reference": "9",
+        "seamark:topmark:colour_pattern": "border",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/1838781045",
+      "coordinates": [
+        -54.0315567,
+        47.7418327
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Bordeaux Island Light",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "26.5",
+        "seamark:light:period": "6",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0394",
+        "seamark:light:sequence": "0.5+(5.5)",
+        "seamark:name": "Bordeaux Island",
+        "seamark:reference": "39 H394",
+        "seamark:topmark:colour_pattern": "border",
+        "seamark:topmark:shape": "board",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1838826346",
+      "coordinates": [
+        -54.0979722,
+        47.8205556
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "North Harbour Point Lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "4.9",
+        "seamark:light:period": "4",
+        "seamark:light:range": "5",
+        "seamark:name": "North Harbour Point Light",
+        "seamark:topmark:colour": "red;white",
+        "seamark:topmark:colour_pattern": "border",
+        "seamark:topmark:shape": "square",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/1920573673",
+      "coordinates": [
+        -58.6946575,
+        47.6018762
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Rose Blanche Lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "29",
+        "seamark:light:period": "10",
+        "seamark:light:range": "13",
+        "seamark:light:reference": "H 0242.5",
+        "seamark:light:sequence": "0.5+(9.5)",
+        "seamark:name": "Rose Blanche",
+        "seamark:type": "light_minor",
+        "wikidata": "Q28375472"
+      }
+    },
+    {
+      "id": "node/1920574884",
+      "coordinates": [
+        -55.7493889,
+        47.1013056
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Q",
+        "seamark:light:colour": "green",
+        "seamark:light:height": "8.2",
+        "seamark:light:period": "1",
+        "seamark:light:range": "5",
+        "seamark:light:reference": "H 0321",
+        "seamark:name": "Grand Bank wharf",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/2503341103",
+      "coordinates": [
+        -52.7865996,
+        47.8086421
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape St Francis Lighthouse",
+        "wikidata": "Q106767955"
+      }
+    },
+    {
+      "id": "node/2539913331",
+      "coordinates": [
+        -53.4011314,
+        46.6897711
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4181578599",
+      "coordinates": [
+        -55.7976065,
+        46.8467089
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Allan's Island lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:period": "30",
+        "seamark:fog_signal:sequence": "3+(27)",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "19.5",
+        "seamark:light:period": "4",
+        "seamark:light:range": "16",
+        "seamark:name": "Allan's Island Lighthouse",
+        "seamark:reference": "H0350",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "node/4181701592",
+      "coordinates": [
+        -55.8002801,
+        46.8694107
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4207811418",
+      "coordinates": [
+        -57.9125592,
+        49.5048171
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Woody Point Lighthouse",
+        "wikidata": "Q44452460"
+      }
+    },
+    {
+      "id": "node/4207812020",
+      "coordinates": [
+        -57.8760785,
+        49.5115689
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4209161732",
+      "coordinates": [
+        -57.8157554,
+        49.9186809
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/4209161895",
+      "coordinates": [
+        -57.8227268,
+        49.9213332
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cow Head Lighthouse"
+      }
+    },
+    {
+      "id": "node/448387859",
+      "coordinates": [
+        -56.8585198,
+        51.4605512
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Point Amour Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Oc",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "46",
+        "seamark:light:period": "20",
+        "seamark:light:range": "24",
+        "seamark:light:reference": "H 0114",
+        "seamark:light:sequence": "16+(4)",
+        "seamark:name": "Amour Pointe",
+        "seamark:type": "light_major",
+        "tourism": "museum"
+      }
+    },
+    {
+      "id": "node/469724587",
+      "coordinates": [
+        -54.7999756,
+        49.6878517
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Long Point Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "101",
+        "seamark:light:period": "5",
+        "seamark:light:range": "16",
+        "seamark:light:reference": "H 0640",
+        "seamark:light:sequence": "0.5+(4.5)",
+        "seamark:name": "Long Point",
+        "seamark:type": "light_major",
+        "wikidata": "Q6673078"
+      }
+    },
+    {
+      "id": "node/470734373",
+      "coordinates": [
+        -52.6223089,
+        47.5211687
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Spear",
+        "seamark:fog_signal:category": "horn",
+        "seamark:landmark:height": "11",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:group": "3",
+        "seamark:light:height": "71",
+        "seamark:light:period": "15",
+        "seamark:light:range": "20",
+        "seamark:light:reference": "H 0454",
+        "seamark:light:sequence": "0.4+(2.6)+0.4+(2.6)+0.4+(8.6)",
+        "seamark:name": "Cape Spear",
+        "seamark:reference": "507 H454",
+        "seamark:type": "landmark",
+        "wikidata": "Q29870701"
+      }
+    },
+    {
+      "id": "node/491406196",
+      "coordinates": [
+        -57.9556771,
+        49.6029013
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Lobster Cove Head Lighthouse",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "35",
+        "seamark:light:period": "4",
+        "seamark:light:range": "12",
+        "seamark:light:reference": "H 0164",
+        "seamark:name": "Lobster Cove Head",
+        "seamark:type": "light_minor",
+        "tourism": "museum",
+        "wikidata": "Q30106230"
+      }
+    },
+    {
+      "id": "node/500968008",
+      "coordinates": [
+        -55.3346277,
+        49.1475717
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "red",
+        "seamark:light:height": "5",
+        "seamark:light:period": "1.5",
+        "seamark:light:reference": "H 0668",
+        "seamark:light:sequence": "0.5+(1)",
+        "seamark:name": "Mill Point",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/5904514599",
+      "coordinates": [
+        -57.4088962,
+        47.5124584
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "node/6548305562",
+      "coordinates": [
+        -56.8584513,
+        51.4604395
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Phare de Point-Amour",
+        "wikidata": "Q3378335"
+      }
+    },
+    {
+      "id": "node/6549644647",
+      "coordinates": [
+        -55.4062817,
+        47.4736401
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "St. Jacques Island Lighthouse",
+        "wikidata": "Q44452420"
+      }
+    },
+    {
+      "id": "node/6549771759",
+      "coordinates": [
+        -53.7628627,
+        49.5934284
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Offer Wadham Lighthouse",
+        "wikidata": "Q15263470"
+      }
+    },
+    {
+      "id": "node/6721296932",
+      "coordinates": [
+        -58.7707747,
+        48.7820749
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/7767904807",
+      "coordinates": [
+        -56.085,
+        46.88
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Green Island",
+        "name:fr": "L'ile Verte",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:period": "60",
+        "seamark:fog_signal:sequence": "4+(56)",
+        "seamark:light:character": "Iso",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "45",
+        "seamark:light:period": "10",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H.0348",
+        "seamark:name": "Green Island",
+        "seamark:type": "light_minor"
+      }
+    },
+    {
+      "id": "node/7775380949",
+      "coordinates": [
+        -55.5605194,
+        46.9053143
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Black Head lighthouse",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "57.9",
+        "seamark:light:period": "3",
+        "seamark:light:range": "5",
+        "seamark:name": "Black Head light house",
+        "seamark:reference": "74",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "node/7775681886",
+      "coordinates": [
+        -55.8663056,
+        47.2574167
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Brunette Island",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "124",
+        "seamark:light:period": "4",
+        "seamark:light:range": "7",
+        "seamark:name": "Brunette Island",
+        "seamark:reference": "101",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "way/1047736355",
+      "coordinates": [
+        -56.7009186,
+        51.59513
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1071513295",
+      "coordinates": [
+        -55.5551352,
+        51.3560556
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Fox Point Lighthouse"
+      }
+    },
+    {
+      "id": "way/1124285588",
+      "coordinates": [
+        -54.7999736,
+        49.6878497
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1157365568",
+      "coordinates": [
+        -59.4109848,
+        47.9007201
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Anguille Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "25",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:reference": "H 0218",
+        "seamark:light:sequence": "0.5+(4.5)",
+        "seamark:name": "Cape Anquille",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/1311164165",
+      "coordinates": [
+        -53.3225839,
+        48.5759049
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "King's Cove Lighthouse",
+        "seamark:light:range": "5nm",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/1383480540",
+      "coordinates": [
+        -57.5868135,
+        47.6065775
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1412751114",
+      "coordinates": [
+        -53.0856519,
+        48.7014842
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/1451961303",
+      "coordinates": [
+        -55.8591605,
+        47.0743152
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Fortune Head light station",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:period": "30",
+        "seamark:fog_signal:sequence": "3+(27)",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:exhibition": "24h",
+        "seamark:light:height": "23.8",
+        "seamark:light:period": "5",
+        "seamark:light:range": "15",
+        "seamark:light:sequence": "0.1+(4.9)",
+        "seamark:name": "Fortune Head light station",
+        "seamark:reference": "H0325",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "way/1466483142",
+      "coordinates": [
+        -55.8966659,
+        50.8857237
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Conche Lighthouse"
+      }
+    },
+    {
+      "id": "way/1548517152",
+      "coordinates": [
+        -54.1961838,
+        46.8230667
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape St. Mary's Lighthouse",
+        "seamark:fog_signal:category": "horn",
+        "seamark:fog_signal:group": "1",
+        "seamark:fog_signal:period": "30",
+        "seamark:fog_signal:sequence": "3+(27)",
+        "seamark:landmark:height": "12",
+        "seamark:light:character": "Fl",
+        "seamark:light:colour": "white",
+        "seamark:light:height": "118.9",
+        "seamark:light:period": "5",
+        "seamark:light:range": "21",
+        "seamark:light:reference": "H 0432",
+        "seamark:light:sequence": "0.5+(4.5)",
+        "seamark:name": "Cape St. Mary's",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "way/1557493252",
+      "coordinates": [
+        -53.0736393,
+        46.6586007
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Race Lighthouse"
+      }
+    },
+    {
+      "id": "way/1570810365",
+      "coordinates": [
+        -53.1767103,
+        47.611492
+      ],
+      "tags": {
+        "historic": "building",
+        "man_made": "lighthouse",
+        "name": "Green Point Lighthouse",
+        "tourism": "attraction",
+        "wikidata": "Q46146075"
+      }
+    },
+    {
+      "id": "way/223699724",
+      "coordinates": [
+        -57.4103977,
+        50.6985003
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Point Richie Lighthouse",
+        "tourism": "viewpoint",
+        "wikidata": "Q15267242"
+      }
+    },
+    {
+      "id": "way/443491647",
+      "coordinates": [
+        -53.5510359,
+        49.0617108
+      ],
+      "tags": {
+        "description": "Puffin Island Lighthouse is one of the few stations in Newfoundland and Labrador that is still staffed",
+        "man_made": "lighthouse",
+        "name": "Puffin Island Lighthouse"
+      }
+    },
+    {
+      "id": "way/476050017",
+      "coordinates": [
+        -55.2803025,
+        52.0135785
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Belle Isle Northeast Light",
+        "wikidata": "Q4883648"
+      }
+    },
+    {
+      "id": "way/526231911",
+      "coordinates": [
+        -58.8974573,
+        47.5918733
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Colombier Island Lighthouse"
+      }
+    },
+    {
+      "id": "way/726984756",
+      "coordinates": [
+        -57.9125607,
+        49.5048107
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/828322224",
+      "coordinates": [
+        -55.9058615,
+        51.6283764
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Cape Norman Lighthouse",
+        "seamark:type": "light_major"
+      }
+    },
+    {
+      "id": "way/830322192",
+      "coordinates": [
+        -57.0957779,
+        51.0225847
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "New Férolle Peninsula Light"
+      }
+    },
+    {
+      "id": "way/832372948",
+      "coordinates": [
+        -57.3222088,
+        50.6330452
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Keppel Island Lighthouse (old)",
+        "seamark:type": "landmark"
+      }
+    },
+    {
+      "id": "way/832372950",
+      "coordinates": [
+        -57.3223055,
+        50.6327625
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Keppel Island Lighthouse"
+      }
+    },
+    {
+      "id": "way/944351082",
+      "coordinates": [
+        -56.8583646,
+        51.4605961
+      ],
+      "tags": {
+        "man_made": "lighthouse"
+      }
+    },
+    {
+      "id": "way/996043564",
+      "coordinates": [
+        -55.4265567,
+        51.6398821
+      ],
+      "tags": {
+        "man_made": "lighthouse",
+        "name": "Quirpon Lighthouse"
+      }
+    }
+  ]
+}

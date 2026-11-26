@@ -44,8 +44,7 @@ image build compresses the checked-in JSON with the other static files.
 
 ## Regional web chart inputs
 
-`web/region/config.json` holds the chart data and camera bounds. The smaller
-camera box leaves room for the rotated viewport corners. Keep the NOAA
+`web/region/config.json` holds the chart data and camera bounds. The web camera constrains its rotated viewport to the configured camera box. Keep the NOAA
 download grid larger than the data box. To regenerate the checked-in regional
 sources with the downloaded OSM, ETOPO and Natural Earth inputs:
 
@@ -59,17 +58,22 @@ python tools/build-atlas-provinces.py "$data/admin/ne_10m_admin_1_states_provinc
 rm "$region/relief-detail.jpg"
 ```
 
-The regional grid is ETOPO1 from the ERDDAP dataset linked above (41° to 50°
-north, 71° to 55° west for the current chart). Halifax uses the same ETOPO
+The regional grid is ETOPO1 from the ERDDAP dataset linked above (41° to 56°
+north, 78° to 51° west for the current chart). Halifax uses the same ETOPO
 2022 input as the Nova Scotia source. The
 [Natural Earth Admin 1 archive](https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_1_states_provinces.zip)
 supplies the provincial and US masks; OSM supplies their coastlines.
 
 Build the regional aids with `tools/build-atlas-aids.py --bounds W S E N
 --output web/region/aids.json --dropped LOG`, using the data bounds from the
-config and either the current Coast Guard sections or saved section HTML.
-Then run `python tools/build-atlas-regional-marks.py PATH_TO_SAVED_CHS_JSON`.
+config and either the current Coast Guard sections or saved section HTML. For this phase,
+pass `--atlantic-bounds -69.95 42.35 -55.50 48.65` to retain the earlier
+Atlantic volume coverage. Use the numbered Atlantic and Newfoundland HTML
+sections and Arctic section `arc1345-en.php`.
+Then run `python tools/build-atlas-regional-marks.py PATH_TO_SAVED_CHS_JSON --nl-admin PATH_TO_ADMIN_SHAPEFILE`.
 This filters an existing export and retains the checked-in NS corrections.
+New marks outside the previous coverage use the Natural Earth Admin 1 layer
+to select the waters nearest Newfoundland and Labrador.
 It reads local files only.
 
 ## Web tile build

@@ -1,0 +1,4374 @@
+[
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD1",
+    "name": "Cape Race Light Station & Fog Signal",
+    "coordinates": [
+      -53.07361111111111,
+      46.65858333333333
+    ],
+    "intl": "H444",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 7.5,
+    "range": 27.0,
+    "sequence": [
+      [
+        0.25,
+        true
+      ],
+      [
+        7.25,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl1-en.php",
+    "structure": "White cylindrical tower, red upper portion. | 20.7",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.25 s; eclipse 7.25 s. | Fog Horn | Blast 3 s; sil. 3 s; | blast 3 s; sil. 51 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD3.5",
+    "name": "Trepassey Wharf Light",
+    "coordinates": [
+      -53.37108333333333,
+      46.73538888888889
+    ],
+    "intl": "H443.2",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl1-en.php",
+    "structure": "Mast. | 2.2",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD4",
+    "name": "Trepassey Harbour Light",
+    "coordinates": [
+      -53.38275,
+      46.724555555555554
+    ],
+    "intl": "H443",
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 6.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl1-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD5",
+    "name": "Powles Head Light Station",
+    "coordinates": [
+      -53.40163888888889,
+      46.69027777777778
+    ],
+    "intl": "H442",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 22.0,
+    "sequence": [
+      [
+        0.2,
+        true
+      ],
+      [
+        9.8,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl1-en.php",
+    "structure": "Red and white cylindrical tower. | 2.4",
+    "remarks": "Year round. | Flash 0.2 s; eclipse 9.8 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD6",
+    "name": "Cape Pine Light Station and Fog Signal",
+    "coordinates": [
+      -53.531416666666665,
+      46.61697222222222
+    ],
+    "intl": "H440",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 16.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl1-en.php",
+    "structure": "Cylindrical tower, red and white horizontal bands. | 18.4",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD100",
+    "name": "Green Island Light Station and Fog Signal",
+    "coordinates": [
+      -56.08569444444444,
+      46.87972222222222
+    ],
+    "intl": "H348",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 10.0,
+    "range": 15.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 6.7",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD101",
+    "name": "Brunette Island Light",
+    "coordinates": [
+      -55.866305555555556,
+      47.257416666666664
+    ],
+    "intl": "H290",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Square skeleton tower, red and white square daymark. | 4.7",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD102",
+    "name": "Fortune Head Light Station and Fog Signal",
+    "coordinates": [
+      -55.85944444444444,
+      47.074444444444445
+    ],
+    "intl": "H325",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.1,
+        true
+      ],
+      [
+        4.9,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "White tower with red top. | 9.9",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.1 s; eclipse 4.9 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD103.3",
+    "name": "Fortune Harbour Wharf Light",
+    "coordinates": [
+      -55.830527777777775,
+      47.071777777777775
+    ],
+    "intl": "H323.2",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 2.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD103.4",
+    "name": "Fortune Harbour Fisherman’s Wharf Light",
+    "coordinates": [
+      -55.830666666666666,
+      47.07297222222222
+    ],
+    "intl": "H323.3",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 2.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD103.5",
+    "name": "Fortune Gut Western Breakwater Light",
+    "coordinates": [
+      -55.828472222222224,
+      47.07644444444445
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Skeleton tower. | 3.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD105",
+    "name": "Fortune Wharf Light",
+    "coordinates": [
+      -55.82825,
+      47.07577777777778
+    ],
+    "intl": "H324",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 3.4",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD105.3",
+    "name": "Fortune Harbour Floating Dock Wharf Light",
+    "coordinates": [
+      -55.83130555555555,
+      47.07233333333333
+    ],
+    "intl": "H324.1",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD106",
+    "name": "Grand Bank Wharf Light",
+    "coordinates": [
+      -55.74938888888889,
+      47.101305555555555
+    ],
+    "intl": "H322",
+    "colors": [
+      "G"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "White octagonal tower with red upper portion. | 7.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD106.5",
+    "name": "Grand Bank Sector Light",
+    "coordinates": [
+      -55.75077777777778,
+      47.101305555555555
+    ],
+    "intl": "H322.4",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 12.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        69.5,
+        72.58333333333333
+      ],
+      [
+        "W",
+        74.26666666666667,
+        74.73333333333333
+      ],
+      [
+        "G",
+        76.41666666666667,
+        79.5
+      ]
+    ],
+    "section": "nl100-en.php",
+    "structure": "Square skeleton tower.",
+    "remarks": "Year round. | Operates 24 h. | R | 069°30'-072°35'; | Al RW | 072°35'-074°16'; | W | 074°16'-074°44'; | Al GW | 074°44' -076°25'; | G | 076°25'-079°30'."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD107",
+    "name": "Grand Bank West Pier Light",
+    "coordinates": [
+      -55.74963888888889,
+      47.10188888888889
+    ],
+    "intl": "H321",
+    "colors": [
+      "R"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 4.9",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD108",
+    "name": "Grand Bank Breakwater Light",
+    "coordinates": [
+      -55.74811111111111,
+      47.102555555555554
+    ],
+    "intl": "H320",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast. | 3.2",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD118",
+    "name": "St. Jacques Island Light Station and Fog Signal",
+    "coordinates": [
+      -55.40638888888889,
+      47.47388888888889
+    ],
+    "intl": "H304",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 16.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "White cylindrical tower. | 10.1",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD118.1",
+    "name": "St. Jacques Harbour Wharf Light",
+    "coordinates": [
+      -55.420944444444444,
+      47.48791666666666
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl100-en.php",
+    "structure": "Mast.",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD139.8",
+    "name": "Ramea Light (Browns Rock)",
+    "coordinates": [
+      -57.37733333333333,
+      47.52561111111111
+    ],
+    "intl": "H26.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD140.55",
+    "name": "Ship Cove Ferry Wharf Light",
+    "coordinates": [
+      -57.38513888888889,
+      47.52130555555556
+    ],
+    "intl": "H264.7",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD140.56",
+    "name": "Ship Cove Wharf Light",
+    "coordinates": [
+      -57.38686111111111,
+      47.52088888888889
+    ],
+    "intl": "H264.6",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Cylindrical mast.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD140.57",
+    "name": "Ship Cove Floating Dock Light",
+    "coordinates": [
+      -57.387055555555555,
+      47.52155555555556
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": null,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Pipe swing pole.",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD141",
+    "name": "Northwest Head Light Station and Fog Signal",
+    "coordinates": [
+      -57.40875,
+      47.51247222222222
+    ],
+    "intl": "H264",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 14.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "White cylindrical tower with red spiral band. | 7.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 2 s; eclipse 4 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD144",
+    "name": "Boar Island Light Station and Fog Signal",
+    "coordinates": [
+      -57.58672222222222,
+      47.60644444444444
+    ],
+    "intl": "H260",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.2,
+        true
+      ],
+      [
+        4.8,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Skeleton tower. | 10.0",
+    "remarks": "Year round. | Flash 0.2 s; eclipse 4.8 s. | Fog Horn | Blast 2 s; sil. 18 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD144.8",
+    "name": "Rencontre Island Light",
+    "coordinates": [
+      -57.60813888888889,
+      47.58694444444444
+    ],
+    "intl": "H259",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.7",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD145",
+    "name": "Burgeo Ferry Wharf",
+    "coordinates": [
+      -57.60883333333334,
+      47.6085
+    ],
+    "intl": "H262",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD149.2",
+    "name": "Harbour Le Cou Breakwater Light",
+    "coordinates": [
+      -58.68197222222222,
+      47.62433333333333
+    ],
+    "intl": "H243",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD150",
+    "name": "Rose Blanche East Wharf Light",
+    "coordinates": [
+      -58.69361111111111,
+      47.60988888888889
+    ],
+    "intl": "H242.1",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD150.1",
+    "name": "Rose Blanche Ferry Wharf Light",
+    "coordinates": [
+      -58.69958333333334,
+      47.61472222222222
+    ],
+    "intl": "H242.2",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD150.19",
+    "name": "Rose Blanche Light",
+    "coordinates": [
+      -58.694694444444444,
+      47.60186111111111
+    ],
+    "intl": "H242.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 13.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        9.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Tower.",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 9.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD150.2",
+    "name": "Burnt Islands Deep Water Wharf Light",
+    "coordinates": [
+      -58.88780555555556,
+      47.59594444444444
+    ],
+    "intl": "H233.8",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD150.3",
+    "name": "Burnt Islands West Wharf Light",
+    "coordinates": [
+      -58.88708333333334,
+      47.59727777777778
+    ],
+    "intl": "H233.9",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD151.07",
+    "name": "Cains Island Light",
+    "coordinates": [
+      -58.7015,
+      47.60225
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD154",
+    "name": "Burnt Islands front range light",
+    "coordinates": [
+      -58.89233333333333,
+      47.597611111111114
+    ],
+    "intl": "H234",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 5.2",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD155",
+    "name": "Burnt Islands rear range light",
+    "coordinates": [
+      -58.89211111111111,
+      47.59786111111111
+    ],
+    "intl": "H234.1",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 5.2",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD156",
+    "name": "Colombier Islands Light Station",
+    "coordinates": [
+      -58.897305555555555,
+      47.59191666666667
+    ],
+    "intl": "H238",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        4.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower with octagonal upper portion. | 11.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.5 s; eclipse 4.5 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD156.8",
+    "name": "Isle aux Morts Wharf Light",
+    "coordinates": [
+      -58.97844444444444,
+      47.58222222222222
+    ],
+    "intl": "H232.4",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD157",
+    "name": "Pitman’s Island Light",
+    "coordinates": [
+      -58.98027777777778,
+      47.58011111111111
+    ],
+    "intl": "H232",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD158.75",
+    "name": "Isle aux Morts North Wharf Light",
+    "coordinates": [
+      -58.97972222222222,
+      47.58833333333333
+    ],
+    "intl": "H233.3",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD160",
+    "name": "Channel Head Light Station",
+    "coordinates": [
+      -59.1235,
+      47.56583333333333
+    ],
+    "intl": "H222",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        9.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "White cylindrical tower.",
+    "remarks": "Year round. | Flash 1 s; eclipse 9 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD160.7",
+    "name": "Channel Gut Wharf Light",
+    "coordinates": [
+      -59.12627777777778,
+      47.566
+    ],
+    "intl": "H222.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD162",
+    "name": "Graveyard Point Light",
+    "coordinates": [
+      -59.129222222222225,
+      47.57319444444445
+    ],
+    "intl": "H244",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Mast. | 2.5",
+    "remarks": "Year round. | Outer end of breakwater is floodlit."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD163",
+    "name": "Vardys Island Light (Rhode Island)",
+    "coordinates": [
+      -59.13675,
+      47.57711111111111
+    ],
+    "intl": "H227",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.4",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD166",
+    "name": "Port aux Basques front range light",
+    "coordinates": [
+      -59.1425,
+      47.57941666666667
+    ],
+    "intl": "H223",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe. | 6.3",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD167",
+    "name": "Port aux Basques rear range light",
+    "coordinates": [
+      -59.144777777777776,
+      47.580333333333336
+    ],
+    "intl": "H223.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe. | 6.3",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD170",
+    "name": "Pikes Island Breakwater Light",
+    "coordinates": [
+      -59.13213888888889,
+      47.57575
+    ],
+    "intl": "H226",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl121-en.php",
+    "structure": "Triangular mast, red and white rectangular daymark. | 10.0",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD39",
+    "name": "Bordeaux Island Light",
+    "coordinates": [
+      -54.0315,
+      47.74155555555556
+    ],
+    "intl": "H394",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD39.7",
+    "name": "North Harbour Wharf Light",
+    "coordinates": [
+      -54.096583333333335,
+      47.84594444444444
+    ],
+    "intl": "H391",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD40",
+    "name": "North Harbour Point Light",
+    "coordinates": [
+      -54.097972222222225,
+      47.82055555555556
+    ],
+    "intl": "H390",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD42",
+    "name": "Sound Island Point Light",
+    "coordinates": [
+      -54.167138888888886,
+      47.78916666666667
+    ],
+    "intl": "H388",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 5.2",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD74",
+    "name": "Black Head Light",
+    "coordinates": [
+      -55.560833333333335,
+      46.905
+    ],
+    "intl": "H356",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Square skeleton tower, red and white daymark.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD75.51",
+    "name": "Lamaline Wharf Light",
+    "coordinates": [
+      -55.795,
+      46.86638888888889
+    ],
+    "intl": "H352.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Mast. | 2.2",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD75.52",
+    "name": "Allan's Island Breakwater Light",
+    "coordinates": [
+      -55.80466666666667,
+      46.85622222222222
+    ],
+    "intl": "H351",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD76",
+    "name": "Allan’s Island Light Station and Fog Signal",
+    "coordinates": [
+      -55.79763888888889,
+      46.846666666666664
+    ],
+    "intl": "H350",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 16.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "White tower with red top. | 11.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD77",
+    "name": "Lamaline front range light",
+    "coordinates": [
+      -55.79988888888889,
+      46.86966666666667
+    ],
+    "intl": "H352",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Skeleton tower, white daymark with red vertical stripe. | 3.7",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD78",
+    "name": "Lamaline rear range light",
+    "coordinates": [
+      -55.800444444444445,
+      46.87072222222222
+    ],
+    "intl": "H352.1",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl144-en.php",
+    "structure": "Skeleton tower, white daymark with red vertical stripe. | 7.9",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD173",
+    "name": "Cape Ray Light Station and Fog Signal",
+    "coordinates": [
+      -59.303916666666666,
+      47.62111111111111
+    ],
+    "intl": "H220",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 15.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        14.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "White octagonal tower, red daymark with white horizontal band. | 17.7",
+    "remarks": "Year round. | Flash 1 s; eclipse 14 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD174.5",
+    "name": "Codroy Breakwater Light",
+    "coordinates": [
+      -59.39861111111111,
+      47.879583333333336
+    ],
+    "intl": "H219.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD174.6",
+    "name": "Codroy Outer Breakwater Light",
+    "coordinates": [
+      -59.39669444444444,
+      47.87916666666667
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Cylindrical mast. | 2.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD175",
+    "name": "Cape Anguille Light Station and Fog Signal",
+    "coordinates": [
+      -59.41125,
+      47.900555555555556
+    ],
+    "intl": "H218",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.1,
+        true
+      ],
+      [
+        4.9,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "White octagonal tower with red top. | 17.8",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.1 s; eclipse 4.9 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD179.3",
+    "name": "Port Harmon front range light",
+    "coordinates": [
+      -58.52308333333333,
+      48.53336111111111
+    ],
+    "intl": "H206",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe. | 27.1",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD179.4",
+    "name": "Port Harmon rear range light",
+    "coordinates": [
+      -58.52172222222222,
+      48.53536111111111
+    ],
+    "intl": "H206.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 15.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Square skeleton mast, red daymark with white vertical stripe. | 27.1",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD180.1",
+    "name": "Port Harmon Breakwater Light",
+    "coordinates": [
+      -58.541777777777774,
+      48.5075
+    ],
+    "intl": "H205",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        2.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.5",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 2.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD185",
+    "name": "Long Point Light",
+    "coordinates": [
+      -58.772777777777776,
+      48.78125
+    ],
+    "intl": "H196",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Skeleton tower, red slatwork daymark. | 11.0",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD185.2",
+    "name": "Beach Point Breakwater Light",
+    "coordinates": [
+      -58.78888888888889,
+      48.76444444444444
+    ],
+    "intl": "H197",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD185.3",
+    "name": "Beach Point South Light",
+    "coordinates": [
+      -58.79069444444445,
+      48.76361111111111
+    ],
+    "intl": "H197.2",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD196",
+    "name": "Little Port Head Light",
+    "coordinates": [
+      -58.428111111111114,
+      49.10863888888889
+    ],
+    "intl": "H194",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Seasonal. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD200",
+    "name": "Woody Point Light",
+    "coordinates": [
+      -57.91247222222222,
+      49.504777777777775
+    ],
+    "intl": "H168",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "White pyramid tower with red top. | 7.3",
+    "remarks": "Seasonal. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD200.1",
+    "name": "Curzon Village Light",
+    "coordinates": [
+      -57.91719444444445,
+      49.508944444444445
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast.",
+    "remarks": "Seasonal. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD200.3",
+    "name": "Rocky Harbour Wharf Light",
+    "coordinates": [
+      -57.91891666666667,
+      49.590944444444446
+    ],
+    "intl": "H165",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD201",
+    "name": "Lobster Cove Head Light",
+    "coordinates": [
+      -57.95586111111111,
+      49.602833333333336
+    ],
+    "intl": "H164",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 12.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "White lighthouse. | 8.4",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD202.2",
+    "name": "Cow Head Wharf Light",
+    "coordinates": [
+      -57.80388888888889,
+      49.923138888888886
+    ],
+    "intl": "H163",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD204",
+    "name": "Norris Point Light",
+    "coordinates": [
+      -57.877722222222225,
+      49.51533333333333
+    ],
+    "intl": "H169",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark. | 5.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD205",
+    "name": "Gadds Point Light",
+    "coordinates": [
+      -57.87583333333333,
+      49.51152777777778
+    ],
+    "intl": "H170",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD205.2",
+    "name": "Neddy Harbour Breakwater Light",
+    "coordinates": [
+      -57.87269444444444,
+      49.52730555555556
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Cylindrical mast.",
+    "remarks": "Seasonal. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD208",
+    "name": "Keppel Island Light Station",
+    "coordinates": [
+      -57.32219444444444,
+      50.63302777777778
+    ],
+    "intl": "H156",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 11.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl173-en.php",
+    "structure": "Square skeleton tower with an octagonal lantern house. | 11.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD211",
+    "name": "Pointe Riche Light",
+    "coordinates": [
+      -57.410222222222224,
+      50.6985
+    ],
+    "intl": "H154",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 10.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "White octagonal tower with red upper portion. | 19.8",
+    "remarks": "Seasonal. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD220",
+    "name": "New Ferolle Peninsula Light Station and Fog Signal",
+    "coordinates": [
+      -57.09569444444445,
+      51.02280555555556
+    ],
+    "intl": "H148",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "2",
+    "period": 5.0,
+    "range": 20.0,
+    "sequence": [
+      [
+        0.25,
+        true
+      ],
+      [
+        0.75,
+        false
+      ],
+      [
+        0.25,
+        true
+      ],
+      [
+        3.75,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "White octagonal tower with red upper portion. | 19.2",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.25 s; eclipse 0.75 s; | flash 0.25 s; eclipse 3.75 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD223",
+    "name": "Cape Norman Light Station",
+    "coordinates": [
+      -55.91041666666667,
+      51.63444444444445
+    ],
+    "intl": "H140",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "3",
+    "period": 27.0,
+    "range": 21.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "White octagonal tower with red top. | 15.2",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD225",
+    "name": "Cape Bauld Light Station",
+    "coordinates": [
+      -55.42663888888889,
+      51.640055555555556
+    ],
+    "intl": "H132",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 15.0,
+    "range": 17.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "Red hexagonal tower. | 14.6",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.5 s; eclipse 14 .5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD227",
+    "name": "Amour Point Light Station",
+    "coordinates": [
+      -56.85813888888889,
+      51.46047222222222
+    ],
+    "intl": "H114",
+    "colors": [
+      "W"
+    ],
+    "character": "Oc",
+    "group": "",
+    "period": 20.0,
+    "range": 24.0,
+    "sequence": [
+      [
+        16.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "White cylindrical tower, black horizontal band. | 33.3",
+    "remarks": "Seasonal. | Flash 16 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD232",
+    "name": "Belle Isle North End Light Station",
+    "coordinates": [
+      -55.28036111111111,
+      52.01363888888889
+    ],
+    "intl": "H96",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        0.2,
+        true
+      ],
+      [
+        9.8,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl211-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round. | Flash 0.2 s; eclipse 9.8 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD240",
+    "name": "Fox Point (Fishing Point) Light Station and Fog Signal",
+    "coordinates": [
+      -55.555083333333336,
+      51.35611111111111
+    ],
+    "intl": "H730",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        0.3,
+        true
+      ],
+      [
+        9.7,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "White square tower with red horizontal bands. | 9.3",
+    "remarks": "Year round. | Flash 0.3 s; eclipse 9.7 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD242",
+    "name": "St. Anthony Harbour Light",
+    "coordinates": [
+      -55.558166666666665,
+      51.35958333333333
+    ],
+    "intl": "H732",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.5",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD243",
+    "name": "Harbour Rock Light",
+    "coordinates": [
+      -55.569722222222225,
+      51.35897222222222
+    ],
+    "intl": "H734",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark. | 4.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD243.13",
+    "name": "Marguerite Point Wharf Light",
+    "coordinates": [
+      -55.57688888888889,
+      51.36527777777778
+    ],
+    "intl": "H734.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD247",
+    "name": "Conche Light",
+    "coordinates": [
+      -55.89727777777778,
+      50.88608333333333
+    ],
+    "intl": "H722",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 6.7",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD247.1",
+    "name": "Conche Wharf Light",
+    "coordinates": [
+      -55.89469444444445,
+      50.88608333333333
+    ],
+    "intl": "H723",
+    "colors": [
+      "R"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD248",
+    "name": "Cape Fox",
+    "coordinates": [
+      -55.89,
+      50.86116666666667
+    ],
+    "intl": "H721",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl235-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD352",
+    "name": "Mill Point Light (Botwood)",
+    "coordinates": [
+      -55.33461111111111,
+      49.147555555555556
+    ],
+    "intl": "H668",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 1.5,
+    "range": 4.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        1.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl326-en.php",
+    "structure": "Cylindrical tower, red and white horizontal bands. | 4.3",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 1 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD358",
+    "name": "Long Point (Twillingate) Light Station and Fog Signal",
+    "coordinates": [
+      -54.8,
+      49.687777777777775
+    ],
+    "intl": "H640",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 16.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl326-en.php",
+    "structure": "Red and white rectangular tower. | 14.3",
+    "remarks": "Year round. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD396",
+    "name": "Offer Wadham Island Light",
+    "coordinates": [
+      -53.76280555555556,
+      49.59341666666667
+    ],
+    "intl": "H584",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 7.1",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD424",
+    "name": "Pound Rocks Light",
+    "coordinates": [
+      -53.55983333333333,
+      49.06794444444444
+    ],
+    "intl": "H558",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 3.7",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD425",
+    "name": "Scammels Lookout Light",
+    "coordinates": [
+      -53.56977777777778,
+      49.067
+    ],
+    "intl": "H560",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Mast. | 3.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD426",
+    "name": "Seine Rock Light",
+    "coordinates": [
+      -53.571777777777775,
+      49.065583333333336
+    ],
+    "intl": "H560.2",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Square skeleton tower, red and white square daymark. | 4.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD427",
+    "name": "Greenspond front range light",
+    "coordinates": [
+      -53.566472222222224,
+      49.06741666666667
+    ],
+    "intl": "H561",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Skeleton tower, white daymark, with red vertical stripe. | 3.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD428",
+    "name": "Greenspond rear range light",
+    "coordinates": [
+      -53.56788888888889,
+      49.06755555555556
+    ],
+    "intl": "H561.1",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Skeleton tower, white daymark, with red vertical stripe. | 7.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD430",
+    "name": "Puffin Island Light Station and Fog Signal",
+    "coordinates": [
+      -53.55088888888889,
+      49.06166666666667
+    ],
+    "intl": "H556",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 16.0,
+    "sequence": [
+      [
+        0.1,
+        true
+      ],
+      [
+        4.9,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Red and white hexagonal tower, white daymark with red horizontal band. | 4.9",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.1 s; eclipse 4.9 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD443",
+    "name": "Kings Cove Head Light",
+    "coordinates": [
+      -53.32361111111111,
+      48.57555555555555
+    ],
+    "intl": "H540",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "White cylindrical tower. | 8.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD443.1",
+    "name": "Kings Cove Wharf Light",
+    "coordinates": [
+      -53.33261111111111,
+      48.56775
+    ],
+    "intl": "H540.1",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Mast.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD447",
+    "name": "Bonavista Breakwater Light",
+    "coordinates": [
+      -53.11838888888889,
+      48.64947222222222
+    ],
+    "intl": "H538",
+    "colors": [
+      "R"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD448",
+    "name": "Long Liner Wharf Light",
+    "coordinates": [
+      -53.11402777777778,
+      48.65022222222222
+    ],
+    "intl": "H539",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Mast. | 1.9",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD448.1",
+    "name": "Bonavista Floating Wharf Light",
+    "coordinates": [
+      -53.114777777777775,
+      48.64991666666667
+    ],
+    "intl": "H539.5",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Mast. | 2.1",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD449",
+    "name": "Cape Bonavista Light Station and Fog Signal",
+    "coordinates": [
+      -53.085388888888886,
+      48.70161111111111
+    ],
+    "intl": "H536",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        9.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl396-en.php",
+    "structure": "Skeleton tower, red and white rectangular daymark. | 12.7",
+    "remarks": "Year round. | Flash 1 s; eclipse 9 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD453",
+    "name": "Green Island (Catalina) Light Station and Fog Signal",
+    "coordinates": [
+      -53.04344444444445,
+      48.50411111111111
+    ],
+    "intl": "H526",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.33,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.07,
+        true
+      ],
+      [
+        3.26,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Red and white octagonal tower.",
+    "remarks": "Year round. | Flash 0.07 s; eclipse 3.26 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD453.2",
+    "name": "Burnt Point (Catalina) Light",
+    "coordinates": [
+      -53.04955555555556,
+      48.50911111111111
+    ],
+    "intl": "H526.5",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.6",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD454",
+    "name": "Catalina Harbour Outer front range light",
+    "coordinates": [
+      -53.062083333333334,
+      48.51555555555556
+    ],
+    "intl": "H527",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Skeleton tower, red daymark with black vertical stripe. | 4.3",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD455",
+    "name": "Catalina Harbour Outer rear range light",
+    "coordinates": [
+      -53.06288888888889,
+      48.51583333333333
+    ],
+    "intl": "H527.1",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Skeleton tower, red daymark with black vertical stripe. | 5.0",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD456",
+    "name": "Catalina Harbour Inner front range light",
+    "coordinates": [
+      -53.07577777777778,
+      48.50602777777778
+    ],
+    "intl": "H530",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Skeleton tower, black daymark with red vertical stripe. | 7.3",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD457",
+    "name": "Catalina Harbour Inner rear range light",
+    "coordinates": [
+      -53.07933333333333,
+      48.50527777777778
+    ],
+    "intl": "H530.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Skeleton tower, black daymark with red vertical stripe. | 5.2",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD461",
+    "name": "Catalina Wharf Light",
+    "coordinates": [
+      -53.07502777777778,
+      48.51536111111111
+    ],
+    "intl": "H531",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        2.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Seasonal. | Flash 0.5 s; eclipse 2.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD462",
+    "name": "Fort Point Light Station and Fog Signal",
+    "coordinates": [
+      -53.34588888888889,
+      48.36552777777778
+    ],
+    "intl": "H520",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 15.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Square skeleton tower. | 12.4",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 2 s; sil. 18 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD463.2",
+    "name": "Trinity East Wharf Light",
+    "coordinates": [
+      -53.34527777777778,
+      48.37802777777778
+    ],
+    "intl": "H520.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD465",
+    "name": "Random Head Harbour Light",
+    "coordinates": [
+      -53.54530555555556,
+      48.09475
+    ],
+    "intl": "H514",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Red and white cylindrical tower. | 10.2",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD468",
+    "name": "Heart’s Content Light",
+    "coordinates": [
+      -53.385083333333334,
+      47.88225
+    ],
+    "intl": "H510",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": null,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Red and white cylindrical tower. | 8.7",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD468.7",
+    "name": "Bloody Point Light",
+    "coordinates": [
+      -53.35944444444444,
+      47.914944444444444
+    ],
+    "intl": "H508",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 9.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.2",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD468.8",
+    "name": "Heart’s Content Wharf Light",
+    "coordinates": [
+      -53.37119444444444,
+      47.8795
+    ],
+    "intl": "H510.5",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD469",
+    "name": "Jeans Head Light",
+    "coordinates": [
+      -53.36347222222222,
+      47.92702777777778
+    ],
+    "intl": "H506",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD470",
+    "name": "Hant’s Harbour Light",
+    "coordinates": [
+      -53.254444444444445,
+      48.02177777777778
+    ],
+    "intl": "H504",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 6.0,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Red and white structure. | 8.0",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD470.1",
+    "name": "Hant’s Harbour Breakwater Light",
+    "coordinates": [
+      -53.25955555555556,
+      48.01927777777778
+    ],
+    "intl": "H504.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD470.5",
+    "name": "Old Perlican Inner Breakwater Light",
+    "coordinates": [
+      -53.00822222222222,
+      48.08722222222222
+    ],
+    "intl": "H503.2",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        2.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal. | Flash 0.5 s; eclipse 2.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD470.7",
+    "name": "Old Perlican Inner Breakwater Light",
+    "coordinates": [
+      -53.010083333333334,
+      48.08683333333333
+    ],
+    "intl": "H503",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        2.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Seasonal. | Flash 0.5 s; eclipse 2.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD471",
+    "name": "Old Perlican Light",
+    "coordinates": [
+      -53.02616666666667,
+      48.089555555555556
+    ],
+    "intl": "H502",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4501-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 6.9",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD477",
+    "name": "Carbonear Island Light",
+    "coordinates": [
+      -53.16436111111111,
+      47.73961111111111
+    ],
+    "intl": "H490",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD479",
+    "name": "Harbour Grace Islands Light",
+    "coordinates": [
+      -53.14180555555556,
+      47.711777777777776
+    ],
+    "intl": "H484",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Rectangular skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD481.1",
+    "name": "Point of Beach Sector",
+    "coordinates": [
+      -53.214444444444446,
+      47.69
+    ],
+    "intl": "H487",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        234.5,
+        235.5
+      ],
+      [
+        "W",
+        236.0,
+        238.0
+      ],
+      [
+        "G",
+        238.5,
+        239.5
+      ]
+    ],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round. | Operates 24 h. | R | 234°30'-235°30'; | Al RW | 235°30'-236°; | W | 236°-238°; | Al GW | 238°-238°30'; | G | 238°30'-239°30'."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD482.72",
+    "name": "Long Beach North Breakwater Light",
+    "coordinates": [
+      -53.2395,
+      47.67338888888889
+    ],
+    "intl": "H486.3",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast. | 2.4",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD482.73",
+    "name": "Harbour Grace Small Boat Basin South Wharf Light",
+    "coordinates": [
+      -53.23916666666667,
+      47.67325
+    ],
+    "intl": "H485",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast. | 2.2",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD482.789",
+    "name": "Harbour Grace Marina",
+    "coordinates": [
+      -53.241,
+      47.67347222222222
+    ],
+    "intl": "H485.6",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD486",
+    "name": "Green Point (Bay Roberts) Light",
+    "coordinates": [
+      -53.17669444444444,
+      47.611472222222226
+    ],
+    "intl": "H482",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Cylindrical tower, red and white horizontal bands. | 7.5",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD486.05",
+    "name": "Ship Cove Wharf Light",
+    "coordinates": [
+      -53.200916666666664,
+      47.59038888888889
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD488",
+    "name": "Brigus Light",
+    "coordinates": [
+      -53.182027777777776,
+      47.5485
+    ],
+    "intl": "H478",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Cylindrical tower, red and white vertical stripes. | 9.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD488.2",
+    "name": "Brigus Wharf Light",
+    "coordinates": [
+      -53.20572222222222,
+      47.53938888888889
+    ],
+    "intl": "H479",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast. | 3.4",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD488.3",
+    "name": "Brigus Point Light",
+    "coordinates": [
+      -53.20633333333333,
+      47.53927777777778
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Pipe tower.",
+    "remarks": "Seasonal. | Operates 24 h. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD488.7",
+    "name": "Harbour Main Wharf Light",
+    "coordinates": [
+      -53.15852777777778,
+      47.43544444444444
+    ],
+    "intl": "H474.8",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Mast. | 2.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD489",
+    "name": "Ballyhack Point Light",
+    "coordinates": [
+      -53.19105555555556,
+      47.44611111111111
+    ],
+    "intl": "H476",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, trapezoid red daymark with white vertical stripe. | 4.9",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD490",
+    "name": "Conception Harbour Wharf Light",
+    "coordinates": [
+      -53.208888888888886,
+      47.440555555555555
+    ],
+    "intl": "H477",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Pipe tower. | 3.3",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD493",
+    "name": "Bell Island Light Station",
+    "coordinates": [
+      -52.916444444444444,
+      47.655027777777775
+    ],
+    "intl": "H470",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "White block. | 3.1",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD494",
+    "name": "Bell Island Ferry Wharf Light",
+    "coordinates": [
+      -52.92388888888889,
+      47.629416666666664
+    ],
+    "intl": "H471",
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 5.2",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD495",
+    "name": "Portugal Cove front range light",
+    "coordinates": [
+      -52.85627777777778,
+      47.625166666666665
+    ],
+    "intl": "H473",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 6.5",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD496",
+    "name": "Portugal Cove rear range light",
+    "coordinates": [
+      -52.855472222222225,
+      47.62513888888889
+    ],
+    "intl": "H473.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 3.9",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD497",
+    "name": "Portugal Cove Breakwater Light",
+    "coordinates": [
+      -52.858666666666664,
+      47.626305555555554
+    ],
+    "intl": "H472",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl4717-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark.",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD499",
+    "name": "Cape St. Francis Light Station",
+    "coordinates": [
+      -52.78658333333333,
+      47.80872222222222
+    ],
+    "intl": "H468",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 16.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Octagonal lantern house on rectangular building. | 3.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 2 s; eclipse 4 s. | Visible 084º-316º."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD500",
+    "name": "Chain Rock Light",
+    "coordinates": [
+      -52.687694444444446,
+      47.56686111111111
+    ],
+    "intl": "H460",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        2.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Red and white octagonal tower. | 4.1",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 2.5 s. | Physical AIS AtoN | MMSI: 993161048"
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD501.1",
+    "name": "Quidi Vidi Breakwater Light",
+    "coordinates": [
+      -52.67305555555556,
+      47.580888888888886
+    ],
+    "intl": "H460.5",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD503.6",
+    "name": "Newfoundland Dock Yard Pier Light",
+    "coordinates": [
+      -52.70863888888889,
+      47.55683333333333
+    ],
+    "intl": "H462.2",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Mast.",
+    "remarks": "Private aid. | Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD504",
+    "name": "St. John's Harbour front range light",
+    "coordinates": [
+      -52.7025,
+      47.56722222222222
+    ],
+    "intl": "H459",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 24.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Red and white skeleton tower, white daymark with red vertical stripe.",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD505",
+    "name": "St. John's Harbour rear range light",
+    "coordinates": [
+      -52.70827777777778,
+      47.56763888888889
+    ],
+    "intl": "H459.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 24.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "On side of church, white rectangular daymark with red stripe. | 14.0",
+    "remarks": "Year round. | Operates 24 h. | An increased lantern intensity of the range lights is available from a distance on channel 20A (157.00 Hz). To increase to the high intensity setting, 24 NM nominal range, key the microphone of the VHF radio 5 consecutive times within 5 seconds on channel 20A. The high intensity setting will be activated for 30 minutes. The high intensity setting can be reduced to the low intensity setting, 18 NM nominal range, by keying the microphone 3 times within 5 seconds."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD505.5",
+    "name": "North Head Light",
+    "coordinates": [
+      -52.67761111111111,
+      47.56655555555555
+    ],
+    "intl": "H458.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        232.0,
+        14.0
+      ]
+    ],
+    "section": "nl499-en.php",
+    "structure": "Mast. | 2.6",
+    "remarks": "Year round. | Visible 232°-014°."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD506",
+    "name": "Fort Amherst Light Station and Fog Signal",
+    "coordinates": [
+      -52.68044444444445,
+      47.56330555555556
+    ],
+    "intl": "H458",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 15.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        14.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "White structure. | 7.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 14 s. | Fog Horn | Blast 2 s; sil. 18 s. | Synthetic AIS AtoN | MMSI: 993161065"
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD507",
+    "name": "Cape Spear Light Station and Fog Signal",
+    "coordinates": [
+      -52.622305555555556,
+      47.521166666666666
+    ],
+    "intl": "H454",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": null,
+    "range": 20.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "White hexagonal tower. | 13.7",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD508",
+    "name": "Bull Head (Bay Bulls) Light",
+    "coordinates": [
+      -52.746833333333335,
+      47.31075
+    ],
+    "intl": "H452",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        5.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "White lighthouse. | 12.0",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 5.5 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD509",
+    "name": "Ferryland Head Light",
+    "coordinates": [
+      -52.857416666666666,
+      47.016777777777776
+    ],
+    "intl": "H450",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 15.0,
+    "sequence": [
+      [
+        0.2,
+        true
+      ],
+      [
+        9.8,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Red and white cylindrical tower. | 10.3",
+    "remarks": "Year round. | Flash 0.2 s; eclipse 9.8 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD509.11",
+    "name": "Ferryland Head Wharf",
+    "coordinates": [
+      -52.88122222222222,
+      47.023472222222225
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl499-en.php",
+    "structure": "Pipe tower.",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD8",
+    "name": "La Haye Point Light Station and Fog Signal",
+    "coordinates": [
+      -53.61633333333333,
+      46.904333333333334
+    ],
+    "intl": "H436",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl75-en.php",
+    "structure": "Square skeleton tower with octagonal upper portion. | 11.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD9",
+    "name": "Great Colinet Island Light",
+    "coordinates": [
+      -53.68536111111111,
+      47.01280555555556
+    ],
+    "intl": "H434",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "nl75-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 4.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "NFD",
+    "ccg_id": "NFD14",
+    "name": "Cape St. Mary's Light Station and Fog Signal",
+    "coordinates": [
+      -54.196,
+      46.823055555555555
+    ],
+    "intl": "H432",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 21.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "nl75-en.php",
+    "structure": "White octagonal tower. | 12.0",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 3 s; sil. 27 s."
+  }
+]
