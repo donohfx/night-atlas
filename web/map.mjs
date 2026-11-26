@@ -482,7 +482,7 @@ function beamReach(light) {
 function drawBeams(timestamp) {
   beamFrame = 0;
   if (!loaded || document.hidden) return;
-  if (timestamp - lastBeam < (touring ? 0 : 32)) {      // every frame during the tour (smooth video)
+  if (timestamp - lastBeam < (touring && !tourFinished ? 0 : 32)) {      // every frame during the tour (smooth video)
     beamFrame = requestAnimationFrame(drawBeams);
     return;
   }
