@@ -47,8 +47,19 @@ export async function createAtlas({
   const promotedMarks = new Set(regionalLights?.marks.map(mark => JSON.stringify(mark)));
   const palette = colors.dark;
   let buildMarks;
+  let areaParts = [];
+  function includeMarkAreas(parts) {
+    areaParts = parts;
+    buildMarks = undefined;
+    switchSources(layersOn.openSources);
+  }
   const marksFor = open => {
-    buildMarks ??= markBuilder(marksData, aidsData, chsData, buoyMatches);
+    buildMarks ??= areaParts.length ? markBuilder(marksData,
+      collection([...aidsData.features, ...areaParts.flatMap(part => part.aids)]),
+      collection([...chsData.features, ...areaParts.flatMap(part => part.marks)]), {
+        fillIns:[...buoyMatches.fillIns, ...areaParts.flatMap(part => part.matches.fillIns)],
+        overrides:[...buoyMatches.overrides, ...areaParts.flatMap(part => part.matches.overrides)],
+      }) : markBuilder(marksData, aidsData, chsData, buoyMatches);
     const marks = buildMarks(open);
     return open || !promotedMarks.size ? marks : marks.filter(mark => !promotedMarks.has(lightMarkKey(mark)));
   };
@@ -1070,7 +1081,7 @@ export async function createAtlas({
   map.on("error", event => console.warn("Night Atlas map:", event.error?.message || "unknown error"));
 
   return {
-    map, status, applySettings, classifySweeps, isDark, setNight, setPaused,
+    map, status, applySettings, classifySweeps, isDark, setNight, setPaused, includeMarkAreas,
     inspect, showCard, highlight, clearHover, updateShips, updateBuoys, updateWeather,
     beginTourWeather, endTourWeather, setSimulatedWeather,
     setTourPreview: preview => tourWeather?.effects.setPreview(preview),
