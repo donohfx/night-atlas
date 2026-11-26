@@ -1,6 +1,6 @@
 // Night Atlas as one small always-on server: the static map, live ships and buoys.
 import { createServer } from "node:http";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
@@ -11,7 +11,7 @@ import { createFeed } from "./ais-live.mjs";
 
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
-  ".json": "application/json", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".txt": "text/plain; charset=utf-8",
+  ".json": "application/json", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".txt": "text/plain; charset=utf-8",
 };
 const SECURITY = { "X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin-when-cross-origin" };
 
@@ -22,34 +22,63 @@ function loadFiles(root) {
     if (!entry.isFile() || !TYPES[extname(entry.name)]) continue;
     const path = join(entry.parentPath, entry.name);
     const body = readFileSync(path), type = TYPES[extname(entry.name)];
+    const text = !/^image\/(jpeg|webp)/.test(type);
     files.set("/" + relative(root, path), {
-      body, type, gzip: type.startsWith("image/jpeg") ? null : gzipSync(body, { level: 9 }),
-      etag: `"${createHash("sha1").update(body).digest("hex")}"`,
+      body, type, gzip: text ? gzipSync(body, { level: 9 }) : null,
+      br: text && existsSync(path + ".br") ? readFileSync(path + ".br") : null,   // made by precompress.mjs
+      hash: createHash("sha1").update(body).digest("hex"),
     });
   }
   files.set("/", files.get("/index.html"));
   return files;
 }
 
+const accepts = (req, name) => String(req.headers["accept-encoding"] || "").split(",").some(part => {
+  const [coding, ...params] = part.trim().toLowerCase().split(";");
+  return coding === name && !params.some(p => /^\s*q=0(\.0*)?\s*$/.test(p));
+});
+const encodingFor = (req, { br, gzip }) => br && accepts(req, "br") ? "br" : gzip && accepts(req, "gzip") ? "gzip" : null;
+const prepare = value => {
+  const body = Buffer.from(JSON.stringify(value));
+  return { body, gzip: gzipSync(body) };
+};
+
 export function createApp({ root, feed, buoyHandler = buoys, redirects = {} }) {
   const files = loadFiles(root);
-  let buoyCache = { at: 0, body: null };
+  const SHIPS_MS = 1000;                  // one prepared snapshot serves everyone who asks within a second
+  let ships = { at: 0, ready: null };
+  const buoyCache = { at: 0, ready: prepare({ stations: [] }), ok: false, pending: null };
 
-  function send(req, res, status, headers, body, gzip) {
-    const zipped = gzip && /\bgzip\b/.test(req.headers["accept-encoding"] || "");
-    const data = zipped ? gzip : body;
+  function send(req, res, status, headers, content) {
+    const encoding = encodingFor(req, content);
+    const data = encoding ? content[encoding] : content.body;
     res.writeHead(status, { ...SECURITY, ...headers, Vary: "Accept-Encoding",
-      ...(zipped ? { "Content-Encoding": "gzip" } : {}), "Content-Length": data.length });
+      ...(encoding ? { "Content-Encoding": encoding } : {}), "Content-Length": data.length });
     res.end(req.method === "HEAD" ? undefined : data);
   }
-  const json = (req, res, status, value, cache) => {
-    const body = Buffer.from(JSON.stringify(value));
-    send(req, res, status, { "Content-Type": "application/json", "Cache-Control": cache }, body, gzipSync(body));
-  };
+  const json = (req, res, status, ready, headers) =>
+    send(req, res, status, { "Content-Type": "application/json", ...headers }, ready);
+  const plain = text => ({ body: Buffer.from(text) });
+
+  // Everyone arriving during a refresh shares it. A failed refresh keeps the last good readings.
+  function refreshBuoys() {
+    buoyCache.pending ??= (async () => {
+      try {
+        const body = await buoyHandler();
+        if (body.stations.length) { buoyCache.ready = prepare(body); buoyCache.ok = true; }
+      } catch (error) {
+        console.error("Buoy refresh failed:", error.message);
+      } finally {
+        buoyCache.at = Date.now();
+        buoyCache.pending = null;
+      }
+    })();
+    return buoyCache.pending;
+  }
 
   return createServer(async (req, res) => {
     try {
-      if (req.method !== "GET" && req.method !== "HEAD") return send(req, res, 405, { Allow: "GET, HEAD" }, Buffer.alloc(0));
+      if (req.method !== "GET" && req.method !== "HEAD") return send(req, res, 405, { Allow: "GET, HEAD" }, plain(""));
       // Old addresses keep working: same path, permanent redirect.
       const moved = redirects[String(req.headers.host || "").toLowerCase().split(":")[0]];
       if (moved && req.url.startsWith("/")) {
@@ -58,23 +87,32 @@ export function createApp({ root, feed, buoyHandler = buoys, redirects = {} }) {
       }
       const path = req.url.split("?")[0];
       if (path === "/api/ships") {
-        return json(req, res, 200, feed ? feed.snapshot() : { status: "not-configured", points: [], asOf: Date.now() }, "no-store");
+        if (!ships.ready || Date.now() - ships.at >= SHIPS_MS) {
+          ships = { at: Date.now(),
+            ready: prepare(feed ? feed.snapshot() : { status: "not-configured", points: [], asOf: Date.now() }) };
+        }
+        return json(req, res, 200, ships.ready, { "Cache-Control": "no-store" });
       }
       if (path === "/api/buoys") {
-        if (Date.now() - buoyCache.at > (buoyCache.body?.stations.length ? 900_000 : 60_000)) {
-          buoyCache.at = Date.now();
-          const body = await buoyHandler();
-          if (body.stations.length || !buoyCache.body) buoyCache.body = body;
+        if (buoyCache.pending || Date.now() - buoyCache.at > (buoyCache.ok ? 900_000 : 60_000)) {
+          const refresh = refreshBuoys();
+          if (!buoyCache.ok) await refresh;    // nothing to show yet; otherwise answer now with what we have
         }
-        const body = buoyCache.body ?? { stations: [] };
-        return json(req, res, body.stations.length ? 200 : 503, body, "public, max-age=60");
+        return buoyCache.ok
+          ? json(req, res, 200, buoyCache.ready, { "Cache-Control": "public, max-age=60" })
+          : json(req, res, 503, buoyCache.ready, { "Cache-Control": "no-store", "Retry-After": "60" });
       }
       const file = files.get(path);
-      if (!file) return send(req, res, 404, { "Content-Type": "text/plain" }, Buffer.from("Not found"));
-      const headers = { "Content-Type": file.type, ETag: file.etag,
+      if (!file) return send(req, res, 404, { "Content-Type": "text/plain" }, plain("Not found"));
+      const encoding = encodingFor(req, file);
+      const etag = `"${file.hash}${encoding ? "-" + encoding : ""}"`;
+      const headers = { "Content-Type": file.type, ETag: etag,
         "Cache-Control": path.startsWith("/vendor/") ? "public, max-age=86400" : "public, max-age=300" };
-      if (req.headers["if-none-match"] === file.etag) { res.writeHead(304, { ...SECURITY, ETag: file.etag }); return res.end(); }
-      send(req, res, 200, headers, file.body, file.gzip);
+      if (req.headers["if-none-match"] === etag) {
+        res.writeHead(304, { ...SECURITY, ETag: etag, Vary: "Accept-Encoding", "Cache-Control": headers["Cache-Control"] });
+        return res.end();
+      }
+      send(req, res, 200, headers, file);
     } catch (error) {
       console.error("Request failed:", error.message);
       if (!res.headersSent) res.writeHead(500, SECURITY);

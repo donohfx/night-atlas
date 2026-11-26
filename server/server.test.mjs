@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { EventEmitter } from "node:events";
 import { fileURLToPath } from "node:url";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { brotliCompressSync } from "node:zlib";
 import test from "node:test";
 import { retained, RETENTION_MS } from "./ais.mjs";
 import { request } from "node:http";
@@ -92,4 +96,49 @@ test("ship dimensions are read from static reports", async () => {
     vessels, metadata, seen, 2);
   assert.equal(vessels.get(1).length, 294);
   assert.equal(vessels.get(1).width, 32);
+});
+
+const listen = async (t, app) => {
+  await new Promise(done => app.listen(0, "127.0.0.1", done));
+  t.after(() => app.close());
+  return `http://127.0.0.1:${app.address().port}`;
+};
+
+test("precompressed files are negotiated, each with its own ETag", async t => {
+  const root = mkdtempSync(join(tmpdir(), "atlas-"));
+  t.after(() => rmSync(root, { recursive: true }));
+  const text = "<p>chart</p>".repeat(50);
+  writeFileSync(join(root, "index.html"), text);
+  writeFileSync(join(root, "index.html.br"), brotliCompressSync(Buffer.from(text)));
+  const base = await listen(t, createApp({ root, feed: null }));
+  const get = headers => new Promise(done => request(base + "/", { headers }, res => { res.resume(); done(res); }).end());
+  const br = await get({ "accept-encoding": "gzip, br" }), gz = await get({ "accept-encoding": "gzip, br;q=0" }),
+    none = await get({});
+  assert.equal(br.headers["content-encoding"], "br");
+  assert.equal(gz.headers["content-encoding"], "gzip");
+  assert.equal(none.headers["content-encoding"], undefined);
+  assert.equal(new Set([br, gz, none].map(r => r.headers.etag)).size, 3);
+  assert.equal((await get({ "accept-encoding": "br", "if-none-match": br.headers.etag })).statusCode, 304);
+  assert.equal((await get({ "accept-encoding": "gzip", "if-none-match": br.headers.etag })).statusCode, 200);
+  assert.equal((await fetch(base + "/index.html.br")).status, 404);
+});
+
+test("ship snapshots are shared for a second and buoy refreshes are shared", async t => {
+  let snapshots = 0, calls = 0, fail = true;
+  const base = await listen(t, createApp({ root: fileURLToPath(new URL("../web", import.meta.url)),
+    feed: { snapshot: () => ({ status: "live", points: [], asOf: ++snapshots }) },
+    buoyHandler: async () => { ++calls; await new Promise(r => setTimeout(r, 80)); return { stations: fail ? [] : [{ id: "x" }] }; } }));
+  await Promise.all(Array.from({ length: 12 }, () => fetch(base + "/api/ships").then(r => r.json())));
+  assert.equal(snapshots, 1);
+  const cold = await Promise.all(Array.from({ length: 12 }, () => fetch(base + "/api/buoys")));
+  assert.deepEqual([...new Set(cold.map(r => r.status))], [503]);
+  assert.equal(calls, 1);
+  assert.equal((await fetch(base + "/api/buoys")).status, 503);   // a failure is not retried at once
+  assert.equal(calls, 1);
+  fail = false;
+  const later = Date.now() + 61_000;
+  t.mock.method(Date, "now", () => later);
+  const warm = await Promise.all(Array.from({ length: 12 }, () => fetch(base + "/api/buoys")));
+  assert.deepEqual([...new Set(warm.map(r => r.status))], [200]);
+  assert.equal(calls, 2);
 });

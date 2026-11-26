@@ -148,7 +148,7 @@ const map = new AtlasMap({
     transition: {duration: 1100, delay: 0},
     sources: {
       relief: {type:"image", url:"/relief.jpg", coordinates:imageCorners},
-      close: {type:"image", url:"/relief-detail.jpg", coordinates:imageCorners},
+      close: {type:"image", url:"/relief-detail.webp", coordinates:imageCorners},
       osm: {type:"vector", url:"https://tiles.openfreemap.org/planet/latest", bounds:[west,south,east,north]},
       land:{type:"geojson",data:"/land.json",tolerance:.4,maxzoom:15},
       contours:{type:"geojson", data:"/contours.json"},
@@ -1205,8 +1205,11 @@ const weatherURL = "https://api.open-meteo.com/v1/forecast?latitude=44.65&longit
 async function refreshWeather() {
   try { updateWeather((await read(weatherURL)).current); } catch { /* Keep last good reading. */ }
 }
+let buoyRetry;
 async function refreshBuoys() {
-  try { updateBuoys((await read("/api/buoys")).stations); } catch { /* Keep last good readings. */ }
+  clearTimeout(buoyRetry);
+  try { updateBuoys((await read("/api/buoys")).stations); }
+  catch { buoyRetry = setTimeout(() => { if (!document.hidden) refreshBuoys(); }, 90000); }   // keep last good readings
 }
 
 let shipSnapshot = null, shipSnapshotAt = 0, shipRefreshTimer, fetchingShips = false;

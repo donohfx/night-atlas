@@ -145,6 +145,8 @@ base.alpha_composite(coast)
 # This texture has no shoreline mask. At close zoom, all land and water
 # outlines are drawn by vector layers on top of continuous depth tones.
 image(water_tones).filter(ImageFilter.GaussianBlur(4)).save(args.output / "relief-detail.jpg", quality=92)
+# The web app serves a lossless WebP of that file (far smaller, same pixels); the desktop copy uses the JPEG.
+Image.open(args.output / "relief-detail.jpg").save(args.output / "relief-detail.webp", lossless=True, method=6)
 with (args.output / "land.json").open("w") as f:
     json.dump({"type":"FeatureCollection","features":[
         {"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":polygon}}
