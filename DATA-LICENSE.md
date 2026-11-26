@@ -14,6 +14,14 @@ Source: Canadian Coast Guard, Fisheries and Oceans Canada. This is an unofficial
 
 Combining these sources may not satisfy ODbL share-alike for the merged file. If you are a rights holder and want something changed or removed, please open an issue.
 
+The web-only `web/region/lights.json` pairs an OSM lighthouse inventory with
+positions and signals from the Canadian Coast Guard *List of Lights, Buoys and
+Fog Signals*. The same non-commercial terms apply to that layer and the
+`tools/provinces/*.ccg.json` source extracts. The independent
+`tools/provinces/*.osm.json` extracts are © OpenStreetMap contributors,
+[ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/). The web chart
+uses the provincial layer only in combined mode.
+
 ## NOTMAR navigation aid supplement
 
 `web/aids.json` (and its copy in the desktop plugin) is an unofficial, modified extract of the Canadian Coast Guard

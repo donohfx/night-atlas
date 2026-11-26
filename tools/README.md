@@ -96,3 +96,26 @@ static assets. `events.json` records completed response body bytes by stage.
 
 Set `ATLAS_VERIFY_REGION=1` with the regional tile build to capture New Brunswick,
 province focus and phone portrait and to check the rotated camera limits.
+
+## Provincial lighthouse layer
+
+Run `python tools/build-atlas-provincial-lights.py` to regenerate the regional
+web inventory and the match reviews from the checked-in extracts. Each
+`tools/provinces/*.config.json` supplies thresholds and reviewed overrides for
+one province. Its companion `*.osm.json` and `*.ccg.json` record the OSM
+lighthouse objects and candidate fixed aids, including the List of Lights
+section for each record. `*.review.json` lists every OSM object, the match
+method and distance, nearby candidates, and the marks associated with promotions.
+
+To refresh the extracts, supply `--province` with `--osm-pbf` and
+`--ccg-html` pointing at a dated provincial OSM extract and saved List of
+Lights sections. Refreshing uses pyosmium, Beautiful Soup and lxml.
+Update the source URL in the province config when changing the OSM snapshot.
+A reviewed override can map an OSM object to a specified volume and light
+number, keep it as a chart mark, or supply verified fields under `light`.
+Record the reason and source in the override.
+
+After changing the provincial inventory or regional shoreline, run
+`CHROME=/path/to/chrome node tools/beam-reach.mjs --regional`, then repeat
+with `--check` and run `npm run build:tiles`. This uses the regional shoreline
+and leaves the original Nova Scotia and open-source reach tables intact.

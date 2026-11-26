@@ -1,0 +1,3661 @@
+[
+  {
+    "volume": "atlantic",
+    "ccg_id": "1090",
+    "name": "Cape Tormentine Outer Wharf",
+    "coordinates": [
+      -63.772222222222226,
+      46.13483333333333
+    ],
+    "intl": "H1308",
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 2.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "White pyramid tower with red upper portion and red vertical stripe. | 10.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1091.5",
+    "name": "Cape Tormentine Breakwater",
+    "coordinates": [
+      -63.76994444444444,
+      46.13411111111111
+    ],
+    "intl": "H1316",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower, green, white and black square daymark. | 3.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1094",
+    "name": "Cape Tormentine Inner Wharf",
+    "coordinates": [
+      -63.77436111111111,
+      46.133472222222224
+    ],
+    "intl": "H1313.1",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        2.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Cylindrical mast. | 3.8",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 2 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1094.6",
+    "name": "Cape Tormentine Fisherman’s Wharf",
+    "coordinates": [
+      -63.77719444444445,
+      46.1335
+    ],
+    "intl": "H1313",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Pipe swing pole, green and white square daymark. | 3.8",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1097",
+    "name": "Botsford Breakwater",
+    "coordinates": [
+      -63.933638888888886,
+      46.16866666666667
+    ],
+    "intl": "H1319",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Pipe swing pole. | 5.3",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1110.5",
+    "name": "Pointe-du-Chêne Wharf",
+    "coordinates": [
+      -64.53011111111111,
+      46.24166666666667
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 5.1",
+    "remarks": "Seasonal. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1111.01",
+    "name": "Pointe-du-Chêne North Breakwater Light",
+    "coordinates": [
+      -64.52863888888889,
+      46.242111111111114
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1111.1",
+    "name": "Pointe-du-Chêne Breakwater",
+    "coordinates": [
+      -64.5278888888889,
+      46.24144444444445
+    ],
+    "intl": "H1329",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Cylindrical mast, red and white triangular daymark. | 3.5",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1111.5",
+    "name": "Shediac Bay Yacht Club Breakwater",
+    "coordinates": [
+      -64.54708333333333,
+      46.22811111111111
+    ],
+    "intl": "H1334",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Pipe Swing Pole, green, white and black square daymark. | 3.7",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1112",
+    "name": "Cap de Caissie Breakwater",
+    "coordinates": [
+      -64.50966666666666,
+      46.312777777777775
+    ],
+    "intl": "H1348",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower. | 4.9",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1119.5",
+    "name": "St. Thomas-de-Kent",
+    "coordinates": [
+      -64.63680555555555,
+      46.44763888888889
+    ],
+    "intl": "H1360",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower. | 3.1",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1122",
+    "name": "Buctouche Bar",
+    "coordinates": [
+      -64.61283333333333,
+      46.46113888888889
+    ],
+    "intl": "H1362",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "White pyramid tower. | 11.4",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1128",
+    "name": "Richibucto Cape",
+    "coordinates": [
+      -64.71166666666667,
+      46.669805555555556
+    ],
+    "intl": "H1376",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 11.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "White square tower with red upper portion. | 10.5",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1129",
+    "name": "Richibucto Cape Breakwater",
+    "coordinates": [
+      -64.71058333333333,
+      46.67330555555556
+    ],
+    "intl": "H1378",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Cylindrical mast. | 2.8",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1141",
+    "name": "Richibucto Floating Dock Light",
+    "coordinates": [
+      -64.86097222222222,
+      46.67888888888889
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Cylindrical mast, green, white and black square daymark.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1151",
+    "name": "Richibucto Town front range light",
+    "coordinates": [
+      -64.86252777777777,
+      46.68013888888889
+    ],
+    "intl": "H1402",
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 1.0,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe. | 12.4",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1152",
+    "name": "Richibucto Town rear range light",
+    "coordinates": [
+      -64.86530555555555,
+      46.678416666666664
+    ],
+    "intl": "H1402.1",
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 11.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1085-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe. | 18.6",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "116",
+    "name": "Swift Point",
+    "coordinates": [
+      -66.12133333333334,
+      45.28241666666667
+    ],
+    "intl": "H4090",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White square tower with red upper portion. | 13.9",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "119",
+    "name": "McColgan Point",
+    "coordinates": [
+      -66.10955555555556,
+      45.33222222222222
+    ],
+    "intl": "H4090.1",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 12.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        10.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White square tower with red upper portion. | 8.2",
+    "remarks": "Seasonal. | Flash 2 s; eclipse 10 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "121",
+    "name": "Sand Point",
+    "coordinates": [
+      -66.19883333333334,
+      45.34261111111111
+    ],
+    "intl": "H4090.3",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White skeleton tower, red enclosed upper portion. | 17.7",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "122",
+    "name": "Belyeas Point",
+    "coordinates": [
+      -66.21605555555556,
+      45.378166666666665
+    ],
+    "intl": "H4090.5",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White square tower with red upper portion. | 11.9",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "125",
+    "name": "Oak Point",
+    "coordinates": [
+      -66.08030555555555,
+      45.507416666666664
+    ],
+    "intl": "H4090.7",
+    "colors": [
+      "G"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 10.0,
+    "range": 8.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White square tower with red upper portion. | 14.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "126",
+    "name": "Oak Point Wharf",
+    "coordinates": [
+      -66.0766111111111,
+      45.51938888888889
+    ],
+    "intl": "H4090.9",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "Pipe swing pole. | 3.0",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "131.5",
+    "name": "Gorhams Bluff",
+    "coordinates": [
+      -66.03472222222223,
+      45.54136111111111
+    ],
+    "intl": "H4091",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "Triangular skeleton tower. | 3.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "135",
+    "name": "Gagetown",
+    "coordinates": [
+      -66.14033333333333,
+      45.76858333333333
+    ],
+    "intl": "H4091.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 8.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White square tower with red top. | 9.8",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "136",
+    "name": "Lower Jemseg",
+    "coordinates": [
+      -66.10597222222222,
+      45.78111111111111
+    ],
+    "intl": "H4091.2",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "Square skeleton tower, orange and white rectangular daymark. | 6.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "137",
+    "name": "Robertson Point",
+    "coordinates": [
+      -66.103,
+      45.87225
+    ],
+    "intl": "H4091.3",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White cylindrical tower. | 7.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "140",
+    "name": "Fanjoys Point",
+    "coordinates": [
+      -66.02280555555555,
+      45.90775
+    ],
+    "intl": "H4091.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White cylindrical tower with red horizontal band. | 7.4",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "141",
+    "name": "Cox Point",
+    "coordinates": [
+      -65.99547222222222,
+      46.01744444444444
+    ],
+    "intl": "H4091.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "Triangular skeleton tower, red and white rectangular slatwork daymark. | 3.6",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "141.5",
+    "name": "Hawkes Point",
+    "coordinates": [
+      -65.9191111111111,
+      46.07994444444444
+    ],
+    "intl": "H4091.9",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 10.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl1145-en.php",
+    "structure": "White cylindrical tower with red horizontal band. | 7.3",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1229",
+    "name": "Neguac Wharf",
+    "coordinates": [
+      -65.07311111111112,
+      47.24008333333333
+    ],
+    "intl": "H1515",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Cylindrical mast. | 3.3",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1244.9",
+    "name": "North Tracadie Wharf",
+    "coordinates": [
+      -64.90844444444444,
+      47.52269444444445
+    ],
+    "intl": "H1525",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe swing pole. | 5.3",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1250.5",
+    "name": "Shippegan Gully Breakwater",
+    "coordinates": [
+      -64.66605555555556,
+      47.71794444444444
+    ],
+    "intl": "H1531",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Cylindrical mast, green, white and black square daymark.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1254",
+    "name": "Big Shippagan",
+    "coordinates": [
+      -64.66061111111111,
+      47.72213888888889
+    ],
+    "intl": "H1530",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 13.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "White octagonal tower with red top. | 16.1",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1264.7",
+    "name": "Miscou Island",
+    "coordinates": [
+      -64.49297222222222,
+      48.00936111111111
+    ],
+    "intl": "H1552",
+    "colors": [
+      "W"
+    ],
+    "character": "Oc",
+    "group": "",
+    "period": 5.0,
+    "range": 12.0,
+    "sequence": [
+      [
+        4.0,
+        true
+      ],
+      [
+        1.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "White octagonal tower. | 25.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 4 s; eclipse 1 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1273.5",
+    "name": "Shippegan Island West Wharf",
+    "coordinates": [
+      -64.57555555555555,
+      47.88338888888889
+    ],
+    "intl": "H1564.2",
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 2.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe Swing Pole, green, white and black square daymark.",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1274.1",
+    "name": "Harper Point",
+    "coordinates": [
+      -64.57769444444445,
+      47.89405555555555
+    ],
+    "intl": "H1559",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe swing pole, green, white and green square daymark. | 3.6",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1274.2",
+    "name": "Miscou Wharf",
+    "coordinates": [
+      -64.57708333333333,
+      47.89447222222222
+    ],
+    "intl": "H1562",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe swing pole, red and white triangular daymark.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1275",
+    "name": "Black Point",
+    "coordinates": [
+      -64.62361111111112,
+      47.884388888888886
+    ],
+    "intl": "H1556",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 12.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Skeleton tower with red top, enclosed central portion, red and white rectangular daymark. | 17.7",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1277",
+    "name": "Pointe de Petite-Lamèque front range light",
+    "coordinates": [
+      -64.70466666666667,
+      47.815666666666665
+    ],
+    "intl": "H1567",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 11.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 8.1",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1278",
+    "name": "Pointe de Petite-Lamèque rear range light",
+    "coordinates": [
+      -64.70283333333333,
+      47.81344444444444
+    ],
+    "intl": "H1567.1",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 11.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 16.5",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1283",
+    "name": "Pointe à Marcelle front range light",
+    "coordinates": [
+      -64.74955555555556,
+      47.78619444444445
+    ],
+    "intl": "H1568",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 9.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 6.8",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1283.1",
+    "name": "Pointe à Marcelle rear range light",
+    "coordinates": [
+      -64.75061111111111,
+      47.78341666666667
+    ],
+    "intl": "H1568.1",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 9.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 17.8",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1286.3",
+    "name": "Pointe à Bernache front range light",
+    "coordinates": [
+      -64.7213888888889,
+      47.75775
+    ],
+    "intl": "H1567.3",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 6.6",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1286.4",
+    "name": "Pointe à Bernache rear range light",
+    "coordinates": [
+      -64.72133333333333,
+      47.75622222222222
+    ],
+    "intl": "H1567.31",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, black daymark with red vertical stripe. | 15.8",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1287",
+    "name": "Shippegan Harbour West Entrance front range light",
+    "coordinates": [
+      -64.70230555555555,
+      47.747277777777775
+    ],
+    "intl": "H1567.36",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 10.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 9.5",
+    "remarks": "Seasonal. | Operates 24 h. | Synthetic AIS AtoN | MMSI: 993161099"
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1288",
+    "name": "Shippegan Harbour West Entrance rear range light",
+    "coordinates": [
+      -64.69958333333334,
+      47.74347222222222
+    ],
+    "intl": "H1567.37",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 10.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, white daymark with red vertical stripe. | 16.4",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1291.5",
+    "name": "Shippagan Wharf",
+    "coordinates": [
+      -64.70230555555555,
+      47.74786111111111
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 1.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe swing pole, red and white triangular daymark. | 5.1",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1292",
+    "name": "Savoy Landing",
+    "coordinates": [
+      -64.69147222222222,
+      47.749138888888886
+    ],
+    "intl": "H1535",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        2.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower. | 5.2",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 2 s. | Synthetic AIS AtoN | MMSI: 993161098"
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1296.1",
+    "name": "Lamèque Wharf Light",
+    "coordinates": [
+      -64.65905555555555,
+      47.790527777777775
+    ],
+    "intl": "H1571",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Tower, red and white rectangular daymark.",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1301",
+    "name": "Lamèque Breakwater Light",
+    "coordinates": [
+      -64.65991666666666,
+      47.79047222222222
+    ],
+    "intl": "H1571",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "2+1",
+    "period": 6.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Tower, red and white rectangular daymark with red diamond and green square in the centre.",
+    "remarks": "Seasonal."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1313.2",
+    "name": "Middle Caraquet front range light",
+    "coordinates": [
+      -64.88583333333334,
+      47.80269444444444
+    ],
+    "intl": "H1581.5",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 16.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe.",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1313.3",
+    "name": "Middle Caraquet rear range light",
+    "coordinates": [
+      -64.89013888888888,
+      47.80125
+    ],
+    "intl": "H1581.51",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 17.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, red daymark with white vertical stripe.",
+    "remarks": "Seasonal. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1319",
+    "name": "Young Wharf",
+    "coordinates": [
+      -64.92536111111112,
+      47.79691666666667
+    ],
+    "intl": "H1583",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe swing pole, red and white triangular daymark. | 7.1",
+    "remarks": "Seasonal. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1319.1",
+    "name": "Young Wharf West",
+    "coordinates": [
+      -64.92963888888889,
+      47.797583333333336
+    ],
+    "intl": "H1584",
+    "colors": [
+      "G"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark. | 4.9",
+    "remarks": "Seasonal. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1319.5",
+    "name": "Caraquet Harbour Breakwater Light",
+    "coordinates": [
+      -64.93072222222222,
+      47.79825
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe tower, red and white triangular daymark.",
+    "remarks": "Seasonal. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1319.6",
+    "name": "Caraquet Inner Breakwater Light",
+    "coordinates": [
+      -64.93133333333333,
+      47.79713888888889
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe tower, red and white triangular daymark. | 1.0",
+    "remarks": "Private aid. | Seasonal. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1319.7",
+    "name": "Caraquet Inner Breakwater Light",
+    "coordinates": [
+      -64.93130555555555,
+      47.79683333333333
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Pipe tower, green, white and black square daymark. | 1.0",
+    "remarks": "Private aid. | Seasonal. | Operates 24 h. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "1322",
+    "name": "Île de Caraquet",
+    "coordinates": [
+      -64.90444444444445,
+      47.82255555555555
+    ],
+    "intl": "H1588",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 9.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl11691-en.php",
+    "structure": "Skeleton tower with red enclosed top, white slatwork daymark. | 20.1",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "146",
+    "name": "Cape Spencer",
+    "coordinates": [
+      -65.90986111111111,
+      45.19513888888889
+    ],
+    "intl": "H4078",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 11.0,
+    "range": 14.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        10.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "Red and white cylindrical tower. | 8.6",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 10 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.13",
+    "name": "LNG East Initial (000) Sector",
+    "coordinates": [
+      -65.94755555555555,
+      45.214416666666665
+    ],
+    "intl": "H4078.7",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": null,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        358.6,
+        359.1
+      ],
+      [
+        "W",
+        359.8,
+        0.2
+      ],
+      [
+        "G",
+        0.9,
+        2.1
+      ]
+    ],
+    "section": "atl145-en.php",
+    "structure": "On building.",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | R | 358°36'-359°06'; | Al RW | 359°06'-359°48'; | W | 359°48'-000°12'; | Al GW | 000°12'-000°54'; | G | 000°54'-002°06'. | For sole use of vessels transmitting to and from Canaport facility (Occasional)."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.14",
+    "name": "LNG West Secondary (088) Sector",
+    "coordinates": [
+      -65.92627777777778,
+      45.20455555555556
+    ],
+    "intl": "H4078.5",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": null,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        85.9,
+        87.1
+      ],
+      [
+        "W",
+        87.8,
+        88.2
+      ],
+      [
+        "G",
+        88.9,
+        89.4
+      ]
+    ],
+    "section": "atl145-en.php",
+    "structure": "On building.",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | R | 085°54'-087°06'; | Al RW | 087°06'-087°48'; | W | 087°48'-088°12'; | Al WG | 088°12'-088°54'; | G | 088°54'-089°24'. | For sole use of vessels transmitting to and from Canaport facility (Occasional)."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.15",
+    "name": "LNG West Turn Point Sector Light",
+    "coordinates": [
+      -65.92627777777778,
+      45.20455555555556
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "W",
+        81.75,
+        82.75
+      ]
+    ],
+    "section": "atl145-en.php",
+    "structure": "On building.",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | Fl W | 81°45'-82°45'; | F W | 82°45-83°15'; | Fl W | 83°15-84°15'."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.16",
+    "name": "LNG East Turn Point Sector Light",
+    "coordinates": [
+      -65.92627777777778,
+      45.20455555555556
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 10.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "W",
+        23.5,
+        25.5
+      ],
+      [
+        "W",
+        25.5,
+        26.5
+      ],
+      [
+        "W",
+        26.5,
+        28.5
+      ]
+    ],
+    "section": "atl145-en.php",
+    "structure": "On building.",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | Fl W | 23°30'-25°30'; | F W | 25°30'-26°30'; | Fl W | 26°30'-28°30'."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.174",
+    "name": "LNG MD6 Jetty Light",
+    "coordinates": [
+      -65.97816666666667,
+      45.20536111111111
+    ],
+    "intl": "H4079.2",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 5.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "Cylindrical mast.",
+    "remarks": "Private aid. | Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "147.22",
+    "name": "LNG Black Rock light",
+    "coordinates": [
+      -65.9495,
+      45.205444444444446
+    ],
+    "intl": "H4078.6",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "On rock.",
+    "remarks": "Private aid. | Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "150",
+    "name": "West Quaco",
+    "coordinates": [
+      -65.53577777777778,
+      45.32369444444444
+    ],
+    "intl": "H4076",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 21.0,
+    "sequence": [
+      [
+        0.3,
+        true
+      ],
+      [
+        9.7,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "White rectangular tower with red top. | 11.7",
+    "remarks": "Year round. | Operates 24 h. | Flash 0.3 s; eclipse 9.7 s. | Fog Horn | Blast 3 s; sil. 27 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "152",
+    "name": "St. Martins",
+    "coordinates": [
+      -65.53194444444445,
+      45.355
+    ],
+    "intl": "H4074",
+    "colors": [
+      "R"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "Triangular skeleton tower. | 5.9",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "157",
+    "name": "Cape Enragé",
+    "coordinates": [
+      -64.77991666666667,
+      45.593916666666665
+    ],
+    "intl": "H4060",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 10.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl145-en.php",
+    "structure": "White square tower with red upper portion. | 9.2",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | Flash 1 s; eclipse 5 s. | Fog Horn | Blast 2 s; sil. 3 s; | blast 2 s; sil. 3 s; | blast 2 s; sil. 48 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "6",
+    "name": "Machias Seal Island",
+    "coordinates": [
+      -67.10113888888888,
+      44.50183333333333
+    ],
+    "intl": "H4192",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 18.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        2.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White octagonal tower with red top. | 18.3",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 2 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "8.1",
+    "name": "Gannet Rock North Light",
+    "coordinates": [
+      -66.78155555555556,
+      44.510555555555555
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "Oc",
+    "group": "",
+    "period": 3.0,
+    "range": 11.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        1.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe swing pole. | 12.9",
+    "remarks": "Year round. | Flash 2 s; eclipse 1 s. | Visible 058º-348º."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "8.2",
+    "name": "Gannet Rock South Light",
+    "coordinates": [
+      -66.78158333333333,
+      44.510333333333335
+    ],
+    "intl": null,
+    "colors": [
+      "W"
+    ],
+    "character": "Oc",
+    "group": "",
+    "period": 3.0,
+    "range": 11.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        1.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe swing pole. | 13.6",
+    "remarks": "Year round. | Flash 2 s; eclipse 1 s. | Visible 193º-164º."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "11",
+    "name": "Southwest Head",
+    "coordinates": [
+      -66.9055,
+      44.60080555555555
+    ],
+    "intl": "H4186",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 16.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White rectangular tower with red top. | 9.9",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "15",
+    "name": "White Horse Islet",
+    "coordinates": [
+      -66.80711111111111,
+      44.602694444444445
+    ],
+    "intl": "H4181.5",
+    "colors": [
+      "G"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 12.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        10.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark, green square in centre. | 6.7",
+    "remarks": "Year round. | Flash 2 s; eclipse 10 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "16.8",
+    "name": "Seal Cove Outer Breakwater",
+    "coordinates": [
+      -66.83875,
+      44.647666666666666
+    ],
+    "intl": "H4184",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast, green, white and black square daymark. | 3.7",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "22",
+    "name": "Ingalls Head Breakwater",
+    "coordinates": [
+      -66.75461111111112,
+      44.66163888888889
+    ],
+    "intl": "H4180",
+    "colors": [
+      "G"
+    ],
+    "character": "Q",
+    "group": "",
+    "period": 1.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast, green and white square daymark. | 4.0",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "22.5",
+    "name": "Sam’s Islet Light",
+    "coordinates": [
+      -66.7455,
+      44.6475
+    ],
+    "intl": "H4176",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast. | 4.2",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "23",
+    "name": "Half Tide Rock (Cheney Passage)",
+    "coordinates": [
+      -66.72836111111111,
+      44.655388888888886
+    ],
+    "intl": "H4172",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, black and white rectangular daymark. | 3.5",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s. | Fog Horn | Blast 1 s; sil. 14 s. | Mariners requiring the operation of the fog signal will have to select VHF channel 65 and key their microphones five (5) times within 10 seconds. The fog signal will be in operation for 15 minutes. The fog signal can be activated within a 1 NM distance. The fog signal can be activated for another 15 minutes by repeating the above procedure."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "24",
+    "name": "Whitehead Harbour",
+    "coordinates": [
+      -66.72761111111112,
+      44.63038888888889
+    ],
+    "intl": "H4178.3",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Skeleton tower on 3-pile dolphin. | 2.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "25",
+    "name": "Long Point",
+    "coordinates": [
+      -66.70963888888889,
+      44.61366666666667
+    ],
+    "intl": "H4178",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 12.0,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White rectangular tower with red top. | 11.4",
+    "remarks": "Year round. | Operates 24 h. | Fog Horn | Blast 2 s; sil. 18 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "29",
+    "name": "Great Duck Island",
+    "coordinates": [
+      -66.69344444444444,
+      44.684305555555554
+    ],
+    "intl": "H4174",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 18.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        9.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 16.5",
+    "remarks": "Year round. | Flash 1 s; eclipse 9 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "30",
+    "name": "Gull Islet",
+    "coordinates": [
+      -66.72825,
+      44.68655555555556
+    ],
+    "intl": "H4171",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": null,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green square skeleton tower, green and white square daymark. | 9.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "30.5",
+    "name": "Farmer Ledge",
+    "coordinates": [
+      -66.72625,
+      44.72325
+    ],
+    "intl": "H4170.4",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark. | 4.1",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "30.8",
+    "name": "North Head",
+    "coordinates": [
+      -66.75116666666666,
+      44.7625
+    ],
+    "intl": "H4170",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast. | 3.5",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "33",
+    "name": "Swallowtail",
+    "coordinates": [
+      -66.73263888888889,
+      44.76419444444444
+    ],
+    "intl": "H4168",
+    "colors": [
+      "W"
+    ],
+    "character": "Oc",
+    "group": "",
+    "period": 6.0,
+    "range": 12.0,
+    "sequence": [
+      [
+        4.0,
+        true
+      ],
+      [
+        2.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White octagonal tower with red top. | 16.2",
+    "remarks": "Year round. | Operates 24 h. | Flash 4 s; eclipse 2 s. | Fog Horn | Blast 2 s; sil. 18 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "33.5",
+    "name": "Edmunds Rock",
+    "coordinates": [
+      -66.71983333333333,
+      44.67355555555555
+    ],
+    "intl": "H4175",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast. | 6.6",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "34",
+    "name": "Long Eddy Point",
+    "coordinates": [
+      -66.78522222222222,
+      44.799277777777775
+    ],
+    "intl": "H4166",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": null,
+    "range": 14.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White rectangular tower with red top. | 9.3",
+    "remarks": "Year round. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "36",
+    "name": "Southwest Wolf Island",
+    "coordinates": [
+      -66.73319444444445,
+      44.93661111111111
+    ],
+    "intl": "H4110",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 10.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        9.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White cylindrical tower with red top. | 11.4",
+    "remarks": "Year round. | Flash 1 s; eclipse 9 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "39",
+    "name": "Malloch Beach Wharf",
+    "coordinates": [
+      -66.94108333333334,
+      44.91630555555555
+    ],
+    "intl": "H4157.4",
+    "colors": [
+      "R"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 3.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast, red and white triangular daymark. | 6.1",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "41",
+    "name": "Cherry Island",
+    "coordinates": [
+      -66.96666666666667,
+      44.91866666666667
+    ],
+    "intl": "H4152",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 17.0,
+    "sequence": [
+      [
+        0.5,
+        true
+      ],
+      [
+        4.5,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical tower, red and white horizontal bands. | 7.5",
+    "remarks": "Year round. | Flash 0.5 s; eclipse 4.5 s. | Fog Horn | Blast 2 s; sil. 18 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "43",
+    "name": "Wilsons Beach Wharf",
+    "coordinates": [
+      -66.94061111111111,
+      44.93183333333333
+    ],
+    "intl": "H4156",
+    "colors": [
+      "G"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Mast, green, white and black square daymark. | 3.0",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "44",
+    "name": "Head Harbour",
+    "coordinates": [
+      -66.90005555555555,
+      44.95794444444444
+    ],
+    "intl": "H4154",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Octagonal tower, red and white horizontal bands. | 15.1",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "44.5",
+    "name": "Head Harbour Inner",
+    "coordinates": [
+      -66.91302777777778,
+      44.94866666666667
+    ],
+    "intl": "H4155",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe swing pole with white retro-reflective bands at top.",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "46",
+    "name": "Leonardville",
+    "coordinates": [
+      -66.95511111111111,
+      44.968222222222224
+    ],
+    "intl": "H4146",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 10.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White pyramid tower with red top. | 8.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "47",
+    "name": "Leonardville Wharf",
+    "coordinates": [
+      -66.95258333333334,
+      44.971472222222225
+    ],
+    "intl": "H4146.4",
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast. | 6.8",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "47.5",
+    "name": "Leonardville Breakwater",
+    "coordinates": [
+      -66.95313888888889,
+      44.97036111111111
+    ],
+    "intl": "H4146.4",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe tower, green, white and black square daymark. | 1.8",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "49",
+    "name": "Deer Point",
+    "coordinates": [
+      -66.98483333333333,
+      44.92538888888889
+    ],
+    "intl": "H4147",
+    "colors": [
+      "R"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 12.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        10.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White cylindrical tower. | 6.2",
+    "remarks": "Year round. | Flash 2 s; eclipse 10 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "51",
+    "name": "Pompey Ledge",
+    "coordinates": [
+      -66.94522222222223,
+      44.97961111111111
+    ],
+    "intl": "H4145",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast. | 6.6",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "51.1",
+    "name": "Richardsonville Light",
+    "coordinates": [
+      -66.94461111111112,
+      44.99344444444444
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast, green, white and black square daymark. | 6.5",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "53.5",
+    "name": "Lords Cove",
+    "coordinates": [
+      -66.94638888888889,
+      45.00325
+    ],
+    "intl": "H4142",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast, green, white and black square daymark.",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "54",
+    "name": "Bag Ledge light",
+    "coordinates": [
+      -66.94055555555556,
+      44.99986111111111
+    ],
+    "intl": "H4141",
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 2.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast with yellow tape. | 7.0",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "56",
+    "name": "Stuart Town Breakwater",
+    "coordinates": [
+      -66.93513888888889,
+      45.01994444444444
+    ],
+    "intl": "H4140",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 6.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        3.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round. | Flash 1 s; eclipse 3 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "57.2",
+    "name": "Two Hour Rock",
+    "coordinates": [
+      -66.935,
+      45.02891666666667
+    ],
+    "intl": "H4139",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Red square skeleton tower, red, white and red triangle daymark.",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "57.25",
+    "name": "Jameson Island West",
+    "coordinates": [
+      -66.93275,
+      45.032222222222224
+    ],
+    "intl": "H4138.85",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast. | 6.7",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "57.3",
+    "name": "Little Letete Passage",
+    "coordinates": [
+      -66.92597222222223,
+      45.03561111111111
+    ],
+    "intl": "H4138.6",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, green and white rectangular daymark. | 6.3",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "62",
+    "name": "St. Andrews West Channel",
+    "coordinates": [
+      -67.06772222222222,
+      45.07088888888889
+    ],
+    "intl": "H4130",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast. | 7.5",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "64",
+    "name": "St. Andrews (North Point)",
+    "coordinates": [
+      -67.04730555555555,
+      45.067388888888885
+    ],
+    "intl": "H4127",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 12.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "67",
+    "name": "Tongue Shoal",
+    "coordinates": [
+      -67.01283333333333,
+      45.062444444444445
+    ],
+    "intl": "H4126",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "72",
+    "name": "Back Bay",
+    "coordinates": [
+      -66.86119444444445,
+      45.05394444444445
+    ],
+    "intl": "H4119",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Skeleton tower. | 4.1",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "73",
+    "name": "Morgan Ledge",
+    "coordinates": [
+      -66.89341666666667,
+      45.03722222222222
+    ],
+    "intl": "H4120.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 7.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Red square skeleton tower, red and white rectangular daymark with red triangle in centre. | 6.2",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "74.35",
+    "name": "Pomeroy Ledge",
+    "coordinates": [
+      -66.91161111111111,
+      45.03827777777778
+    ],
+    "intl": "H4120.5",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Red cylindrical mast. | 9.4",
+    "remarks": "Year round. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "77",
+    "name": "Bliss Island",
+    "coordinates": [
+      -66.85033333333334,
+      45.018388888888886
+    ],
+    "intl": "H4118",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark.",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "79",
+    "name": "Roaring Bull",
+    "coordinates": [
+      -66.81283333333333,
+      45.039611111111114
+    ],
+    "intl": "H4115",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 3.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Red cylindrical tower. | 5.8",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "79.8",
+    "name": "Letete Harbour",
+    "coordinates": [
+      -66.89655555555555,
+      45.051833333333335
+    ],
+    "intl": "H4122",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green cylindrical mast. | 7.2",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "80",
+    "name": "Matthews Ledge",
+    "coordinates": [
+      -66.89658333333334,
+      45.051027777777776
+    ],
+    "intl": "H4123",
+    "colors": [
+      "R"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, red and white rectangular daymark. | 9.4",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "81",
+    "name": "Pea Point",
+    "coordinates": [
+      -66.80783333333333,
+      45.039
+    ],
+    "intl": "H4114",
+    "colors": [
+      "W"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 12.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "W",
+        251.0,
+        161.0
+      ]
+    ],
+    "section": "atl58-en.php",
+    "structure": "White rectangular tower with red top. | 10.6",
+    "remarks": "Year round. | Operates 24 h. | Visible 251°-161°. | Fog Horn | Blast 3 s; sil. 3 s; | blast 3 s; sil. 51 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "81.1",
+    "name": "Blacks Harbour Entrance",
+    "coordinates": [
+      -66.80794444444444,
+      45.04786111111111
+    ],
+    "intl": "H4116",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 7.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe swing pole. | 6.3",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "81.12",
+    "name": "Blacks Harbour Wharf",
+    "coordinates": [
+      -66.79472222222222,
+      45.05522222222222
+    ],
+    "intl": "H4116.4",
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 6.0,
+    "range": 4.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        5.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast. | 6.6",
+    "remarks": "Year round. | Flash 1 s; eclipse 5 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "83",
+    "name": "Lighthouse Point",
+    "coordinates": [
+      -66.73305555555555,
+      45.06297222222222
+    ],
+    "intl": "H4112",
+    "colors": [
+      "W"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 6.0,
+    "range": 13.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White cylindrical tower with red top. | 8.6",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "84",
+    "name": "Beaver Harbour",
+    "coordinates": [
+      -66.73736111111111,
+      45.06886111111111
+    ],
+    "intl": "H4113",
+    "colors": [
+      "G"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 5.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical mast, green, white and black square daymark. | 3.8",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "84.1",
+    "name": "Beaver Harbour Wharf Light",
+    "coordinates": [
+      -66.73836111111112,
+      45.06908333333333
+    ],
+    "intl": null,
+    "colors": [
+      "Y"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Cylindrical tower.",
+    "remarks": "Year round. | Flash 1 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "90",
+    "name": "Point Lepreau",
+    "coordinates": [
+      -66.45869444444445,
+      45.05880555555556
+    ],
+    "intl": "H4108",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 5.0,
+    "range": 14.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Octagonal tower, red and white horizontal bands. | 17.6",
+    "remarks": "Year round. | Operates 24 h. | Flash 1 s; eclipse 4 s. | Fog Horn | Blast 2 s; sil. 3 s; | blast 2 s; sil. 3 s; | blast 2 s; sil. 48 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "93",
+    "name": "Chance Harbour",
+    "coordinates": [
+      -66.3476388888889,
+      45.11855555555555
+    ],
+    "intl": "H4100",
+    "colors": [
+      "W"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 8.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White cylindrical tower with red horizontal band. | 7.4",
+    "remarks": "Year round. | Flash 2 s; eclipse 4 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "93.5",
+    "name": "Chance Harbour Breakwater Light",
+    "coordinates": [
+      -66.35075,
+      45.12163888888889
+    ],
+    "intl": null,
+    "colors": [
+      "R"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 4.0,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Pipe swing pole, red retro-reflective bands at top.",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "97",
+    "name": "Musquash Head",
+    "coordinates": [
+      -66.23727777777778,
+      45.14363888888889
+    ],
+    "intl": "H4096",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 3.0,
+    "range": 20.0,
+    "sequence": [
+      [
+        1.0,
+        true
+      ],
+      [
+        2.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White hexagonal tower with red horizontal band. | 14.0",
+    "remarks": "Private aid. | Year round. | Operates 24 h. | Flash 1 s; eclipse 2 s. | Fog Horn | Blast 4 s; sil. 56 s."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "100",
+    "name": "Partridge Island",
+    "coordinates": [
+      -66.05383333333333,
+      45.23916666666667
+    ],
+    "intl": "H4082",
+    "colors": [
+      "W"
+    ],
+    "character": "Fl",
+    "group": "",
+    "period": 7.5,
+    "range": 19.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White hexagonal tower with red vertical stripe. | 13.6",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "100.5",
+    "name": "Saint John Harbour front range light",
+    "coordinates": [
+      -66.06877777777778,
+      45.27286111111111
+    ],
+    "intl": "H4089",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 20.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Triangular skeleton tower, red daymark with black vertical stripe. | 18.5",
+    "remarks": "Year round. | Operates 24 h. | Synthetic AIS AtoN | MMSI: 993161085"
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "100.6",
+    "name": "Saint John Harbour rear range light",
+    "coordinates": [
+      -66.07130555555555,
+      45.276472222222225
+    ],
+    "intl": "H4089.1",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 20.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Triangular skeleton tower, red daymark with black vertical stripe. | 10.5",
+    "remarks": "Year round. | Operates 24 h. | Synthetic AIS AtoN | MMSI: 993161086"
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "104",
+    "name": "Courtenay Bay Breakwater",
+    "coordinates": [
+      -66.04505555555555,
+      45.257333333333335
+    ],
+    "intl": "H4083",
+    "colors": [
+      "R"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 2.0,
+    "range": 8.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "White hexagonal tower with red top. | 9.9",
+    "remarks": "Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "110.2",
+    "name": "Courtenay Bay Dock 1 Light",
+    "coordinates": [
+      -66.0393611111111,
+      45.273
+    ],
+    "intl": "H4083.2",
+    "colors": [
+      "R"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": null,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "On 10-pile dolphin.",
+    "remarks": "Private aid. | Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "110.3",
+    "name": "Courtenay Bay Inner front range light",
+    "coordinates": [
+      -66.03861111111111,
+      45.273666666666664
+    ],
+    "intl": "H4083.4",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 15.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Triangular skeleton tower, red daymark with black vertical stripe. | 6.0",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "110.4",
+    "name": "Courtenay Bay Inner rear range light",
+    "coordinates": [
+      -66.03822222222222,
+      45.274388888888886
+    ],
+    "intl": "H4083.41",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 16.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Triangular skeleton tower, red daymark with black vertical stripe. | 8.9",
+    "remarks": "Year round. | Operates 24 h."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "110.8",
+    "name": "Courtenay Bay Outer Channel Sector",
+    "coordinates": [
+      -66.04733333333333,
+      45.26588888888889
+    ],
+    "intl": "H4083.6",
+    "colors": [
+      "R",
+      "W",
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 12.0,
+    "sequence": [],
+    "sectors": [
+      [
+        "R",
+        1.5,
+        2.5
+      ],
+      [
+        "W",
+        3.0,
+        5.0
+      ],
+      [
+        "G",
+        5.5,
+        6.5
+      ]
+    ],
+    "section": "atl58-en.php",
+    "structure": "Square skeleton tower, orange and white rectangular daymark. | 6.6",
+    "remarks": "Year round. | Operates 24 h. | R | 001°30'-002°30'; | Al RW | 002°30'-003°; | W | 003°-005°; | Al GW | 005°-005°30'; | G | 005°30'-006°30'."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "113.1",
+    "name": "Saint John Pier Hazard Light",
+    "coordinates": [
+      -66.06069444444445,
+      45.259166666666665
+    ],
+    "intl": null,
+    "colors": [
+      "G"
+    ],
+    "character": "LFl",
+    "group": "",
+    "period": 6.0,
+    "range": 2.0,
+    "sequence": [
+      [
+        2.0,
+        true
+      ],
+      [
+        4.0,
+        false
+      ]
+    ],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Green pipe tower.",
+    "remarks": "Year round. | Operates 24 h. | Flash 2 s; eclipse 4 s. | Radar reflector."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "113.3",
+    "name": "Pier 12",
+    "coordinates": [
+      -66.0615,
+      45.2605
+    ],
+    "intl": "H4085.5",
+    "colors": [
+      "G"
+    ],
+    "character": "Iso",
+    "group": "",
+    "period": 2.0,
+    "range": 4.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Orange rectangular skeleton tower. | 2.1",
+    "remarks": "Private aid. | Year round."
+  },
+  {
+    "volume": "atlantic",
+    "ccg_id": "114",
+    "name": "Pier 1",
+    "coordinates": [
+      -66.07094444444445,
+      45.26777777777778
+    ],
+    "intl": "H4089.4",
+    "colors": [
+      "G"
+    ],
+    "character": "F",
+    "group": "",
+    "period": null,
+    "range": 6.0,
+    "sequence": [],
+    "sectors": [],
+    "section": "atl58-en.php",
+    "structure": "Skeleton tower. | 3.2",
+    "remarks": "Private aid. | Year round. | Operates 24 h."
+  }
+]

@@ -1,7 +1,7 @@
 import {Map as AtlasMap, Marker, setWorkerUrl} from "./vendor/maplibre-gl.mjs";
 import {beamReach, mercator, metresPerUnit, shorelinePaths, STEPS} from "./atlas-shore.mjs";
 import {decodeReach, lightKey, reachRevision, validatedReachTables} from "./atlas-reach-table.mjs";
-import {isMark, isPrivateWarning, markBuilder, nearestMark, privateWarningFilter, privateWarningTitle} from "./atlas-marks.mjs";
+import {lightMarkKey, isMark, isPrivateWarning, markBuilder, nearestMark, privateWarningFilter, privateWarningTitle} from "./atlas-marks.mjs";
 import {createExtras} from "./atlas-extras.mjs";
 
 export const defaultLayers = Object.freeze({ships:true, ghosts:true, buoys:true, seamarks:true,
@@ -27,7 +27,7 @@ export async function createAtlas({
   read, shorelineOptions, initialLayers = defaultLayers, sweepsPath, extraLinesPath,
   weatherPreview, detailImage, bounds, minZoom, marksAttribution, deferMarks = false,
   tour, showcasePlaces = [], describeShips, cardFrame, hideCardOnMiss = false,
-  onNight, wantNight = daylightMode, tiles, surface,
+  onNight, wantNight = daylightMode, tiles, surface, regionalLights,
 }) {
   setWorkerUrl(new URL("./vendor/maplibre-gl-worker.mjs", import.meta.url).href);
 
@@ -43,15 +43,19 @@ export async function createAtlas({
     read("/open-lights.json").catch(() => ({lights:[]})),
     extraLinesPath ? read(extraLinesPath).catch(() => collection()) : collection(),
   ]);
+  const combinedLights = regionalLights ? [...chart.lights, ...regionalLights.lights] : chart.lights;
+  const promotedMarks = new Set(regionalLights?.marks.map(mark => JSON.stringify(mark)));
   const palette = colors.dark;
   let buildMarks;
   const marksFor = open => {
     buildMarks ??= markBuilder(marksData, aidsData, chsData, buoyMatches);
-    return buildMarks(open);
+    const marks = buildMarks(open);
+    return open || !promotedMarks.size ? marks : marks.filter(mark => !promotedMarks.has(lightMarkKey(mark)));
   };
   let marksReady = !deferMarks;
   let markFeatures = marksReady ? marksFor(layersOn.openSources) : [];
-  let activeLights = layersOn.openSources ? openChart.lights : chart.lights;
+  let marksById = new Map(markFeatures.map(mark => [mark.id, mark]));
+  let activeLights = layersOn.openSources ? openChart.lights : combinedLights;
   let reachKeys = activeLights.map(lightKey);
   const chartLines = [...marksData.features.filter(f => !isMark(f)), ...(extraLines?.features || [])];
   for (const [css, field] of Object.entries({ink:"surface", paper:"on_surface", muted:"on_surface_variant",
@@ -59,7 +63,7 @@ export async function createAtlas({
     document.documentElement.style.setProperty(`--${css}`, palette[field]);
   }
 
-  const lightColors = {W:"#f0eedc", R:"#f36c64", G:"#6adca1", Y:"#efce6a"};
+  const lightColors = {W:"#f0eedc", R:"#f36c64", G:"#6adca1", Y:"#efce6a", Bu:"#84aaff"};
   const lightFeatures = (lights, open) => lights.map((light, id) => point(light.coordinates, {
     id, open, source:light.source || "", color:lightColors[light.colors[0]] || "#83948a",
     alt:lightColors[light.colors[1]] || "", third:lightColors[light.colors[2]] || "",
@@ -233,6 +237,7 @@ export async function createAtlas({
     const {period,character} = light;
     if (!(period > 0)) return null;
     if (character === "Iso") return [[period/2,true],[period/2,false]];
+    if (light.volume) return null;  // no unpublished flash or eclipse duration for provincial lights
     if (character === "Oc") return [[period*.72,true],[period*.28,false]];
     if (character === "Mo" && light.group === "A") {
       const unit = Math.min(.45, period / 7);
@@ -296,7 +301,7 @@ export async function createAtlas({
     const zoom = map.getZoom();
     const showAllMarks = zoom >= allMarksZoom;
     for (const rhythm of markRhythms) {
-      const mark = markFeatures[rhythm.id];
+      const mark = marksById.get(rhythm.id);
       if (zoom < privateMarksZoom && isPrivateWarning(mark.properties)) continue;
       if ((!showAllMarks && (mark.properties.ll || mark.properties.src === "chs")) || !view.contains(mark.geometry.coordinates)) continue;
       const lit = illuminated(rhythm,now) ? 1 : .05;
@@ -342,9 +347,11 @@ export async function createAtlas({
     sweeping = activeLights.flatMap((light,id)=>{
       const choice = sweepOverrides.get(sweepKey(light.intl)) ?? sweepOverrides.get(sweepKey(light.name));
       const rhythm = byId.get(id);
+      const notable = /lighthouse|lightstation/i.test(light.name) && !/range|wharf|breakwater|museum/i.test(light.name);
+      if (light.volume) return choice !== false && notable && flashing.has(light.character)
+        && light.range >= 8 && light.period > 0 ? [{id, period:light.period}] : [];
       if (choice === false || !light.colors.length) return [];
       if (choice === true) return [rhythm || {id,period:1,phases:[[1,true]]}];
-      const notable = /lighthouse|lightstation/i.test(light.name) && !/range|wharf|breakwater|museum/i.test(light.name);
       return rhythm && flashing.has(light.character) && light.range >= 8 && notable ? [rhythm] : [];
     });
     sweepIds = new Set(sweeping.map(rhythm => rhythm.id));
@@ -402,9 +409,10 @@ export async function createAtlas({
     clearHover();
     if (marksReady) {
       markFeatures = marksFor(open);
+      marksById = new Map(markFeatures.map(mark => [mark.id, mark]));
       registerMarkIcons(markFeatures);
     }
-    activeLights = open ? openChart.lights : chart.lights;
+    activeLights = open ? openChart.lights : combinedLights;
     reachKeys = activeLights.map(lightKey);
     markRhythms = markTiming(markFeatures);
     rhythms = lightTiming(activeLights);
@@ -442,6 +450,18 @@ export async function createAtlas({
     console.warn("Night Atlas shoreline:", error.message);
     return null;
   });
+  let regionalShores;
+  const regionalShoreline = !tiles && regionalLights && (async () => {
+    const response = await fetch(surface.land, shorelineOptions());
+    if (!response.ok) throw new Error(`Regional shoreline returned ${response.status}`);
+    const text = await response.text();
+    regionalShores = shorelinePaths(JSON.parse(text));
+    return reachRevision(text);
+  })();
+  let regionalReach;
+  if (regionalShoreline) Promise.all([regionalShoreline, read("/region/beam-reach.json")]).then(async ([revision, table]) => {
+    regionalReach = (await validatedReachTables(table, revision, regionalLights.lights, [])).combined;
+  }).catch(() => {}).finally(() => { regionalReach ??= {}; });
   if (!tiles) Promise.all([shoreline, read("/beam-reach.json")]).then(async ([revision, table]) => {
     reachTables = await validatedReachTables(table, revision, chart.lights, openChart.lights);
   }).catch(() => {}).finally(() => {
@@ -479,12 +499,15 @@ export async function createAtlas({
       const key = reachKeys[rhythm.id];
       let reach = reaches.get(key);
       if (!reach) {
-        if (!tiles && reachTables === undefined) continue;
-        reach = decodeReach(tiles ? tiles.reach(...mercator(light.coordinates),reachMode,key) : reachTables[reachMode]?.[key]);
+        const regional = !layersOn.openSources && rhythm.id >= chart.lights.length;
+        const table = regional ? regionalReach : reachTables?.[reachMode];
+        const paths = regional ? regionalShores : shores;
+        if (!tiles && (regional ? regionalReach : reachTables) === undefined) continue;
+        reach = decodeReach(tiles ? tiles.reach(...mercator(light.coordinates),reachMode,key) : table?.[key]);
         if (!reach) {
-          if (!shores || !toMeasure) continue;
+          if (!paths || !toMeasure) continue;
           --toMeasure;
-          reach = beamReach(light, shores);
+          reach = beamReach(light, paths);
         }
         reaches.set(key, reach);
       }
@@ -737,7 +760,7 @@ export async function createAtlas({
         const colours = (lcs || lc || "").split("/").map(c => names[c]).filter(Boolean).join("/");
         return [character, colours, lp && lp+" s"].filter(Boolean).join(" ");
       };
-      const additional = markFeatures[mark.id]?.properties.signals || [];
+      const additional = marksById.get(mark.id)?.properties.signals || [];
       const signalText = [m, ...additional].map(describeSignal).filter(Boolean).join(" · ");
       const privateWarning = isPrivateWarning(m);
       showCard(privateWarning ? privateWarningTitle(m) : m.n || (bands[0] ? `${bands[0][0].toUpperCase()+bands[0].slice(1)} ${kind}` : `Chart ${kind}`), [
@@ -779,7 +802,7 @@ export async function createAtlas({
       ],event.point);
     } else if (lightFeature) {
       const light = activeLights[lightFeature.properties.id];
-      const names = {W:"white",G:"green",R:"red",Y:"yellow"};
+      const names = {W:"white",G:"green",R:"red",Y:"yellow",Bu:"blue"};
       const signal = light.colors.map(color=>names[color]).join(", ");
       const character = light.character === "F" ? "Fixed light" : light.character || "Character unreported";
       showCard(light.name, layersOn.openSources && !light.character ? ["Lighting unrecorded", light.source] : light.note || [
@@ -953,6 +976,7 @@ export async function createAtlas({
     if (!loaded || paused || marksReady) return;
     marksReady = true;
     markFeatures = marksFor(layersOn.openSources);
+    marksById = new Map(markFeatures.map(mark => [mark.id, mark]));
     registerMarkIcons(markFeatures);
     markRhythms = markTiming(markFeatures);
     map.getSource("marks").setData(collection(markFeatures));

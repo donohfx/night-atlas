@@ -266,6 +266,7 @@ try {
       ["focus-3",[-65.25,45.82],7.65],
       ["focus-4-new-brunswick",[-66.50,46.21],7.65],
       ["saint-john",[-66.068,45.273],11],
+      ["cape-enrage",[-64.785,45.601],11.2],
       ["moncton-northumberland",[-64.41,46.24],9.7],
       ["shediac",[-64.54,46.28],11],
       ["chaleur-bay",[-65.78,47.92],9.45],
@@ -344,6 +345,33 @@ try {
       await click("#mode");
       await settle();
       await shot("wide-chart");
+      const checkSources = async open => {
+        const result = await evaluate(`(async () => {
+          const atlas = __atlas;
+          const {lights, marks} = await (await fetch("/region/lights.json")).json();
+          const source = await atlas.map.getSource("marks").getData();
+          const keys = new Set(source.features.map(({properties:p, geometry:g}) =>
+            JSON.stringify([p.src, p.ll || "", p.n || "", g.coordinates])));
+          return {open:atlas.openSources, provincial:atlas.lights.filter(light => light.volume).length,
+            expected:lights.length, duplicate:marks.some(mark => keys.has(JSON.stringify(mark))),
+            restricted:source.features.some(mark => mark.properties.src === "ccg" || mark.properties.signalSrc === "ccg")};
+        })()`);
+        assert.equal(result.open, open);
+        assert(result.expected > 0);
+        assert.equal(result.provincial, open ? 0 : result.expected);
+        if (open) assert(!result.restricted);
+        else assert(!result.duplicate);
+      };
+      await checkSources(false);
+      const toggleSources = () => evaluate(`[...document.querySelectorAll("#layers input")]
+        .find(input => input.parentElement.textContent.trim() === "Open sources only").click(); true`);
+      await toggleSources();
+      await settle();
+      await checkSources(true);
+      await shot("wide-open-chart");
+      await toggleSources();
+      await settle();
+      await checkSources(false);
       await checkEdges();
       await cdp("Emulation.setDeviceMetricsOverride",{width:390,height:844,deviceScaleFactor:2,mobile:true});
       await navigate();

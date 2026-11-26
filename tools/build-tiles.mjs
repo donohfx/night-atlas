@@ -100,9 +100,13 @@ async function analysis() {
   // The hand-built lights keep their original NS beam silhouettes. The
   // regional shoreline is used for landfall detection across the web chart.
   const legacyLand = read("land.json");
-  const land = json("region/land.json");
+  const regionalLand = read("region/land.json");
+  const land = JSON.parse(regionalLand);
   const open = json("open-lights.json");
   const tables = await validatedReachTables(json("beam-reach.json"), await reachRevision(legacyLand), chart.lights, open.lights);
+  const regional = json("region/lights.json");
+  const regionalTables = await validatedReachTables(json("region/beam-reach.json"),
+    await reachRevision(regionalLand), regional.lights, []);
   const shore = new Map(), reaches = new Map();
   function area(areas,x,y) {
     const id = zxyToTileId(analysisZoom,x,y);
@@ -118,10 +122,11 @@ async function analysis() {
       }
     }
   }
-  for (const [mode,{lights}] of Object.entries({combined:chart,open})) {
+  for (const [mode, {lights}, entries] of [["combined",chart,tables.combined], ["open",open,tables.open],
+    ["combined",regional,regionalTables.combined]]) {
     for (const light of lights.filter(light => light.colors.length)) {
       const key = lightKey(light);
-      const reach = tables[mode]?.[key];
+      const reach = entries?.[key];
       assert(decodeReach(reach), "Rebuild beam-reach.json for "+mode+" "+key);
       const [[x,y]] = analysisCells(...mercator(light.coordinates),...mercator(light.coordinates));
       (area(reaches,x,y)[mode] ??= {})[key] = reach;

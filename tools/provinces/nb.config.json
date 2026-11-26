@@ -1,0 +1,25 @@
+{
+  "osmSource": "https://download.geofabrik.de/north-america/canada/new-brunswick/new-brunswick-261124.osm.pbf",
+  "referenceRadius": 500,
+  "nameRadius": 200,
+  "reviewRadius": 500,
+  "overrides": {
+    "node/1318119200": {
+      "aid": "atlantic:49",
+      "reason": "Deer Island Deer Point Light is Deer Point; 1.3 m apart with the same red 12-second long-flash character."
+    },
+    "way/1336982521": {
+      "aid": "atlantic:1128",
+      "reason": "Phare du Cap de Richibucto is the French name for Richibucto Cape; 5.8 m apart."
+    },
+    "way/1272003288": {
+      "aid": "atlantic:81",
+      "reason": "The mapped building is at the Pea Point light position. The OSM Roaring Bull reference describes the separate light 399 m offshore; that light remains a mark."
+    },
+    "way/1363327701": {
+      "aid": "atlantic:1254",
+      "reason": "The lighthouse footprint is 1.4 m from the published Big Shippagan position on the sand spit. The heritage record identifies that tower. The OSM light reference points elsewhere.",
+      "source": "https://www.historicplaces.ca/media/14948/1990-099%28e%29%20big%20shippegan%20shore%20light%2C%20nb.doc.pdf"
+    }
+  }
+}

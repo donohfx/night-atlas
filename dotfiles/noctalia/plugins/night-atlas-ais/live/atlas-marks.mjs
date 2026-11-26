@@ -1,3 +1,5 @@
+export const lightMarkKey = mark => JSON.stringify([mark.properties.src, mark.properties.ll || "", mark.properties.n || "", mark.geometry.coordinates]);
+
 const privateWarningFields = {src:"chs", k:"beacon", cat:"general warning mark", status:"private"};
 export const isPrivateWarning = p => Object.entries(privateWarningFields).every(([key, value]) => p[key] === value);
 export const privateWarningFilter = ["all", ...Object.entries(privateWarningFields)

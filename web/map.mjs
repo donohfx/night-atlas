@@ -42,9 +42,9 @@ const showcasePlaces = [
   ["East End", [-59.791,43.960], 8.4, Infinity, "minor", {anchor:"bottom",offset:[0,-8]}],
 ];
 
-const [region, focusPoints, tileConfig] = await Promise.all([
+const [region, focusPoints, tileConfig, regionalLights] = await Promise.all([
   read("/region/config.json"), read("/region/focus-points.json"),
-  params.has("static") ? null : read("/api/map-tiles"),
+  params.has("static") ? null : read("/api/map-tiles"), read("/region/lights.json"),
 ]);
 const tiles = tileConfig ? tiledAtlas(tileConfig.tileBase) : undefined;
 const [west, south, east, north] = region.cameraBounds;
@@ -53,7 +53,7 @@ let updateFocus = () => {};
 const tourState = {active:false, night:null, finished:false};
 const atlas = await createAtlas({
   read, shorelineOptions:requestOptions, initialLayers:preferences.layers,
-  tiles, surface:{bounds:region.dataBounds, relief:"/region/relief.jpg",
+  tiles, regionalLights, surface:{bounds:region.dataBounds, relief:"/region/relief.jpg",
     land:"/region/land.json", contours:"/region/contours.json"},
   sweepsPath:"/sweeps.json", weatherPreview, detailImage:"/region/relief-detail.webp",
   bounds:() => cameraBounds, minZoom:4.5, tour:tourState, showcasePlaces,

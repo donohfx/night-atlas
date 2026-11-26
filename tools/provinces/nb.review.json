@@ -1,0 +1,2535 @@
+[
+  {
+    "osm": "node/10183505297",
+    "name": "Machias Seal Island Lighthouse",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        137.7,
+        "atlantic:6",
+        "Machias Seal Island"
+      ]
+    ],
+    "aid": "atlantic:6",
+    "distanceMetres": 137.7,
+    "marks": [
+      [
+        "ccg",
+        "6",
+        "Machias Seal Island",
+        [
+          -67.101139,
+          44.501833
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1212780766",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1241471748",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1247388016",
+    "name": null,
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        0.8,
+        "atlantic:119",
+        "McColgan Point"
+      ]
+    ],
+    "aid": "atlantic:119",
+    "distanceMetres": 0.8,
+    "marks": [
+      [
+        "ccg",
+        "119",
+        "McColgan Point",
+        [
+          -66.109556,
+          45.332222
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1247389938",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        2.0,
+        "atlantic:121",
+        "Sand Point"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1247391906",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/12487613666",
+    "name": "Hampstead Wharf Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1248798328",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        14.1,
+        "atlantic:126",
+        "Oak Point Wharf"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1253484845",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        23.3,
+        "atlantic:140",
+        "Fanjoys Point"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1254717110",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        18.3,
+        "atlantic:135",
+        "Gagetown"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1255584805",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        37.3,
+        "atlantic:137",
+        "Robertson Point"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1272645029",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        3.9,
+        "atlantic:141",
+        "Cox Point"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1272668783",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        25.9,
+        "atlantic:141.5",
+        "Hawkes Point"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1272669394",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1312417494",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        252.7,
+        "atlantic:74.35",
+        "Pomeroy Ledge"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312417814",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        372.9,
+        "atlantic:53.5",
+        "Lords Cove"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312417975",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4140"
+    ],
+    "candidates": [
+      [
+        223.1,
+        "atlantic:56",
+        "Stuart Town Breakwater"
+      ]
+    ],
+    "aid": "atlantic:56",
+    "distanceMetres": 223.1,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "56",
+        "Stuart Town Breakwater",
+        [
+          -66.935139,
+          45.019944
+        ]
+      ],
+      [
+        "chs",
+        "56",
+        "Stuart Town Breakwater",
+        [
+          -66.9351656,
+          45.0199699
+        ]
+      ],
+      [
+        "chs",
+        "56",
+        "",
+        [
+          -66.9351422,
+          45.0199394
+        ]
+      ],
+      [
+        "osm",
+        "",
+        "Stuart Town Breakwater Light",
+        [
+          -66.93522,
+          45.01994
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312418731",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4139"
+    ],
+    "candidates": [
+      [
+        4.1,
+        "atlantic:57.2",
+        "Two Hour Rock"
+      ],
+      [
+        410.7,
+        "atlantic:57.25",
+        "Jameson Island West"
+      ]
+    ],
+    "aid": "atlantic:57.2",
+    "distanceMetres": 4.1,
+    "marks": [
+      [
+        "ccg",
+        "57.2",
+        "Two Hour Rock",
+        [
+          -66.935,
+          45.028917
+        ]
+      ],
+      [
+        "chs",
+        "57.2",
+        "Two Hour Rock",
+        [
+          -66.9350139,
+          45.0289438
+        ]
+      ],
+      [
+        "chs",
+        "57.2",
+        "",
+        [
+          -66.9349906,
+          45.0289133
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312419549",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        421.4,
+        "atlantic:53.5",
+        "Lords Cove"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312421320",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        298.4,
+        "atlantic:53.5",
+        "Lords Cove"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312424110",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        56.9,
+        "atlantic:80",
+        "Matthews Ledge"
+      ],
+      [
+        86.9,
+        "atlantic:79.8",
+        "Letete Harbour"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312424443",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4138.6"
+    ],
+    "candidates": [
+      [
+        3.2,
+        "atlantic:57.3",
+        "Little Letete Passage"
+      ]
+    ],
+    "aid": "atlantic:57.3",
+    "distanceMetres": 3.2,
+    "marks": [
+      [
+        "ccg",
+        "57.3",
+        "Little Letete Passage",
+        [
+          -66.925972,
+          45.035611
+        ]
+      ],
+      [
+        "chs",
+        "57.3",
+        "Little Letete Passage",
+        [
+          -66.9259814,
+          45.0356058
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312425144",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4120.4"
+    ],
+    "candidates": [
+      [
+        214.1,
+        "atlantic:73",
+        "Morgan Ledge"
+      ]
+    ],
+    "aid": "atlantic:73",
+    "distanceMetres": 214.1,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "73",
+        "Morgan Ledge",
+        [
+          -66.893417,
+          45.037222
+        ]
+      ],
+      [
+        "chs",
+        "73",
+        "Morgan Ledge",
+        [
+          -66.8934286,
+          45.037254
+        ]
+      ],
+      [
+        "chs",
+        "73",
+        "",
+        [
+          -66.8934053,
+          45.0372236
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312425952",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        324.8,
+        "atlantic:56",
+        "Stuart Town Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312426073",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1312426168",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H4120"
+    ],
+    "candidates": [
+      [
+        3.4,
+        "atlantic:73",
+        "Morgan Ledge"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1312428834",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        450.6,
+        "atlantic:80",
+        "Matthews Ledge"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1313392746",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        297.8,
+        "atlantic:81.1",
+        "Blacks Harbour Entrance"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1313393737",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1313400658",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1313404267",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4119"
+    ],
+    "candidates": [
+      [
+        6.5,
+        "atlantic:72",
+        "Back Bay"
+      ]
+    ],
+    "aid": "atlantic:72",
+    "distanceMetres": 6.5,
+    "marks": [
+      [
+        "ccg",
+        "72",
+        "Back Bay",
+        [
+          -66.861194,
+          45.053944
+        ]
+      ],
+      [
+        "chs",
+        "72",
+        "Back Bay",
+        [
+          -66.8612056,
+          45.053981
+        ]
+      ],
+      [
+        "chs",
+        "72",
+        "",
+        [
+          -66.861165,
+          45.053944
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1313404842",
+    "name": "Bliss Island Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        8.5,
+        "atlantic:77",
+        "Bliss Island"
+      ]
+    ],
+    "aid": "atlantic:77",
+    "distanceMetres": 8.5,
+    "marks": [
+      [
+        "ccg",
+        "77",
+        "Bliss Island",
+        [
+          -66.850333,
+          45.018389
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1317899415",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4112"
+    ],
+    "candidates": [
+      [
+        2.7,
+        "atlantic:83",
+        "Lighthouse Point"
+      ]
+    ],
+    "aid": "atlantic:83",
+    "distanceMetres": 2.7,
+    "marks": [
+      [
+        "ccg",
+        "83",
+        "Lighthouse Point",
+        [
+          -66.733056,
+          45.062972
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1318034240",
+    "name": "Lubec Narrows Mulholland Point Light",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1318119200",
+    "name": "Deer Island Deer Point Light",
+    "method": "reviewed override: Deer Island Deer Point Light is Deer Point; 1.3 m apart with the same red 12-second long-flash character.",
+    "references": [],
+    "candidates": [
+      [
+        1.3,
+        "atlantic:49",
+        "Deer Point"
+      ]
+    ],
+    "aid": "atlantic:49",
+    "distanceMetres": 1.3,
+    "marks": [
+      [
+        "ccg",
+        "49",
+        "Deer Point",
+        [
+          -66.984833,
+          44.925389
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1318127373",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H4156"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1318142997",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H4157"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1319539909",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H4144"
+    ],
+    "candidates": [
+      [
+        207.7,
+        "atlantic:51.1",
+        "Richardsonville Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319540831",
+    "name": null,
+    "method": "doubtful international reference",
+    "references": [
+      "H4146.4"
+    ],
+    "candidates": [
+      [
+        150.0,
+        "atlantic:47.5",
+        "Leonardville Breakwater"
+      ],
+      [
+        213.4,
+        "atlantic:46",
+        "Leonardville"
+      ],
+      [
+        268.9,
+        "atlantic:47",
+        "Leonardville Wharf"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319546013",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1319594934",
+    "name": "Southwest Wolf Island Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        38.8,
+        "atlantic:36",
+        "Southwest Wolf Island"
+      ]
+    ],
+    "aid": "atlantic:36",
+    "distanceMetres": 38.8,
+    "marks": [
+      [
+        "ccg",
+        "36",
+        "Southwest Wolf Island",
+        [
+          -66.733194,
+          44.936611
+        ]
+      ],
+      [
+        "chs",
+        "36",
+        "",
+        [
+          -66.7332,
+          44.9366019
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319633197",
+    "name": "Shag Head Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1319633484",
+    "name": "Gannet Rock Lighthouse",
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H4188"
+    ],
+    "candidates": [
+      [
+        7.1,
+        "atlantic:8.1",
+        "Gannet Rock North Light"
+      ],
+      [
+        18.3,
+        "atlantic:8.2",
+        "Gannet Rock South Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319638038",
+    "name": "Southwest Head Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H4186"
+    ],
+    "candidates": [
+      [
+        19.5,
+        "atlantic:11",
+        "Southwest Head"
+      ]
+    ],
+    "aid": "atlantic:11",
+    "distanceMetres": 19.5,
+    "marks": [
+      [
+        "ccg",
+        "11",
+        "Southwest Head",
+        [
+          -66.9055,
+          44.600806
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319647758",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4184"
+    ],
+    "candidates": [
+      [
+        31.9,
+        "atlantic:16.8",
+        "Seal Cove Outer Breakwater"
+      ]
+    ],
+    "aid": "atlantic:16.8",
+    "distanceMetres": 31.9,
+    "marks": [
+      [
+        "ccg",
+        "16.8",
+        "Seal Cove Outer Breakwater",
+        [
+          -66.83875,
+          44.647667
+        ]
+      ],
+      [
+        "chs",
+        "16.8",
+        "Seal Cove Outer Breakwater",
+        [
+          -66.8387534,
+          44.6476653
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319648042",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        312.0,
+        "atlantic:16.8",
+        "Seal Cove Outer Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319660101",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4180"
+    ],
+    "candidates": [
+      [
+        4.7,
+        "atlantic:22",
+        "Ingalls Head Breakwater"
+      ]
+    ],
+    "aid": "atlantic:22",
+    "distanceMetres": 4.7,
+    "marks": [
+      [
+        "ccg",
+        "22",
+        "Ingalls Head Breakwater",
+        [
+          -66.754611,
+          44.661639
+        ]
+      ],
+      [
+        "chs",
+        "22",
+        "",
+        [
+          -66.7546197,
+          44.6616503
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319691938",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4170.4"
+    ],
+    "candidates": [
+      [
+        2.0,
+        "atlantic:30.5",
+        "Farmer Ledge"
+      ]
+    ],
+    "aid": "atlantic:30.5",
+    "distanceMetres": 2.0,
+    "marks": [
+      [
+        "ccg",
+        "30.5",
+        "Farmer Ledge",
+        [
+          -66.72625,
+          44.72325
+        ]
+      ],
+      [
+        "chs",
+        "30.5",
+        "Farmer Ledge",
+        [
+          -66.7262633,
+          44.7232614
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319695986",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4172"
+    ],
+    "candidates": [
+      [
+        18.0,
+        "atlantic:23",
+        "Half Tide Rock (Cheney Passage)"
+      ]
+    ],
+    "aid": "atlantic:23",
+    "distanceMetres": 18.0,
+    "marks": [
+      [
+        "ccg",
+        "23",
+        "Half Tide Rock (Cheney Passage)",
+        [
+          -66.728361,
+          44.655389
+        ]
+      ],
+      [
+        "chs",
+        "23",
+        "Half Tide Rock",
+        [
+          -66.7283717,
+          44.6553917
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319697995",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4175"
+    ],
+    "candidates": [
+      [
+        139.2,
+        "atlantic:33.5",
+        "Edmunds Rock"
+      ]
+    ],
+    "aid": "atlantic:33.5",
+    "distanceMetres": 139.2,
+    "marks": [
+      [
+        "ccg",
+        "33.5",
+        "Edmunds Rock",
+        [
+          -66.719833,
+          44.673556
+        ]
+      ],
+      [
+        "chs",
+        "33.5",
+        "",
+        [
+          -66.7198258,
+          44.6735433
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319703445",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4171"
+    ],
+    "candidates": [
+      [
+        156.9,
+        "atlantic:30",
+        "Gull Islet"
+      ]
+    ],
+    "aid": "atlantic:30",
+    "distanceMetres": 156.9,
+    "marks": [
+      [
+        "ccg",
+        "30",
+        "Gull Islet",
+        [
+          -66.72825,
+          44.686556
+        ]
+      ],
+      [
+        "chs",
+        "30",
+        "Gull Islet",
+        [
+          -66.7282528,
+          44.6865675
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1319704205",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1320424872",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4100"
+    ],
+    "candidates": [
+      [
+        10.2,
+        "atlantic:93",
+        "Chance Harbour"
+      ],
+      [
+        430.8,
+        "atlantic:93.5",
+        "Chance Harbour Breakwater Light"
+      ]
+    ],
+    "aid": "atlantic:93",
+    "distanceMetres": 10.2,
+    "marks": [
+      [
+        "ccg",
+        "93",
+        "Chance Harbour",
+        [
+          -66.347639,
+          45.118556
+        ]
+      ],
+      [
+        "chs",
+        "93",
+        "Chance Harbour",
+        [
+          -66.3476278,
+          45.1185611
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1320427848",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4108"
+    ],
+    "candidates": [
+      [
+        9.7,
+        "atlantic:90",
+        "Point Lepreau"
+      ]
+    ],
+    "aid": "atlantic:90",
+    "distanceMetres": 9.7,
+    "marks": [
+      [
+        "ccg",
+        "90",
+        "Point Lepreau",
+        [
+          -66.458694,
+          45.058806
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1496017943",
+    "name": "Cape Spencer Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H4078"
+    ],
+    "candidates": [
+      [
+        7.7,
+        "atlantic:146",
+        "Cape Spencer"
+      ]
+    ],
+    "aid": "atlantic:146",
+    "distanceMetres": 7.7,
+    "marks": [
+      [
+        "ccg",
+        "146",
+        "Cape Spencer",
+        [
+          -65.909861,
+          45.195139
+        ]
+      ],
+      [
+        "chs",
+        "146",
+        "Cape Spencer",
+        [
+          -65.909848,
+          45.1951264
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1496021504",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1514778357",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4076"
+    ],
+    "candidates": [
+      [
+        50.7,
+        "atlantic:150",
+        "West Quaco"
+      ]
+    ],
+    "aid": "atlantic:150",
+    "distanceMetres": 50.7,
+    "marks": [
+      [
+        "ccg",
+        "150",
+        "West Quaco",
+        [
+          -65.535778,
+          45.323694
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1514788757",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4074"
+    ],
+    "candidates": [
+      [
+        24.6,
+        "atlantic:152",
+        "St. Martins"
+      ]
+    ],
+    "aid": "atlantic:152",
+    "distanceMetres": 24.6,
+    "marks": [
+      [
+        "ccg",
+        "152",
+        "St. Martins",
+        [
+          -65.531944,
+          45.355
+        ]
+      ],
+      [
+        "chs",
+        "152",
+        "St. Martins",
+        [
+          -65.5319583,
+          45.3552139
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1514945066",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1518364509",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1518931539",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1518935614",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1522519792",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1524018552",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1524023141",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1524080174",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        44.9,
+        "atlantic:131.5",
+        "Gorhams Bluff"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1607104346",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1607105207",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1624610243",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1633475154",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1633475203",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1319.4"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1635749111",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1635831641",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1635832883",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        1.6,
+        "atlantic:1094.6",
+        "Cape Tormentine Fisherman’s Wharf"
+      ],
+      [
+        218.5,
+        "atlantic:1094",
+        "Cape Tormentine Inner Wharf"
+      ],
+      [
+        410.3,
+        "atlantic:1090",
+        "Cape Tormentine Outer Wharf"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1635833362",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1314"
+    ],
+    "candidates": [
+      [
+        1.8,
+        "atlantic:1090",
+        "Cape Tormentine Outer Wharf"
+      ],
+      [
+        193.4,
+        "atlantic:1091.5",
+        "Cape Tormentine Breakwater"
+      ],
+      [
+        225.2,
+        "atlantic:1094",
+        "Cape Tormentine Inner Wharf"
+      ],
+      [
+        411.8,
+        "atlantic:1094.6",
+        "Cape Tormentine Fisherman’s Wharf"
+      ]
+    ]
+  },
+  {
+    "osm": "node/1635845672",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1319"
+    ],
+    "candidates": [
+      [
+        37.9,
+        "atlantic:1097",
+        "Botsford Breakwater"
+      ]
+    ],
+    "aid": "atlantic:1097",
+    "distanceMetres": 37.9,
+    "marks": [
+      [
+        "ccg",
+        "1097",
+        "Botsford Breakwater",
+        [
+          -63.933639,
+          46.168667
+        ]
+      ],
+      [
+        "chs",
+        "1097",
+        "",
+        [
+          -63.93365,
+          46.1686583
+        ]
+      ],
+      [
+        "chs",
+        "1097",
+        "Botsford Breakwater",
+        [
+          -63.9336486,
+          46.1686583
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1635846007",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1319.2"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1658323764",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1369"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1658323873",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1658325032",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1362"
+    ],
+    "candidates": [
+      [
+        7.1,
+        "atlantic:1122",
+        "Buctouche Bar"
+      ]
+    ],
+    "aid": "atlantic:1122",
+    "distanceMetres": 7.1,
+    "marks": [
+      [
+        "ccg",
+        "1122",
+        "Buctouche Bar",
+        [
+          -64.612833,
+          46.461139
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1658333305",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1368"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1659447826",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1350"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1659450444",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1354"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1721124533",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4089"
+    ],
+    "candidates": [
+      [
+        268.0,
+        "atlantic:100.5",
+        "Saint John Harbour front range light"
+      ]
+    ],
+    "aid": "atlantic:100.5",
+    "distanceMetres": 268.0,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "100.5",
+        "Saint John Harbour front range light",
+        [
+          -66.068778,
+          45.272861
+        ]
+      ],
+      [
+        "chs",
+        "100.5",
+        "",
+        [
+          -66.0687694,
+          45.2728622
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1742190359",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/1769064668",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1588"
+    ],
+    "candidates": [
+      [
+        45.8,
+        "atlantic:1322",
+        "Île de Caraquet"
+      ]
+    ],
+    "aid": "atlantic:1322",
+    "distanceMetres": 45.8,
+    "marks": [
+      [
+        "ccg",
+        "1322",
+        "Île de Caraquet",
+        [
+          -64.904444,
+          47.822556
+        ]
+      ],
+      [
+        "chs",
+        "1322",
+        "Caraquet Island",
+        [
+          -64.9044444,
+          47.8225556
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1769084309",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1566"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1769904541",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1573.1"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1769909363",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1568.1"
+    ],
+    "candidates": [
+      [
+        99.0,
+        "atlantic:1283.1",
+        "Pointe à Marcelle rear range light"
+      ],
+      [
+        261.1,
+        "atlantic:1283",
+        "Pointe à Marcelle front range light"
+      ]
+    ],
+    "aid": "atlantic:1283.1",
+    "distanceMetres": 99.0,
+    "marks": [
+      [
+        "ccg",
+        "1283.1",
+        "Pointe à Marcelle rear range light",
+        [
+          -64.750611,
+          47.783417
+        ]
+      ],
+      [
+        "chs",
+        "1283.1",
+        "Pointe a Marcelle Range rear",
+        [
+          -64.7506108,
+          47.7834206
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1769909708",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1568"
+    ],
+    "candidates": [
+      [
+        39.2,
+        "atlantic:1283",
+        "Pointe à Marcelle front range light"
+      ],
+      [
+        337.4,
+        "atlantic:1283.1",
+        "Pointe à Marcelle rear range light"
+      ]
+    ],
+    "aid": "atlantic:1283",
+    "distanceMetres": 39.2,
+    "marks": [
+      [
+        "ccg",
+        "1283",
+        "Pointe à Marcelle front range light",
+        [
+          -64.749556,
+          47.786194
+        ]
+      ],
+      [
+        "chs",
+        "1283",
+        "Pointe a Marcelle Range front",
+        [
+          -64.7495631,
+          47.7861994
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1769950976",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1567"
+    ],
+    "candidates": [
+      [
+        105.9,
+        "atlantic:1278",
+        "Pointe de Petite-Lamèque rear range light"
+      ],
+      [
+        346.3,
+        "atlantic:1277",
+        "Pointe de Petite-Lamèque front range light"
+      ]
+    ],
+    "aid": "atlantic:1277",
+    "distanceMetres": 346.3,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "1277",
+        "Pointe de Petite-Lamèque front range light",
+        [
+          -64.704667,
+          47.815667
+        ]
+      ],
+      [
+        "chs",
+        "1277",
+        "Pointe de Petite-Lameque Range front",
+        [
+          -64.7046667,
+          47.8156667
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1770070028",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1564.2"
+    ],
+    "candidates": [
+      [
+        323.6,
+        "atlantic:1273.5",
+        "Shippegan Island West Wharf"
+      ]
+    ],
+    "aid": "atlantic:1273.5",
+    "distanceMetres": 323.6,
+    "review": "Position discrepancy; rendered at the published Coast Guard position.",
+    "marks": [
+      [
+        "ccg",
+        "1273.5",
+        "Shippegan Island West Wharf",
+        [
+          -64.575556,
+          47.883389
+        ]
+      ],
+      [
+        "chs",
+        "1273.5",
+        "Shippegan Island West Wharf",
+        [
+          -64.5755556,
+          47.8833889
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1770070178",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1558"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/1770070447",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H1556"
+    ],
+    "candidates": [
+      [
+        39.6,
+        "atlantic:1275",
+        "Black Point"
+      ]
+    ],
+    "aid": "atlantic:1275",
+    "distanceMetres": 39.6,
+    "marks": [
+      [
+        "ccg",
+        "1275",
+        "Black Point",
+        [
+          -64.623611,
+          47.884389
+        ]
+      ],
+      [
+        "chs",
+        "1275",
+        "Black Point",
+        [
+          -64.6236142,
+          47.88439
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/1770095280",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/367795273",
+    "name": "Lubec Channel Light",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/5341586805",
+    "name": "Phare de Shippagan",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/5476603970",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/5810647999",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "node/6482967783",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        12.0,
+        "atlantic:1301",
+        "Lamèque Breakwater Light"
+      ],
+      [
+        57.5,
+        "atlantic:1296.1",
+        "Lamèque Wharf Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/7068195000",
+    "name": "Phare de Richibucto",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        324.3,
+        "atlantic:1151",
+        "Richibucto Town front range light"
+      ],
+      [
+        387.6,
+        "atlantic:1141",
+        "Richibucto Floating Dock Light"
+      ]
+    ]
+  },
+  {
+    "osm": "node/804159545",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4083"
+    ],
+    "candidates": [
+      [
+        42.5,
+        "atlantic:104",
+        "Courtenay Bay Breakwater"
+      ]
+    ],
+    "aid": "atlantic:104",
+    "distanceMetres": 42.5,
+    "marks": [
+      [
+        "ccg",
+        "104",
+        "Courtenay Bay Breakwater",
+        [
+          -66.045056,
+          45.257333
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "node/869834207",
+    "name": null,
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1328"
+    ],
+    "candidates": []
+  },
+  {
+    "osm": "node/869834334",
+    "name": "Phare de la Pointe-du-Chêne",
+    "method": "OSM reference absent from the Coast Guard extract",
+    "references": [
+      "H1332.1"
+    ],
+    "candidates": [
+      [
+        18.2,
+        "atlantic:1110.5",
+        "Pointe-du-Chêne Wharf"
+      ],
+      [
+        114.4,
+        "atlantic:1111.01",
+        "Pointe-du-Chêne North Breakwater Light"
+      ],
+      [
+        173.0,
+        "atlantic:1111.1",
+        "Pointe-du-Chêne Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "way/1014637462",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1070597232",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4082"
+    ],
+    "candidates": [
+      [
+        1.0,
+        "atlantic:100",
+        "Partridge Island"
+      ]
+    ],
+    "aid": "atlantic:100",
+    "distanceMetres": 1.0,
+    "marks": [
+      [
+        "ccg",
+        "100",
+        "Partridge Island",
+        [
+          -66.053833,
+          45.239167
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1131703027",
+    "name": "Anderson Hollow Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1213930365",
+    "name": "Phare de l'Île-aux-foins",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1272003288",
+    "name": null,
+    "method": "reviewed override: The mapped building is at the Pea Point light position. The OSM Roaring Bull reference describes the separate light 399 m offshore; that light remains a mark.",
+    "references": [
+      "H4115"
+    ],
+    "candidates": [
+      [
+        9.1,
+        "atlantic:81",
+        "Pea Point"
+      ],
+      [
+        399.2,
+        "atlantic:79",
+        "Roaring Bull"
+      ]
+    ],
+    "aid": "atlantic:81",
+    "distanceMetres": 9.1,
+    "marks": [
+      [
+        "ccg",
+        "81",
+        "Pea Point",
+        [
+          -66.807833,
+          45.039
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1300983520",
+    "name": "Head Harbour Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        4.3,
+        "atlantic:44",
+        "Head Harbour"
+      ]
+    ],
+    "aid": "atlantic:44",
+    "distanceMetres": 4.3,
+    "marks": [
+      [
+        "ccg",
+        "44",
+        "Head Harbour",
+        [
+          -66.900056,
+          44.957944
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1336982521",
+    "name": "Phare du Cap de Richibucto",
+    "method": "reviewed override: Phare du Cap de Richibucto is the French name for Richibucto Cape; 5.8 m apart.",
+    "references": [],
+    "candidates": [
+      [
+        5.8,
+        "atlantic:1128",
+        "Richibucto Cape"
+      ],
+      [
+        399.9,
+        "atlantic:1129",
+        "Richibucto Cape Breakwater"
+      ]
+    ],
+    "aid": "atlantic:1128",
+    "distanceMetres": 5.8,
+    "marks": [
+      [
+        "ccg",
+        "1128",
+        "Richibucto Cape",
+        [
+          -64.711667,
+          46.669806
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1363327701",
+    "name": null,
+    "method": "reviewed override: The lighthouse footprint is 1.4 m from the published Big Shippagan position on the sand spit. The heritage record identifies that tower. The OSM light reference points elsewhere.",
+    "references": [
+      "H1531"
+    ],
+    "candidates": [
+      [
+        1.4,
+        "atlantic:1254",
+        "Big Shippagan"
+      ]
+    ],
+    "source": "https://www.historicplaces.ca/media/14948/1990-099%28e%29%20big%20shippegan%20shore%20light%2C%20nb.doc.pdf",
+    "aid": "atlantic:1254",
+    "distanceMetres": 1.4,
+    "marks": [
+      [
+        "ccg",
+        "1254",
+        "Big Shippagan",
+        [
+          -64.660611,
+          47.722139
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1363876056",
+    "name": "Long Eddy Point Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        27.7,
+        "atlantic:34",
+        "Long Eddy Point"
+      ]
+    ],
+    "aid": "atlantic:34",
+    "distanceMetres": 27.7,
+    "marks": [
+      [
+        "ccg",
+        "34",
+        "Long Eddy Point",
+        [
+          -66.785222,
+          44.799278
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1375082132",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4060"
+    ],
+    "candidates": [
+      [
+        5.0,
+        "atlantic:157",
+        "Cape Enragé"
+      ]
+    ],
+    "aid": "atlantic:157",
+    "distanceMetres": 5.0,
+    "marks": [
+      [
+        "ccg",
+        "157",
+        "Cape Enragé",
+        [
+          -64.779917,
+          45.593917
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/1381531763",
+    "name": "Grindstone Island Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1517628356",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/1566976685",
+    "name": "Cape Jourimain Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/198756652",
+    "name": "Machias Seal Island Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        57.2,
+        "atlantic:6",
+        "Machias Seal Island"
+      ]
+    ],
+    "aid": "atlantic:6",
+    "distanceMetres": 57.2,
+    "marks": [
+      [
+        "ccg",
+        "6",
+        "Machias Seal Island",
+        [
+          -67.101139,
+          44.501833
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/203479098",
+    "name": "Swallowtail Lighthouse",
+    "method": "international reference",
+    "references": [
+      "H4168"
+    ],
+    "candidates": [
+      [
+        1.5,
+        "atlantic:33",
+        "Swallowtail"
+      ]
+    ],
+    "aid": "atlantic:33",
+    "distanceMetres": 1.5,
+    "marks": [
+      [
+        "ccg",
+        "33",
+        "Swallowtail",
+        [
+          -66.732639,
+          44.764194
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/206099207",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        2.1,
+        "atlantic:116",
+        "Swift Point"
+      ]
+    ]
+  },
+  {
+    "osm": "way/429001503",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        9.7,
+        "atlantic:125",
+        "Oak Point"
+      ]
+    ]
+  },
+  {
+    "osm": "way/499152115",
+    "name": "Phare de Miscou",
+    "method": "international reference",
+    "references": [
+      "H1552"
+    ],
+    "candidates": [
+      [
+        10.0,
+        "atlantic:1264.7",
+        "Miscou Island"
+      ]
+    ],
+    "aid": "atlantic:1264.7",
+    "distanceMetres": 10.0,
+    "marks": [
+      [
+        "ccg",
+        "1264.7",
+        "Miscou Island Racon K (- . -) X & S Bands",
+        [
+          -64.492972,
+          48.009361
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/512658434",
+    "name": "St. Martin's Lighthouse",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/517780854",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        119.5,
+        "atlantic:1110.5",
+        "Pointe-du-Chêne Wharf"
+      ],
+      [
+        219.1,
+        "atlantic:1111.01",
+        "Pointe-du-Chêne North Breakwater Light"
+      ],
+      [
+        221.5,
+        "atlantic:1111.1",
+        "Pointe-du-Chêne Breakwater"
+      ]
+    ]
+  },
+  {
+    "osm": "way/518939724",
+    "name": "Pendlebury Lighthouse",
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        96.2,
+        "atlantic:64",
+        "St. Andrews (North Point)"
+      ]
+    ]
+  },
+  {
+    "osm": "way/678279168",
+    "name": "Sunset Light",
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/678785872",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/700594373",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/715994755",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        82.9,
+        "atlantic:1244.9",
+        "North Tracadie Wharf"
+      ]
+    ]
+  },
+  {
+    "osm": "way/754095162",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/756753716",
+    "name": null,
+    "method": "doubtful nearby aids",
+    "references": [],
+    "candidates": [
+      [
+        267.8,
+        "atlantic:100.5",
+        "Saint John Harbour front range light"
+      ]
+    ]
+  },
+  {
+    "osm": "way/910134605",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4096"
+    ],
+    "candidates": [
+      [
+        7.3,
+        "atlantic:97",
+        "Musquash Head"
+      ]
+    ],
+    "aid": "atlantic:97",
+    "distanceMetres": 7.3,
+    "marks": [
+      [
+        "ccg",
+        "97",
+        "Musquash Head",
+        [
+          -66.237278,
+          45.143639
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/961389530",
+    "name": "Long Point Light",
+    "method": "international reference",
+    "references": [
+      "H4178"
+    ],
+    "candidates": [
+      [
+        28.9,
+        "atlantic:25",
+        "Long Point"
+      ]
+    ],
+    "aid": "atlantic:25",
+    "distanceMetres": 28.9,
+    "marks": [
+      [
+        "ccg",
+        "25",
+        "Long Point",
+        [
+          -66.709639,
+          44.613667
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/963211868",
+    "name": null,
+    "method": "international reference",
+    "references": [
+      "H4174"
+    ],
+    "candidates": [
+      [
+        35.7,
+        "atlantic:29",
+        "Great Duck Island"
+      ]
+    ],
+    "aid": "atlantic:29",
+    "distanceMetres": 35.7,
+    "marks": [
+      [
+        "ccg",
+        "29",
+        "Great Duck Island",
+        [
+          -66.693444,
+          44.684306
+        ]
+      ],
+      [
+        "chs",
+        "29",
+        "",
+        [
+          -66.6934444,
+          44.6843056
+        ]
+      ]
+    ]
+  },
+  {
+    "osm": "way/973140984",
+    "name": null,
+    "method": "no nearby Coast Guard light",
+    "references": [],
+    "candidates": []
+  },
+  {
+    "osm": "way/984690000",
+    "name": "Belyea's Point Light",
+    "method": "distance and name",
+    "references": [],
+    "candidates": [
+      [
+        2.0,
+        "atlantic:122",
+        "Belyeas Point"
+      ]
+    ],
+    "aid": "atlantic:122",
+    "distanceMetres": 2.0,
+    "marks": [
+      [
+        "ccg",
+        "122",
+        "Belyeas Point",
+        [
+          -66.216056,
+          45.378167
+        ]
+      ]
+    ]
+  }
+]

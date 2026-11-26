@@ -11,10 +11,12 @@ import {brotliCompressSync, constants} from "node:zlib";
 
 const root = new URL("../web/", import.meta.url);
 const check = process.argv.includes("--check");
-const tableFile = new URL("beam-reach.json", root);
+const regional = process.argv.includes("--regional");
+const tableFile = new URL(regional ? "region/beam-reach.json" : "beam-reach.json", root);
 const modules = new Set([
   "/atlas-shore.mjs", "/atlas-reach-table.mjs", "/land.json",
   "/chart-data.json", "/open-lights.json", "/beam-reach.json",
+  "/region/land.json", "/region/lights.json", "/region/beam-reach.json",
 ]);
 const server = createServer(async (req, res) => {
   if (req.url === "/") {
@@ -31,7 +33,7 @@ const server = createServer(async (req, res) => {
   }
 });
 
-async function compute(check) {
+async function compute(check, regional) {
   const {beamReach, shorelinePaths} = await import("/atlas-shore.mjs");
   const {decodeReach, encodeReach, lightKey, reachFormat, reachRevision, validatedReachTables}
     = await import("/atlas-reach-table.mjs");
@@ -41,13 +43,15 @@ async function compute(check) {
     return response[format]();
   };
   const [land, combined, open] = await Promise.all([
-    read("/land.json", "text"), read("/chart-data.json", "json"), read("/open-lights.json", "json"),
+    read(regional ? "/region/land.json" : "/land.json", "text"),
+    read(regional ? "/region/lights.json" : "/chart-data.json", "json"),
+    regional ? {lights:[]} : read("/open-lights.json", "json"),
   ]);
   const shores = shorelinePaths(JSON.parse(land));
   const shoreline = await reachRevision(land);
   const table = {format:reachFormat, shoreline};
   const existing = check
-    ? await validatedReachTables(await read("/beam-reach.json", "json"), shoreline, combined.lights, open.lights)
+    ? await validatedReachTables(await read(regional ? "/region/beam-reach.json" : "/beam-reach.json", "json"), shoreline, combined.lights, open.lights)
     : null;
   const stats = {};
   for (const [mode, {lights}] of Object.entries({combined, open})) {
@@ -67,7 +71,7 @@ async function compute(check) {
       for (let i = 0; i < runtime.length; i++) differences.push(Math.abs(runtime[i] - decoded[i]));
     }
     differences.sort((a,b) => a-b);
-    const percentile = p => differences[Math.ceil(p * differences.length) - 1];
+    const percentile = p => differences[Math.ceil(p * differences.length) - 1] ?? 0;
     stats[mode] = {lights:lightCount, bearings:differences.length, p50:percentile(.5),
       p95:percentile(.95), p99:percentile(.99), max:percentile(1)};
     table[mode] = {revision:await reachRevision(JSON.stringify(lights)), entries};
@@ -122,7 +126,7 @@ try {
   })()`);
   if (!renderer || !/vulkan/i.test(renderer) || /swiftshader|llvmpipe|lavapipe/i.test(renderer))
     throw new Error(`Hardware Vulkan required: ${renderer}`);
-  const {stats, table} = await evaluate(`(${compute})(${check})`);
+  const {stats, table} = await evaluate(`(${compute})(${check},${regional})`);
   console.log(renderer);
   console.log("Absolute reach differences (metres)", JSON.stringify(stats));
   if (Object.values(stats).some(mode => mode.max !== 0)) throw new Error("Reach differs from runtime");
