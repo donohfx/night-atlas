@@ -14,7 +14,7 @@ export function officialZoom(kind, scale, name) {
   if (kind === "municipality") return scale >= 7.5e6 ? 10 : 13;
   const floor = thresholds[kind] ?? 11;
   if (kind === "sea" && scale >= 5e6) return 5;
-  if (kind === "park" || kind === "district") return scale >= 5e6 ? 12 : 14;
+  if (kind === "park") return scale >= 5e6 ? 12 : 14;
   const tier = scale >= 15e6 ? 5 : scale >= 5e6 ? 7 : scale >= 1e6 ? 9 : scale >= 250000 ? 11 : 13;
   return Math.max(floor, tier - (settlements.has(kind) ? 1 : 0));
 }
@@ -43,7 +43,7 @@ const waters = [
   ["channel", /^chenal (?:des? |du |d )?| channel$/g],
   ["island", /^iles? (?:des? |du |d )?| islands?$/g],
 ];
-const family = kind => settlements.has(kind) || kind === "district" ? "settlement"
+const family = kind => settlements.has(kind) ? "settlement"
   : seabed.has(kind) ? "seabed" : kind === "cove" ? "bay" : kind === "passage" ? "channel" : kind;
 const distance = (a,b) => {
   const latitude = (a.lat + b.lat) * Math.PI / 360;

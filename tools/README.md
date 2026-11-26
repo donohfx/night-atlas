@@ -158,8 +158,11 @@ and leaves the original Nova Scotia and open-source reach tables intact.
 
 `python3 tools/import-gazetteer.py` refreshes the compact CGNDB snapshot in
 `tools/gazetteer.json.gz`. It uses ZIPs cached in `.local/cgn/` and prints source
-SHA-256 hashes and counts. Use `--cache DIR` to build from a retained set of
-downloads. See [DATA-LICENSE.md](../DATA-LICENSE.md) for source terms.
+SHA-256 hashes and counts, including excluded source rows by term. The snapshot
+holds 166,850 points from the 2026-11-25 extracts. It keeps provinces and drops
+other CGNDB administrative areas and metropolitan community territories. Use
+`--cache DIR` to build from a retained set of downloads. See
+[DATA-LICENSE.md](../DATA-LICENSE.md) for source terms.
 
 `node tools/build-tiles.mjs --job=gazetteer` builds `web/tiles/gazetteer.pmtiles`.
 The full tile build runs the same job in a dedicated Node process. Fly builds

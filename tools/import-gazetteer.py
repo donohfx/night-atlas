@@ -54,6 +54,7 @@ def main():
     groups = collections.defaultdict(list)
     hashes = {}
     counts = collections.Counter()
+    excluded_terms = collections.Counter()
     for province in PROVINCES:
         file = f"cgn_{province}_csv_eng.zip"
         path = args.cache / file
@@ -75,15 +76,15 @@ def main():
             if not name:
                 continue
             term = row["Generic Term"]
+            category = row["Generic Category"]
+            if term == "Metropolitan Community Territory" or (category == "Administrative Area" and code != "PROV"):
+                excluded_terms[term] += 1
+                continue
             kind = TERMS.get(term, CATEGORIES[code])
             if code == "UNP" and term in {"Borough", "Suburban Community", "Urban Community"}:
                 kind = "neighbourhood"
-            if code in {"GEOG", "MUN1", "MUN2"} and row["Generic Category"] == "Populated Place":
+            if code in {"GEOG", "MUN1", "MUN2"} and category == "Populated Place":
                 kind = "town"
-            if kind == "region" and (
-                term == "Census Division" or "Electoral" in term or name.startswith("Circonscription électorale")
-            ):
-                kind = "district"
             scale = int(row["Relevance at Scale"] or 50000)
             coord = (round(lon, 5), round(lat, 5))
             identity = row["Toponymic Feature ID"] or row["CGNDB ID"]
@@ -105,6 +106,7 @@ def main():
     points.sort()
     stats = {**counts, "points": len(points), "collapsed source rows": counts["eligible"] - len(points),
              "categories": dict(sorted(collections.Counter(point[3] for point in points).items())),
+             "excluded administrative rows by term": dict(sorted(excluded_terms.items())),
              "sha256": hashes}
     payload = json.dumps(points, ensure_ascii=False, separators=(",", ":")).encode()
     (ROOT / "tools/gazetteer.json.gz").write_bytes(gzip.compress(payload, compresslevel=9, mtime=0))

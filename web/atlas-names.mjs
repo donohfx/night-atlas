@@ -6,7 +6,7 @@ const osmLayers = ["place", "water_name", "waterway", "mountain_peak", "park"];
 const placeKinds = {
   country:"country", state:"region", province:"region", city:"city", town:"town", village:"village",
   hamlet:"hamlet", isolated_dwelling:"hamlet", suburb:"neighbourhood", quarter:"neighbourhood",
-  neighbourhood:"neighbourhood", island:"island", islet:"island", county:"region",
+  neighbourhood:"neighbourhood", island:"island", islet:"island",
 };
 const blockerSizes = {lights:10, marks:13, "private-marks":14, "mark-labels":20,
   "private-mark-labels":24, vessels:15, ghosts:12, "weather-buoys":15};
@@ -77,7 +77,6 @@ function readOsm(map) {
       const rank = Number(p.rank ?? 5);
       let zoom = osmZoom(kind, rank);
       if (layer === "waterway") zoom = kind === "river" && p.class === "river" ? 10 : 13;
-      if (p.class === "county") zoom = 12;
       if (p.class === "islet") zoom = 13;
       result.push({lon,lat,name,kind,zoom,rank,source:"osm",
         aliases:[p["name:fr"],p["name:en"],p.name_en,p.name_int,p["name:latin"]].filter(Boolean)});
